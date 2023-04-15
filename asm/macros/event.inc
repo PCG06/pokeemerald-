@@ -1926,6 +1926,12 @@
     .byte 0xe7
     .byte \questId
     .endm
+	
+	@ Sets the text of the name box in the next-shown message box.
+	.macro speakername text:req
+	.byte 0xe8
+	.4byte \text
+	.endm
     
     .macro openquestmenu
     questmenu 0 0
