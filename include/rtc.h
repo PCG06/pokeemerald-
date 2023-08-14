@@ -120,6 +120,7 @@ u32 RtcGetMinuteCount(void);
 u32 RtcGetLocalDayCount(void);
 void FormatDecimalTimeWithoutSeconds(u8 *dest, s8 hour, s8 minute, bool32 is24Hour);
 void RtcSetDayOfWeek(s8 dayOfWeek);
+u8 RtcSecondChange(void);
 u8 GetDate(void);
 u8 GetMonth(void);
 u8 GetYear(void);

@@ -1,6 +1,7 @@
 #include "global.h"
-#include "play_time.h"
 #include "fake_rtc.h"
+#include "play_time.h"
+#include "rtc.h"
 
 enum
 {
@@ -40,17 +41,21 @@ void PlayTimeCounter_Update(void)
         return;
 
     gSaveBlock2Ptr->playTimeVBlanks++;
-
     if (gSaveBlock2Ptr->playTimeVBlanks < 60)
         return;
 
     gSaveBlock2Ptr->playTimeVBlanks = 0;
-    gSaveBlock2Ptr->playTimeSeconds++;
+    if (!(RtcGetErrorStatus() & RTC_ERR_FLAG_MASK)) // Use real time to calculate play time
+        gSaveBlock2Ptr->playTimeSeconds += RtcSecondChange();
+    else // Use the regular method when the battery is faulty
+        gSaveBlock2Ptr->playTimeSeconds++;
+
     FakeRtc_TickTimeForward();
 
     if (gSaveBlock2Ptr->playTimeSeconds < 60)
         return;
 
+    RtcCalcLocalTime();
     gSaveBlock2Ptr->playTimeSeconds = 0;
     gSaveBlock2Ptr->playTimeMinutes++;
 

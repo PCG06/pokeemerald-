@@ -10,6 +10,7 @@ static u16 sErrorStatus;
 static struct SiiRtcInfo sRtc;
 static u8 sProbeResult;
 static u16 sSavedIme;
+static u8 gLastRtcSecond;
 
 // iwram common
 struct Time gLocalTime;
@@ -439,6 +440,22 @@ void RtcSetDayOfWeek(s8 dayOfWeek)
     gLocalTime.dayOfWeek = dayOfWeek;
     RtcGetInfo(&sRtc);
     RtcCalcTimeDifference(&sRtc, &gSaveBlock2Ptr->localTimeOffset, &gLocalTime);
+}
+
+u8 RtcSecondChange(void)
+{   
+    u8 currentRtcSecond;
+    RtcGetInfo(&sRtc);
+    currentRtcSecond = ConvertBcdToBinary(sRtc.second);
+    if (gLastRtcSecond != currentRtcSecond)
+    {
+        gLastRtcSecond = currentRtcSecond;
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 u8 GetDate(void)
