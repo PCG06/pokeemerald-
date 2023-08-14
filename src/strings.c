@@ -1844,6 +1844,12 @@ const u8 gText_PlantBerry[] = _("PLANT BERRY");
 const u8 gText_AM[] = _("AM");
 const u8 gText_PM[] = _("PM");
 
+//Move item
+const u8 gMenuText_Move[] = _("MOVE");
+const u8 gText_MoveItemWhere[] = _("Move item to where?");
+const u8 gText_XsYAnd[] = _("{STR_VAR_1}'s {STR_VAR_2}\nand\l");
+const u8 gText_XsYWereSwapped[] = _("{STR_VAR_1}'s {STR_VAR_2}\lwere swapped!{PAUSE_UNTIL_PRESS}");
+
 //// side quest data
 //generic strings
 const u8 gText_QuestAnnounce[] = _("The quest “{STR_VAR_1}”\nis now {STR_VAR_2}.");
