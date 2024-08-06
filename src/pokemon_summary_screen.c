@@ -170,6 +170,8 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u8 sanity; // 0x35
         u8 OTName[17]; // 0x36
         u32 OTID; // 0x48
+        u16 heartValue;
+        u16 heartMax;
         u8 teraType;
         u8 mintNature;
     } summary;
@@ -320,6 +322,7 @@ static void DestroyMoveSelectorSprites(u8);
 static void SetMainMoveSelectorColor(u8);
 static void KeepMoveSelectorVisible(u8);
 static void SummaryScreen_DestroyAnimDelayTask(void);
+static void DrawHeartGaugeBar(struct Pokemon *unused);
 
 static const struct BgTemplate sBgTemplates[] =
 {
@@ -896,6 +899,10 @@ static const union AnimCmd sSpriteAnim_TypeStellar[] = {
     ANIMCMD_FRAME(TYPE_STELLAR * 8, 0, FALSE, FALSE),
     ANIMCMD_END
 };
+static const union AnimCmd sSpriteAnim_TypeShadow[] = {
+    ANIMCMD_FRAME(TYPE_SHADOW * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
 static const union AnimCmd sSpriteAnim_CategoryCool[] = {
     ANIMCMD_FRAME((CONTEST_CATEGORY_COOL + NUMBER_OF_MON_TYPES) * 8, 0, FALSE, FALSE),
     ANIMCMD_END
@@ -938,6 +945,7 @@ static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_MON_TYPES
     [TYPE_DARK] = sSpriteAnim_TypeDark,
     [TYPE_FAIRY] = sSpriteAnim_TypeFairy,
     [TYPE_STELLAR] = sSpriteAnim_TypeStellar,
+    [TYPE_SHADOW] = sSpriteAnim_TypeShadow,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_COOL] = sSpriteAnim_CategoryCool,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_BEAUTY] = sSpriteAnim_CategoryBeauty,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_CUTE] = sSpriteAnim_CategoryCute,
@@ -1107,6 +1115,10 @@ static const union AnimCmd sSpriteAnim_StatusFrostbite[] = {
     ANIMCMD_FRAME(28, 0, FALSE, FALSE),
     ANIMCMD_END
 };
+static const union AnimCmd sSpriteAnim_StatusShadow[] = {
+    ANIMCMD_FRAME(32, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
 static const union AnimCmd *const sSpriteAnimTable_StatusCondition[] = {
     sSpriteAnim_StatusPoison,
     sSpriteAnim_StatusParalyzed,
@@ -1116,6 +1128,7 @@ static const union AnimCmd *const sSpriteAnimTable_StatusCondition[] = {
     sSpriteAnim_StatusPokerus,
     sSpriteAnim_StatusFaint,
     sSpriteAnim_StatusFrostbite,
+    sSpriteAnim_StatusShadow,
 };
 static const struct CompressedSpriteSheet sStatusIconsSpriteSheet =
 {
@@ -1414,7 +1427,6 @@ static bool8 DecompressGraphics(void)
         break;
     case 6:
         LoadCompressedPalette(gSummaryScreen_Pal, BG_PLTT_ID(0), 8 * PLTT_SIZE_4BPP);
-        LoadPalette(&gPPTextPalette, BG_PLTT_ID(8) + 1, PLTT_SIZEOF(16 - 1));
         sMonSummaryScreen->switchCounter++;
         break;
     case 7:
@@ -1477,6 +1489,8 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sum->item = GetMonData(mon, MON_DATA_HELD_ITEM);
         sum->pid = GetMonData(mon, MON_DATA_PERSONALITY);
         sum->sanity = GetMonData(mon, MON_DATA_SANITY_IS_BAD_EGG);
+        sum->heartValue = GetMonData(mon, MON_DATA_HEART_VALUE);
+        sum->heartMax = GetMonData(mon, MON_DATA_HEART_MAX);
 
         if (sum->sanity)
             sum->isEgg = TRUE;
@@ -1694,6 +1708,16 @@ static void ChangeSummaryPokemon(u8 taskId, s8 delta)
                 ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATUS);
                 ScheduleBgCopyTilemapToVram(0);
                 HandleStatusTilemap(0, 2);
+            }
+            if (sMonSummaryScreen->summary.ailment != AILMENT_SHADOW)
+            {
+                LoadCompressedPalette(gSummaryShadow_Pal, 0, 0x100);
+                LoadPalette(&gPPTextPalette, 0x81, 0x1E);
+            }
+            else if (sMonSummaryScreen->summary.ailment == AILMENT_SHADOW)
+            {
+                LoadCompressedPalette(gSummaryScreen_Pal, 0, 0x100);
+                LoadPalette(&gPPTextPalette, 0x81, 0x1E);
             }
             sMonSummaryScreen->curMonIndex = monId;
             gTasks[taskId].data[0] = 0;
@@ -1954,7 +1978,12 @@ static void PssScrollLeftEnd(u8 taskId) // display left
 static void TryDrawExperienceProgressBar(void)
 {
     if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
-        DrawExperienceProgressBar(&sMonSummaryScreen->currentMon);
+    {
+        if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_IS_SHADOW))
+            DrawHeartGaugeBar(&sMonSummaryScreen->currentMon);
+        else
+            DrawExperienceProgressBar(&sMonSummaryScreen->currentMon);
+    }
 }
 
 static void SwitchToMoveSelection(u8 taskId)
@@ -2710,6 +2739,8 @@ static void DrawExperienceProgressBar(struct Pokemon *unused)
     s64 numExpProgressBarTicks;
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
     u16 *dst;
+    u16 *expLabelReplacer;
+    u16 *expBarEndCap;
     u8 i;
 
     if (summary->level < MAX_LEVEL)
@@ -2741,6 +2772,14 @@ static void DrawExperienceProgressBar(struct Pokemon *unused)
             numExpProgressBarTicks = 0;
     }
 
+    // undo the changes from DrawHeartGaugeBar
+    expLabelReplacer = &sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][1][0x253];
+    expLabelReplacer[0] = 0x2060;
+    expLabelReplacer[1] = 0x2061;
+
+    expBarEndCap = &sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][1][0x25D];
+    expBarEndCap[0] = 0x206B;
+    
     if (GetBgTilemapBuffer(1) == sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][0])
         ScheduleBgCopyTilemapToVram(1);
     else
@@ -4280,4 +4319,71 @@ static void KeepMoveSelectorVisible(u8 firstSpriteId)
         gSprites[spriteIds[i]].data[1] = 0;
         gSprites[spriteIds[i]].invisible = FALSE;
     }
+}
+
+static void DrawHeartGaugeBar(struct Pokemon *unused)
+{
+    s64 numExpProgressBarTicks;
+    struct PokeSummary *summary = &sMonSummaryScreen->summary;
+    u16 *dst;
+    u16 *expLabelReplacer;
+    u16 *expBarEndCap;
+    u8 i;
+
+    if (summary->heartValue)
+    {
+        u32 hVal = summary->heartValue;
+        u32 hMax = summary->heartMax;
+
+        // Calculate the number of 1-pixel "ticks" to illuminate in the experience progress bar.
+        // There are 8 tiles that make up the bar, and each tile has 8 "ticks". Hence, the numerator
+        // is multiplied by 64.
+        numExpProgressBarTicks = hVal * 64 / hMax;
+        /* if (numExpProgressBarTicks == 0 && expSinceLastLevel != 0)
+            numExpProgressBarTicks = 1; */
+    }
+    else
+    {
+        numExpProgressBarTicks = 0;
+    }
+
+    dst = &sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][1][0x255];
+    for (i = 0; i < 8; i++)
+    {
+        if (i % 2 != 0)
+        {
+            if (numExpProgressBarTicks > 7)
+                dst[i] = 0x40B8;
+            else
+                dst[i] = 0x40B0 + (numExpProgressBarTicks % 8);
+                numExpProgressBarTicks -= 8;
+            if (numExpProgressBarTicks < 0)
+                numExpProgressBarTicks = 0;
+        }
+        else
+        {
+            if (numExpProgressBarTicks > 7)
+                dst[i] = 0x40A8;
+            else
+                dst[i] = 0x40A0 + (numExpProgressBarTicks % 8);
+                numExpProgressBarTicks -= 8;
+            if (numExpProgressBarTicks < 0)
+                numExpProgressBarTicks = 0;
+        }
+        
+    }
+
+    // this section replaces the "EXP" text with a heart icon and updates the palettes on the endcaps
+    // there's probably a faster way to do this, but I'm copying GF for now
+    expLabelReplacer = &sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][1][0x253];
+    expLabelReplacer[0] = 0x407A;
+    expLabelReplacer[1] = 0x407B;
+
+    expBarEndCap = &sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][1][0x25D];
+    expBarEndCap[0] = 0x407C;
+    
+    if (GetBgTilemapBuffer(1) == sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][0])
+        ScheduleBgCopyTilemapToVram(1);
+    else
+        ScheduleBgCopyTilemapToVram(2);
 }

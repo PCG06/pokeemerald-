@@ -58,7 +58,7 @@ struct TrainerMon
     const u8 *nickname;
     const u8 *ev;
     u32 iv;
-    u16 moves[4];
+    u16 moves[MAX_MON_MOVES];
     u16 species;
     u16 heldItem;
     u16 ability;
@@ -71,9 +71,14 @@ struct TrainerMon
     u8 teraType:5;
     bool8 gigantamaxFactor:1;
     u8 shouldUseDynamax:1;
-    u8 padding1:1;
+    bool8 isShadow:1;
     u8 dynamaxLevel:4;
-    u8 padding2:4;
+    bool8 isXD:1;
+    u8 padding:3;
+    u8 boostLevel;
+    u8 shadowAggro;
+    u8 shadowID;
+    u16 heartGauge;
 };
 
 #define TRAINER_PARTY(partyArray) partyArray, .partySize = ARRAY_COUNT(partyArray)

@@ -4841,6 +4841,13 @@ BattleScript_EffectHail::
 	setfieldweather ENUM_WEATHER_HAIL
 	goto BattleScript_MoveWeatherChange
 
+BattleScript_EffectShadowSky::
+	attackcanceler
+	attackstring
+	ppreduce
+	setshadowsky BattleScript_ButItFailed
+	goto BattleScript_MoveWeatherChange
+
 BattleScript_EffectTorment::
 	attackcanceler
 	attackstring
@@ -5610,6 +5617,7 @@ BattleScript_LocalBattleWonReward::
 	printstring STRINGID_PLAYERGOTMONEY
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_PayDayMoneyAndPickUpItems::
+	collectsnags
 	givepaydaymoney
 	pickup
 	end2
@@ -5951,6 +5959,11 @@ BattleScript_FogEnded_Ret::
 BattleScript_FogEnded::
 	call BattleScript_FogEnded_Ret
 	end2
+
+BattleScript_ShadowSkyEnd::
+	printstring STRINGID_SHADOW_SKYSTOPPED
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_ActivateWeatherAbilities
 
 BattleScript_OverworldStatusStarts::
 	printfromtable gStartingStatusStringIds
@@ -7265,6 +7278,10 @@ BattleScript_BurnTurnDmg::
 BattleScript_FrostbiteTurnDmg::
 	printstring STRINGID_PKMNHURTBYFROSTBITE
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_DoStatusTurnDmg
+
+BattleScript_ReverseModeTurnDmg::
+	printstring STRINGID_REVERSEMODE_DAMAGE
 	goto BattleScript_DoStatusTurnDmg
 
 BattleScript_MoveUsedIsFrozen::
@@ -10033,3 +10050,29 @@ BattleScript_EffectSnow::
 	call BattleScript_CheckPrimalWeather
 	setfieldweather ENUM_WEATHER_SNOW
 	goto BattleScript_MoveWeatherChange
+
+BattleScript_TrainerCallToMonNormal::
+	printstring STRINGID_TRAINERCALLTOMON
+	waitmessage B_WAIT_TIME_SHORTEST
+	setstatchanger STAT_ACC, 1, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_MoveEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_TrainerCallToMonEnd
+	setgraphicalstatchangevalues
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	setbyte gBattleCommunication STAT_ACC
+	stattextbuffer BS_ATTACKER
+	printstring STRINGID_ATTACKERSSTATROSE
+	waitmessage B_WAIT_TIME_LONG
+	end2
+BattleScript_TrainerCallToMonReverse::
+	printstring STRINGID_TRAINERCALLTOMON
+	waitmessage B_WAIT_TIME_SHORTEST
+	playanimation BS_ATTACKER B_ANIM_CALL_REVERSE_MODE
+	setbyte sHEARTVALUE_STATE, 0
+	modifyheartvalue BS_ATTACKER
+	end2
+BattleScript_TrainerCallToMonEnd::
+	pause B_WAIT_TIME_SHORTEST
+	printstring STRINGID_STATSWONTINCREASE
+	waitmessage B_WAIT_TIME_LONG
+	end2

@@ -274,9 +274,10 @@ void LoadIndicatorSpritesGfx(void)
         if (gGimmicksInfo[gimmick].indicatorPal != NULL)
             LoadSpritePalette(gGimmicksInfo[gimmick].indicatorPal);
     }
-    // Primal reversion graphics aren't loaded as part of gimmick data
+    // Primal Reversion and Reverse Mode graphics aren't loaded as part of gimmick data
     LoadSpriteSheet(&sSpriteSheet_AlphaIndicator);
     LoadSpriteSheet(&sSpriteSheet_OmegaIndicator);
+    LoadSpriteSheet(&sSpriteSheet_ReverseIndicator);
 }
 
 static void SpriteCb_GimmickIndicator(struct Sprite *sprite)
@@ -304,6 +305,10 @@ u32 GetIndicatorTileTag(u32 battler)
         else
             return TAG_ALPHA_INDICATOR_TILE;
     }
+    else if (gBattleMons[battler].isReverse)
+    {
+        return TAG_REVERSE_INDICATOR_TILE;
+    }
     else if (gimmick == GIMMICK_TERA) // special case
     {
         return sTeraIndicatorSpriteSheets[GetBattlerTeraType(battler)].tag;
@@ -321,7 +326,7 @@ u32 GetIndicatorTileTag(u32 battler)
 u32 GetIndicatorPalTag(u32 battler)
 {
     u32 gimmick = GetActiveGimmick(battler);
-    if (IsBattlerPrimalReverted(battler))
+    if (IsBattlerPrimalReverted(battler) || gBattleMons[battler].isReverse)
         return TAG_MISC_INDICATOR_PAL;
     else if (gGimmicksInfo[gimmick].indicatorPal != NULL)
         return gGimmicksInfo[gimmick].indicatorPal->tag;

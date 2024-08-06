@@ -1973,6 +1973,9 @@ extern const u32 gSummaryPage_BattleMoves_Tilemap[];
 extern const u32 gSummaryPage_ContestMoves_Tilemap[];
 extern const u16 gPPTextPalette[];
 extern const u32 gMoveTypes_Pal[];
+// Shadow
+extern const u32 gSummaryShadow_Gfx[];
+extern const u32 gSummaryShadow_Pal[];
 
 extern const u16 gSummaryScreen_MoveEffect_Battle_Tilemap[];
 extern const u16 gSummaryScreen_MoveEffect_Contest_Tilemap[];
@@ -1994,6 +1997,7 @@ extern const u32 gShopMenuMoney_Gfx[];
 extern const u32 gBattleInterface_BallStatusBarGfx[];
 extern const u8 gBattleInterface_BallDisplayGfx[];
 extern const u16 gBattleInterface_BallStatusBarPal[];
+extern const u16 gBattleInterface_ShadowMenuPal[];
 extern const u16 gBattleInterface_BallDisplayPal[];
 extern const u8 gHealthboxElementsGfxTable[][32];
 
@@ -2030,8 +2034,10 @@ extern const u32 gHealthboxSinglesOpponentGfx[];
 extern const u32 gHealthboxDoublesPlayerGfx[];
 extern const u32 gHealthboxDoublesOpponentGfx[];
 extern const u32 gHealthboxSafariGfx[];
+extern const u32 gHealthboxSinglesPlayerShadowGfx[];
 extern const u32 gBlankGfxCompressed[];
 extern const u16 gBattleInterface_BallStatusBarPal[];
+extern const u16 gBattleInterface_ShadowMenuPal[];
 extern const u16 gBattleInterface_BallDisplayPal[];
 
 extern const u32 gSwapLineGfx[];
@@ -2879,6 +2885,11 @@ extern const u32 gBattleAnimSpritePal_IvyCudgelFire[];
 extern const u32 gBattleAnimSpritePal_IvyCudgelRock[];
 extern const u32 gBattleAnimSpritePal_IvyCudgelWater[];
 
+//Shadow Pokemon effects
+extern const u32 gBattleAnimSpriteGfx_ShadowParticles[];
+extern const u32 gBattleAnimSpritePal_ShadowParticles[];
+extern const u32 gBattleAnimSpritePal_ReverseParticles[];
+
 extern const u32 gBattleAnimBgImage_Dark[];
 extern const u32 gBattleAnimBgImage_Ghost[];
 extern const u32 gBattleAnimBgImage_Psychic[];
@@ -3050,6 +3061,8 @@ extern const u32 gBattleAnimBgPalette_ZMoveMountain[];
 extern const u32 gBattleAnimBgTilemap_ZMoveMountain[];
 extern const u32 gBattleAnimSpritePal_SteelBeam[];
 extern const u32 gBattleAnimBgPalette_SteelBeam[];
+
+extern const u32 gBattleAnimBgPalette_ShadowStorm[];
 
 extern const u32 gMetalShineGfx[];
 extern const u32 gMetalShinePalette[];

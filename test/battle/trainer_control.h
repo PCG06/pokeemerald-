@@ -22,7 +22,7 @@
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 7
         .doubleBattle = FALSE,
-        .partySize = 3,
+        .partySize = 4,
         .party = (const struct TrainerMon[])
         {
             {
@@ -84,6 +84,37 @@
             .lvl = 5,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+#line 33
+            .species = SPECIES_WOBBUFFET,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 33
+            .heldItem = ITEM_STICKY_BARB,
+#line 38
+            .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 4, 0),
+#line 37
+            .iv = TRAINER_PARTY_IVS(25, 26, 27, 28, 29, 30),
+#line 36
+            .ability = ABILITY_TELEPATHY,
+#line 35
+            .lvl = 69,
+#line 39
+            .ball = ITEM_DUSK_BALL,
+#line 34
+            .nature = NATURE_HASTY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+#line 40
+            .isShadow = TRUE,
+#line 41
+            .heartGauge = 3000,
+            .moves = {
+#line 42
+                MOVE_AIR_SLASH,
+                MOVE_BARRIER,
+                MOVE_SOLAR_BEAM,
+                MOVE_EXPLOSION,
+            },
             },
         },
     },

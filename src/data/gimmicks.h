@@ -50,5 +50,5 @@ const struct GimmickInfo gGimmicksInfo[GIMMICKS_COUNT] =
         .indicatorPal = &sSpritePalette_TeraIndicator,
         .CanActivate = CanTerastallize,
         .ActivateGimmick = ActivateTera,
-    }
+    },
 };

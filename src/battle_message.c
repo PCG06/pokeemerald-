@@ -455,6 +455,10 @@ static const u8 sText_SpAttack[] = _("Sp. Atk");
 static const u8 sText_SpDefense[] = _("Sp. Def");
 static const u8 sText_Accuracy[] = _("accuracy");
 static const u8 sText_Evasiveness[] = _("evasiveness");
+static const u8 sText_StartedShadowSky[] = _("A shadowy aura filled\nthe sky!");
+static const u8 sText_ShadowSkyContinues[] = _("Bursts of light showered\nfrom the shadowy aura!");
+static const u8 sText_ShadowSkyStopped[] = _("The shadowy aura faded away!");
+static const u8 sText_ShadowSkyDamage[] = _("The flashing light strikes\n{B_ATK_NAME_WITH_PREFIX}!");
 
 const u8 *const gStatNamesTable[NUM_BATTLE_STATS] =
 {
@@ -490,6 +494,7 @@ static const u8 sText_ItAppearedCaught[] = _("Aww!\nIt appeared to be caught!");
 static const u8 sText_AarghAlmostHadIt[] = _("Aargh!\nAlmost had it!");
 static const u8 sText_ShootSoClose[] = _("Shoot!\nIt was so close, too!");
 static const u8 sText_GotchaPkmnCaughtPlayer[] = _("Gotcha!\n{B_DEF_NAME} was caught!{WAIT_SE}{PLAY_BGM MUS_CAUGHT}\p");
+static const u8 sText_GotchaPkmnCaughtTrainer[] = _("Gotcha!\n{B_DEF_NAME} was caught!{WAIT_SE}\p");
 static const u8 sText_GotchaPkmnCaughtWally[] = _("Gotcha!\n{B_DEF_NAME} was caught!{WAIT_SE}{PLAY_BGM MUS_CAUGHT}{PAUSE 127}");
 static const u8 sText_GiveNicknameCaptured[] = _("Give a nickname to the\ncaptured {B_DEF_NAME}?");
 static const u8 sText_PkmnSentToPC[] = _("{B_DEF_NAME} was sent to\n{B_PC_CREATOR_NAME} PC.");
@@ -849,6 +854,13 @@ static const u8 sText_ShedItsTail[] = _("{B_ATK_NAME_WITH_PREFIX} shed its tail\
 static const u8 sText_PkmnTerastallizedInto[] = _("{B_ATK_NAME_WITH_PREFIX} terastallized\ninto the {B_BUFF1} type!");
 static const u8 sText_SupersweetAromaWafts[] = _("A supersweet aroma is wafting from\nthe syrup covering {B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_TidyingUpComplete[] = _("Tidying up complete!");
+static const u8 sText_ShadowPkmnNotice[] = _("Oh!\nA Shadow Pokémon!\p");
+static const u8 sText_TrainerCallToMon[] = _("{B_ATK_TRAINER_NAME} called out to {B_ATK_NAME_WITH_PREFIX}!");
+static const u8 sText_PkmnStoredEXP[] = _("{B_BUFF1} stored{B_BUFF2}\n{B_BUFF3} EXP. Points!\p");
+static const u8 sText_PkmnHeartValueUpdate[] = _("The door to {B_BUFF1}'s\nheart opened a little!\p");
+static const u8 sText_ReverseModeEnter[] = _("{B_ATK_NAME_WITH_PREFIX}'s emotions rose to a\nfever pitch! It entered Reverse Mode!");
+static const u8 sText_ReverseModeDamage[] = _("{B_ATK_NAME_WITH_PREFIX} is hurt by Reverse Mode!");
+static const u8 sText_ReverseModeCalled[] = _("{B_ATK_NAME_WITH_PREFIX} came to its senses!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1260,6 +1272,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_AARGHALMOSTHADIT - BATTLESTRINGS_TABLE_START] = sText_AarghAlmostHadIt,
     [STRINGID_SHOOTSOCLOSE - BATTLESTRINGS_TABLE_START] = sText_ShootSoClose,
     [STRINGID_GOTCHAPKMNCAUGHTPLAYER - BATTLESTRINGS_TABLE_START] = sText_GotchaPkmnCaughtPlayer,
+    [STRINGID_GOTCHAPKMNCAUGHTTRAINER - BATTLESTRINGS_TABLE_START] = sText_GotchaPkmnCaughtTrainer,
     [STRINGID_GOTCHAPKMNCAUGHTWALLY - BATTLESTRINGS_TABLE_START] = sText_GotchaPkmnCaughtWally,
     [STRINGID_GIVENICKNAMECAPTURED - BATTLESTRINGS_TABLE_START] = sText_GiveNicknameCaptured,
     [STRINGID_PKMNSENTTOPC - BATTLESTRINGS_TABLE_START] = sText_PkmnSentToPC,
@@ -1553,6 +1566,17 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_ITEMWASUSEDUP - BATTLESTRINGS_TABLE_START] = sText_ItemWasUsedUp,
     [STRINGID_ATTACKERLOSTITSTYPE - BATTLESTRINGS_TABLE_START] = sText_AttackerLostItsType,
     [STRINGID_CLOAKEDINAHARSHLIGHT - BATTLESTRINGS_TABLE_START] = sText_PkmnIsCloakedInAHarshLight,
+    [STRINGID_SHADOWPKMNNOTICE - BATTLESTRINGS_TABLE_START] = sText_ShadowPkmnNotice,
+    [STRINGID_TRAINERCALLTOMON - BATTLESTRINGS_TABLE_START] = sText_TrainerCallToMon,
+    [STRINGID_PKMNSTOREDEXP - BATTLESTRINGS_TABLE_START] = sText_PkmnStoredEXP,
+    [STRINGID_PKMNHEARTGAUGEUPDATE - BATTLESTRINGS_TABLE_START] = sText_PkmnHeartValueUpdate,
+    [STRINGID_STARTEDSHADOW_SKY - BATTLESTRINGS_TABLE_START] = sText_StartedShadowSky,
+    [STRINGID_SHADOW_SKYCONTINUES - BATTLESTRINGS_TABLE_START] = sText_ShadowSkyContinues,
+    [STRINGID_SHADOW_SKYSTOPPED - BATTLESTRINGS_TABLE_START] = sText_ShadowSkyStopped,
+    [STRINGID_SHADOW_SKYDAMAGE - BATTLESTRINGS_TABLE_START] = sText_ShadowSkyDamage,
+	[STRINGID_REVERSEMODE_ENTER - BATTLESTRINGS_TABLE_START] = sText_ReverseModeEnter,
+	[STRINGID_REVERSEMODE_DAMAGE - BATTLESTRINGS_TABLE_START] = sText_ReverseModeDamage,
+	[STRINGID_REVERSEMODE_CALLED - BATTLESTRINGS_TABLE_START] = sText_ReverseModeCalled,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1674,45 +1698,50 @@ const u16 gNoEscapeStringIds[] =
 
 const u16 gMoveWeatherChangeStringIds[] =
 {
-    [B_MSG_STARTED_RAIN]      = STRINGID_STARTEDTORAIN,
-    [B_MSG_STARTED_DOWNPOUR]  = STRINGID_DOWNPOURSTARTED, // Unused
-    [B_MSG_WEATHER_FAILED]    = STRINGID_BUTITFAILED,
-    [B_MSG_STARTED_SANDSTORM] = STRINGID_SANDSTORMBREWED,
-    [B_MSG_STARTED_SUNLIGHT]  = STRINGID_SUNLIGHTGOTBRIGHT,
-    [B_MSG_STARTED_HAIL]      = STRINGID_STARTEDHAIL,
-    [B_MSG_STARTED_SNOW]      = STRINGID_STARTEDSNOW,
-    [B_MSG_STARTED_FOG]       = STRINGID_FOGCREPTUP, // Unused, can use for custom moves that set fog
+    [B_MSG_STARTED_RAIN]        = STRINGID_STARTEDTORAIN,
+    [B_MSG_STARTED_DOWNPOUR]    = STRINGID_DOWNPOURSTARTED, // Unused
+    [B_MSG_WEATHER_FAILED]      = STRINGID_BUTITFAILED,
+    [B_MSG_STARTED_SANDSTORM]   = STRINGID_SANDSTORMBREWED,
+    [B_MSG_STARTED_SUNLIGHT]    = STRINGID_SUNLIGHTGOTBRIGHT,
+    [B_MSG_STARTED_HAIL]        = STRINGID_STARTEDHAIL,
+    [B_MSG_STARTED_SNOW]        = STRINGID_STARTEDSNOW,
+    [B_MSG_STARTED_FOG]         = STRINGID_FOGCREPTUP, // Unused, can use for custom moves that set fog
+    [B_MSG_STARTED_SHADOW_SKY]  = STRINGID_STARTEDSHADOW_SKY,
 };
 
 const u16 gWeatherEndsStringIds[B_MSG_WEATHER_END_COUNT] =
 {
-    [B_MSG_WEATHER_END_RAIN] = STRINGID_RAINSTOPPED,
-    [B_MSG_WEATHER_END_SANDSTORM] = STRINGID_SANDSTORMSUBSIDED,
-    [B_MSG_WEATHER_END_SUN] = STRINGID_SUNLIGHTFADED,
-    [B_MSG_WEATHER_END_HAIL] = STRINGID_HAILSTOPPED,
+    [B_MSG_WEATHER_END_RAIN]         = STRINGID_RAINSTOPPED,
+    [B_MSG_WEATHER_END_SANDSTORM]    = STRINGID_SANDSTORMSUBSIDED,
+    [B_MSG_WEATHER_END_SUN]          = STRINGID_SUNLIGHTFADED,
+    [B_MSG_WEATHER_END_HAIL]         = STRINGID_HAILSTOPPED,
     [B_MSG_WEATHER_END_STRONG_WINDS] = STRINGID_STRONGWINDSDISSIPATED,
-    [B_MSG_WEATHER_END_SNOW] = STRINGID_SNOWSTOPPED,
-    [B_MSG_WEATHER_END_FOG] = STRINGID_FOGLIFTED,
+    [B_MSG_WEATHER_END_SNOW]         = STRINGID_SNOWSTOPPED,
+    [B_MSG_WEATHER_END_FOG]          = STRINGID_FOGLIFTED,
+    [B_MSG_WEATHER_END_SHADOW_SKY]   = STRINGID_SHADOW_SKYSTOPPED,
 };
 
 const u16 gSandStormHailSnowContinuesStringIds[] =
 {
-    [B_MSG_SANDSTORM] = STRINGID_SANDSTORMRAGES,
-    [B_MSG_HAIL]      = STRINGID_HAILCONTINUES,
-    [B_MSG_SNOW]      = STRINGID_SNOWCONTINUES,
+    [B_MSG_SANDSTORM]   = STRINGID_SANDSTORMRAGES,
+    [B_MSG_HAIL]        = STRINGID_HAILCONTINUES,
+    [B_MSG_SNOW]        = STRINGID_SNOWCONTINUES,
+    [B_MSG_SHADOW_SKY]  = STRINGID_SHADOW_SKYCONTINUES
 };
 
 const u16 gSandStormHailDmgStringIds[] =
 {
-    [B_MSG_SANDSTORM] = STRINGID_PKMNBUFFETEDBYSANDSTORM,
-    [B_MSG_HAIL]      = STRINGID_PKMNPELTEDBYHAIL
+    [B_MSG_SANDSTORM]   = STRINGID_PKMNBUFFETEDBYSANDSTORM,
+    [B_MSG_HAIL]        = STRINGID_PKMNPELTEDBYHAIL,
+    [B_MSG_SHADOW_SKY]  = STRINGID_SHADOW_SKYDAMAGE
 };
 
 const u16 gSandStormHailSnowEndStringIds[] =
 {
-    [B_MSG_SANDSTORM] = STRINGID_SANDSTORMSUBSIDED,
-    [B_MSG_HAIL]      = STRINGID_HAILSTOPPED,
-    [B_MSG_SNOW]      = STRINGID_SNOWSTOPPED,
+    [B_MSG_SANDSTORM]   = STRINGID_SANDSTORMSUBSIDED,
+    [B_MSG_HAIL]        = STRINGID_HAILSTOPPED,
+    [B_MSG_SNOW]        = STRINGID_SNOWSTOPPED,
+    [B_MSG_SHADOW_SKY]  = STRINGID_SHADOW_SKYSTOPPED
 };
 
 const u16 gRainContinuesStringIds[] =
@@ -2076,6 +2105,7 @@ const u8 gText_WhatWillPkmnDo2[] = _("What will\n{B_PLAYER_NAME} do?");
 const u8 gText_WhatWillWallyDo[] = _("What will\nWALLY do?");
 const u8 gText_LinkStandby[] = _("{PAUSE 16}Link standby…");
 const u8 gText_BattleMenu[] = _("FIGHT{CLEAR_TO 56}BAG\nPOKéMON{CLEAR_TO 56}RUN");
+const u8 gText_BattleMenuTrainer[] = _("FIGHT{CLEAR_TO 56}BAG\nPOKéMON{CLEAR_TO 56}CALL");
 const u8 gText_SafariZoneMenu[] = _("BALL{CLEAR_TO 56}{POKEBLOCK}\nGO NEAR{CLEAR_TO 56}RUN");
 const u8 gText_MoveInterfacePP[] = _("PP ");
 const u8 gText_MoveInterfaceType[] = _("TYPE/");
