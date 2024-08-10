@@ -516,27 +516,15 @@ $(WALLPAPERGFXDIR)/sky/tiles.4bpp: %.4bpp: %.png
 $(WALLPAPERGFXDIR)/polkadot/frame.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 54 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/polkadot/tiles.4bpp: $(WALLPAPERGFXDIR)/polkadot/frame.4bpp $(WALLPAPERGFXDIR)/polkadot/bg.4bpp
-	@cat $^ >$@
+$(WALLPAPERGFXDIR)/pokecenter/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 47 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/pokecenter/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 35 -Wnum_tiles
+$(WALLPAPERGFXDIR)/machine/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 47 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/pokecenter/tiles.4bpp: $(WALLPAPERGFXDIR)/pokecenter/frame.4bpp $(WALLPAPERGFXDIR)/pokecenter/bg.4bpp
-	@cat $^ >$@
-
-$(WALLPAPERGFXDIR)/machine/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 33 -Wnum_tiles
-
-$(WALLPAPERGFXDIR)/machine/tiles.4bpp: $(WALLPAPERGFXDIR)/machine/frame.4bpp $(WALLPAPERGFXDIR)/machine/bg.4bpp
-	@cat $^ >$@
-
-$(WALLPAPERGFXDIR)/plain/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 18 -Wnum_tiles
-
-$(WALLPAPERGFXDIR)/plain/tiles.4bpp: $(WALLPAPERGFXDIR)/plain/frame.4bpp $(WALLPAPERGFXDIR)/plain/bg.4bpp
-	@cat $^ >$@
-
+$(WALLPAPERGFXDIR)/plain/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 47 -Wnum_tiles
+	
 $(WALLPAPERGFXDIR)/friends_frame1.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 57 -Wnum_tiles
 
