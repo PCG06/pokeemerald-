@@ -22,32 +22,32 @@ enum {
 
 static const u16 sWallpaperPalettes_Forest[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/forest/frame.gbapal"),
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/forest/bg.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/forest/tiles.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/forest/tiles.gbapal"),
 };
 static const u32 sWallpaperTiles_Forest[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/forest/tiles.4bpp.lz");
 static const u32 sWallpaperTilemap_Forest[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/forest/tilemap.bin.lz");
 
 static const u16 sWallpaperPalettes_City[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/city/frame.gbapal"),
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/city/bg.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/city/tiles.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/city/tiles.gbapal"),
 };
 static const u32 sWallpaperTiles_City[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/city/tiles.4bpp.lz");
 static const u32 sWallpaperTilemap_City[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/city/tilemap.bin.lz");
 
 static const u16 sWallpaperPalettes_Desert[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/desert/frame.gbapal"),
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/desert/bg.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/desert/tiles.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/desert/tiles.gbapal"),
 };
 static const u32 sWallpaperTiles_Desert[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/desert/tiles.4bpp.lz");
 static const u32 sWallpaperTilemap_Desert[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/desert/tilemap.bin.lz");
 
 static const u16 sWallpaperPalettes_Savanna[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/savanna/frame.gbapal"),
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/savanna/bg.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/savanna/tiles.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/savanna/tiles.gbapal"),
 };
 static const u32 sWallpaperTiles_Savanna[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/savanna/tiles.4bpp.lz");
 static const u32 sWallpaperTilemap_Savanna[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/savanna/tilemap.bin.lz");

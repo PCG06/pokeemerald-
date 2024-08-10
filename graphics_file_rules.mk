@@ -477,29 +477,17 @@ graphics/birch_speech/unused_beauty.4bpp: %.4bpp: %.png
 
 ### Pokémon Storage System ###
 
-$(WALLPAPERGFXDIR)/forest/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 55 -Wnum_tiles
+$(WALLPAPERGFXDIR)/forest/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 60 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/forest/tiles.4bpp: $(WALLPAPERGFXDIR)/forest/frame.4bpp $(WALLPAPERGFXDIR)/forest/bg.4bpp
-	@cat $^ >$@
+$(WALLPAPERGFXDIR)/city/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 67 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/city/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 52 -Wnum_tiles
+$(WALLPAPERGFXDIR)/desert/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 63 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/city/tiles.4bpp: $(WALLPAPERGFXDIR)/city/frame.4bpp $(WALLPAPERGFXDIR)/city/bg.4bpp
-	@cat $^ >$@
-
-$(WALLPAPERGFXDIR)/desert/tiles.4bpp: $(WALLPAPERGFXDIR)/desert/frame.4bpp $(WALLPAPERGFXDIR)/desert/bg.4bpp
-	@cat $^ >$@
-
-$(WALLPAPERGFXDIR)/savanna/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 45 -Wnum_tiles
-
-$(WALLPAPERGFXDIR)/savanna/bg.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 23 -Wnum_tiles
-
-$(WALLPAPERGFXDIR)/savanna/tiles.4bpp: $(WALLPAPERGFXDIR)/savanna/frame.4bpp $(WALLPAPERGFXDIR)/savanna/bg.4bpp
-	@cat $^ >$@
+$(WALLPAPERGFXDIR)/savanna/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 47 -Wnum_tiles
 
 $(WALLPAPERGFXDIR)/crag/frame.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 49 -Wnum_tiles
