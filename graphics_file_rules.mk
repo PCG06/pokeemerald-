@@ -524,7 +524,55 @@ $(WALLPAPERGFXDIR)/machine/tiles.4bpp: %.4bpp: %.png
 
 $(WALLPAPERGFXDIR)/plain/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 47 -Wnum_tiles
-	
+
+$(WALLPAPERGFXDIR)/space/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 109 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/backyard/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 134 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/nostalgic1/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 123 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/torchic/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 86 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/trio1/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 203 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/pikapika1/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 210 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/timeandspace/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 255 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/galactic1/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 126 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/distortion/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 255 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/contest/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 132 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/nostalgic2/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 137 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/croagunk/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 114 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/trio2/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 252 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/pikapika2/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 252 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/renegade/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 255 -Wnum_tiles
+
+$(WALLPAPERGFXDIR)/galactic2/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 232 -Wnum_tiles
+
 $(WALLPAPERGFXDIR)/friends_frame1.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 57 -Wnum_tiles
 

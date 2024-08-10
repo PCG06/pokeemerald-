@@ -129,8 +129,9 @@ enum {
     MENU_INFO,
     MENU_SCENERY_1,
     MENU_SCENERY_2,
-    MENU_SCENERY_3,
-    MENU_ETCETERA,
+    MENU_ETCETERA_1,
+    MENU_ETCETERA_2,
+    MENU_ETCETERA_3,
     MENU_FRIENDS,
     MENU_FOREST,
     MENU_CITY,
@@ -148,6 +149,22 @@ enum {
     MENU_POKECENTER,
     MENU_MACHINE,
     MENU_SIMPLE,
+    MENU_SPACE,
+    MENU_BACKYARD,
+    MENU_NOSTALGIC1,
+    MENU_TORCHIC,
+    MENU_TRIO1,
+    MENU_PIKAPIKA1,
+    MENU_TIMEANDSPACE,
+    MENU_GALACTIC1,
+    MENU_DISTORTION,
+    MENU_CONTEST,
+    MENU_NOSTALGIC2,
+    MENU_CROAGUNK,
+    MENU_TRIO2,
+    MENU_PIKAPIKA2,
+    MENU_RENEGADE,
+    MENU_GALACTIC2,
 };
 #define MENU_WALLPAPER_SETS_START MENU_SCENERY_1
 #define MENU_WALLPAPERS_START MENU_FOREST
@@ -3440,8 +3457,9 @@ static void Task_HandleWallpapers(u8 taskId)
             break;
         case MENU_SCENERY_1:
         case MENU_SCENERY_2:
-        case MENU_SCENERY_3:
-        case MENU_ETCETERA:
+        case MENU_ETCETERA_1:
+        case MENU_ETCETERA_2:
+        case MENU_ETCETERA_3:
             PlaySE(SE_SELECT);
             RemoveMenu();
             sStorage->wallpaperSetId -= MENU_WALLPAPER_SETS_START;
@@ -4329,8 +4347,9 @@ static void AddWallpaperSetsMenu(void)
     InitMenu();
     SetMenuText(MENU_SCENERY_1);
     SetMenuText(MENU_SCENERY_2);
-    SetMenuText(MENU_SCENERY_3);
-    SetMenuText(MENU_ETCETERA);
+    SetMenuText(MENU_ETCETERA_1);
+    SetMenuText(MENU_ETCETERA_2);
+    SetMenuText(MENU_ETCETERA_3);
     if (IsWaldaWallpaperUnlocked())
         SetMenuText(MENU_FRIENDS);
     AddMenu();
@@ -4346,24 +4365,42 @@ static void AddWallpapersMenu(u8 wallpaperSet)
         SetMenuText(MENU_CITY);
         SetMenuText(MENU_DESERT);
         SetMenuText(MENU_SAVANNA);
-        break;
-    case MENU_SCENERY_2 - MENU_WALLPAPER_SETS_START:
         SetMenuText(MENU_CRAG);
         SetMenuText(MENU_VOLCANO);
         SetMenuText(MENU_SNOW);
-        SetMenuText(MENU_CAVE);
         break;
-    case MENU_SCENERY_3 - MENU_WALLPAPER_SETS_START:
+    case MENU_SCENERY_2 - MENU_WALLPAPER_SETS_START:
+        SetMenuText(MENU_CAVE);
         SetMenuText(MENU_BEACH);
         SetMenuText(MENU_SEAFLOOR);
         SetMenuText(MENU_RIVER);
         SetMenuText(MENU_SKY);
         break;
-    case MENU_ETCETERA - MENU_WALLPAPER_SETS_START:
+    case MENU_ETCETERA_1 - MENU_WALLPAPER_SETS_START:
         SetMenuText(MENU_POLKADOT);
         SetMenuText(MENU_POKECENTER);
         SetMenuText(MENU_MACHINE);
         SetMenuText(MENU_SIMPLE);
+        SetMenuText(MENU_SPACE);
+        SetMenuText(MENU_BACKYARD);
+        SetMenuText(MENU_NOSTALGIC1);
+        break;
+    case MENU_ETCETERA_2 - MENU_WALLPAPER_SETS_START:
+        SetMenuText(MENU_TORCHIC);
+        SetMenuText(MENU_TRIO1);
+        SetMenuText(MENU_PIKAPIKA1);
+        SetMenuText(MENU_TIMEANDSPACE);
+        SetMenuText(MENU_GALACTIC1);
+        SetMenuText(MENU_DISTORTION);
+        SetMenuText(MENU_CONTEST);
+        break;
+    case MENU_ETCETERA_3 - MENU_WALLPAPER_SETS_START:
+        SetMenuText(MENU_NOSTALGIC2);
+        SetMenuText(MENU_CROAGUNK);
+        SetMenuText(MENU_TRIO2);
+        SetMenuText(MENU_PIKAPIKA2);
+        SetMenuText(MENU_RENEGADE);
+        SetMenuText(MENU_GALACTIC2);
         break;
     }
     AddMenu();
@@ -7952,8 +7989,9 @@ static const u8 *const sMenuTexts[] =
     [MENU_INFO]       = gPCText_Info,
     [MENU_SCENERY_1]  = gPCText_Scenery1,
     [MENU_SCENERY_2]  = gPCText_Scenery2,
-    [MENU_SCENERY_3]  = gPCText_Scenery3,
-    [MENU_ETCETERA]   = gPCText_Etcetera,
+    [MENU_ETCETERA_1] = gPCText_Etcetera1,
+    [MENU_ETCETERA_2] = gPCText_Etcetera2,
+    [MENU_ETCETERA_3] = gPCText_Etcetera3,
     [MENU_FRIENDS]    = gPCText_Friends,
     [MENU_FOREST]     = gPCText_Forest,
     [MENU_CITY]       = gPCText_City,
@@ -7971,6 +8009,22 @@ static const u8 *const sMenuTexts[] =
     [MENU_POKECENTER] = gPCText_Pokecenter,
     [MENU_MACHINE]    = gPCText_Machine,
     [MENU_SIMPLE]     = gPCText_Simple,
+    [MENU_SPACE]      = gPCText_Space,
+    [MENU_BACKYARD]   = gPCText_Backyard,
+    [MENU_NOSTALGIC1] = gPCText_Nostalgic1,
+    [MENU_TORCHIC]    = gPCText_Torchic,
+    [MENU_TRIO1]      = gPCText_Trio1,
+    [MENU_PIKAPIKA1]  = gPCText_PikaPika1,
+    [MENU_TIMEANDSPACE] = gPCText_TimeAndSpace,
+    [MENU_GALACTIC1]  = gPCText_Galactic1,
+    [MENU_DISTORTION] = gPCText_Distortion,
+    [MENU_CONTEST]    = gPCText_Contest,
+    [MENU_NOSTALGIC2] = gPCText_Nostalgic2,
+    [MENU_CROAGUNK]   = gPCText_Croagunk,
+    [MENU_TRIO2]      = gPCText_Trio2,
+    [MENU_PIKAPIKA2]  = gPCText_PikaPika2,
+    [MENU_RENEGADE]   = gPCText_Renegade,
+    [MENU_GALACTIC2]  = gPCText_Galactic2,
 };
 
 static void SetMenuText(u8 textId)
