@@ -489,29 +489,17 @@ $(WALLPAPERGFXDIR)/desert/tiles.4bpp: %.4bpp: %.png
 $(WALLPAPERGFXDIR)/savanna/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 47 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/crag/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 49 -Wnum_tiles
+$(WALLPAPERGFXDIR)/crag/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 79 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/crag/tiles.4bpp: $(WALLPAPERGFXDIR)/crag/frame.4bpp $(WALLPAPERGFXDIR)/crag/bg.4bpp
-	@cat $^ >$@
+$(WALLPAPERGFXDIR)/volcano/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 79 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/volcano/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 56 -Wnum_tiles
+$(WALLPAPERGFXDIR)/snow/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 63 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/volcano/tiles.4bpp: $(WALLPAPERGFXDIR)/volcano/frame.4bpp $(WALLPAPERGFXDIR)/volcano/bg.4bpp
-	@cat $^ >$@
-
-$(WALLPAPERGFXDIR)/snow/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 57 -Wnum_tiles
-
-$(WALLPAPERGFXDIR)/snow/tiles.4bpp: $(WALLPAPERGFXDIR)/snow/frame.4bpp $(WALLPAPERGFXDIR)/snow/bg.4bpp
-	@cat $^ >$@
-
-$(WALLPAPERGFXDIR)/cave/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 55 -Wnum_tiles
-
-$(WALLPAPERGFXDIR)/cave/tiles.4bpp: $(WALLPAPERGFXDIR)/cave/frame.4bpp $(WALLPAPERGFXDIR)/cave/bg.4bpp
-	@cat $^ >$@
+$(WALLPAPERGFXDIR)/cave/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 79 -Wnum_tiles
 
 $(WALLPAPERGFXDIR)/beach/frame.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 46 -Wnum_tiles
