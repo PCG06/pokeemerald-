@@ -501,35 +501,17 @@ $(WALLPAPERGFXDIR)/snow/tiles.4bpp: %.4bpp: %.png
 $(WALLPAPERGFXDIR)/cave/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 79 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/beach/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 46 -Wnum_tiles
+$(WALLPAPERGFXDIR)/beach/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 79 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/beach/bg.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 23 -Wnum_tiles
+$(WALLPAPERGFXDIR)/seafloor/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 63 -Wnum_tiles
+	
+$(WALLPAPERGFXDIR)/river/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 79 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/beach/tiles.4bpp: $(WALLPAPERGFXDIR)/beach/frame.4bpp $(WALLPAPERGFXDIR)/beach/bg.4bpp
-	@cat $^ >$@
-
-$(WALLPAPERGFXDIR)/seafloor/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 54 -Wnum_tiles
-
-$(WALLPAPERGFXDIR)/seafloor/tiles.4bpp: $(WALLPAPERGFXDIR)/seafloor/frame.4bpp $(WALLPAPERGFXDIR)/seafloor/bg.4bpp
-	@cat $^ >$@
-
-$(WALLPAPERGFXDIR)/river/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 51 -Wnum_tiles
-
-$(WALLPAPERGFXDIR)/river/bg.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 11 -Wnum_tiles
-
-$(WALLPAPERGFXDIR)/river/tiles.4bpp: $(WALLPAPERGFXDIR)/river/frame.4bpp $(WALLPAPERGFXDIR)/river/bg.4bpp
-	@cat $^ >$@
-
-$(WALLPAPERGFXDIR)/sky/frame.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 45 -Wnum_tiles
-
-$(WALLPAPERGFXDIR)/sky/tiles.4bpp: $(WALLPAPERGFXDIR)/sky/frame.4bpp $(WALLPAPERGFXDIR)/sky/bg.4bpp
-	@cat $^ >$@
+$(WALLPAPERGFXDIR)/sky/tiles.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 95 -Wnum_tiles
 
 $(WALLPAPERGFXDIR)/polkadot/frame.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 54 -Wnum_tiles

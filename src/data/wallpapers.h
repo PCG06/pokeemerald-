@@ -86,31 +86,31 @@ static const u32 sWallpaperTilemap_Cave[] = INCBIN_U32("graphics/pokemon_storage
 
 static const u16 sWallpaperPalettes_Beach[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/beach/frame.gbapal"),
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/beach/bg.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/beach/tiles.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/beach/tiles.gbapal"),
 };
 static const u32 sWallpaperTiles_Beach[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/beach/tiles.4bpp.lz");
 static const u32 sWallpaperTilemap_Beach[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/beach/tilemap.bin.lz");
 
 static const u16 sWallpaperPalettes_Seafloor[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/seafloor/frame.gbapal"),
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/seafloor/bg.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/seafloor/tiles.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/seafloor/tiles.gbapal"),
 };
 static const u32 sWallpaperTiles_Seafloor[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/seafloor/tiles.4bpp.lz");
 static const u32 sWallpaperTilemap_Seafloor[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/seafloor/tilemap.bin.lz");
 
 static const u16 sWallpaperPalettes_River[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/river/frame.gbapal"),
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/river/bg.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/river/tiles.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/river/tiles.gbapal"),
 };
 static const u32 sWallpaperTiles_River[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/river/tiles.4bpp.lz");
 static const u32 sWallpaperTilemap_River[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/river/tilemap.bin.lz");
 static const u16 sWallpaperPalettes_Sky[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/sky/frame.gbapal"),
-    INCBIN_U16("graphics/pokemon_storage/wallpapers/sky/bg.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/sky/tiles.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/wallpapers/sky/tiles.gbapal"),
 };
 static const u32 sWallpaperTiles_Sky[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/sky/tiles.4bpp.lz");
 static const u32 sWallpaperTilemap_Sky[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/sky/tilemap.bin.lz");
