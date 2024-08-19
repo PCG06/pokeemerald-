@@ -513,6 +513,9 @@ $(WALLPAPERGFXDIR)/river/tiles.4bpp: %.4bpp: %.png
 $(WALLPAPERGFXDIR)/sky/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 95 -Wnum_tiles
 
+$(WALLPAPERGFXDIR)/polkadot/tiles.4bpp: $(WALLPAPERGFXDIR)/polkadot/frame.4bpp $(WALLPAPERGFXDIR)/polkadot/bg.4bpp
+	@cat $^ >$@
+
 $(WALLPAPERGFXDIR)/polkadot/frame.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 54 -Wnum_tiles
 
