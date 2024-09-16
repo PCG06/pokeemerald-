@@ -157,7 +157,6 @@ static void ApplyLevitateMovement(u8);
 static bool8 MovementType_Disguise_Callback(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementType_Buried_Callback(struct ObjectEvent *, struct Sprite *);
 static void CreateReflectionEffectSprites(void);
-static u8 GetObjectEventIdByLocalId(u8);
 static u8 GetObjectEventIdByLocalIdAndMapInternal(u8, u8, u8);
 static bool8 GetAvailableObjectEventId(u16, u8, u8, u8 *);
 static void SetObjectEventDynamicGraphicsId(struct ObjectEvent *);
@@ -179,7 +178,6 @@ static void SpriteCB_CameraObject(struct Sprite *);
 static void CameraObject_Init(struct Sprite *);
 static void CameraObject_UpdateMove(struct Sprite *);
 static void CameraObject_UpdateFrozen(struct Sprite *);
-static const struct ObjectEventTemplate *FindObjectEventTemplateByLocalId(u8, const struct ObjectEventTemplate *, u8);
 static void ObjectEventSetSingleMovement(struct ObjectEvent *, struct Sprite *, u8);
 static void SetSpriteDataForNormalStep(struct Sprite *, u8, u8);
 static void InitSpriteForFigure8Anim(struct Sprite *);
@@ -1298,7 +1296,7 @@ static u8 GetObjectEventIdByLocalIdAndMapInternal(u8 localId, u8 mapNum, u8 mapG
     return OBJECT_EVENTS_COUNT;
 }
 
-static u8 GetObjectEventIdByLocalId(u8 localId)
+u8 GetObjectEventIdByLocalId(u8 localId)
 {
     u8 i;
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
@@ -3306,7 +3304,7 @@ static const struct ObjectEventTemplate *GetObjectEventTemplateByLocalIdAndMap(u
     return FindObjectEventTemplateByLocalId(localId, templates, count);
 }
 
-static const struct ObjectEventTemplate *FindObjectEventTemplateByLocalId(u8 localId, const struct ObjectEventTemplate *templates, u8 count)
+const struct ObjectEventTemplate *FindObjectEventTemplateByLocalId(u8 localId, const struct ObjectEventTemplate *templates, u8 count)
 {
     u8 i;
 
@@ -10634,3 +10632,4 @@ void GetDaycareGraphics(struct ScriptContext *ctx)
     }
     gSpecialVar_Result = i;
 }
+
