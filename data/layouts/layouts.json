@@ -4410,6 +4410,46 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
+    },
+    {
+      "id": "LAYOUT_CASTBELLE_TOWN",
+      "name": "CastbelleTown_Layout",
+      "width": 33,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/CastbelleTown/border.bin",
+      "blockdata_filepath": "data/layouts/CastbelleTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE001",
+      "name": "Route001_Layout",
+      "width": 20,
+      "height": 26,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Route001/border.bin",
+      "blockdata_filepath": "data/layouts/Route001/map.bin"
+    },
+    {
+      "id": "LAYOUT_CASTBELLE_TOWN_PLAYERS_HOUSE",
+      "name": "CastbelleTown_PlayersHouse_1F_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/CastbelleTown_PlayersHouse_1F/border.bin",
+      "blockdata_filepath": "data/layouts/CastbelleTown_PlayersHouse_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_CASTBELLE_TOWN_PLAYERS_HOUSE_2F",
+      "name": "CastbelleTown_PlayersHouse_2F_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/CastbelleTown_PlayersHouse_2F/border.bin",
+      "blockdata_filepath": "data/layouts/CastbelleTown_PlayersHouse_2F/map.bin"
     }
   ]
 }
