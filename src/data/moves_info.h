@@ -19320,7 +19320,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "Boosts a user's stats\n"
             "depending on Tatsugiri."),
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_ORDER_UP
+        .effect = EFFECT_HIT,
         .power = 80,
         .type = TYPE_DRAGON,
         .accuracy = 100,
@@ -19330,6 +19330,11 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .mirrorMoveBanned = TRUE,
         .metronomeBanned = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_ORDER_UP,
+            .self = TRUE,
+            .chance = 100,
+        }),
         .battleAnimScript = gBattleAnimMove_OrderUp,
     },
 
