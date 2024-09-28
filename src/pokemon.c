@@ -6675,10 +6675,13 @@ void TrySpecialOverworldEvo(void)
 bool32 SpeciesHasGenderDifferences(u16 species)
 {
     if (gSpeciesInfo[species].frontPicFemale != NULL
-     || gSpeciesInfo[species].paletteFemale != NULL
      || gSpeciesInfo[species].backPicFemale != NULL
+     || gSpeciesInfo[species].paletteFemale != NULL
      || gSpeciesInfo[species].shinyPaletteFemale != NULL
-     || gSpeciesInfo[species].iconSpriteFemale != NULL)
+     || gSpeciesInfo[species].iconSpriteFemale != NULL
+     || gSpeciesInfo[species].overworldDataFemale.paletteTag == OBJ_EVENT_PAL_TAG_DYNAMIC
+     || gSpeciesInfo[species].overworldPaletteFemale != NULL
+     || gSpeciesInfo[species].overworldShinyPaletteFemale != NULL)
         return TRUE;
 
     return FALSE;
