@@ -140,6 +140,7 @@ bool32 HasThawingMove(u32 battler);
 bool32 IsStatRaisingEffect(u32 effect);
 bool32 IsStatLoweringEffect(u32 effect);
 bool32 IsSelfStatLoweringEffect(u32 effect);
+bool32 IsSwitchOutEffect(u32 effect);
 bool32 IsAttackBoostMoveEffect(u32 effect);
 bool32 IsUngroundingEffect(u32 effect);
 bool32 IsSemiInvulnerable(u32 battlerDef, u32 move);

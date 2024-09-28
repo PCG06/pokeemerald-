@@ -2370,6 +2370,22 @@ bool32 IsSelfStatLoweringEffect(u32 effect)
     }
 }
 
+bool32 IsSwitchOutEffect(u32 effect)
+{
+    // Switch out effects like U-Turn, Volt Switch, etc.
+    switch (effect)
+    {
+    case EFFECT_HIT_ESCAPE:
+    case EFFECT_PARTING_SHOT:
+    case EFFECT_BATON_PASS:
+    case EFFECT_CHILLY_RECEPTION:
+    case EFFECT_SHED_TAIL:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
 bool32 HasDamagingMove(u32 battlerId)
 {
     u32 i;
