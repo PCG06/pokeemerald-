@@ -1,9 +1,12 @@
 #include "global.h"
 #include "test/test.h"
 #include "battle_main.h"
+#include "battle_message.h"
 #include "item.h"
 #include "text.h"
 #include "constants/abilities.h"
+#include "constants/battle.h"
+#include "constants/battle_string_ids.h"
 #include "constants/items.h"
 #include "constants/moves.h"
 
@@ -567,3 +570,23 @@ TEST("Type names fit on Pokedex Search Screen")
     }
     EXPECT_LE(GetStringWidth(fontId, gTypesInfo[type].name, 0), widthPx);
 }
+
+/*
+TEST("Battle strings fit on the battle message window")
+{
+    u32 i;
+    const u32 fontId = FONT_NORMAL, widthPx = 208;
+    u32 battleStringId = 0;
+    u8 *battleString = NULL;
+
+    for (i = BATTLESTRINGS_TABLE_START; i < BATTLESTRINGS_COUNT; i++)
+    {
+        PARAMETRIZE_LABEL("%S", gBattleStringsTable[i]) { battleStringId = i; }
+    }
+    BattleStringExpandPlaceholders(gBattleStringsTable[battleStringId], battleString);
+    Test_MgbaPrintf("test1:%S", gBattleStringsTable[battleStringId]);
+    //Test_MgbaPrintf("test2:%S", battleString);
+    EXPECT_LE(GetStringWidth(fontId, gBattleStringsTable[battleStringId], 0), widthPx);
+    //EXPECT_LE(GetStringWidth(fontId, battleString, 0), widthPx);
+}
+//*/
