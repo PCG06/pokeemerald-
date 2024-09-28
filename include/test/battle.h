@@ -1062,6 +1062,7 @@ struct StatusEventContext
     bool8 paralysis:1;
     bool8 badPoison:1;
     bool8 frostbite:1;
+    bool8 drowsy:1;
 };
 
 void OpenQueueGroup(u32 sourceLine, enum QueueGroupType);

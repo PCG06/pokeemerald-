@@ -19,10 +19,12 @@ SINGLE_BATTLE_TEST("Bug Bite eats the target's berry and immediately gains its e
     PARAMETRIZE { item = ITEM_ENIGMA_BERRY; effect = HOLD_EFFECT_ENIGMA_BERRY; }
     PARAMETRIZE { item = ITEM_LEPPA_BERRY; effect = HOLD_EFFECT_RESTORE_PP; }
     PARAMETRIZE { item = ITEM_CHESTO_BERRY; effect = HOLD_EFFECT_CURE_SLP; status1 = STATUS1_SLEEP; }
+    PARAMETRIZE { item = ITEM_CHESTO_BERRY; effect = HOLD_EFFECT_CURE_SLP; status1 = STATUS1_DROWSY; }
     PARAMETRIZE { item = ITEM_CHERI_BERRY; effect = HOLD_EFFECT_CURE_PAR; status1 = STATUS1_PARALYSIS; }
     PARAMETRIZE { item = ITEM_PECHA_BERRY; effect = HOLD_EFFECT_CURE_PSN; status1 = STATUS1_POISON; }
     PARAMETRIZE { item = ITEM_PECHA_BERRY; effect = HOLD_EFFECT_CURE_PSN; status1 = STATUS1_TOXIC_POISON; }
     PARAMETRIZE { item = ITEM_RAWST_BERRY; effect = HOLD_EFFECT_CURE_BRN; status1 = STATUS1_BURN; }
+    PARAMETRIZE { item = ITEM_ASPEAR_BERRY; effect = HOLD_EFFECT_CURE_FRZ; status1 = STATUS1_FREEZE; }
     PARAMETRIZE { item = ITEM_ASPEAR_BERRY; effect = HOLD_EFFECT_CURE_FRZ; status1 = STATUS1_FROSTBITE; }
     PARAMETRIZE { item = ITEM_APICOT_BERRY; effect = HOLD_EFFECT_SP_DEFENSE_UP; statId = STAT_SPDEF; }
     PARAMETRIZE { item = ITEM_MARANGA_BERRY; effect = HOLD_EFFECT_MARANGA_BERRY; statId = STAT_SPDEF; }
@@ -68,10 +70,14 @@ SINGLE_BATTLE_TEST("Bug Bite eats the target's berry and immediately gains its e
                 MESSAGE("Wobbuffet's Rawst Berry healed its burn!");
             } else if (status1 == STATUS1_SLEEP) {
                 MESSAGE("Wobbuffet's Chesto Berry woke it from its sleep!");
+            } else if (status1 == STATUS1_DROWSY) {
+                MESSAGE("Wobbuffet's Chesto Berry fought off its drowsiness!");
             } else if (status1 == STATUS1_PARALYSIS) {
                 MESSAGE("Wobbuffet's Cheri Berry cured paralysis!");
             } else if (status1 == STATUS1_TOXIC_POISON || status1 == STATUS1_POISON) {
                 MESSAGE("Wobbuffet's Pecha Berry cured poison!");
+            } else if (status1 == STATUS1_FREEZE) {
+                MESSAGE("Wobbuffet's Aspear Berry defrosted it!");
             } else if (status1 == STATUS1_FROSTBITE) {
                 MESSAGE("Wobbuffet's Aspear Berry healed its frostbite!");
             }

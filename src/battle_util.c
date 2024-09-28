@@ -1096,6 +1096,7 @@ const u8* CancelMultiTurnMoves(u32 battler)
 bool32 WasUnableToUseMove(u32 battler)
 {
     if (gProtectStructs[battler].prlzImmobility
+        || gProtectStructs[battler].drsImmobility
         || gProtectStructs[battler].usedImprisonedMove
         || gProtectStructs[battler].loveImmobility
         || gProtectStructs[battler].usedDisabledMove
@@ -2585,7 +2586,7 @@ u8 DoBattlerEndTurnEffects(void)
                 MAGIC_GUARD_CHECK;
                 // R/S does not perform this sleep check, which causes the nightmare effect to
                 // persist even after the affected Pokémon has been awakened by Shed Skin.
-                if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+                if (gBattleMons[battler].status1 & (STATUS1_SLEEP | STATUS1_DROWSY))
                 {
                     gBattleMoveDamage = GetNonDynamaxMaxHP(battler) / 4;
                     if (gBattleMoveDamage == 0)
@@ -2659,10 +2660,11 @@ u8 DoBattlerEndTurnEffects(void)
             {
                 for (gBattlerAttacker = 0; gBattlerAttacker < gBattlersCount; gBattlerAttacker++)
                 {
-                    if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_SLEEP)
+                    if ((gBattleMons[gBattlerAttacker].status1 & (STATUS1_SLEEP | STATUS1_DROWSY))
                      && GetBattlerAbility(gBattlerAttacker) != ABILITY_SOUNDPROOF)
                     {
                         gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_SLEEP;
+                        gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_DROWSY;
                         gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_NIGHTMARE;
                         gBattleCommunication[MULTISTRING_CHOOSER] = 1;
                         BattleScriptExecute(BattleScript_MonWokeUpInUproar);
@@ -2813,10 +2815,15 @@ u8 DoBattlerEndTurnEffects(void)
                     }
                     else
                     {
-                        if (B_SLEEP_TURNS >= GEN_5)
-                            gBattleMons[battler].status1 |= ((Random() % 3) + 2);
+                        if (B_USE_DROWSY)
+                            gBattleMons[battler].status1 |= STATUS1_DROWSY;
                         else
-                            gBattleMons[battler].status1 |= ((Random() % 4) + 3);
+                        {
+                            if (B_SLEEP_TURNS >= GEN_5)
+                                gBattleMons[battler].status1 |= ((Random() % 3) + 2);
+                            else
+                                gBattleMons[battler].status1 |= ((Random() % 4) + 3);
+                        }
 
                         BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
                         MarkBattlerForControllerExec(battler);
@@ -3453,6 +3460,25 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
                 // This is removed in FRLG and Emerald for some reason
                 //CancelMultiTurnMoves(gBattlerAttacker);
                 gBattlescriptCurrInstr = BattleScript_MoveUsedIsParalyzed;
+                gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
+                effect = 1;
+            }
+            gBattleStruct->atkCancellerTracker++;
+            break;
+        case CANCELLER_DROWSY:
+            if (UproarWakeUpCheck(gBattlerAttacker))
+            {
+                gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_DROWSY;
+                gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_NIGHTMARE;
+                BattleScriptPushCursor();
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WOKE_UP_UPROAR;
+                gBattlescriptCurrInstr = BattleScript_MoveUsedWokeUp;
+                effect = 2;
+            }
+            else if (!gBattleStruct->isAtkCancelerForCalledMove && (gBattleMons[gBattlerAttacker].status1 & STATUS1_DROWSY) && !RandomPercentage(RNG_DROWSY, 50))
+            {
+                gProtectStructs[gBattlerAttacker].drsImmobility = TRUE;
+                gBattlescriptCurrInstr = BattleScript_MoveUsedIsDrowsy;
                 gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
                 effect = 1;
             }
@@ -5041,7 +5067,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 ABILITY_HEAL_MON_STATUS:
                     if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
                         StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
-                    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+                    if (gBattleMons[battler].status1 & (STATUS1_SLEEP | STATUS1_DROWSY))
                         StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
                     if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
                         StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
@@ -5712,11 +5738,11 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                  && IsBattlerAlive(gBattlerAttacker)
                  && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
                  && TARGET_TURN_DAMAGED
-                 && CanBeSlept(gBattlerAttacker, ability)
+                 && CanBeSleptOrDrowsy(gBattlerAttacker, ability)
                  && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_PROTECTIVE_PADS
                  && IsMoveMakingContact(move, gBattlerAttacker))
                 {
-                    gBattleScripting.moveEffect = MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_SLEEP;
+                    gBattleScripting.moveEffect = MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_SLEEP_OR_DROWSY;
                     PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_AbilityStatusEffect;
@@ -6146,7 +6172,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 break;
             case ABILITY_INSOMNIA:
             case ABILITY_VITAL_SPIRIT:
-                if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+                if (gBattleMons[battler].status1 & (STATUS1_SLEEP | STATUS1_DROWSY))
                 {
                     gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
                     StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
@@ -6571,7 +6597,7 @@ bool32 IsBattlerTerrainAffected(u32 battler, u32 terrainFlag)
     return IsBattlerGrounded(battler);
 }
 
-bool32 CanBeSlept(u32 battler, u32 ability)
+bool32 CanBeSleptOrDrowsy(u32 battler, u32 ability)
 {
     if (ability == ABILITY_INSOMNIA
      || ability == ABILITY_VITAL_SPIRIT
@@ -7225,6 +7251,14 @@ static u8 ItemEffectMoveEnd(u32 battler, u16 holdEffect)
             gBattlescriptCurrInstr = BattleScript_BerryCureSlpRet;
             effect = ITEM_STATUS_CHANGE;
         }
+        if (gBattleMons[battler].status1 & STATUS1_DROWSY && !UnnerveOn(battler, gLastUsedItem))
+        {
+            gBattleMons[battler].status1 &= ~STATUS1_DROWSY;
+            gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_BerryCureDrsRet;
+            effect = ITEM_STATUS_CHANGE;
+        }
         break;
     case HOLD_EFFECT_CURE_CONFUSION:
         if (gBattleMons[battler].status2 & STATUS2_CONFUSION && !UnnerveOn(battler, gLastUsedItem))
@@ -7251,7 +7285,7 @@ static u8 ItemEffectMoveEnd(u32 battler, u16 holdEffect)
             if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
                 StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
 
-            if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+            if (gBattleMons[battler].status1 & STATUS1_SLEEP || gBattleMons[battler].status1 & STATUS1_DROWSY)
             {
                 gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
                 StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
@@ -7466,6 +7500,15 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     BattleScriptExecute(BattleScript_BerryCureSlpEnd2);
                     effect = ITEM_STATUS_CHANGE;
                 }
+                if (B_BERRIES_INSTANT >= GEN_4
+                    && (gBattleMons[battler].status1 & STATUS1_DROWSY)
+                    && !UnnerveOn(battler, gLastUsedItem))
+                {
+                    gBattleMons[battler].status1 &= ~STATUS1_DROWSY;
+                    gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
+                    BattleScriptExecute(BattleScript_BerryCureDrsEnd2);
+                    effect = ITEM_STATUS_CHANGE;
+                }
                 break;
             case HOLD_EFFECT_CURE_STATUS:
                 if (B_BERRIES_INSTANT >= GEN_4
@@ -7478,7 +7521,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                         StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
                         i++;
                     }
-                    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+                    if (gBattleMons[battler].status1 & STATUS1_SLEEP || gBattleMons[battler].status1 & STATUS1_DROWSY)
                     {
                         gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
                         StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
@@ -7772,6 +7815,13 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     BattleScriptExecute(BattleScript_BerryCureSlpEnd2);
                     effect = ITEM_STATUS_CHANGE;
                 }
+                if (gBattleMons[battler].status1 & STATUS1_DROWSY && !UnnerveOn(battler, gLastUsedItem))
+                {
+                    gBattleMons[battler].status1 &= ~STATUS1_DROWSY;
+                    gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
+                    BattleScriptExecute(BattleScript_BerryCureDrsEnd2);
+                    effect = ITEM_STATUS_CHANGE;
+                }
                 break;
             case HOLD_EFFECT_CURE_CONFUSION:
                 if (gBattleMons[battler].status2 & STATUS2_CONFUSION && !UnnerveOn(battler, gLastUsedItem))
@@ -7790,7 +7840,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                         StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
                         i++;
                     }
-                    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+                    if (gBattleMons[battler].status1 & STATUS1_SLEEP || gBattleMons[battler].status1 & STATUS1_DROWSY)
                     {
                         gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
                         StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
@@ -8424,7 +8474,8 @@ u8 GetAttackerObedienceForAction()
     // is not obedient
     if (gCurrentMove == MOVE_RAGE)
         gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_RAGE;
-    if (gBattleMons[gBattlerAttacker].status1 & STATUS1_SLEEP && (gMovesInfo[gCurrentMove].effect == EFFECT_SNORE || gMovesInfo[gCurrentMove].effect == EFFECT_SLEEP_TALK))
+
+    if (gBattleMons[gBattlerAttacker].status1 & (STATUS1_SLEEP | STATUS1_DROWSY) && (gMovesInfo[gCurrentMove].effect == EFFECT_SNORE || gMovesInfo[gCurrentMove].effect == EFFECT_SLEEP_TALK))
         return DISOBEYS_WHILE_ASLEEP;
 
     calc = (levelReferenced + obedienceLevel) * ((rnd >> 8) & 255) >> 8;
@@ -8444,7 +8495,7 @@ u8 GetAttackerObedienceForAction()
         obedienceLevel = levelReferenced - obedienceLevel;
 
         calc = ((rnd >> 16) & 255);
-        if (calc < obedienceLevel && CanBeSlept(gBattlerAttacker, GetBattlerAbility(gBattlerAttacker)))
+        if (calc < obedienceLevel && CanBeSleptOrDrowsy(gBattlerAttacker, GetBattlerAbility(gBattlerAttacker)))
         {
             // try putting asleep
             int i;
@@ -8908,7 +8959,7 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         break;
     case EFFECT_DOUBLE_POWER_ON_ARG_STATUS:
         // Comatose targets treated as if asleep
-        if ((gBattleMons[battlerDef].status1 | (STATUS1_SLEEP * (abilityDef == ABILITY_COMATOSE))) & gMovesInfo[move].argument
+        if ((gBattleMons[battlerDef].status1 | ((STATUS1_SLEEP | STATUS1_DROWSY) * (abilityDef == ABILITY_COMATOSE))) & gMovesInfo[move].argument
          && !((gMovesInfo[move].additionalEffects->moveEffect == MOVE_EFFECT_REMOVE_STATUS) && DoesSubstituteBlockMove(battlerAtk, battlerDef, move)))
         {
             basePower *= 2;
@@ -9107,7 +9158,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
     switch (gMovesInfo[move].effect)
     {
     case EFFECT_FACADE:
-        if (gBattleMons[battlerAtk].status1 & (STATUS1_BURN | STATUS1_PSN_ANY | STATUS1_PARALYSIS | STATUS1_FROSTBITE))
+        if (gBattleMons[battlerAtk].status1 & (STATUS1_BURN | STATUS1_PSN_ANY | STATUS1_PARALYSIS | STATUS1_FROSTBITE | STATUS1_DROWSY))
             modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
         break;
     case EFFECT_BRINE:
@@ -9837,6 +9888,9 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.1));
     if (ShouldGetStatBadgeBoost(FLAG_BADGE07_GET, battlerDef) && IS_MOVE_SPECIAL(move))
         modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.1));
+
+    if (gBattleMons[battlerDef].status1 & STATUS1_DROWSY)
+        modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.66)); //I believe this is correct
 
     return uq4_12_multiply_by_int_half_down(modifier, defStat);
 }

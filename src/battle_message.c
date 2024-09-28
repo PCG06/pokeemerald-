@@ -104,6 +104,7 @@ static const u8 sText_PkmnEnergyDrained[] = _("{B_DEF_NAME_WITH_PREFIX} had its\
 static const u8 sText_PkmnWasBurned[] = _("{B_EFF_NAME_WITH_PREFIX} was burned!");
 static const u8 sText_PkmnGotFrostbite[] = _("{B_EFF_NAME_WITH_PREFIX} got frostbite!");
 static const u8 sText_PkmnBurnedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_BUFF1}\nburned {B_EFF_NAME_WITH_PREFIX}!");
+static const u8 sText_PkmnGotFrostbiteFrom[] = _("{B_EFF_NAME_WITH_PREFIX} got frostbite from\n{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_BUFF1}!");
 static const u8 sText_PkmnHurtByBurn[] = _("{B_ATK_NAME_WITH_PREFIX} is hurt\nby its burn!");
 static const u8 sText_PkmnHurtByFrostbite[] = _("{B_ATK_NAME_WITH_PREFIX} is hurt\nby its frostbite!");
 static const u8 sText_PkmnAlreadyHasBurn[] = _("{B_DEF_NAME_WITH_PREFIX} already\nhas a burn.");
@@ -117,10 +118,15 @@ static const u8 sText_PkmnFrostbiteHealed[] = _("{B_DEF_NAME_WITH_PREFIX}'s\nfro
 static const u8 sText_PkmnFrostbiteHealed2[] = _("{B_ATK_NAME_WITH_PREFIX}'s\nfrostbite was healed!");
 static const u8 sText_PkmnFrostbiteHealedBy[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_CURRENT_MOVE}\nhealed its frostbite!");
 static const u8 sText_PkmnWasParalyzed[] = _("{B_EFF_NAME_WITH_PREFIX} is paralyzed!\nIt may be unable to move!");
+static const u8 sText_PkmnGrewDrowsy[] = _("{B_EFF_NAME_WITH_PREFIX} grew drowsy!");
 static const u8 sText_PkmnWasParalyzedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_BUFF1}\nparalyzed {B_EFF_NAME_WITH_PREFIX}!\lIt may be unable to move!");
+static const u8 sText_PkmnGrewDowsyFrom[] = _("{B_EFF_NAME_WITH_PREFIX} grew drowsy from\n{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_BUFF1}!");
 static const u8 sText_PkmnIsParalyzed[] = _("{B_ATK_NAME_WITH_PREFIX} is paralyzed!\nIt can't move!");
+static const u8 sText_PkmnIsTooDrowsy[] = _("{B_ATK_NAME_WITH_PREFIX} is too drowsy\nto move!");
 static const u8 sText_PkmnIsAlreadyParalyzed[] = _("{B_DEF_NAME_WITH_PREFIX} is\nalready paralyzed!");
+static const u8 sText_PkmnIsAlreadyDrowsy[] = _("{B_DEF_NAME_WITH_PREFIX} is\nalready drowsy.");
 static const u8 sText_PkmnHealedParalysis[] = _("{B_DEF_NAME_WITH_PREFIX} was\nhealed of paralysis!");
+static const u8 sText_PkmnFoughtOffDrowsiness[] = _("{B_DEF_NAME_WITH_PREFIX} fought off\nits drowsiness!");
 static const u8 sText_PkmnDreamEaten[] = _("{B_DEF_NAME_WITH_PREFIX}'s\ndream was eaten!");
 static const u8 sText_StatsWontIncrease[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1}\nwon't go higher!");
 static const u8 sText_StatsWontDecrease[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1}\nwon't go lower!");
@@ -507,6 +513,7 @@ static const u8 sText_PkmnsItemHealedBurn[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}
 static const u8 sText_PkmnsItemHealedFrostbite[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nhealed its frostbite!");
 static const u8 sText_PkmnsItemDefrostedIt[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\ndefrosted it!");
 static const u8 sText_PkmnsItemWokeIt[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nwoke it from its sleep!");
+static const u8 sText_PkmnsItemFoughtOffDrowsiness[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nfought off its drowsiness!");
 static const u8 sText_PkmnsItemSnappedOut[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nsnapped it out of confusion!");
 static const u8 sText_PkmnsItemCuredProblem[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\ncured its {B_BUFF1} problem!");
 static const u8 sText_PkmnsItemNormalizedStatus[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nnormalized its status!");
@@ -1541,6 +1548,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNSABILITYPREVENTSABILITY - BATTLESTRINGS_TABLE_START] = sText_PkmnsAbilityPreventsAbility,
     [STRINGID_PKMNHURTBYFROSTBITE - BATTLESTRINGS_TABLE_START] = sText_PkmnHurtByFrostbite,
     [STRINGID_PKMNGOTFROSTBITE - BATTLESTRINGS_TABLE_START] = sText_PkmnGotFrostbite,
+    [STRINGID_PKMNGOTFROSTBITEFROM - BATTLESTRINGS_TABLE_START] = sText_PkmnGotFrostbiteFrom,
     [STRINGID_PKMNSITEMHEALEDFROSTBITE - BATTLESTRINGS_TABLE_START] = sText_PkmnsItemHealedFrostbite,
     [STRINGID_ATTACKERHEALEDITSFROSTBITE - BATTLESTRINGS_TABLE_START] = sText_AttackerHealedItsFrostbite,
     [STRINGID_PKMNFROSTBITEHEALED - BATTLESTRINGS_TABLE_START] = sText_PkmnFrostbiteHealed,
@@ -1553,6 +1561,12 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_ITEMWASUSEDUP - BATTLESTRINGS_TABLE_START] = sText_ItemWasUsedUp,
     [STRINGID_ATTACKERLOSTITSTYPE - BATTLESTRINGS_TABLE_START] = sText_AttackerLostItsType,
     [STRINGID_CLOAKEDINAHARSHLIGHT - BATTLESTRINGS_TABLE_START] = sText_PkmnIsCloakedInAHarshLight,
+    [STRINGID_PKMNGREWDROWSY - BATTLESTRINGS_TABLE_START] = sText_PkmnGrewDrowsy,
+    [STRINGID_PKMNGREWDROWSYFROM - BATTLESTRINGS_TABLE_START] = sText_PkmnGrewDowsyFrom,
+    [STRINGID_PKMNISTOODROWSY - BATTLESTRINGS_TABLE_START] = sText_PkmnIsTooDrowsy,
+    [STRINGID_PKMNISALREADYDROWSY - BATTLESTRINGS_TABLE_START] = sText_PkmnIsAlreadyDrowsy,
+    [STRINGID_PKMNFOUGHTOFFDROWSINESS - BATTLESTRINGS_TABLE_START] = sText_PkmnFoughtOffDrowsiness,
+    [STRINGID_PKMNSITEMFOUGHTOFFDROWSINESS - BATTLESTRINGS_TABLE_START] = sText_PkmnsItemFoughtOffDrowsiness,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1854,10 +1868,16 @@ const u16 gGotParalyzedStringIds[] =
     [B_MSG_STATUSED_BY_ABILITY] = STRINGID_PKMNWASPARALYZEDBY
 };
 
+const u16 gGrewDrowsyStringIds[] =
+{
+    [B_MSG_STATUSED]            = STRINGID_PKMNGREWDROWSY,
+    [B_MSG_STATUSED_BY_ABILITY] = STRINGID_PKMNGREWDROWSYFROM
+};
+
 const u16 gFellAsleepStringIds[] =
 {
     [B_MSG_STATUSED]            = STRINGID_PKMNFELLASLEEP,
-    [B_MSG_STATUSED_BY_ABILITY] = STRINGID_PKMNMADESLEEP,
+    [B_MSG_STATUSED_BY_ABILITY] = STRINGID_PKMNMADESLEEP
 };
 
 const u16 gGotBurnedStringIds[] =
@@ -1868,7 +1888,8 @@ const u16 gGotBurnedStringIds[] =
 
 const u16 gGotFrostbiteStringIds[] =
 {
-    [B_MSG_STATUSED]            = STRINGID_PKMNGOTFROSTBITE
+    [B_MSG_STATUSED]            = STRINGID_PKMNGOTFROSTBITE,
+    [B_MSG_STATUSED_BY_ABILITY] = STRINGID_PKMNGOTFROSTBITEFROM
 };
 
 const u16 gFrostbiteHealedStringIds[] =
@@ -2043,7 +2064,7 @@ const u16 gRoomsStringIds[] =
 
 const u16 gStatusConditionsStringIds[] =
 {
-    STRINGID_PKMNWASPOISONED, STRINGID_PKMNBADLYPOISONED, STRINGID_PKMNWASBURNED, STRINGID_PKMNWASPARALYZED, STRINGID_PKMNFELLASLEEP, STRINGID_PKMNGOTFROSTBITE
+    STRINGID_PKMNWASPOISONED, STRINGID_PKMNBADLYPOISONED, STRINGID_PKMNWASBURNED, STRINGID_PKMNWASPARALYZED, STRINGID_PKMNFELLASLEEP, STRINGID_PKMNGOTFROSTBITE, STRINGID_PKMNGREWDROWSY
 };
 
 const u16 gStatus2StringIds[] =

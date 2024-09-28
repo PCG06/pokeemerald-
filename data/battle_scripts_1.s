@@ -614,6 +614,7 @@ BattleScript_AffectionBasedStatusHeal::
 	jumpifstatus BS_ATTACKER, STATUS1_BURN, BattleScript_AffectionBasedStatus_HealBurnString
 	jumpifstatus BS_ATTACKER, STATUS1_FREEZE, BattleScript_AffectionBasedStatus_HealFreezeString
 	jumpifstatus BS_ATTACKER, STATUS1_FROSTBITE, BattleScript_AffectionBasedStatus_HealFrostbiteString
+	jumpifstatus BS_ATTACKER, STATUS1_DROWSY, BattleScript_AffectionBasedStatus_HealDrowsyString
 	end2
 BattleScript_AffectionBasedStatus_HealPoisonString:
 	printstring STRINGID_ATTACKEREXPELLEDTHEPOISON
@@ -632,6 +633,9 @@ BattleScript_AffectionBasedStatus_HealFreezeString:
 	goto BattleScript_AffectionBasedStatusHeal_Continue
 BattleScript_AffectionBasedStatus_HealFrostbiteString:
 	printstring STRINGID_ATTACKERMELTEDTHEICE
+	goto BattleScript_AffectionBasedStatusHeal_Continue
+BattleScript_AffectionBasedStatus_HealDrowsyString:
+	printstring STRINGID_ATTACKERSHOOKITSELFAWAKE
 BattleScript_AffectionBasedStatusHeal_Continue:
 	waitmessage B_WAIT_TIME_LONG
 	clearstatus BS_ATTACKER
@@ -2862,6 +2866,9 @@ BattleScript_MoveMissed::
 
 BattleScript_EffectDarkVoid::
 .if B_DARK_VOID_FAIL >= GEN_7
+.if B_USE_DROWSY == TRUE
+	jumpifspecies BS_ATTACKER, SPECIES_DARKRAI, BattleScript_EffectDrowsy
+.endif
 	jumpifspecies BS_ATTACKER, SPECIES_DARKRAI, BattleScript_EffectSleep
 	goto BattleScript_PokemonCantUseTheMove
 .endif
@@ -2888,6 +2895,31 @@ BattleScript_EffectSleep::
 	attackanimation
 	waitanimation
 	seteffectprimary MOVE_EFFECT_SLEEP
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectDrowsy::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpifstatus BS_TARGET, STATUS1_DROWSY, BattleScript_AlreadyAsleep
+	jumpifuproarwakes BattleScript_CantMakeAsleep
+	jumpifability BS_TARGET, ABILITY_INSOMNIA, BattleScript_InsomniaProtects
+	jumpifability BS_TARGET, ABILITY_VITAL_SPIRIT, BattleScript_InsomniaProtects
+	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_AbilityProtectsDoesntAffect
+	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_AbilityProtectsDoesntAffect
+	jumpifflowerveil BattleScript_FlowerVeilProtects
+	jumpifability BS_TARGET_SIDE, ABILITY_SWEET_VEIL, BattleScript_SweetVeilProtects
+	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpifterrainaffected BS_TARGET, STATUS_FIELD_ELECTRIC_TERRAIN, BattleScript_ElectricTerrainPrevents
+	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpifsafeguard BattleScript_SafeguardProtected
+	attackanimation
+	waitanimation
+	seteffectprimary MOVE_EFFECT_DROWSY
 	goto BattleScript_MoveEnd
 
 BattleScript_TerrainPreventsEnd2::
@@ -3051,6 +3083,7 @@ BattleScript_EffectDreamEater::
 	attackcanceler
 	jumpifsubstituteblocks BattleScript_DreamEaterNoEffect
 	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_DreamEaterWorked
+	jumpifstatus BS_TARGET, STATUS1_DROWSY, BattleScript_DreamEaterWorked
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_DreamEaterWorked
 BattleScript_DreamEaterNoEffect:
 	attackstring
@@ -3375,6 +3408,7 @@ BattleScript_EffectRest::
 	attackstring
 	ppreduce
 	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_RestIsAlreadyAsleep
+	jumpifstatus BS_ATTACKER, STATUS1_DROWSY, BattleScript_RestIsAlreadyAsleep
 	jumpifability BS_ATTACKER, ABILITY_COMATOSE, BattleScript_RestIsAlreadyAsleep
 	jumpifuproarwakes BattleScript_RestCantSleep
 	jumpifability BS_TARGET, ABILITY_INSOMNIA, BattleScript_InsomniaProtects
@@ -3972,6 +4006,7 @@ BattleScript_EffectPainSplit::
 BattleScript_EffectSnore::
 	attackcanceler
 	jumpifability BS_ATTACKER, ABILITY_COMATOSE, BattleScript_SnoreIsAsleep
+	jumpifstatus BS_ATTACKER, STATUS1_DROWSY, BattleScript_SnoreIsAsleep
 	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_SnoreIsAsleep
 	attackstring
 	ppreduce
@@ -4026,6 +4061,7 @@ BattleScript_EffectSleepTalk::
 	attackcanceler
 	jumpifability BS_ATTACKER, ABILITY_COMATOSE, BattleScript_SleepTalkIsAsleep
 	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_SleepTalkIsAsleep
+	jumpifstatus BS_ATTACKER, STATUS1_DROWSY, BattleScript_SleepTalkIsAsleep
 	attackstring
 	ppreduce
 	goto BattleScript_ButItFailed
@@ -7284,6 +7320,13 @@ BattleScript_MoveUsedIsParalyzed::
 	cancelmultiturnmoves BS_ATTACKER
 	goto BattleScript_MoveEnd
 
+BattleScript_MoveUsedIsDrowsy::
+	printstring STRINGID_PKMNISTOODROWSY
+	waitmessage B_WAIT_TIME_LONG
+	statusanimation BS_ATTACKER
+	cancelmultiturnmoves BS_ATTACKER
+	goto BattleScript_MoveEnd
+
 BattleScript_PowderMoveNoEffect::
 	attackstring
 	ppreduce
@@ -7443,6 +7486,18 @@ BattleScript_TargetPoisonHealed::
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_TARGET
 	return
+
+BattleScript_TargetFoughtOffDrowsiness::
+	printstring STRINGID_PKMNFOUGHTOFFDROWSINESS
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_TARGET
+	return
+
+BattleScript_MoveEffectDrowsy::
+	statusanimation BS_EFFECT_BATTLER
+	printfromtable gGrewDrowsyStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_UpdateEffectStatusIconRet
 
 BattleScript_MoveEffectSleep::
 	statusanimation BS_EFFECT_BATTLER
@@ -8803,6 +8858,18 @@ BattleScript_BerryCureSlpEnd2::
 BattleScript_BerryCureSlpRet::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNSITEMWOKEIT
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_SCRIPTING
+	removeitem BS_SCRIPTING
+	return
+
+BattleScript_BerryCureDrsEnd2::
+	call BattleScript_BerryCureDrsRet
+	end2
+
+BattleScript_BerryCureDrsRet::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_PKMNSITEMFOUGHTOFFDROWSINESS
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_SCRIPTING
 	removeitem BS_SCRIPTING

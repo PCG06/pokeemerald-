@@ -55,11 +55,12 @@ AI_SINGLE_BATTLE_TEST("AI sees increased base power of Wake Up Slap")
 
     PARAMETRIZE { status1 = STATUS1_NONE; expectedMove = MOVE_BODY_SLAM; }
     PARAMETRIZE { status1 = STATUS1_SLEEP; expectedMove = MOVE_WAKE_UP_SLAP; }
+    PARAMETRIZE { status1 = STATUS1_DROWSY; expectedMove = MOVE_WAKE_UP_SLAP; }
 
     GIVEN {
         ASSUME(B_UPDATED_MOVE_DATA >= GEN_6);
         ASSUME(gMovesInfo[MOVE_WAKE_UP_SLAP].effect == EFFECT_DOUBLE_POWER_ON_ARG_STATUS);
-        ASSUME(gMovesInfo[MOVE_WAKE_UP_SLAP].argument == STATUS1_SLEEP);
+        ASSUME(gMovesInfo[MOVE_WAKE_UP_SLAP].argument == (STATUS1_SLEEP | STATUS1_DROWSY));
         AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT);
         PLAYER(SPECIES_MEGANIUM) { HP(35); Status1(status1); }
         OPPONENT(SPECIES_WOBBUFFET) { Moves(MOVE_BODY_SLAM, MOVE_WAKE_UP_SLAP); }
@@ -118,6 +119,7 @@ AI_SINGLE_BATTLE_TEST("AI will only use Dream Eater if target is asleep")
 
     PARAMETRIZE { status1 = STATUS1_NONE; expectedMove = MOVE_BODY_SLAM; }
     PARAMETRIZE { status1 = STATUS1_SLEEP; expectedMove = MOVE_DREAM_EATER; }
+    PARAMETRIZE { status1 = STATUS1_DROWSY; expectedMove = MOVE_DREAM_EATER; }
 
     GIVEN {
         AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT);
