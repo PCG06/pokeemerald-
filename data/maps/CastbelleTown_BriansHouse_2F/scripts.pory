@@ -1,4 +1,4 @@
-const LOCALID_BRIAN = 1
+const LOCALID_BRIAN = 1 # Brian is Wally
 
 mapscripts CastbelleTown_BriansHouse_2F_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
@@ -8,36 +8,37 @@ mapscripts CastbelleTown_BriansHouse_2F_MapScripts {
 
 script CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady {
     lock
+    delay(12)
     turnplayer(DIR_EAST)
-    delay(6)
-    msgbox("Brian: Aand, packed!\n"
+    msgbox("Brian: …Aaaand, packed!\n"
             "I'm ready to get my starter Pokémon!\p"
-            "Woody better keep the best one for me!", MSGBOX_AUTOCLOSE)
+            "Woody better let me pick the best one\n"
+            "first!", MSGBOX_AUTOCLOSE)
     applymove(LOCALID_BRIAN, Common_Movement_FaceLeft)
     emote(LOCALID_BRIAN, EMOTE_EXCLAM)
     delay(6)
     applymove(LOCALID_BRIAN, MoveBrianToPlayer)
     msgbox("Oh! Hi, {PLAYER}!\p"
-            "Excited to get your first Pokémon, too?\p"
-            "I'm nervous, I tell you that!\p"
-            "I've been going over my type matchups\n"
-            "like Prof. Wood told us to!\p"
-            "You better be ready, when we get our\n"
-            "Pokémon, we're battling!\p"
+            "Excited to get your first Pokémon?\p"
+            "Honestly, I'm kind of nervous…\p"
+            "I've been going over my type matchups,\n"
+            "like Prof. Wood told us to.\p"
+            "You'd better be ready to battle when\n"
+            "we get our Pokemon!\p"
             "Phew!\n"
             "Now, let's go!\p"
             "I can't wait to pick my starter!", MSGBOX_AUTOCLOSE)
     emote(LOCALID_BRIAN, EMOTE_EXCLAM)
     msgbox("I forgot,\n"
-            "I gotta get some berries first!\p"
-            "Looks like I won't the first one there,\n"
-            "haha…", MSGBOX_AUTOCLOSE)
+            "I gotta buy some berries first!\p"
+            "Looks like I won't be the first one\n"
+            "there, haha…", MSGBOX_AUTOCLOSE)
     applymovement(LOCALID_BRIAN, BrianWalkInPlaceLeft) // applymovement over applymove because these two should happen at the same time
     applymoveplayer(Common_Movement_StopInPlaceWalkLeft)
     applymove(LOCALID_BRIAN, BrianExit)
-    delay(12)
+    delay(6)
     removeobject(LOCALID_BRIAN)
-    playse(SE_DOOR)
+    playse(SE_EXIT)
     setvar(VAR_CASTBELLE_TOWN_STATE, 2)
     release
     end
