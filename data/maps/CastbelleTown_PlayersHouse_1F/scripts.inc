@@ -13,13 +13,13 @@ CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon::
 # 10 "data/maps/CastbelleTown_PlayersHouse_1F/scripts.pory"
 	lock
 # 11 "data/maps/CastbelleTown_PlayersHouse_1F/scripts.pory"
-	delay 4
+	delay 6
 # 12 "data/maps/CastbelleTown_PlayersHouse_1F/scripts.pory"
 	applymove 1, Common_Movement_FaceUp
 # 13 "data/maps/CastbelleTown_PlayersHouse_1F/scripts.pory"
 	emote 1, EMOTE_EXCLAIM
 # 14 "data/maps/CastbelleTown_PlayersHouse_1F/scripts.pory"
-	delay 1
+	delay 6
 # 15 "data/maps/CastbelleTown_PlayersHouse_1F/scripts.pory"
 	applymove 1, MoveMomToPlayer
 # 16 "data/maps/CastbelleTown_PlayersHouse_1F/scripts.pory"
@@ -110,7 +110,7 @@ CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon_Text_0:
 # 16 "data/maps/CastbelleTown_PlayersHouse_1F/scripts.pory"
 	.string "Mom: {PLAYER}!\n"
 	.string "Did you hear?\p"
-	.string "Prof. Wood is giving out Pokemon to new\n"
+	.string "Prof. Wood is giving out Pokémon to new\n"
 	.string "Trainers!\p"
 	.string "You just got your Trainer Card,\n"
 	.string "why not get yourself a new companion?\p"

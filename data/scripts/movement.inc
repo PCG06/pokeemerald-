@@ -109,3 +109,8 @@ Common_Movement_WalkUp2::
 	walk_up
 	walk_up
 	step_end
+
+Common_Movement_StopInPlaceWalkLeft::
+	lock_facing_direction
+	walk_fast_left
+	step_end

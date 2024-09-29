@@ -2336,6 +2336,21 @@
 	.endif
 	.endm
 
+	@ applymove specifically for player
+	.macro applymoveplayer movements:req, wait, map
+	applymovement OBJ_EVENT_ID_PLAYER, \movements, \map
+	.ifb \wait
+		waitmovement 0
+	.else
+		waitmovement \wait
+	.endif
+	.endm
+
+	@ alias of turnobject with OBJ_EVENT_ID_PLAYER as the localid argument
+	.macro turnplayer direction:req
+	turnobject OBJ_EVENT_ID_PLAYER, \direction
+	.endm
+
 	@ face_original_direction as a macro for easy use
 	.macro faceoriginaldir
 	applymove VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection, 0

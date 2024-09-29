@@ -4450,6 +4450,26 @@
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/CastbelleTown_PlayersHouse_2F/border.bin",
       "blockdata_filepath": "data/layouts/CastbelleTown_PlayersHouse_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_CASTBELLE_TOWN_BRIANS_HOUSE_1F",
+      "name": "CastbelleTown_BriansHouse_1F_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/CastbelleTown_BriansHouse_1F/border.bin",
+      "blockdata_filepath": "data/layouts/CastbelleTown_BriansHouse_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_CASTBELLE_TOWN_BRIANS_HOUSE_2F",
+      "name": "CastbelleTown_BriansHouse_2F_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/CastbelleTown_BriansHouse_2F/border.bin",
+      "blockdata_filepath": "data/layouts/CastbelleTown_BriansHouse_2F/map.bin"
     }
   ]
 }

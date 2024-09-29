@@ -8,14 +8,14 @@ mapscripts CastbelleTown_PlayersHouse_1F_MapScripts {
 
 script CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon {
     lock
-    delay(4)
+    delay(6)
     applymove(LOCALID_MOM, Common_Movement_FaceUp)
     emote(LOCALID_MOM, EMOTE_EXCLAIM)
-    delay(1)
+    delay(6)
     applymove(LOCALID_MOM, MoveMomToPlayer)
     msgbox("Mom: {PLAYER}!\n"
             "Did you hear?\p"
-            "Prof. Wood is giving out Pokemon to new\n"
+            "Prof. Wood is giving out Pokémon to new\n"
             "Trainers!\p"
             "You just got your Trainer Card,\n"
             "why not get yourself a new companion?\p"
