@@ -17,7 +17,7 @@ script CastbelleTown_EventScript_BrianHouseSign {
     msgbox("Brian's House", MSGBOX_SIGN)
 }
 
-script CastbelleTown_EventScript_ProfWoodsLabSign {
+script CastbelleTown_EventScript_ProfPinesLabSign {
     msgbox("Professor Wood's Laboratory", MSGBOX_SIGN)
 }
 

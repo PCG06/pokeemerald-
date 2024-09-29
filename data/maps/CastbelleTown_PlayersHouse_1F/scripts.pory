@@ -15,11 +15,11 @@ script CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon {
     applymove(LOCALID_MOM, MoveMomToPlayer)
     msgbox("Mom: {PLAYER}!\n"
             "Did you hear?\p"
-            "Prof. Wood is giving out Pokémon to new\n"
+            "Prof. Pine is giving out Pokémon to new\n"
             "Trainers!\p"
             "You just got your Trainer Card,\n"
             "why not get yourself a new companion?\p"
-            "Prof. Wood would be overjoyed to give\n"
+            "Prof. Pine would be overjoyed to give\n"
             "you one!", MSGBOX_AUTOCLOSE)
     delay(1)
     applymove(LOCALID_MOM, MoveMomBackToChair)

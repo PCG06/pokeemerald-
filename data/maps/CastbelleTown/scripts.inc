@@ -27,9 +27,9 @@ CastbelleTown_EventScript_BrianHouseSign::
 	return
 
 
-CastbelleTown_EventScript_ProfWoodsLabSign::
+CastbelleTown_EventScript_ProfPinesLabSign::
 # 21 "data/maps/CastbelleTown/scripts.pory"
-	msgbox CastbelleTown_EventScript_ProfWoodsLabSign_Text_0, MSGBOX_SIGN
+	msgbox CastbelleTown_EventScript_ProfPinesLabSign_Text_0, MSGBOX_SIGN
 	return
 
 
@@ -82,7 +82,7 @@ CastbelleTown_EventScript_BrianHouseSign_Text_0:
 # 17 "data/maps/CastbelleTown/scripts.pory"
 	.string "Brian's House$"
 
-CastbelleTown_EventScript_ProfWoodsLabSign_Text_0:
+CastbelleTown_EventScript_ProfPinesLabSign_Text_0:
 # 21 "data/maps/CastbelleTown/scripts.pory"
 	.string "Professor Wood's Laboratory$"
 

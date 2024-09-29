@@ -1090,4 +1090,4 @@ EventScript_VsSeekerChargingDone::
 
 	.include "data/maps/CastbelleTown_BriansHouse_2F/scripts.inc"
 
-	.include "data/maps/CastbelleTown_ProfessorWoodsLab/scripts.inc"
+	.include "data/maps/CastbelleTown_ProfessorPinesLab/scripts.inc"

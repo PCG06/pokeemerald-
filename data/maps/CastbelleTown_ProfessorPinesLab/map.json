@@ -1,7 +1,7 @@
 {
-  "id": "MAP_CASTBELLE_TOWN_PROFESSOR_WOODS_LAB",
-  "name": "CastbelleTown_ProfessorWoodsLab",
-  "layout": "LAYOUT_CASTBELLE_TOWN_PROFESSOR_WOODS_LAB",
+  "id": "MAP_CASTBELLE_TOWN_PROFESSOR_PINES_LAB",
+  "name": "CastbelleTown_ProfessorPinesLab",
+  "layout": "LAYOUT_CASTBELLE_TOWN_PROFESSOR_PINES_LAB",
   "music": "MUS_BIRCH_LAB",
   "region_map_section": "MAPSEC_CASTBELLE_TOWN",
   "requires_flash": false,

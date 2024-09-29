@@ -110,11 +110,11 @@ CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon_Text_0:
 # 16 "data/maps/CastbelleTown_PlayersHouse_1F/scripts.pory"
 	.string "Mom: {PLAYER}!\n"
 	.string "Did you hear?\p"
-	.string "Prof. Wood is giving out Pokémon to new\n"
+	.string "Prof. Pine is giving out Pokémon to new\n"
 	.string "Trainers!\p"
 	.string "You just got your Trainer Card,\n"
 	.string "why not get yourself a new companion?\p"
-	.string "Prof. Wood would be overjoyed to give\n"
+	.string "Prof. Pine would be overjoyed to give\n"
 	.string "you one!$"
 
 CastbelleTown_PlayersHouse_1F_EventScript_Mom_Text_0:

@@ -102,7 +102,7 @@ CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady_Text_1:
 	.string "Excited to get your first Pokémon?\p"
 	.string "Honestly, I'm kind of nervous…\p"
 	.string "I've been going over my type matchups,\n"
-	.string "like Prof. Wood told us to.\p"
+	.string "like Prof. Pine told us to.\p"
 	.string "You'd better be ready to battle when\n"
 	.string "we get our Pokemon!\p"
 	.string "Phew!\n"

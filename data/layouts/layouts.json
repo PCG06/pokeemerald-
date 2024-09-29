@@ -4472,14 +4472,14 @@
       "blockdata_filepath": "data/layouts/CastbelleTown_BriansHouse_2F/map.bin"
     },
     {
-      "id": "LAYOUT_CASTBELLE_TOWN_PROFESSOR_WOODS_LAB",
-      "name": "CastbelleTown_ProfessorWoodsLab_Layout",
+      "id": "LAYOUT_CASTBELLE_TOWN_PROFESSOR_PINES_LAB",
+      "name": "CastbelleTown_ProfessorPinesLab_Layout",
       "width": 13,
       "height": 13,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Lab",
-      "border_filepath": "data/layouts/CastbelleTown_ProfessorWoodsLab/border.bin",
-      "blockdata_filepath": "data/layouts/CastbelleTown_ProfessorWoodsLab/map.bin"
+      "border_filepath": "data/layouts/CastbelleTown_ProfessorPinesLab/border.bin",
+      "blockdata_filepath": "data/layouts/CastbelleTown_ProfessorPinesLab/map.bin"
     }
   ]
 }
