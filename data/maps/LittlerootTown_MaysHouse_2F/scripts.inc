@@ -151,7 +151,7 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMay::
 # 76 "data/maps/LittlerootTown_MaysHouse_2F/scripts.pory"
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
 # 77 "data/maps/LittlerootTown_MaysHouse_2F/scripts.pory"
-	setvar VAR_LITTLEROOT_TOWN_STATE, 1
+	setvar VAR_CASTBELLE_TOWN_STATE, 1
 # 78 "data/maps/LittlerootTown_MaysHouse_2F/scripts.pory"
 	savebgm MUS_DUMMY
 # 79 "data/maps/LittlerootTown_MaysHouse_2F/scripts.pory"

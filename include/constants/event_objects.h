@@ -425,4 +425,9 @@
 // '(C)ompressed (E)vent'
 #define COMP_OW_TILE_TAG_BASE 0xCE00
 
+// Emotes for emote scripting macro
+#define EMOTE_EXCLAM 0
+#define EMOTE_QUESTION 1
+#define EMOTE_HEART 3
+
 #endif  // GUARD_CONSTANTS_EVENT_OBJECTS_H

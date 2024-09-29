@@ -1,1 +1,79 @@
-mapscripts CastbelleTown_PlayersHouse_1F_MapScripts {}
+const LOCALID_MOM = 1
+
+mapscripts CastbelleTown_PlayersHouse_1F_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_CASTBELLE_TOWN_STATE, 0: CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon
+    ]
+}
+
+script CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon {
+    lock
+    delay(4)
+    applymove(LOCALID_MOM, Common_Movement_FaceUp)
+    emote(LOCALID_MOM, EMOTE_EXCLAIM)
+    delay(1)
+    applymove(LOCALID_MOM, MoveMomToPlayer)
+    msgbox("Mom: {PLAYER}!\n"
+            "Did you hear?\p"
+            "Prof. Wood is giving out Pokemon to new\n"
+            "Trainers!\p"
+            "You just got your Trainer Card,\n"
+            "why not get yourself a new companion?\p"
+            "Prof. Wood would be overjoyed to give\n"
+            "you one!", MSGBOX_AUTOCLOSE)
+    delay(1)
+    applymove(LOCALID_MOM, MoveMomBackToChair)
+    applymove(LOCALID_MOM, Common_Movement_FaceLeft)
+    setvar(VAR_CASTBELLE_TOWN_STATE, 1)
+    release
+    end
+}
+
+movement MoveMomToPlayer {
+    walk_up
+    walk_right * 3
+    walk_up
+}
+
+movement MoveMomBackToChair {
+    walk_down
+    walk_left * 3
+    walk_down
+}
+
+script CastbelleTown_PlayersHouse_1F_EventScript_Mom {
+    lock
+    faceplayer
+    if (var(VAR_CASTBELLE_TOWN_STATE) == 1) {
+        checkplayergender
+        if (var(VAR_RESULT) == MALE) {
+            msgbox("sniff…\p"
+                    "My little boy going on his own\n"
+                    "adventure.\p"
+                    "I know you were waiting your whole life\n"
+                    "for this moment.\p"
+                    "Now go get your partner!", MSGBOX_AUTOCLOSE)
+        }
+        else {
+            msgbox("sniff…\p"
+                    "My little girl going on her own\n"
+                    "adventure.\p"
+                    "I know you were waiting your whole life\n"
+                    "for this moment.\p"
+                    "Now go get your partner!", MSGBOX_AUTOCLOSE)
+        }
+        faceoriginaldir
+        release
+        end
+    }
+    else {
+        msgbox("Hello, honey!\p"
+                "Feeling tired? Take some rest", MSGBOX_AUTOCLOSE)
+        call(Common_EventScript_OutOfCenterPartyHeal)
+        msgbox("There!\n"
+                "Feeling all refreshed, {PLAYER}?", MSGBOX_AUTOCLOSE)
+        faceoriginaldir
+        release
+        end
+    }
+}

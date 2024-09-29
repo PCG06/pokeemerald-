@@ -272,5 +272,6 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_EVER_GRANDE_POKEMON_CENTER_1F_SCOTT
 	setflag FLAG_HIDE_SKY_PILLAR_WALLACE
 	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
+	setvar VAR_CASTBELLE_TOWN_STATE, 0
 	call EventScript_ResetAllBerries
 	end

@@ -2321,3 +2321,82 @@
 	.macro togglefakertc
 	callnative Script_ToggleFakeRtc
 	.endm
+
+	@ applymovement with waitmovement built-in.
+	@ If wait is not provided, waitmovement 0 is emitted.
+	@ If wait has a value, the emitted waitmovement will have that value.
+	@ i.e. if wait is 7, waitmovement 7 will be emitted.
+	@ If you don't want a waitmovement emitted, use applymovement instead.
+	.macro applymove localid:req, movements:req, wait, map
+	applymovement \localid, \movements, \map
+	.ifb \wait
+		waitmovement 0
+	.else
+		waitmovement \wait
+	.endif
+	.endm
+
+	@ face_original_direction as a macro for easy use
+	.macro faceoriginaldir
+	applymove VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection, 0
+	.endm
+
+	@ This replicates the most common emote structure in the game, which is:
+	@ -----
+	@ playse SE_PIN
+	@ applymovement LOCALID, Common_Movement_ExclamationMark @ (or others)
+	@ waitmovement 0
+	@ applymovement LOCALID, Common_Movement_Delay48
+	@ waitmovement 0
+	@ -----
+	@ If emote is not provided, then it will do an exclamation mark emote.
+	@ Other params include:
+	@ EMOTE_EXCLAM, EMOTE_QUESTION, and EMOTE_HEART. Invalid entries
+	@ do the exclamation mark emote.
+	.macro emote localid:req, emoteArg
+	playse SE_PIN
+	.ifb \emoteArg
+		applymovement \localid, Common_Movement_ExclamationMark
+	.else
+		.if \emoteArg == EMOTE_QUESTION
+			applymovement \localid, Common_Movement_QuestionMark
+		.elseif \emoteArg == EMOTE_HEART
+			applymovement \localid, Common_Movement_Heart
+		.else
+			applymovement \localid, Common_Movement_ExclamationMark
+		.endif
+	.endif
+	waitmovement 0
+	applymovement \localid, Common_Movement_Delay48
+	waitmovement 0
+	.endm
+
+	@ This replicates the typical OW NPC Pokemon script, which is:
+	@ -----
+	@ lock
+	@ faceplayer
+	@ waitse
+	@ playmoncry SPECIES, MODE
+	@ msgbox SOME_MESSAGE
+	@ waitmoncry
+	@ -----
+	@ release and end should follow this macro in most cases.
+	@ message should just be what the Pokemon says, not its species name.
+	@ Its species name is automatically buffered, rendering the msgbox as:
+	@ "SPECIES: MESSAGE"
+	@ If mode is not provided, it will use CRY_MODE_NORMAL. Otherwise,
+	@ it'll use the CRY_MODE_* constants.
+	.macro moncryscript species:req, message:req, mode
+	lock
+	faceplayer
+	waitse
+	.ifb \mode
+		playmoncry \species, CRY_MODE_NORMAL
+	.else
+		playmoncry \species, mode
+	.endif
+		bufferspeciesname 1, \species
+		bufferstring 2, \message
+		msgbox Text_MonCryScript
+		waitmoncry
+	.endm

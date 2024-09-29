@@ -407,7 +407,7 @@ LittlerootTown_MaysHouse_1F_EventScript_MeetRival::
 # 204 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
 	setvar VAR_LITTLEROOT_RIVAL_STATE, 3
 # 205 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
-	setvar VAR_LITTLEROOT_TOWN_STATE, 1
+	setvar VAR_CASTBELLE_TOWN_STATE, 1
 # 206 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"
 	savebgm MUS_DUMMY
 # 207 "data/maps/LittlerootTown_MaysHouse_1F/scripts.pory"

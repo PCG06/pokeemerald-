@@ -1710,6 +1710,22 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_CASTBELLE_TOWN",
+      "name": "Castbelle Town",
+      "x": 4,
+      "y": 11,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_ROUTE_001",
+      "name": "Route 1",
+      "x": 4,
+      "y": 10,
+      "width": 1,
+      "height": 1
     }
   ]
 }

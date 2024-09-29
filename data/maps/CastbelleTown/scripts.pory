@@ -1,1 +1,47 @@
-mapscripts CastbelleTown_MapScripts {}
+mapscripts CastbelleTown_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_VISITED_CASTBELLE_TOWN)
+    }
+}
+
+script CastbelleTown_EventScript_CastbelleTownSign {
+    msgbox("Castbelle Town\n"
+            "“New beginnings begin here!”", MSGBOX_SIGN)
+}
+
+script CastbelleTown_EventScript_PlayersHouseSign {
+    msgbox("{PLAYER}'s House", MSGBOX_SIGN)
+}
+
+script CastbelleTown_EventScript_BrianHouseSign {
+    msgbox("Brian's House", MSGBOX_SIGN)
+}
+
+script CastbelleTown_EventScript_ProfWoodsLabSign {
+    msgbox("Professor Wood's Laboratory", MSGBOX_SIGN)
+}
+
+script CastbelleTown_EventScript_ProofWoodsHouseSign {
+    msgbox("Professor Wood's House", MSGBOX_SIGN)
+}
+
+script CastbelleTown_EventScript_BerryShop {
+    msgbox("Castbelle Berry Shop\n"
+            "“Your one stop for all things berries!”", MSGBOX_SIGN)
+}
+
+script CastbelleTown_EventScript_Fatman {
+    lock
+    faceplayer
+    msgbox("My Munchlax is a happy boy!", MSGBOX_AUTOCLOSE)
+    faceoriginaldir
+    release
+    end
+}
+
+script CastbelleTown_EventScript_Munchlax {
+    moncryscript(SPECIES_MUNCHLAX, "Munch! Munch!")
+    faceoriginaldir
+    release
+    end
+}

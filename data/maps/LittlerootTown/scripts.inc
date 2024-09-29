@@ -23,7 +23,7 @@ LittlerootTown_MapScripts::
 # 12 "data/maps/LittlerootTown/scripts.pory"
 
 # 13 "data/maps/LittlerootTown/scripts.pory"
-	@ State descriptions for VAR_LITTLEROOT_TOWN_STATE
+	@ State descriptions for VAR_CASTBELLE_TOWN_STATE
 # 14 "data/maps/LittlerootTown/scripts.pory"
 	@ 1: Met Rival
 # 15 "data/maps/LittlerootTown/scripts.pory"
@@ -85,7 +85,7 @@ LittlerootTown_MapScripts::
 # 43 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_OnTransition:
 # 44 "data/maps/LittlerootTown/scripts.pory"
-	setflag FLAG_VISITED_LITTLEROOT_TOWN
+	setflag FLAG_VISITED_CASTBELLE_TOWN
 # 45 "data/maps/LittlerootTown/scripts.pory"
 	call Common_EventScript_SetupRivalGfxId
 # 46 "data/maps/LittlerootTown/scripts.pory"
@@ -93,7 +93,7 @@ LittlerootTown_OnTransition:
 # 47 "data/maps/LittlerootTown/scripts.pory"
 	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
 # 48 "data/maps/LittlerootTown/scripts.pory"
-	call_if_eq VAR_LITTLEROOT_TOWN_STATE, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
+	call_if_eq VAR_CASTBELLE_TOWN_STATE, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
 # 49 "data/maps/LittlerootTown/scripts.pory"
 	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_MAY, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
 # 50 "data/maps/LittlerootTown/scripts.pory"
@@ -165,7 +165,7 @@ LittlerootTown_EventScript_MoveMomToMaysDoor::
 # 83 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_EventScript_SetTwinPos::
 # 84 "data/maps/LittlerootTown/scripts.pory"
-	goto_if_eq VAR_LITTLEROOT_TOWN_STATE, 0, LittlerootTown_EventScript_SetTwinGuardingRoutePos
+	goto_if_eq VAR_CASTBELLE_TOWN_STATE, 0, LittlerootTown_EventScript_SetTwinGuardingRoutePos
 # 85 "data/maps/LittlerootTown/scripts.pory"
 	setobjectxyperm LOCALID_TWIN, 10, 1
 # 86 "data/maps/LittlerootTown/scripts.pory"
@@ -523,7 +523,7 @@ LittlerootTown_EventScript_Twin::
 # 262 "data/maps/LittlerootTown/scripts.pory"
 	goto_if_set FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_YouSavedBirch
 # 263 "data/maps/LittlerootTown/scripts.pory"
-	goto_if_ne VAR_LITTLEROOT_TOWN_STATE, 0, LittlerootTown_EventScript_GoSaveBirch
+	goto_if_ne VAR_CASTBELLE_TOWN_STATE, 0, LittlerootTown_EventScript_GoSaveBirch
 # 264 "data/maps/LittlerootTown/scripts.pory"
 	msgbox LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut, MSGBOX_DEFAULT
 # 265 "data/maps/LittlerootTown/scripts.pory"
@@ -545,7 +545,7 @@ LittlerootTown_EventScript_GoSaveBirch::
 # 273 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 274 "data/maps/LittlerootTown/scripts.pory"
-	setvar VAR_LITTLEROOT_TOWN_STATE, 2
+	setvar VAR_CASTBELLE_TOWN_STATE, 2
 # 275 "data/maps/LittlerootTown/scripts.pory"
 	release
 # 276 "data/maps/LittlerootTown/scripts.pory"
@@ -781,7 +781,7 @@ LittlerootTown_EventScript_GoSaveBirchTrigger::
 # 391 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 392 "data/maps/LittlerootTown/scripts.pory"
-	setvar VAR_LITTLEROOT_TOWN_STATE, 2
+	setvar VAR_CASTBELLE_TOWN_STATE, 2
 # 393 "data/maps/LittlerootTown/scripts.pory"
 	releaseall
 # 394 "data/maps/LittlerootTown/scripts.pory"
@@ -1791,7 +1791,7 @@ LittlerootTown_EventScript_SetReceivedRunningShoes::
 # 896 "data/maps/LittlerootTown/scripts.pory"
 	setflag FLAG_SYS_B_DASH
 # 897 "data/maps/LittlerootTown/scripts.pory"
-	setvar VAR_LITTLEROOT_TOWN_STATE, 4
+	setvar VAR_CASTBELLE_TOWN_STATE, 4
 # 898 "data/maps/LittlerootTown/scripts.pory"
 	release
 # 899 "data/maps/LittlerootTown/scripts.pory"
