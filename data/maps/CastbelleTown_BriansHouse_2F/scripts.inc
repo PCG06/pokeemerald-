@@ -47,44 +47,46 @@ CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady::
 # 42 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	setvar VAR_CASTBELLE_TOWN_STATE, 2
 # 43 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	clearflag FLAG_HIDE_CASTBELLE_TOWN_BERRY_SHOP_BRIAN
+# 44 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	release
 	end
 
 
-# 47 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 48 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 MoveBrianToPlayer:
-# 48 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 48 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 48 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 48 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 48 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 48 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
 	step_end
 
-# 51 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-BrianWalkInPlaceLeft:
 # 52 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+BrianWalkInPlaceLeft:
+# 53 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_in_place_fast_left
 	step_end
 
-# 55 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-BrianExit:
 # 56 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	walk_left
+BrianExit:
 # 57 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	walk_left
+# 58 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	face_up
 	step_end
 
 CastbelleTown_BriansHouse_2F_BriansPC::
-# 61 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	msgbox gText_PokemonTrainerSchoolEmail, MSGBOX_DEFAULT
 # 62 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	msgbox gText_PokemonTrainerSchoolEmail, MSGBOX_DEFAULT
+# 63 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	releaseall
 	end
 
@@ -93,7 +95,7 @@ CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady_Text_0:
 # 13 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	.string "Brian: …Aaaand, packed!\n"
 	.string "I'm ready to get my starter Pokémon!\p"
-	.string "Woody better let me pick the best one\n"
+	.string "Piney better let me pick the best one\n"
 	.string "first!$"
 
 CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady_Text_1:

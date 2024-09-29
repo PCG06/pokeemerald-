@@ -46,7 +46,9 @@
     "CastbelleTown_PlayersHouse_2F",
     "CastbelleTown_BriansHouse_1F",
     "CastbelleTown_BriansHouse_2F",
-    "CastbelleTown_ProfessorPinesLab"
+    "CastbelleTown_ProfessorPinesLab",
+    "CastbelleTown_ProfessorPinesHouse",
+    "CastbelleTown_BerryShop"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",

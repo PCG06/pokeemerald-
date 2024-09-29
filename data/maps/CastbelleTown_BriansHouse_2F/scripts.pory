@@ -12,7 +12,7 @@ script CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady {
     turnplayer(DIR_EAST)
     msgbox("Brian: …Aaaand, packed!\n"
             "I'm ready to get my starter Pokémon!\p"
-            "Woody better let me pick the best one\n"
+            "Piney better let me pick the best one\n"
             "first!", MSGBOX_AUTOCLOSE)
     applymove(LOCALID_BRIAN, Common_Movement_FaceLeft)
     emote(LOCALID_BRIAN, EMOTE_EXCLAM)
@@ -40,6 +40,7 @@ script CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady {
     removeobject(LOCALID_BRIAN)
     playse(SE_EXIT)
     setvar(VAR_CASTBELLE_TOWN_STATE, 2)
+    clearflag(FLAG_HIDE_CASTBELLE_TOWN_BERRY_SHOP_BRIAN)
     release
     end
 }

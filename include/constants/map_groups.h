@@ -10,11 +10,13 @@
 #define MAP_ROUTE001       (1 | (0 << 8))
 
 // gMapGroup_IndoorCastbelle
-#define MAP_CASTBELLE_TOWN_PLAYERS_HOUSE_1F    (0 | (1 << 8))
-#define MAP_CASTBELLE_TOWN_PLAYERS_HOUSE_2F    (1 | (1 << 8))
-#define MAP_CASTBELLE_TOWN_BRIANS_HOUSE_1F     (2 | (1 << 8))
-#define MAP_CASTBELLE_TOWN_BRIANS_HOUSE_2F     (3 | (1 << 8))
-#define MAP_CASTBELLE_TOWN_PROFESSOR_PINES_LAB (4 | (1 << 8))
+#define MAP_CASTBELLE_TOWN_PLAYERS_HOUSE_1F      (0 | (1 << 8))
+#define MAP_CASTBELLE_TOWN_PLAYERS_HOUSE_2F      (1 | (1 << 8))
+#define MAP_CASTBELLE_TOWN_BRIANS_HOUSE_1F       (2 | (1 << 8))
+#define MAP_CASTBELLE_TOWN_BRIANS_HOUSE_2F       (3 | (1 << 8))
+#define MAP_CASTBELLE_TOWN_PROFESSOR_PINES_LAB   (4 | (1 << 8))
+#define MAP_CASTBELLE_TOWN_PROFESSOR_PINES_HOUSE (5 | (1 << 8))
+#define MAP_CASTBELLE_TOWN_BERRY_SHOP            (6 | (1 << 8))
 
 // gMapGroup_TownsAndRoutes
 #define MAP_PETALBURG_CITY      (0 | (2 << 8))

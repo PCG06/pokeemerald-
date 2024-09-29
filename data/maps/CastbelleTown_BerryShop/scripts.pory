@@ -1,0 +1,50 @@
+mapscripts CastbelleTown_BerryShop_MapScripts {}
+
+script CastbelleTown_BerryShop_EventScript_Clerk {
+    if (var(VAR_CASTBELLE_TOWN_STATE) <= 1)
+    {   // Before meeting rival
+        lock
+        faceplayer
+        msgbox("Hello, {PLAYER}!\n"
+                "We're currently all out of berries.\p"
+                "Our goods will be supplied in a short\n"
+                "awhile.\p"
+                "We sincerely apologize and hope such\n"
+                "disasters won't happen in the future.", MSGBOX_AUTOCLOSE)
+    }
+    elif (var(VAR_CASTBELLE_TOWN_STATE) < 3)
+    {   // After meeting rival, before getting a Pokemon
+        end
+    }
+    else {
+        // After getting a Pokemon
+        lock
+        faceplayer
+        message("Hello {PLAYER},\n"
+                "welcome to our Berry Shop!\l"
+                "How may I serve you?")
+        waitmessage
+        pokemart(BerryShop_Items)
+        msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+        release
+        end
+    }
+}
+
+mart BerryShop_Items {
+	ITEM_CHERI_BERRY
+	ITEM_CHESTO_BERRY
+    ITEM_PECHA_BERRY
+    ITEM_RAWST_BERRY
+    ITEM_ASPEAR_BERRY
+    ITEM_LEPPA_BERRY
+    ITEM_ORAN_BERRY
+    ITEM_PERSIM_BERRY
+}
+
+script CastbelleTown_BerryShop_EventScript_Brian {
+    lock
+    msgbox("Brian: Umm, I'll take 3 Oran Berries\n"
+            "and uhh do you have Berry Juice?", MSGBOX_AUTOCLOSE)
+    release
+}
