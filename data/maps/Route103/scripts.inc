@@ -157,7 +157,7 @@ Route103_EventScript_StartMayBattleMudkip::
 # 79 "data/maps/Route103/scripts.pory"
 Route103_EventScript_StartBrendanBattleTreecko::
 # 80 "data/maps/Route103/scripts.pory"
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TREECKO, Route103_Text_BrendanDefeated
+	trainerbattle_no_intro TRAINER_BRIAN_1_GRASS, Route103_Text_BrendanDefeated
 # 81 "data/maps/Route103/scripts.pory"
 	goto Route103_EventScript_AfterBrendanBattle
 # 82 "data/maps/Route103/scripts.pory"
@@ -167,7 +167,7 @@ Route103_EventScript_StartBrendanBattleTreecko::
 # 84 "data/maps/Route103/scripts.pory"
 Route103_EventScript_StartBrendanBattleTorchic::
 # 85 "data/maps/Route103/scripts.pory"
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TORCHIC, Route103_Text_BrendanDefeated
+	trainerbattle_no_intro TRAINER_BRIAN_1_FIRE, Route103_Text_BrendanDefeated
 # 86 "data/maps/Route103/scripts.pory"
 	goto Route103_EventScript_AfterBrendanBattle
 # 87 "data/maps/Route103/scripts.pory"
@@ -177,7 +177,7 @@ Route103_EventScript_StartBrendanBattleTorchic::
 # 89 "data/maps/Route103/scripts.pory"
 Route103_EventScript_StartBrendanBattleMudkip::
 # 90 "data/maps/Route103/scripts.pory"
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_MUDKIP, Route103_Text_BrendanDefeated
+	trainerbattle_no_intro TRAINER_BRIAN_1_WATER, Route103_Text_BrendanDefeated
 # 91 "data/maps/Route103/scripts.pory"
 	goto Route103_EventScript_AfterBrendanBattle
 # 92 "data/maps/Route103/scripts.pory"

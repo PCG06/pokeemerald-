@@ -23726,14 +23726,14 @@ F_TRAINER_FEMALE |
         },
     },
 #line 9504
-    [TRAINER_BRENDAN_ROUTE_103_MUDKIP] =
+    [TRAINER_BRIAN_1_WATER] =
     {
 #line 9505
-        .trainerName = _("BRENDAN"),
+        .trainerName = _("Brian"),
 #line 9506
         .trainerClass = TRAINER_CLASS_RIVAL,
 #line 9507
-        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerPic = TRAINER_PIC_WALLY,
         .encounterMusic_gender = 
 #line 9509
             TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -23746,8 +23746,10 @@ F_TRAINER_FEMALE |
         {
             {
 #line 9513
-            .species = SPECIES_TREECKO,
+            .species = SPECIES_CHIKORITA,
             .gender = TRAINER_MON_RANDOM_GENDER,
+#line 9513
+            .heldItem = ITEM_ORAN_BERRY,
 #line 9515
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9514
@@ -23866,28 +23868,30 @@ F_TRAINER_FEMALE |
         },
     },
 #line 9559
-    [TRAINER_BRENDAN_ROUTE_103_TREECKO] =
+    [TRAINER_BRIAN_1_GRASS] =
     {
 #line 9560
-        .trainerName = _("BRENDAN"),
+        .trainerName = _("Brian"),
 #line 9561
         .trainerClass = TRAINER_CLASS_RIVAL,
 #line 9562
-        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerPic = TRAINER_PIC_WALLY,
         .encounterMusic_gender = 
 #line 9564
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 9565
         .doubleBattle = FALSE,
 #line 9566
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SETUP_FIRST_TURN,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
             {
 #line 9568
-            .species = SPECIES_TORCHIC,
+            .species = SPECIES_LITTEN,
             .gender = TRAINER_MON_RANDOM_GENDER,
+#line 9568
+            .heldItem = ITEM_ORAN_BERRY,
 #line 9570
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9569
@@ -24006,14 +24010,14 @@ F_TRAINER_FEMALE |
         },
     },
 #line 9614
-    [TRAINER_BRENDAN_ROUTE_103_TORCHIC] =
+    [TRAINER_BRIAN_1_FIRE] =
     {
 #line 9615
-        .trainerName = _("BRENDAN"),
+        .trainerName = _("Brian"),
 #line 9616
         .trainerClass = TRAINER_CLASS_RIVAL,
 #line 9617
-        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerPic = TRAINER_PIC_WALLY,
         .encounterMusic_gender = 
 #line 9619
             TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -24026,8 +24030,10 @@ F_TRAINER_FEMALE |
         {
             {
 #line 9623
-            .species = SPECIES_MUDKIP,
+            .species = SPECIES_PIPLUP,
             .gender = TRAINER_MON_RANDOM_GENDER,
+#line 9623
+            .heldItem = ITEM_ORAN_BERRY,
 #line 9625
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9624

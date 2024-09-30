@@ -2387,6 +2387,22 @@
 	waitmovement 0
 	.endm
 
+	@ emote use for many at once without wait
+	.macro emotenowait localid:req, emoteArg
+	playse SE_PIN
+	.ifb \emoteArg
+		applymovement \localid, Common_Movement_ExclamationMark
+	.else
+		.if \emoteArg == EMOTE_QUESTION
+			applymovement \localid, Common_Movement_QuestionMark
+		.elseif \emoteArg == EMOTE_HEART
+			applymovement \localid, Common_Movement_Heart
+		.else
+			applymovement \localid, Common_Movement_ExclamationMark
+		.endif
+	.endif
+	.endm
+
 	@ This replicates the typical OW NPC Pokemon script, which is:
 	@ -----
 	@ lock

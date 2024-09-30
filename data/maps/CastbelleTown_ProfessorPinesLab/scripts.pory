@@ -1,1 +1,372 @@
+const LOCALID_PROF_PINE = 1
+const GRASS_BALL = 2
+const FIRE_BALL = 3
+const WATER_BALL = 4
+const LOCALID_BRIAN = 6
+
 mapscripts CastbelleTown_ProfessorPinesLab_MapScripts {}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPine {
+    if (var(VAR_CASTBELLE_TOWN_STATE) == 3) {
+        msgbox("Go ahead, {PLAYER}!\p"
+        "Choose your first Pokémon.", MSGBOX_NPC)
+    }
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon {
+    lock
+    applymoveplayer(Common_Movement_WalkUp)
+    delay(6)
+    msgbox("Prof. Pine: Hello, {PLAYER}!\p"
+            "You're here to get your first Pokémon,\n"
+            "huh?\p"
+            "Where's Brian?\n"
+            "I thought he was along with you?\p"
+            "… … … … … … …\p"
+            "Oh I see. Anyway, since you're here,\n"
+            "you'd want to meet your first Pokémon\l"
+            "now, right?", MSGBOX_AUTOCLOSE)
+    applymove(LOCALID_PROF_PINE, Common_Movement_WalkDown)
+    msgbox("Prof. Pine: In these three Poké Balls\n"
+            "are three Pokémon I was gifted by an\l"
+            "older student of mine.\p"
+            "Prof. Pine: You can now go ahead and\n"
+            "choose one, {PLAYER}!", MSGBOX_AUTOCLOSE)
+    setvar(VAR_CASTBELLE_TOWN_STATE, 3)
+    release
+    end
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_GrassStarter {
+    lock
+    if ((flag(FLAG_SYS_POKEMON_GET) != true) && (var(VAR_CASTBELLE_TOWN_STATE) == 3)) {
+        playmoncry(SPECIES_CHIKORITA, CRY_MODE_NORMAL)
+        showmonpic(SPECIES_CHIKORITA, 10, 3)
+        msgbox("Prof. Pine: Ah, the Grass-type\n"
+                "Chikorita, I see!\p"
+                "Chikorita is quite easy to raise!\p"
+                "It's the perfect Pokémon for beginners.", MSGBOX_AUTOCLOSE)
+        msgbox("Prof. Pine: So, do you choose the\n"
+                "Grass-type Chikorita as your first\l"
+                "Pokémon?", MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES) {
+	        bufferspeciesname(STR_VAR_1, SPECIES_CHIKORITA)
+	        setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CHIKORITA)
+            givemon(SPECIES_CHIKORITA, 5, ITEM_ORAN_BERRY)
+            setvar(VAR_STARTER_MON, STARTER_GRASS)
+            setvar(VAR_TEMP_0, SPECIES_CHIKORITA)
+            goto(CastbelleTown_ProfessorPinesLab_EventScript_ReceivedMon)
+        }
+        else {
+            hidemonpic
+            msgbox("Okay, take your time.\p"
+                    "This is an important decision.", MSGBOX_AUTOCLOSE)
+        }
+    }
+    else {
+        msgbox("It's Prof. Pine's other starter Pokémon.", MSGBOX_AUTOCLOSE)
+    }
+    release
+    end
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_FireStarter {
+    lock
+    if ((flag(FLAG_SYS_POKEMON_GET) != true) && (var(VAR_CASTBELLE_TOWN_STATE) == 3)) {
+        playmoncry(SPECIES_LITTEN, CRY_MODE_NORMAL)
+        showmonpic(SPECIES_LITTEN, 10, 3)
+        msgbox("Prof. Pine: Ah, the Fire-type\n"
+                "Litten, I see!\p"
+                "Litten can be a challenge to raise!\p"
+                "Bonding with your Litten would be\n"
+                "your ultimate test as a Trainer! ", MSGBOX_AUTOCLOSE)
+        msgbox("Prof. Pine: So, do you choose the\n"
+                "Fire-type Litten as your first\l"
+                "Pokémon?", MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES) {
+	        bufferspeciesname(STR_VAR_1, SPECIES_LITTEN)
+	        setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LITTEN)
+            givemon(SPECIES_LITTEN, 5, ITEM_ORAN_BERRY)
+            setvar(VAR_STARTER_MON, STARTER_FIRE)
+            setvar(VAR_TEMP_0, SPECIES_LITTEN)
+            goto(CastbelleTown_ProfessorPinesLab_EventScript_ReceivedMon)
+        }
+        else {
+            hidemonpic
+            msgbox("Okay, take your time.\p"
+                "This is an important decision.", MSGBOX_AUTOCLOSE)
+        }
+    }
+    else {
+        msgbox("It's Prof. Pine's other starter Pokémon.", MSGBOX_AUTOCLOSE)
+    }
+    release
+    end
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_WaterStarter {
+    lock
+    if ((flag(FLAG_SYS_POKEMON_GET) != true) && (var(VAR_CASTBELLE_TOWN_STATE) == 3)) {
+        playmoncry(SPECIES_PIPLUP, CRY_MODE_NORMAL)
+        showmonpic(SPECIES_PIPLUP, 10, 3)
+        msgbox("Prof. Pine: Ah, the Water-type\n"
+                "Piplup, I see!\p"
+                "Piplup is the most balanced of the\n"
+                "three!\p"
+                "You need to take care of this one,\n"
+                "though! They are clumsy.", MSGBOX_AUTOCLOSE)
+        msgbox("Prof. Pine: So, do you choose the\n"
+                "Water-type Piplup as your first\l"
+                "Pokémon?", MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES) {
+	        bufferspeciesname(STR_VAR_1, SPECIES_PIPLUP)
+	        setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PIPLUP)
+            givemon(SPECIES_PIPLUP, 5, ITEM_ORAN_BERRY)
+            setvar(VAR_STARTER_MON, STARTER_WATER)
+            setvar(VAR_TEMP_0, SPECIES_PIPLUP)
+            goto(CastbelleTown_ProfessorPinesLab_EventScript_ReceivedMon)
+        }
+        else {
+            hidemonpic
+            msgbox("Okay, take your time.\p"
+                    "This is an important decision.", MSGBOX_AUTOCLOSE)
+        }
+    }
+    else {
+        msgbox("It's Prof. Pine's other starter Pokémon.", MSGBOX_AUTOCLOSE)
+    }
+    release
+    end
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_ReceivedMon {
+    hidemonpic
+    playmoncry(VAR_TEMP_0, CRY_MODE_NORMAL)
+	delay(40)
+	waitmoncry
+    removeobject(VAR_LAST_TALKED)
+    playfanfare(MUS_OBTAIN_ITEM)
+	msgbox("{PLAYER} received the {STR_VAR_1}\n"
+            "from Prof. Pine!")
+	waitfanfare
+    closemessage
+    setflag(FLAG_SYS_POKEMON_GET)
+    setvar(VAR_CASTBELLE_TOWN_STATE, 4)
+    goto(CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian)
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
+    lock
+    playse(SE_EXIT)
+    waitse
+    msgbox("???: I'M HERE!", MSGBOX_AUTOCLOSE)
+    emotenowait(LOCALID_PROF_PINE, EMOTE_QUESTION)
+    emotenowait(OBJ_EVENT_ID_PLAYER, EMOTE_QUESTION)
+    applymoveplayer(Common_Movement_FaceDown)
+    addobject(LOCALID_BRIAN)
+    setobjectxy(LOCALID_BRIAN, 6, 11)
+    applymove(LOCALID_BRIAN, BrianRushToProf)
+    applymoveplayer(Common_Movement_FaceLeft)
+    msgbox("Brian: Sorry, I'm late, professor!\p"
+            "I was buying some berries and may have\n"
+            "forgotten about this!\p"
+            "That was a lie!\n"
+            "I would never forget something as\l"
+            "important as this!\p"
+            "I'm really sorry, Prof. Pine!", MSGBOX_AUTOCLOSE)
+    msgbox("Prof. Pine: It's okay, Brian!\n"
+            "We all get caught up in our hobbies.\p"
+            "Now wouldn't you want to choose your\n"
+            "partner Pokémon?", MSGBOX_AUTOCLOSE)    
+    applymove(LOCALID_BRIAN, Common_Movement_WalkInPlaceFasterUp)
+    msgbox("Brian: YES!\p"
+            "I choose you {STR_VAR_1}!", MSGBOX_AUTOCLOSE)
+    emotenowait(LOCALID_PROF_PINE, EMOTE_EXCLAIM)
+    emotenowait(OBJ_EVENT_ID_PLAYER, EMOTE_EXCLAIM)
+    delay(6)
+    msgbox("Prof. Pine: Uhh, sorry to be the\n"
+            "bearer of bad news, but {PLAYER}\l"
+            "has already chosen {STR_VAR_1}…", MSGBOX_AUTOCLOSE)
+    emote(LOCALID_BRIAN, EMOTE_EXCLAIM)
+    msgbox("Brian: …\n"
+            "…\l"
+            "Well, the Early Bird gets the Wurmple…\p"
+            "Then in that case…", MSGBOX_AUTOCLOSE)
+    if (flag(FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_GRASS_STARTER) == true) {
+        applymove(LOCALID_BRIAN, MoveToFireStarter)
+        applymoveplayer(Common_Movement_FaceRight)
+        msgbox("I choose you, Litten!", MSGBOX_AUTOCLOSE)
+        removeobject(FIRE_BALL)
+        applymove(LOCALID_BRIAN, Common_Movement_FaceLeft)
+    }
+    elif (flag(FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_FIRE_STARTER) == true) {
+        applymove(LOCALID_BRIAN, MoveToWaterStarter)
+        applymoveplayer(Common_Movement_FaceRight)
+        msgbox("I choose you, Piplup!", MSGBOX_AUTOCLOSE)
+        removeobject(WATER_BALL)
+        applymove(LOCALID_BRIAN, Common_Movement_FaceLeft)
+    }
+    else {
+        applymove(LOCALID_BRIAN, MoveToGrassStarter)
+        msgbox("I choose you, Chikorita!", MSGBOX_AUTOCLOSE)
+        removeobject(GRASS_BALL)
+        applymove(LOCALID_BRIAN, Common_Movement_FaceRight)
+    }    
+    msgbox("Brian: Okay, {PLAYER}!\n"
+            "Now that we have our own Pokémon,\l"
+            "let's battle em!", MSGBOX_DEFAULT)
+    switch (var(VAR_STARTER_MON))
+    {
+        default:
+        case STARTER_GRASS:
+            trainerbattle_no_intro(TRAINER_BRIAN_1_GRASS, "Ow man!\pYou got lucky!")
+
+        case STARTER_FIRE:
+            trainerbattle_no_intro(TRAINER_BRIAN_1_FIRE, "Ow man!\pYou got lucky!")
+
+        case STARTER_WATER:
+            trainerbattle_no_intro(TRAINER_BRIAN_1_WATER, "Ow man!\pYou got lucky!")
+    }
+    msgbox("Brian: That was fun!", MSGBOX_AUTOCLOSE)
+    applymove(LOCALID_BRIAN, Common_Movement_FaceUp)
+    msgbox("Brian: Thank you, Prof. Pine for my new\n"
+            "best friend!")
+    emote(OBJ_EVENT_ID_PLAYER, EMOTE_EXCLAIM)
+    applymove(LOCALID_BRIAN, Common_Movement_FacePlayer)
+    msgbox("Brian: Hehe! I'm only joking,\n"
+            "{PLAYER}!\p"
+            "Anyway, I'm off to 'next town'!\n"
+            "I wanna catch the ferry to the mainland\l"
+            "and challenge 'gym 1 leader'!")
+    applymove(LOCALID_BRIAN, BrianRushDown)
+    removeobject(LOCALID_BRIAN)
+    playse(SE_EXIT)
+    waitse
+    emote(LOCALID_PROF_PINE, EMOTE_EXCLAIM)
+    msgbox("Prof. Pine: Oh! Brian!") // TODO: Do Pokedex script
+    applymove(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+    release
+    end
+}
+
+movement BrianRushToProf {
+    walk_up * 6
+}
+
+movement BrianRushDown {
+    walk_down * 5
+}
+
+movement MoveToFireStarter {
+    walk_down
+    walk_right * 2
+    walk_up
+}
+
+movement MoveToWaterStarter {
+    walk_down
+    walk_right * 3
+    walk_up
+}
+
+movement MoveToGrassStarter {
+    walk_right
+    face_up
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger1 {
+    applymoveplayer(PlayerToCenterx2_Left)
+    goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
+}
+
+movement PlayerToCenterx2_Left {
+    walk_right * 2
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger2 {
+    applymoveplayer(PlayerToCenterx1_Left)
+    goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
+}
+
+movement PlayerToCenterx1_Left {
+    walk_right
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger4 {
+    applymoveplayer(PlayerToCenterx1_Right)
+    goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
+}
+
+movement PlayerToCenterx1_Right {
+    walk_left
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger5 {
+    applymoveplayer(PlayerToCenterx2_Right)
+    goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
+}
+
+movement PlayerToCenterx2_Right {
+    walk_left * 2
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger6 {
+    applymoveplayer(PlayerToCenterx3_Right)
+    goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
+}
+
+movement PlayerToCenterx3_Right {
+    walk_left * 3
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving {
+    lock
+    msgbox("Wait! Don't leave just yet!\p"
+            "You have not chosen your partner\n"
+            "Pokémon, yet!", MSGBOX_AUTOCLOSE)
+    getplayerxy(VAR_0x8000, VAR_0x8001)
+    switch (var(VAR_0x8000)) {
+        case 5:
+            applymoveplayer(PlayerBackToCenter_1)
+        case 6:
+            applymoveplayer(PlayerBackToCenter_2)
+        case 7:
+            applymoveplayer(PlayerBackToCenter_3)
+        case 8:
+            applymoveplayer(PlayerBackToCenter_4)
+    }
+    turnplayer(DIR_NORTH)
+    release
+    end
+}
+
+movement PlayerBackToCenter_1 {
+    walk_up
+    walk_right
+    walk_up * 6
+    walk_right
+}
+
+movement PlayerBackToCenter_2 {
+    walk_up * 6
+    walk_right
+}
+
+movement PlayerBackToCenter_3 {
+    walk_up * 6
+}
+
+movement PlayerBackToCenter_4 {
+    walk_up
+    walk_left
+    walk_up * 6
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_Aide1 {
+    msgbox("I help out Prof Pine in his research.\n"
+            "He is a very passionate man!\p"
+            "You'll learn a lot under him!\n"
+            "I can guarentee that.", MSGBOX_NPC)
+    faceoriginaldir
+    end
+}

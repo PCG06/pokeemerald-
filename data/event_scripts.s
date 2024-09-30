@@ -1079,19 +1079,11 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/CastbelleTown/scripts.inc"
-
 	.include "data/maps/Route001/scripts.inc"
-
 	.include "data/maps/CastbelleTown_PlayersHouse_1F/scripts.inc"
-
 	.include "data/maps/CastbelleTown_PlayersHouse_2F/scripts.inc"
-
 	.include "data/maps/CastbelleTown_BriansHouse_1F/scripts.inc"
-
 	.include "data/maps/CastbelleTown_BriansHouse_2F/scripts.inc"
-
 	.include "data/maps/CastbelleTown_ProfessorPinesLab/scripts.inc"
-
 	.include "data/maps/CastbelleTown_ProfessorPinesHouse/scripts.inc"
-
 	.include "data/maps/CastbelleTown_BerryShop/scripts.inc"

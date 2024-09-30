@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPine",
       "flag": "0"
     },
     {
@@ -37,8 +37,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_GrassStarter",
+      "flag": "FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_GRASS_STARTER"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
@@ -50,8 +50,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_FireStarter",
+      "flag": "FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_FIRE_STARTER"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
@@ -63,8 +63,34 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_WaterStarter",
+      "flag": "FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_WATER_STARTER"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_Aide1",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WALLY",
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_BRIAN"
     }
   ],
   "warp_events": [
@@ -84,7 +110,96 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "2",
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger1"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "2",
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "2",
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "2",
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger4"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "2",
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger5"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "2",
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger6"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "3",
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "3",
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "3",
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "3",
+      "script": "CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving"
+    }
   ],
   "bg_events": [
     {
