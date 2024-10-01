@@ -49,44 +49,46 @@ CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady::
 # 43 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	clearflag FLAG_HIDE_CASTBELLE_TOWN_BERRY_SHOP_BRIAN
 # 44 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	clearflag FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_PROF_PINE
+# 45 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	release
 	end
 
 
-# 48 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 MoveBrianToPlayer:
-# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 50 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 50 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 50 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 50 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 50 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 50 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
 	step_end
 
-# 52 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-BrianWalkInPlaceLeft:
 # 53 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+BrianWalkInPlaceLeft:
+# 54 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_in_place_fast_left
 	step_end
 
-# 56 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-BrianExit:
 # 57 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	walk_left
+BrianExit:
 # 58 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	walk_left
+# 59 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	face_up
 	step_end
 
 CastbelleTown_BriansHouse_2F_BriansPC::
-# 62 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	msgbox gText_PokemonTrainerSchoolEmail, MSGBOX_DEFAULT
 # 63 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	msgbox gText_PokemonTrainerSchoolEmail, MSGBOX_DEFAULT
+# 64 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	releaseall
 	end
 

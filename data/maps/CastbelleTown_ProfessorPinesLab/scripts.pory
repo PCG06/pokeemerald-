@@ -8,8 +8,14 @@ mapscripts CastbelleTown_ProfessorPinesLab_MapScripts {}
 
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPine {
     if (var(VAR_CASTBELLE_TOWN_STATE) == 3) {
-        msgbox("Go ahead, {PLAYER}!\p"
+        msgbox("Prof. Pine: Go ahead, {PLAYER}!\p"
         "Choose your first Pokémon.", MSGBOX_NPC)
+    }
+    elif (var(VAR_CASTBELLE_TOWN_STATE) == 4) {
+        msgbox("Prof. Pine: Please deliver this parcel\n"
+                "to Brian.\p"
+                "He must be somewhere wandering\n"
+                "around Castbelle Path or 'next town'.", MSGBOX_NPC)
     }
 }
 
