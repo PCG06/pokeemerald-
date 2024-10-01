@@ -3099,6 +3099,10 @@ static void TradeMons(u8 playerPartyIdx, u8 partnerPartyIdx)
     struct Pokemon *partnerMon = &gEnemyParty[partnerPartyIdx];
     u16 partnerMail = GetMonData(partnerMon, MON_DATA_MAIL);
 
+    if (gSaveBlock3Ptr->followerIndex == playerPartyIdx)
+        gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+    // Unset preferred follower if it is traded away
+
     // The mail attached to the sent Pokémon no longer exists in your file.
     if (playerMail != MAIL_NONE)
         ClearMail(&gSaveBlock1Ptr->mail[playerMail]);

@@ -592,6 +592,17 @@ static const struct WindowTemplate sUnusedWindowTemplate2 =
     .baseBlock = 0x39D,
 };
 
+static const struct WindowTemplate sFollowerSetWindowTemplate =
+{
+    .bg = 2,
+    .tilemapLeft = 23,
+    .tilemapTop = 15,
+    .width = 6,
+    .height = 4,
+    .paletteNum = 14,
+    .baseBlock = 0x39D,
+};
+
 // Plain tilemaps for party menu slots.
 // The versions with no HP bar are used by eggs, and in certain displays like registering at a battle facility.
 // There is no empty version of the main slot because it shouldn't ever be empty.
@@ -659,6 +670,7 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_ALREADY_HOLDING_ONE]    = gText_AlreadyHoldingOne,
     [PARTY_MSG_WHICH_APPLIANCE]        = gText_WhichAppliance,
     [PARTY_MSG_CHOOSE_SECOND_FUSION]   = gText_NextFusionMon,
+    [PARTY_MSG_DO_WHAT_WITH_FOLLOWER]  = gText_DoWhatWithFollower,
 };
 
 static const u8 *const sDescriptionStringTable[] =
@@ -719,6 +731,10 @@ struct
     [MENU_CATALOG_MOWER] = {gText_LawnMower, CursorCb_CatalogMower},
     [MENU_CHANGE_FORM] = {gText_ChangeForm, CursorCb_ChangeForm},
     [MENU_CHANGE_ABILITY] = {gText_ChangeAbility, CursorCb_ChangeAbility},
+    [MENU_FOLLOWER] = {gText_Follower, CursorCb_Follower},
+    [MENU_FOLLOWER_SET] = {gText_FollowerSet, CursorCb_FollowerSet},
+    [MENU_FOLLOWER_RETURN] = {gText_FollowerReturn, CursorCb_FollowerReturn},
+    [MENU_FOLLOWER_UNSET] = {gText_FollowerUnset, CursorCb_FollowerUnset},
 };
 
 static const u8 sPartyMenuAction_SummarySwitchCancel[] = {MENU_SUMMARY, MENU_SWITCH, MENU_CANCEL1};
@@ -736,6 +752,10 @@ static const u8 sPartyMenuAction_TradeSummaryCancel2[] = {MENU_TRADE2, MENU_SUMM
 static const u8 sPartyMenuAction_TakeItemTossCancel[] = {MENU_TAKE_ITEM, MENU_TOSS, MENU_CANCEL1};
 static const u8 sPartyMenuAction_RotomCatalog[] = {MENU_CATALOG_BULB, MENU_CATALOG_OVEN, MENU_CATALOG_WASHING, MENU_CATALOG_FRIDGE, MENU_CATALOG_FAN, MENU_CATALOG_MOWER, MENU_CANCEL1};
 static const u8 sPartyMenuAction_ZygardeCube[] = {MENU_CHANGE_FORM, MENU_CHANGE_ABILITY, MENU_CANCEL1};
+static const u8 sPartyMenuAction_SetCancel[] = {MENU_FOLLOWER_SET, MENU_CANCEL2};
+static const u8 sPartyMenuAction_SetReturnCancel[] = {MENU_FOLLOWER_SET, MENU_FOLLOWER_RETURN, MENU_CANCEL2};
+static const u8 sPartyMenuAction_UnsetCancel[] = {MENU_FOLLOWER_UNSET, MENU_CANCEL2};
+static const u8 sPartyMenuAction_UnsetReturnCancel[] = {MENU_FOLLOWER_UNSET, MENU_FOLLOWER_RETURN, MENU_CANCEL2};
 
 
 
@@ -757,6 +777,10 @@ static const u8 *const sPartyMenuActions[] =
     [ACTIONS_TAKEITEM_TOSS] = sPartyMenuAction_TakeItemTossCancel,
     [ACTIONS_ROTOM_CATALOG] = sPartyMenuAction_RotomCatalog,
     [ACTIONS_ZYGARDE_CUBE]  = sPartyMenuAction_ZygardeCube,
+    [ACTIONS_FOLLOWER_SET]          = sPartyMenuAction_SetCancel,
+    [ACTIONS_FOLLOWER_SET_RETURN]   = sPartyMenuAction_SetReturnCancel,
+    [ACTIONS_FOLLOWER_UNSET]        = sPartyMenuAction_UnsetCancel,
+    [ACTIONS_FOLLOWER_UNSET_RETURN] = sPartyMenuAction_UnsetReturnCancel,
 };
 
 static const u8 sPartyMenuActionCounts[] =
@@ -777,6 +801,10 @@ static const u8 sPartyMenuActionCounts[] =
     [ACTIONS_TAKEITEM_TOSS] = ARRAY_COUNT(sPartyMenuAction_TakeItemTossCancel),
     [ACTIONS_ROTOM_CATALOG] = ARRAY_COUNT(sPartyMenuAction_RotomCatalog),
     [ACTIONS_ZYGARDE_CUBE]  = ARRAY_COUNT(sPartyMenuAction_ZygardeCube),
+    [ACTIONS_FOLLOWER_SET]          = ARRAY_COUNT(sPartyMenuAction_SetCancel),
+    [ACTIONS_FOLLOWER_SET_RETURN]   = ARRAY_COUNT(sPartyMenuAction_SetReturnCancel),
+    [ACTIONS_FOLLOWER_UNSET]        = ARRAY_COUNT(sPartyMenuAction_UnsetCancel),
+    [ACTIONS_FOLLOWER_UNSET_RETURN] = ARRAY_COUNT(sPartyMenuAction_UnsetReturnCancel),
 };
 
 static const u16 sFieldMoves[FIELD_MOVES_COUNT + 1] =

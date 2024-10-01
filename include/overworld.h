@@ -26,6 +26,9 @@
 
 #define SKIP_OBJECT_EVENT_LOAD  1
 
+#define OW_FOLLOWER_NOT_SET            0xFE
+#define OW_FOLLOWER_RECALLED           0xFF
+
 struct InitialPlayerAvatarState
 {
     u8 transitionFlags;
