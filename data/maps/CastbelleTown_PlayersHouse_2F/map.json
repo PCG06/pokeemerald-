@@ -2,7 +2,7 @@
   "id": "MAP_CASTBELLE_TOWN_PLAYERS_HOUSE_2F",
   "name": "CastbelleTown_PlayersHouse_2F",
   "layout": "LAYOUT_CASTBELLE_TOWN_PLAYERS_HOUSE_2F",
-  "music": "MUS_RG_PALLET",
+  "music": "MUS_DP_TWINLEAF_DAY",
   "region_map_section": "MAPSEC_CASTBELLE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

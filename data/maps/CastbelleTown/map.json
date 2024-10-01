@@ -2,7 +2,7 @@
   "id": "MAP_CASTBELLE_TOWN",
   "name": "CastbelleTown",
   "layout": "LAYOUT_CASTBELLE_TOWN",
-  "music": "MUS_RG_PALLET",
+  "music": "MUS_DP_TWINLEAF_DAY",
   "region_map_section": "MAPSEC_CASTBELLE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -112,7 +112,7 @@
       "x": 16,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_CASTBELLE_TOWN",
+      "dest_map": "MAP_CASTBELLE_TOWN_PROFESSOR_PINES_HOUSE",
       "dest_warp_id": "0"
     },
     {

@@ -2,7 +2,7 @@
   "id": "MAP_CASTBELLE_TOWN_BERRY_SHOP",
   "name": "CastbelleTown_BerryShop",
   "layout": "LAYOUT_CASTBELLE_TOWN_BERRY_SHOP",
-  "music": "MUS_POKE_MART",
+  "music": "MUS_DP_POKE_MART",
   "region_map_section": "MAPSEC_CASTBELLE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
