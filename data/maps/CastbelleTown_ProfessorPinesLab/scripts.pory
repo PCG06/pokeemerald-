@@ -202,6 +202,9 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
         applymove(LOCALID_BRIAN, MoveToFireStarter)
         applymoveplayer(Common_Movement_FaceRight)
         msgbox("I choose you, Litten!", MSGBOX_AUTOCLOSE)
+        playmoncry(SPECIES_LITTEN, CRY_MODE_NORMAL)
+	    delay(40)
+	    waitmoncry
         removeobject(FIRE_BALL)
         applymove(LOCALID_BRIAN, Common_Movement_FaceLeft)
     }
@@ -209,12 +212,18 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
         applymove(LOCALID_BRIAN, MoveToWaterStarter)
         applymoveplayer(Common_Movement_FaceRight)
         msgbox("I choose you, Piplup!", MSGBOX_AUTOCLOSE)
+        playmoncry(SPECIES_PIPLUP, CRY_MODE_NORMAL)
+	    delay(40)
+	    waitmoncry
         removeobject(WATER_BALL)
         applymove(LOCALID_BRIAN, Common_Movement_FaceLeft)
     }
     else {
         applymove(LOCALID_BRIAN, MoveToGrassStarter)
         msgbox("I choose you, Chikorita!", MSGBOX_AUTOCLOSE)
+        playmoncry(SPECIES_CHIKORITA, CRY_MODE_NORMAL)
+	    delay(40)
+	    waitmoncry
         removeobject(GRASS_BALL)
         applymove(LOCALID_BRIAN, Common_Movement_FaceRight)
     }    
@@ -225,14 +234,15 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     {
         default:
         case STARTER_GRASS:
-            trainerbattle_no_intro(TRAINER_BRIAN_1_GRASS, "Ow man!\pYou got lucky!")
+            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_GRASS, "Ow man!\pYou got lucky!")
 
         case STARTER_FIRE:
-            trainerbattle_no_intro(TRAINER_BRIAN_1_FIRE, "Ow man!\pYou got lucky!")
+            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_FIRE, "Ow man!\pYou got lucky!")
 
         case STARTER_WATER:
-            trainerbattle_no_intro(TRAINER_BRIAN_1_WATER, "Ow man!\pYou got lucky!")
+            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_WATER, "Ow man!\pYou got lucky!")
     }
+    special(HealPlayerParty)
     msgbox("Brian: That was fun!", MSGBOX_AUTOCLOSE)
     applymove(LOCALID_BRIAN, Common_Movement_FaceUp)
     msgbox("Brian: Thank you, Prof. Pine for my new\n"

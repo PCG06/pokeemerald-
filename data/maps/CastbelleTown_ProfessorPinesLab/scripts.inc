@@ -274,58 +274,66 @@ CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian::
 	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_5, MSGBOX_AUTOCLOSE
 # 201 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	goto_if_set FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_GRASS_STARTER, CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_2
-# 208 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 211 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	goto_if_set FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_FIRE_STARTER, CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_3
-# 216 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 222 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymove 6, MoveToGrassStarter
-# 217 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 223 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_8, MSGBOX_AUTOCLOSE
-# 218 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 224 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	playmoncry SPECIES_CHIKORITA, CRY_MODE_NORMAL
+# 225 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	delay 40
+# 226 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	waitmoncry
+# 227 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	removeobject 2
-# 219 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 228 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymove 6, Common_Movement_FaceRight
 CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_1:
-# 221 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_9, MSGBOX_DEFAULT
-# 224 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	switch VAR_STARTER_MON
-# 227 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	case STARTER_GRASS, CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_9
 # 230 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	case STARTER_FIRE, CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_10
+	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_9, MSGBOX_DEFAULT
 # 233 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	switch VAR_STARTER_MON
+# 236 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	case STARTER_GRASS, CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_9
+# 239 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	case STARTER_FIRE, CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_10
+# 242 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	case STARTER_WATER, CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_11
 CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_9:
-# 228 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	trainerbattle_no_intro TRAINER_BRIAN_1_GRASS, CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_10
-CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_7:
-# 236 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_11, MSGBOX_AUTOCLOSE
 # 237 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	applymove 6, Common_Movement_FaceUp
-# 238 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_12
-# 240 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	emote OBJ_EVENT_ID_PLAYER, EMOTE_EXCLAIM
-# 241 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	applymove 6, Common_Movement_FacePlayer
-# 242 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_13
+	trainerbattle_no_intro_no_whiteout TRAINER_BRIAN_1_GRASS, CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_10
+CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_7:
+# 245 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	special HealPlayerParty
+# 246 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_11, MSGBOX_AUTOCLOSE
 # 247 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	applymove 6, BrianRushDown
+	applymove 6, Common_Movement_FaceUp
 # 248 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	removeobject 6
-# 249 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	playse SE_EXIT
+	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_12
 # 250 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	waitse
+	emote OBJ_EVENT_ID_PLAYER, EMOTE_EXCLAIM
 # 251 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	emote 1, EMOTE_EXCLAIM
+	applymove 6, Common_Movement_FacePlayer
 # 252 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_13
+# 257 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	applymove 6, BrianRushDown
+# 258 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	removeobject 6
+# 259 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	playse SE_EXIT
+# 260 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	waitse
+# 261 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	emote 1, EMOTE_EXCLAIM
+# 262 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_14
-# 253 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 263 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymove OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
-# 254 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 264 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	release
 	end
 
@@ -337,264 +345,240 @@ CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_2:
 # 204 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_6, MSGBOX_AUTOCLOSE
 # 205 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	removeobject 3
+	playmoncry SPECIES_LITTEN, CRY_MODE_NORMAL
 # 206 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	delay 40
+# 207 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	waitmoncry
+# 208 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	removeobject 3
+# 209 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymove 6, Common_Movement_FaceLeft
 	goto CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_1
 
 CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_3:
-# 209 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	applymove 6, MoveToWaterStarter
-# 210 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	applymoveplayer Common_Movement_FaceRight
-# 211 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_7, MSGBOX_AUTOCLOSE
 # 212 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	removeobject 4
+	applymove 6, MoveToWaterStarter
 # 213 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	applymoveplayer Common_Movement_FaceRight
+# 214 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	msgbox CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_7, MSGBOX_AUTOCLOSE
+# 215 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	playmoncry SPECIES_PIPLUP, CRY_MODE_NORMAL
+# 216 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	delay 40
+# 217 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	waitmoncry
+# 218 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	removeobject 4
+# 219 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymove 6, Common_Movement_FaceLeft
 	goto CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_1
 
 CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_10:
-# 231 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	trainerbattle_no_intro TRAINER_BRIAN_1_FIRE, CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_10
+# 240 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	trainerbattle_no_intro_no_whiteout TRAINER_BRIAN_1_FIRE, CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_10
 	goto CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_7
 
 CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_11:
-# 234 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	trainerbattle_no_intro TRAINER_BRIAN_1_WATER, CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_10
+# 243 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	trainerbattle_no_intro_no_whiteout TRAINER_BRIAN_1_WATER, CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_10
 	goto CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_7
 
 
-# 258 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 268 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 BrianRushToProf:
-# 259 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 269 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
-# 259 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 269 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
-# 259 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 269 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
-# 259 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 269 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
-# 259 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 269 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
-# 259 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_up
-	step_end
-
-# 262 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-BrianRushDown:
-# 263 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_down
-# 263 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_down
-# 263 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_down
-# 263 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_down
-# 263 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_down
-	step_end
-
-# 266 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-MoveToFireStarter:
-# 267 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_down
-# 268 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_right
-# 268 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_right
 # 269 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
 	step_end
 
 # 272 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-MoveToWaterStarter:
+BrianRushDown:
 # 273 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_down
-# 274 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 273 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_down
+# 273 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_down
+# 273 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_down
+# 273 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_down
+	step_end
+
+# 276 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+MoveToFireStarter:
+# 277 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_down
+# 278 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_right
-# 274 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 278 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_right
-# 274 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_right
-# 275 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 279 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
 	step_end
 
-# 278 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-MoveToGrassStarter:
-# 279 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 282 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+MoveToWaterStarter:
+# 283 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_down
+# 284 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_right
-# 280 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 284 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_right
+# 284 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_right
+# 285 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_up
+	step_end
+
+# 288 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+MoveToGrassStarter:
+# 289 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_right
+# 290 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	face_up
 	step_end
 
 CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger1::
-# 284 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 294 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymoveplayer PlayerToCenterx2_Left
-# 285 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 295 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	goto CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon
 	return
 
 
-# 288 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 298 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 PlayerToCenterx2_Left:
-# 289 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 299 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_right
-# 289 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 299 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_right
 	step_end
 
 CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger2::
-# 293 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 303 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymoveplayer PlayerToCenterx1_Left
-# 294 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 304 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	goto CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon
 	return
 
 
-# 297 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 307 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 PlayerToCenterx1_Left:
-# 298 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 308 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_right
 	step_end
 
 CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger4::
-# 302 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 312 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymoveplayer PlayerToCenterx1_Right
-# 303 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 313 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	goto CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon
 	return
 
 
-# 306 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 316 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 PlayerToCenterx1_Right:
-# 307 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 317 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_left
 	step_end
 
 CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger5::
-# 311 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 321 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymoveplayer PlayerToCenterx2_Right
-# 312 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 322 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	goto CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon
 	return
 
 
-# 315 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 325 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 PlayerToCenterx2_Right:
-# 316 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 326 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_left
-# 316 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 326 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_left
 	step_end
 
 CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger6::
-# 320 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 330 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymoveplayer PlayerToCenterx3_Right
-# 321 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 331 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	goto CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon
 	return
 
 
-# 324 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 334 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 PlayerToCenterx3_Right:
-# 325 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 335 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_left
-# 325 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 335 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_left
-# 325 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 335 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_left
 	step_end
 
 CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving::
-# 329 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	lock
-# 330 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	msgbox CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_Text_0, MSGBOX_AUTOCLOSE
-# 333 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	getplayerxy VAR_0x8000, VAR_0x8001
-# 334 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	switch VAR_0x8000
-# 335 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	case 5, CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_3
-# 337 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	case 6, CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_4
 # 339 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	lock
+# 340 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	msgbox CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_Text_0, MSGBOX_AUTOCLOSE
+# 343 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	getplayerxy VAR_0x8000, VAR_0x8001
+# 344 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	switch VAR_0x8000
+# 345 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	case 5, CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_3
+# 347 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	case 6, CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_4
+# 349 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	case 7, CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_5
-# 341 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 351 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	case 8, CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_6
 CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_1:
-# 344 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 354 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	turnplayer DIR_NORTH
-# 345 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 355 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	release
 	end
 
 CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_3:
-# 336 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 346 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymoveplayer PlayerBackToCenter_1
 	goto CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_1
 
 CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_4:
-# 338 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 348 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymoveplayer PlayerBackToCenter_2
 	goto CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_1
 
 CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_5:
-# 340 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 350 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymoveplayer PlayerBackToCenter_3
 	goto CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_1
 
 CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_6:
-# 342 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 352 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	applymoveplayer PlayerBackToCenter_4
 	goto CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_1
 
 
-# 349 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 359 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 PlayerBackToCenter_1:
-# 350 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 360 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
-# 351 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_right
-# 352 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_up
-# 352 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_up
-# 352 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_up
-# 352 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_up
-# 352 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_up
-# 352 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_up
-# 353 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_right
-	step_end
-
-# 356 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-PlayerBackToCenter_2:
-# 357 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_up
-# 357 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_up
-# 357 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_up
-# 357 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_up
-# 357 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_up
-# 357 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_up
-# 358 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-	walk_right
-	step_end
-
 # 361 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-PlayerBackToCenter_3:
+	walk_right
 # 362 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
 # 362 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
@@ -607,32 +591,68 @@ PlayerBackToCenter_3:
 	walk_up
 # 362 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
+# 363 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_right
 	step_end
 
-# 365 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
-PlayerBackToCenter_4:
 # 366 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+PlayerBackToCenter_2:
+# 367 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
 # 367 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_up
+# 367 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_up
+# 367 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_up
+# 367 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_up
+# 367 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_up
+# 368 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_right
+	step_end
+
+# 371 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+PlayerBackToCenter_3:
+# 372 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_up
+# 372 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_up
+# 372 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_up
+# 372 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_up
+# 372 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_up
+# 372 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_up
+	step_end
+
+# 375 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+PlayerBackToCenter_4:
+# 376 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+	walk_up
+# 377 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_left
-# 368 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 378 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
-# 368 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 378 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
-# 368 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 378 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
-# 368 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 378 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
-# 368 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 378 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
-# 368 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 378 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	walk_up
 	step_end
 
 CastbelleTown_ProfessorPinesLab_EventScript_Aide1::
-# 372 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 382 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	msgbox CastbelleTown_ProfessorPinesLab_EventScript_Aide1_Text_0, MSGBOX_NPC
-# 376 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 386 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	faceoriginaldir
 	end
 
@@ -769,34 +789,34 @@ CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_6:
 	.string "I choose you, Litten!$"
 
 CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_7:
-# 211 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 214 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	.string "I choose you, Piplup!$"
 
 CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_8:
-# 217 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 223 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	.string "I choose you, Chikorita!$"
 
 CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_9:
-# 221 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 230 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	.string "Brian: Okay, {PLAYER}!\n"
 	.string "Now that we have our own Pokémon,\l"
 	.string "let's battle em!$"
 
 CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_10:
-# 228 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 237 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	.string "Ow man!\pYou got lucky!$"
 
 CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_11:
-# 236 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 246 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	.string "Brian: That was fun!$"
 
 CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_12:
-# 238 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 248 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	.string "Brian: Thank you, Prof. Pine for my new\n"
 	.string "best friend!$"
 
 CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_13:
-# 242 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 252 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	.string "Brian: Hehe! I'm only joking,\n"
 	.string "{PLAYER}!\p"
 	.string "Anyway, I'm off to 'next town'!\n"
@@ -804,17 +824,17 @@ CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_13:
 	.string "and challenge 'gym 1 leader'!$"
 
 CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian_Text_14:
-# 252 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 262 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	.string "Prof. Pine: Oh! Brian!$"
 
 CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving_Text_0:
-# 330 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 340 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	.string "Wait! Don't leave just yet!\p"
 	.string "You have not chosen your partner\n"
 	.string "Pokémon, yet!$"
 
 CastbelleTown_ProfessorPinesLab_EventScript_Aide1_Text_0:
-# 372 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
+# 382 "data/maps/CastbelleTown_ProfessorPinesLab/scripts.pory"
 	.string "I help out Prof Pine in his research.\n"
 	.string "He is a very passionate man!\p"
 	.string "You'll learn a lot under him!\n"
