@@ -12,10 +12,12 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPine {
         "Choose your first Pokémon.", MSGBOX_NPC)
     }
     elif (var(VAR_CASTBELLE_TOWN_STATE) == 4) {
-        msgbox("Prof. Pine: Please deliver this parcel\n"
-                "to Brian.\p"
-                "He must be somewhere wandering\n"
-                "around Castbelle Path or 'next town'.", MSGBOX_NPC)
+        msgbox("Safe travels, {PLAYER}.\n"
+                "Don't forget to meet your mother before\l"
+                "you leave.\p"
+                "It's rude to leave without goodbyes.", MSGBOX_NPC)
+    }
+    elif (var(VAR_CASTBELLE_TOWN_STATE) == 5) {
     }
 }
 
@@ -168,6 +170,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     msgbox("???: I'M HERE!", MSGBOX_AUTOCLOSE)
     emotenowait(LOCALID_PROF_PINE, EMOTE_QUESTION)
     emotenowait(OBJ_EVENT_ID_PLAYER, EMOTE_QUESTION)
+    playbgm(MUS_DP_RIVAL, TRUE)
     applymoveplayer(Common_Movement_FaceDown)
     addobject(LOCALID_BRIAN)
     setobjectxy(LOCALID_BRIAN, 6, 11)
@@ -252,15 +255,75 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     msgbox("Brian: Hehe! I'm only joking,\n"
             "{PLAYER}!\p"
             "Anyway, I'm off to 'next town'!\n"
-            "I wanna catch the ferry to the mainland\l"
-            "and challenge 'gym 1 leader'!")
-    applymove(LOCALID_BRIAN, BrianRushDown)
+            "I wanna catch the ferry to the\l"
+            "mainland and challenge 'gym 1 leader'!", MSGBOX_AUTOCLOSE)
+    applymove(LOCALID_BRIAN, BrianExitLab)
     removeobject(LOCALID_BRIAN)
+    msgbox("Prof. Pine: Oh! Brian! Wait!\p"
+            "sigh…\p"
+            "Kids these days…", MSGBOX_AUTOCLOSE)
     playse(SE_EXIT)
-    waitse
+    delay(6)
+    playbgm(MUS_HG_ELM_LAB, TRUE)
+    delay(6)
     emote(LOCALID_PROF_PINE, EMOTE_EXCLAIM)
-    msgbox("Prof. Pine: Oh! Brian!") // TODO: Do Pokedex script
-    applymove(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+    getplayerxy(VAR_0x8000, VAR_0x8001)
+    switch (var(VAR_0x8000)) {
+        case 7:
+            applymove(LOCALID_PROF_PINE, ProfPineWalkToPlayer_1)
+        case 8:
+            applymove(LOCALID_PROF_PINE, ProfPineWalkToPlayer_2)
+        case 9:
+            applymove(LOCALID_PROF_PINE, ProfPineWalkToPlayer_3)
+    }
+    turnplayer(DIR_WEST)
+    msgbox("Prof. Pine: {PLAYER}!\n"
+            "Could you chase after Brian and give\l"
+            "him the Pokédex?\p"
+            "… … … … … … …\p"
+            "Of course! You're getting one too!\n"
+            "Haha!", MSGBOX_AUTOCLOSE)
+	playfanfare(MUS_OBTAIN_ITEM)
+    message("{PLAYER} received the Pokédex!")
+	waitfanfare
+    closemessage
+	setflag(FLAG_SYS_POKEDEX_GET)
+	special(SetUnlockedPokedexFlags)
+	setflag(FLAG_RECEIVED_POKEDEX_FROM_PROF_PINE)
+    msgbox("Prof. Pine: The Pokédex is a high-tech\n"
+            "tool that records all Pokémon you see\l"
+            "or capture.\p"
+            "Whenever you catch a Pokémon,\n"
+            "the Pokédex records its data and it\l"
+            "gets sent to me!\p"
+            "I use that data for my research.\n"
+            "It helps me to know what moves a\l"
+            "Pokémon can learn, what their traits are,\l"
+            "where they can be commonly found, and\l"
+            "their sizes and weights!\p"
+            "For your fieldwork, all you need to do is\n"
+            "go out there and catch any Pokémon you see.\p"
+            "Of course, to catch Pokémon, you will need\n"
+            "Poké Balls!", MSGBOX_AUTOCLOSE)
+    giveitem(ITEM_POKE_BALL, 10)
+    msgbox("Prof. Pine: The Poké Ball is a capsule\n"
+            "that catches a Pokémon.\p"
+            "The Poké Ball becomes the home of the\n"
+            "Pokémon.\p"
+            "But it won't always work!\n"
+            "You'd need to weaken the wild Pokémon\l"
+            "first, then throw a Poké Ball.\p"
+            "Also, note that you cannot catch other\n"
+            "Trainer's Pokémon!\p"
+            "Due to recent events, I feel like I'd\n"
+            "need to announce it now.\p"
+            "Anyway, {PLAYER}!\p"
+            "I wish you all the best in your Pokémon\n"
+            "adventure!\p"
+            "Safe travels, {PLAYER}.\n"
+            "Don't forget to meet your mother before\l"
+            "you leave.\p"
+            "It's rude to leave without goodbyes.", MSGBOX_NPC)
     release
     end
 }
@@ -269,7 +332,7 @@ movement BrianRushToProf {
     walk_up * 6
 }
 
-movement BrianRushDown {
+movement BrianExitLab {
     walk_down * 5
 }
 
@@ -288,6 +351,21 @@ movement MoveToWaterStarter {
 movement MoveToGrassStarter {
     walk_right
     face_up
+}
+
+movement ProfPineWalkToPlayer_1 {
+    walk_down
+    face_right
+}
+
+movement ProfPineWalkToPlayer_2 {
+    walk_down
+    walk_right
+}
+
+movement ProfPineWalkToPlayer_3  {
+    walk_down
+    walk_right * 2
 }
 
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger1 {

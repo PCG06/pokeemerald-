@@ -23,7 +23,7 @@ Debug_CheatStart::
 	givemon SPECIES_MUDKIP, 20, ITEM_NONE
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
-	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	setflag FLAG_RECEIVED_POKEDEX_FROM_PROF_PINE
 	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 2
 	setflag FLAG_SYS_NATIONAL_DEX
 	special EnableNationalPokedex

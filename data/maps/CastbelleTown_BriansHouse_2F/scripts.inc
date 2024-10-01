@@ -17,91 +17,95 @@ CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady::
 # 12 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	turnplayer DIR_EAST
 # 13 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	playbgm MUS_DP_RIVAL, FALSE
+# 14 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	msgbox CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady_Text_0, MSGBOX_AUTOCLOSE
-# 17 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	applymove 1, Common_Movement_FaceLeft
 # 18 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	emote 1, EMOTE_EXCLAM
+	applymove 1, Common_Movement_FaceLeft
 # 19 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	delay 6
-# 20 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	applymove 1, MoveBrianToPlayer
-# 21 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	msgbox CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady_Text_1, MSGBOX_AUTOCLOSE
-# 31 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	emote 1, EMOTE_EXCLAM
-# 32 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	msgbox CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady_Text_2, MSGBOX_AUTOCLOSE
-# 36 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	applymovement 1, BrianWalkInPlaceLeft
-# 37 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	applymoveplayer Common_Movement_StopInPlaceWalkLeft
-# 38 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	applymove 1, BrianExit
-# 39 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 20 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	delay 6
+# 21 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	applymove 1, MoveBrianToPlayer
+# 22 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	msgbox CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady_Text_1, MSGBOX_AUTOCLOSE
+# 32 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	emote 1, EMOTE_EXCLAM
+# 33 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	msgbox CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady_Text_2, MSGBOX_AUTOCLOSE
+# 37 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	applymovement 1, BrianWalkInPlaceLeft
+# 38 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	applymoveplayer Common_Movement_StopInPlaceWalkLeft
+# 39 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	applymove 1, BrianExit
 # 40 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	removeobject 1
+	delay 6
 # 41 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	playse SE_EXIT
+	removeobject 1
 # 42 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	setvar VAR_CASTBELLE_TOWN_STATE, 2
+	playse SE_EXIT
 # 43 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	clearflag FLAG_HIDE_CASTBELLE_TOWN_BERRY_SHOP_BRIAN
+	fadedefaultbgm
 # 44 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	clearflag FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_PROF_PINE
+	setvar VAR_CASTBELLE_TOWN_STATE, 2
 # 45 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	clearflag FLAG_HIDE_CASTBELLE_TOWN_BERRY_SHOP_BRIAN
+# 46 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	clearflag FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_PROF_PINE
+# 47 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	release
 	end
 
 
-# 49 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 51 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 MoveBrianToPlayer:
-# 50 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 52 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 50 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 52 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 50 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 52 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 50 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 52 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 50 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 52 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
-# 50 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 52 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_left
 	step_end
 
-# 53 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 55 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 BrianWalkInPlaceLeft:
-# 54 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 56 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	walk_in_place_fast_left
 	step_end
 
-# 57 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-BrianExit:
-# 58 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
-	walk_left
 # 59 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+BrianExit:
+# 60 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+	walk_left
+# 61 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	face_up
 	step_end
 
 CastbelleTown_BriansHouse_2F_BriansPC::
-# 63 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 65 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	msgbox gText_PokemonTrainerSchoolEmail, MSGBOX_DEFAULT
-# 64 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 66 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	releaseall
 	end
 
 
 CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady_Text_0:
-# 13 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 14 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	.string "Brian: …Aaaand, packed!\n"
 	.string "I'm ready to get my starter Pokémon!\p"
 	.string "Piney better let me pick the best one\n"
 	.string "first!$"
 
 CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady_Text_1:
-# 21 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 22 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	.string "Oh! Hi, {PLAYER}!\p"
 	.string "Excited to get your first Pokémon?\p"
 	.string "Honestly, I'm kind of nervous…\p"
@@ -114,7 +118,7 @@ CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady_Text_1:
 	.string "I can't wait to pick my starter!$"
 
 CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady_Text_2:
-# 32 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
+# 33 "data/maps/CastbelleTown_BriansHouse_2F/scripts.pory"
 	.string "I forgot,\n"
 	.string "I gotta buy some berries first!\p"
 	.string "Looks like I won't be the first one\n"
