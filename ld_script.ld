@@ -729,7 +729,8 @@ SECTIONS {
         data/sound_data.o(.rodata);
         src/pokemon_sprite_visualizer.o(.rodata);
         src/expansion_intro.o(.rodata);
-         src/sound_check_menu.o(.rodata);
+        src/sound_check_menu.o(.rodata);
+        src/quests.o(.rodata);
     } > ROM =0
 
     song_data :
