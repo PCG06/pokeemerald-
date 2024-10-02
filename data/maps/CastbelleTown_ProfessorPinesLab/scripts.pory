@@ -12,12 +12,16 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPine {
         "Choose your first Pokémon.", MSGBOX_NPC)
     }
     elif (var(VAR_CASTBELLE_TOWN_STATE) == 4) {
-        msgbox("Safe travels, {PLAYER}.\n"
-                "Don't forget to meet your mother before\l"
-                "you leave.\p"
+        msgbox("Prof. Pine: Safe travels, {PLAYER}.\n"
+                "Don't forget to meet your mother\l"
+                "before you leave.\p"
                 "It's rude to leave without goodbyes.", MSGBOX_NPC)
     }
     elif (var(VAR_CASTBELLE_TOWN_STATE) == 5) {
+        msgbox("Prof. Pine: Please when you meet Brian,\n"
+                "give Brian his Pokédex, {PLAYER}.\p"
+                "He must be wandering around Castbelle\n"
+                "Path or 'next town'", MSGBOX_NPC)
     }
 }
 
@@ -158,6 +162,13 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ReceivedMon {
             "from Prof. Pine!")
 	waitfanfare
     closemessage
+	msgbox("Prof Pine: Would you like to give a\n"
+            "nickname to your {STR_VAR_1}?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+	    call(Common_EventScript_GetGiftMonPartySlot)
+	    call(Common_EventScript_NameReceivedPartyMon)
+    }
+    closemessage
     setflag(FLAG_SYS_POKEMON_GET)
     setvar(VAR_CASTBELLE_TOWN_STATE, 4)
     goto(CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian)
@@ -170,7 +181,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     msgbox("???: I'M HERE!", MSGBOX_AUTOCLOSE)
     emotenowait(LOCALID_PROF_PINE, EMOTE_QUESTION)
     emotenowait(OBJ_EVENT_ID_PLAYER, EMOTE_QUESTION)
-    playbgm(MUS_DP_RIVAL, TRUE)
+    playbgm(MUS_DP_RIVAL, TRUE) // So that the music plays even after battle ends
     applymoveplayer(Common_Movement_FaceDown)
     addobject(LOCALID_BRIAN)
     setobjectxy(LOCALID_BRIAN, 6, 11)
@@ -189,10 +200,9 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
             "partner Pokémon?", MSGBOX_AUTOCLOSE)    
     applymove(LOCALID_BRIAN, Common_Movement_WalkInPlaceFasterUp)
     msgbox("Brian: YES!\p"
-            "I choose you {STR_VAR_1}!", MSGBOX_AUTOCLOSE)
+            "I choose you, {STR_VAR_1}!", MSGBOX_AUTOCLOSE)
     emotenowait(LOCALID_PROF_PINE, EMOTE_EXCLAIM)
-    emotenowait(OBJ_EVENT_ID_PLAYER, EMOTE_EXCLAIM)
-    delay(6)
+    emote(OBJ_EVENT_ID_PLAYER, EMOTE_EXCLAIM)
     msgbox("Prof. Pine: Uhh, sorry to be the\n"
             "bearer of bad news, but {PLAYER}\l"
             "has already chosen {STR_VAR_1}…", MSGBOX_AUTOCLOSE)
@@ -259,14 +269,14 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
             "mainland and challenge 'gym 1 leader'!", MSGBOX_AUTOCLOSE)
     applymove(LOCALID_BRIAN, BrianExitLab)
     removeobject(LOCALID_BRIAN)
-    msgbox("Prof. Pine: Oh! Brian! Wait!\p"
-            "sigh…\p"
-            "Kids these days…", MSGBOX_AUTOCLOSE)
+    emote(LOCALID_PROF_PINE, EMOTE_EXCLAIM)
+    msgbox("Prof. Pine: Oh! Brian! Wait!", MSGBOX_DEFAULT)
     playse(SE_EXIT)
     delay(6)
-    playbgm(MUS_HG_ELM_LAB, TRUE)
+    msgbox("sigh…\p"
+            "Kids these days…", MSGBOX_AUTOCLOSE)
+    playbgm(MUS_HG_ELM_LAB, TRUE) // Back to original music
     delay(6)
-    emote(LOCALID_PROF_PINE, EMOTE_EXCLAIM)
     getplayerxy(VAR_0x8000, VAR_0x8001)
     switch (var(VAR_0x8000)) {
         case 7:
@@ -298,13 +308,14 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
             "gets sent to me!\p"
             "I use that data for my research.\n"
             "It helps me to know what moves a\l"
-            "Pokémon can learn, what their traits are,\l"
-            "where they can be commonly found, and\l"
-            "their sizes and weights!\p"
-            "For your fieldwork, all you need to do is\n"
-            "go out there and catch any Pokémon you see.\p"
-            "Of course, to catch Pokémon, you will need\n"
-            "Poké Balls!", MSGBOX_AUTOCLOSE)
+            "Pokémon can learn, what their traits\l"
+            "are, where they can be commonly found,\l"
+            "and their sizes and weights!\p"
+            "For your fieldwork, all you need to do\n"
+            "is go out there and catch any Pokémon\l"
+            "you see.\p"
+            "Of course, to catch Pokémon, you will\n"
+            "need Poké Balls!", MSGBOX_AUTOCLOSE)
     giveitem(ITEM_POKE_BALL, 10)
     msgbox("Prof. Pine: The Poké Ball is a capsule\n"
             "that catches a Pokémon.\p"
@@ -321,8 +332,8 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
             "I wish you all the best in your Pokémon\n"
             "adventure!\p"
             "Safe travels, {PLAYER}.\n"
-            "Don't forget to meet your mother before\l"
-            "you leave.\p"
+            "Don't forget to meet your mother\l"
+            "before you leave.\p"
             "It's rude to leave without goodbyes.", MSGBOX_NPC)
     release
     end

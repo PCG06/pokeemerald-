@@ -44,10 +44,10 @@ movement MoveMomBackToChair {
 script CastbelleTown_PlayersHouse_1F_EventScript_Mom {
     lock
     faceplayer
-    if (var(VAR_CASTBELLE_TOWN_STATE) == 1) {
+    if (var(VAR_CASTBELLE_TOWN_STATE) >= 1 && var(VAR_CASTBELLE_TOWN_STATE) <= 3) {
         checkplayergender
         if (var(VAR_RESULT) == MALE) {
-            msgbox("sniff…\p"
+            msgbox("Mom: sniff…\p"
                     "My little boy going on his own\n"
                     "adventure.\p"
                     "I know you were waiting your whole life\n"
@@ -55,7 +55,7 @@ script CastbelleTown_PlayersHouse_1F_EventScript_Mom {
                     "Now go get your partner!", MSGBOX_AUTOCLOSE)
         }
         else {
-            msgbox("sniff…\p"
+            msgbox("Mom: sniff…\p"
                     "My little girl going on her own\n"
                     "adventure.\p"
                     "I know you were waiting your whole life\n"
@@ -63,17 +63,31 @@ script CastbelleTown_PlayersHouse_1F_EventScript_Mom {
                     "Now go get your partner!", MSGBOX_AUTOCLOSE)
         }
         faceoriginaldir
-        release
-        end
+    }
+    elif (var(VAR_CASTBELLE_TOWN_STATE) == 4) {
+        msgbox("Mom: Hello, honey!\p"
+                "Oh, I see your new friend.\n"
+                "What an adorable Pokémon!", MSGBOX_AUTOCLOSE)
+        msgbox("Mom: Now that you're going on your own\n"
+                "adventure, you might need these!", MSGBOX_AUTOCLOSE)
+        giveitem(ITEM_OLD_ROD)
+        setflag(FLAG_RECEIVED_OLD_ROD)
+        giveitem(ITEM_REPEL, 5)
+        giveitem(ITEM_TM_RETURN)
+        msgbox("Mom: These items will help you out in\n"
+                "your adventure!\p"
+                "Please, take care, honey!\n"
+                "If you're ever tired, come home and\l"
+                "take rest!", MSGBOX_AUTOCLOSE)
+        setvar(VAR_CASTBELLE_TOWN_STATE, 5)
     }
     else {
-        msgbox("Hello, honey!\p"
-                "Feeling tired? Take some rest", MSGBOX_AUTOCLOSE)
+        msgbox("Mom: Hello, honey!\p"
+                "Feeling tired? Take some rest.", MSGBOX_AUTOCLOSE)
         call(Common_EventScript_OutOfCenterPartyHeal)
-        msgbox("There!\n"
+        msgbox("Mom: There!\n"
                 "Feeling all refreshed, {PLAYER}?", MSGBOX_AUTOCLOSE)
-        faceoriginaldir
-        release
-        end
     }
+    release
+    end
 }

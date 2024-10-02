@@ -21,19 +21,6 @@
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PIPLUP)",
-      "x": 29,
-      "y": 9,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 2,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(LITTEN)",
       "x": 26,
       "y": 6,
@@ -84,6 +71,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CastbelleTown_EventScript_Munchlax",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
+      "x": 20,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CastbelleTown_EventScript_Boy",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -124,7 +124,168 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "1",
+      "script": "CastbelleTown_EventScript_MeetBrian"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "1",
+      "script": "CastbelleTown_EventScript_MeetBrian"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "1",
+      "script": "CastbelleTown_EventScript_MeetBrian"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "1",
+      "script": "CastbelleTown_EventScript_MeetBrian"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "1",
+      "script": "CastbelleTown_EventScript_MeetBrian"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "1",
+      "script": "CastbelleTown_EventScript_MeetBrian"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "2",
+      "script": "CastbelleTown_EventScript_MeetProfPine"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "2",
+      "script": "CastbelleTown_EventScript_MeetProfPine"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "2",
+      "script": "CastbelleTown_EventScript_MeetProfPine"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "2",
+      "script": "CastbelleTown_EventScript_MeetProfPine"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "2",
+      "script": "CastbelleTown_EventScript_MeetProfPine"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "2",
+      "script": "CastbelleTown_EventScript_MeetProfPine"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "4",
+      "script": "CastbelleTown_EventScript_TalkToMomBeforeLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "4",
+      "script": "CastbelleTown_EventScript_TalkToMomBeforeLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "4",
+      "script": "CastbelleTown_EventScript_TalkToMomBeforeLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "4",
+      "script": "CastbelleTown_EventScript_TalkToMomBeforeLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "4",
+      "script": "CastbelleTown_EventScript_TalkToMomBeforeLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "4",
+      "script": "CastbelleTown_EventScript_TalkToMomBeforeLeaving"
+    }
   ],
   "bg_events": [
     {

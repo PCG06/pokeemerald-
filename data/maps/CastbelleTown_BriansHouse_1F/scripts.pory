@@ -1,8 +1,13 @@
 mapscripts CastbelleTown_BriansHouse_1F_MapScripts {}
 
 script CastbelleTown_BriansHouse_1F_EventScript_BriansMom {
+    lock
+    faceplayer
     msgbox("sigh…\p"
             "Brian going on his own adventure…\p"
             "Please keep an eye on him, {PLAYER}.\n"
-            "He considers you his best friend.", MSGBOX_NPC)
+            "He considers you his best friend.", MSGBOX_AUTOCLOSE)
+    faceoriginaldir
+    release
+    end
 }

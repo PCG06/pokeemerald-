@@ -4,6 +4,37 @@ mapscripts CastbelleTown_MapScripts {
     }
 }
 
+// VAR_CASTBELLE_TOWN_STATE trigger values
+
+// Var value 1
+script CastbelleTown_EventScript_MeetBrian {
+    lock
+    msgbox("I should go and meet Brian first!", MSGBOX_AUTOCLOSE)
+    applymoveplayer(Common_Movement_WalkDown)
+    release
+    end
+}
+
+// Var value 2
+script CastbelleTown_EventScript_MeetProfPine {
+    lock
+    msgbox("I should meet Prof. Pine and get my\n"
+            "Pokémon before leaving!", MSGBOX_AUTOCLOSE)
+    applymoveplayer(Common_Movement_WalkDown)
+    release
+    end
+}
+
+// Var value 4
+script CastbelleTown_EventScript_TalkToMomBeforeLeaving {
+    lock
+    msgbox("I should talk to my mom before leaving!", MSGBOX_AUTOCLOSE)
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+    applymoveplayer(Common_Movement_WalkDown)
+    release
+    end
+}
+
 script CastbelleTown_EventScript_CastbelleTownSign {
     msgbox("Castbelle Town\n"
             "“New beginnings begin here!”", MSGBOX_SIGN)
@@ -44,4 +75,17 @@ script CastbelleTown_EventScript_Munchlax {
     faceoriginaldir
     release
     end
+}
+
+script CastbelleTown_EventScript_Boy {
+    if (var(VAR_CASTBELLE_TOWN_STATE) <= 3) {
+        msgbox("Hey, {PLAYER}.\p"
+                "I heard you're going on your own\n"
+                "Pokémon adventure.\p"
+                "All the best, {PLAYER}!", MSGBOX_NPC)
+    }
+    else {
+        msgbox("Woah!\n"
+                "That's a cool Pokémon, {PLAYER}!", MSGBOX_NPC)
+    }
 }
