@@ -3,6 +3,7 @@ const LOCALID_MOM = 1
 mapscripts CastbelleTown_PlayersHouse_1F_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_CASTBELLE_TOWN_STATE, 0: CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon
+        VAR_CASTBELLE_TOWN_STATE, 4: CastbelleTown_PlayerHouse_1F_EventScript_AfterGettingPartnerPokemon
     ]
 }
 
@@ -11,34 +12,74 @@ script CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon {
     delay(6)
     applymove(LOCALID_MOM, Common_Movement_FaceUp)
     emote(LOCALID_MOM, EMOTE_EXCLAIM)
-    delay(6)
-    applymove(LOCALID_MOM, MoveMomToPlayer)
+    applymove(LOCALID_MOM, MomWalkToPlayer)
     msgbox("Mom: {PLAYER}!\n"
             "Did you hear?\p"
             "Prof. Pine is giving out Pokémon to new\n"
             "Trainers!\p"
             "You just got your Trainer Card,\n"
             "why not get yourself a new companion?\p"
-            "Prof. Pine would be overjoyed to give\n"
-            "you one!", MSGBOX_AUTOCLOSE)
-    delay(1)
-    applymove(LOCALID_MOM, MoveMomBackToChair)
+            "Prof. Pine would be glad to give you\n"
+            "one!", MSGBOX_AUTOCLOSE)
+    delay(24)
+    applymove(LOCALID_MOM, MomWalkToChair)
     applymove(LOCALID_MOM, Common_Movement_FaceLeft)
     setvar(VAR_CASTBELLE_TOWN_STATE, 1)
     release
     end
 }
 
-movement MoveMomToPlayer {
+movement MomWalkToPlayer {
     walk_up
     walk_right * 3
     walk_up
 }
 
-movement MoveMomBackToChair {
+movement MomWalkToChair {
     walk_down
     walk_left * 3
     walk_down
+}
+
+script CastbelleTown_PlayerHouse_1F_EventScript_AfterGettingPartnerPokemon {
+    lock
+    turnobject(LOCALID_MOM, DIR_SOUTH)
+    emote(LOCALID_MOM, EMOTE_EXCLAIM)
+    applymove(LOCALID_MOM, MomWalkToPlayer_2)
+    msgbox("Mom: Hello, honey!\p"
+            "Oh, you got your first Pokémon,\n"
+            "already?\p"
+            "That's great!\n"
+            "I am overjoyed for you!\l"
+            "I hope you two bond well!\p"
+            "Now that you're going on your own\n"
+            "adventure, you might need these!", MSGBOX_AUTOCLOSE)
+    giveitem(ITEM_OLD_ROD)
+    setflag(FLAG_RECEIVED_OLD_ROD)
+    giveitem(ITEM_REPEL, 5)
+    giveitem(ITEM_TM_RETURN)
+    msgbox("Mom: These items will help you out in\n"
+            "your adventure!\p"
+            "Please, take care, honey!\n"
+            "If you're ever tired, you can always\l"
+            "come home and take rest!\p"
+	        "… … … … … … … …\n"
+	        "… … … … … … … …\p", MSGBOX_AUTOCLOSE)
+    applymove(LOCALID_MOM, MomWalkToChair_2)
+    delay(24)
+    setvar(VAR_CASTBELLE_TOWN_STATE, 5)
+    end
+}
+
+movement MomWalkToPlayer_2 {
+    walk_right * 3
+    walk_down
+}
+
+movement MomWalkToChair_2 {
+    walk_left * 3
+    walk_up
+    face_left
 }
 
 script CastbelleTown_PlayersHouse_1F_EventScript_Mom {
@@ -63,23 +104,6 @@ script CastbelleTown_PlayersHouse_1F_EventScript_Mom {
                     "Now go get your partner!", MSGBOX_AUTOCLOSE)
         }
         faceoriginaldir
-    }
-    elif (var(VAR_CASTBELLE_TOWN_STATE) == 4) {
-        msgbox("Mom: Hello, honey!\p"
-                "Oh, I see your new friend.\n"
-                "What an adorable Pokémon!", MSGBOX_AUTOCLOSE)
-        msgbox("Mom: Now that you're going on your own\n"
-                "adventure, you might need these!", MSGBOX_AUTOCLOSE)
-        giveitem(ITEM_OLD_ROD)
-        setflag(FLAG_RECEIVED_OLD_ROD)
-        giveitem(ITEM_REPEL, 5)
-        giveitem(ITEM_TM_RETURN)
-        msgbox("Mom: These items will help you out in\n"
-                "your adventure!\p"
-                "Please, take care, honey!\n"
-                "If you're ever tired, come home and\l"
-                "take rest!", MSGBOX_AUTOCLOSE)
-        setvar(VAR_CASTBELLE_TOWN_STATE, 5)
     }
     else {
         msgbox("Mom: Hello, honey!\p"

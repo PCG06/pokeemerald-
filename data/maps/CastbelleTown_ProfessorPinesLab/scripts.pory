@@ -28,7 +28,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPine {
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon {
     lock
     applymoveplayer(Common_Movement_WalkUp)
-    delay(6)
+    delay(24)
     msgbox("Prof. Pine: Hello, {PLAYER}!\p"
             "You're here to get your first Pokémon,\n"
             "huh?\p"
@@ -39,6 +39,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon {
             "you'd want to meet your first Pokémon\l"
             "now, right?", MSGBOX_AUTOCLOSE)
     applymove(LOCALID_PROF_PINE, Common_Movement_WalkDown)
+    setobjectxyperm(LOCALID_PROF_PINE, 6, 4)
     msgbox("Prof. Pine: In these three Poké Balls\n"
             "are three Pokémon I was gifted by an\l"
             "older student of mine.\p"
@@ -51,7 +52,10 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon {
 
 script CastbelleTown_ProfessorPinesLab_EventScript_GrassStarter {
     lock
-    if ((flag(FLAG_SYS_POKEMON_GET) != true) && (var(VAR_CASTBELLE_TOWN_STATE) == 3)) {
+    if (var(VAR_CASTBELLE_TOWN_STATE) <= 2) {
+        msgbox("It's Prof. Pine's starter Pokémon!", MSGBOX_AUTOCLOSE)
+    }
+    elif (var(VAR_CASTBELLE_TOWN_STATE) == 3) {
         playmoncry(SPECIES_CHIKORITA, CRY_MODE_NORMAL)
         showmonpic(SPECIES_CHIKORITA, 10, 3)
         msgbox("Prof. Pine: Ah, the Grass-type\n"
@@ -84,7 +88,10 @@ script CastbelleTown_ProfessorPinesLab_EventScript_GrassStarter {
 
 script CastbelleTown_ProfessorPinesLab_EventScript_FireStarter {
     lock
-    if ((flag(FLAG_SYS_POKEMON_GET) != true) && (var(VAR_CASTBELLE_TOWN_STATE) == 3)) {
+    if (var(VAR_CASTBELLE_TOWN_STATE) <= 2) {
+        msgbox("It's Prof. Pine's starter Pokémon!", MSGBOX_AUTOCLOSE)
+    }
+    elif (var(VAR_CASTBELLE_TOWN_STATE) == 3) {
         playmoncry(SPECIES_LITTEN, CRY_MODE_NORMAL)
         showmonpic(SPECIES_LITTEN, 10, 3)
         msgbox("Prof. Pine: Ah, the Fire-type\n"
@@ -118,7 +125,10 @@ script CastbelleTown_ProfessorPinesLab_EventScript_FireStarter {
 
 script CastbelleTown_ProfessorPinesLab_EventScript_WaterStarter {
     lock
-    if ((flag(FLAG_SYS_POKEMON_GET) != true) && (var(VAR_CASTBELLE_TOWN_STATE) == 3)) {
+    if (var(VAR_CASTBELLE_TOWN_STATE) <= 2) {
+        msgbox("It's Prof. Pine's starter Pokémon!", MSGBOX_AUTOCLOSE)
+    }
+    elif (var(VAR_CASTBELLE_TOWN_STATE) == 3) {
         playmoncry(SPECIES_PIPLUP, CRY_MODE_NORMAL)
         showmonpic(SPECIES_PIPLUP, 10, 3)
         msgbox("Prof. Pine: Ah, the Water-type\n"
@@ -212,7 +222,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
             "Well, the Early Bird gets the Wurmple…\p"
             "Then in that case…", MSGBOX_AUTOCLOSE)
     if (flag(FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_GRASS_STARTER) == true) {
-        applymove(LOCALID_BRIAN, MoveToFireStarter)
+        applymove(LOCALID_BRIAN, BrianWalkToFireStarter)
         applymoveplayer(Common_Movement_FaceRight)
         msgbox("I choose you, Litten!", MSGBOX_AUTOCLOSE)
         playmoncry(SPECIES_LITTEN, CRY_MODE_NORMAL)
@@ -222,7 +232,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
         applymove(LOCALID_BRIAN, Common_Movement_FaceLeft)
     }
     elif (flag(FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_FIRE_STARTER) == true) {
-        applymove(LOCALID_BRIAN, MoveToWaterStarter)
+        applymove(LOCALID_BRIAN, BrianWalkToWaterStarter)
         applymoveplayer(Common_Movement_FaceRight)
         msgbox("I choose you, Piplup!", MSGBOX_AUTOCLOSE)
         playmoncry(SPECIES_PIPLUP, CRY_MODE_NORMAL)
@@ -232,7 +242,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
         applymove(LOCALID_BRIAN, Common_Movement_FaceLeft)
     }
     else {
-        applymove(LOCALID_BRIAN, MoveToGrassStarter)
+        applymove(LOCALID_BRIAN, BrianWalkToGrassStarter)
         msgbox("I choose you, Chikorita!", MSGBOX_AUTOCLOSE)
         playmoncry(SPECIES_CHIKORITA, CRY_MODE_NORMAL)
 	    delay(40)
@@ -272,11 +282,40 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     emote(LOCALID_PROF_PINE, EMOTE_EXCLAIM)
     msgbox("Prof. Pine: Oh! Brian! Wait!", MSGBOX_DEFAULT)
     playse(SE_EXIT)
-    delay(6)
+    delay(24)
     msgbox("sigh…\p"
             "Kids these days…", MSGBOX_AUTOCLOSE)
     playbgm(MUS_HG_ELM_LAB, TRUE) // Back to original music
-    delay(6)
+    delay(24)
+    goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfPineGivesPokedex)
+}
+
+movement BrianRushToProf {
+    walk_up * 6
+}
+
+movement BrianExitLab {
+    walk_down * 5
+}
+
+movement BrianWalkToFireStarter {
+    walk_down
+    walk_right * 2
+    walk_up
+}
+
+movement BrianWalkToWaterStarter {
+    walk_down
+    walk_right * 3
+    walk_up
+}
+
+movement BrianWalkToGrassStarter {
+    walk_right
+    face_up
+}
+
+script CastbelleTown_ProfessorPinesLab_EventScript_ProfPineGivesPokedex {
     getplayerxy(VAR_0x8000, VAR_0x8001)
     switch (var(VAR_0x8000)) {
         case 7:
@@ -337,31 +376,6 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
             "It's rude to leave without goodbyes.", MSGBOX_NPC)
     release
     end
-}
-
-movement BrianRushToProf {
-    walk_up * 6
-}
-
-movement BrianExitLab {
-    walk_down * 5
-}
-
-movement MoveToFireStarter {
-    walk_down
-    walk_right * 2
-    walk_up
-}
-
-movement MoveToWaterStarter {
-    walk_down
-    walk_right * 3
-    walk_up
-}
-
-movement MoveToGrassStarter {
-    walk_right
-    face_up
 }
 
 movement ProfPineWalkToPlayer_1 {
@@ -448,23 +462,22 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBefor
 movement PlayerBackToCenter_1 {
     walk_up
     walk_right
-    walk_up * 6
-    walk_right
+    walk_up * 5
 }
 
 movement PlayerBackToCenter_2 {
-    walk_up * 6
-    walk_right
+    walk_up * 5
 }
 
 movement PlayerBackToCenter_3 {
-    walk_up * 6
+    walk_left
+    walk_up * 5
 }
 
 movement PlayerBackToCenter_4 {
     walk_up
-    walk_left
-    walk_up * 6
+    walk_left * 2
+    walk_up * 5
 }
 
 script CastbelleTown_ProfessorPinesLab_EventScript_Aide1 {
