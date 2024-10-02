@@ -3,6 +3,7 @@
 #include "bg.h"
 #include "data.h"
 #include "decompress.h"
+#include "event_object_movement.h"
 #include "gpu_regs.h"
 #include "graphics.h"
 #include "item.h"
@@ -17,6 +18,8 @@
 #include "menu_helpers.h"
 #include "palette.h"
 #include "party_menu.h"
+#include "pokemon_icon.h"
+#include "random.h"
 #include "scanline_effect.h"
 #include "sound.h"
 #include "string_util.h"
@@ -26,15 +29,13 @@
 #include "quests.h"
 #include "overworld.h"
 #include "event_data.h"
+#include "constants/event_objects.h"
 #include "constants/items.h"
 #include "constants/field_weather.h"
-#include "constants/songs.h"
+#include "constants/quests.h"
 #include "constants/rgb.h"
-#include "constants/event_objects.h"
-#include "event_object_movement.h"
-#include "pokemon_icon.h"
-
-#include "random.h"
+#include "constants/songs.h"
+#include "constants/species.h"
 
 #define tPageItems      data[4]
 #define tItemPcParam    data[6]
@@ -566,7 +567,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      gText_SideQuestDesc_1,
 	      gText_SideQuestDoneDesc_1,
 	      gText_SideQuestMap1,
-	      OBJ_EVENT_GFX_WALLY,
+	      OBJ_EVENT_ID_PLAYER,
 	      OBJECT,
 	      NULL,
 	      0
@@ -578,8 +579,8 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      gText_SideQuestMap2,
 	      OBJ_EVENT_GFX_WALLY,
 	      OBJECT,
-	      sSubQuests1,
-	      QUEST_1_SUB_COUNT
+	      NULL,
+	      0
 	),
 	side_quest(
 	      gText_SideQuestName_3,
@@ -588,7 +589,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      gText_SideQuestMap3,
 	      OBJ_EVENT_GFX_WALLY,
 	      OBJECT,
-	      sSubQuests2,
+	      NULL,
 	      QUEST_2_SUB_COUNT
 	),
 	side_quest(

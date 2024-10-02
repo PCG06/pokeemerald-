@@ -21,7 +21,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPine {
         msgbox("Prof. Pine: Please when you meet Brian,\n"
                 "give Brian his Pokédex, {PLAYER}.\p"
                 "He must be wandering around Castbelle\n"
-                "Path or 'next town'", MSGBOX_NPC)
+                "Path!", MSGBOX_NPC)
     }
 }
 
@@ -374,6 +374,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfPineGivesPokedex {
             "Don't forget to meet your mother\l"
             "before you leave.\p"
             "It's rude to leave without goodbyes.", MSGBOX_NPC)
+    questmenu(QUEST_MENU_SET_ACTIVE, QUEST_2_DELIVER_THE_DEX)
     release
     end
 }
