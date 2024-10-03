@@ -144,6 +144,8 @@ static void PrintQuestLocation(s32 questId);
 static void GenerateQuestFlavorText(s32 questId);
 static void UpdateQuestFlavorText(s32 questId);
 static void PrintQuestFlavorText(s32 questId);
+static const u8 *GetQuestDesc(s32 questId);
+static const u8 *GetQuestDesc_MainStory(void);
 
 static bool8 IsQuestUnlocked(s32 questId);
 static bool8 IsQuestActiveState(s32 questId);
@@ -156,6 +158,7 @@ static void DetermineSpriteType(s32 questId);
 static void QuestMenu_CreateSprite(u16 itemId, u8 idx, u8 spriteType);
 static void ResetSpriteState(void);
 static void QuestMenu_DestroySprite(u8 idx);
+static u8 GetSpriteType_MainStory(void);
 
 static void GenerateStateAndPrint(u8 windowId, u32 itemId, u8 y);
 static u8 GenerateSubquestState(u8 questId);
@@ -2058,10 +2061,41 @@ void GenerateQuestFlavorText(s32 questId)
 
 	StringExpandPlaceholders(gStringVar3, gStringVar1);
 }
+
 void UpdateQuestFlavorText(s32 questId)
 {
-	StringCopy(gStringVar1, sSideQuests[questId].desc);
+	StringExpandPlaceholders(gStringVar1, GetQuestDesc(questId));
 }
+
+static const u8 *GetQuestDesc(s32 questId)
+{
+    switch (questId) {
+        case QUEST_1_MAIN_STORY:
+            return GetQuestDesc_MainStory();
+        default:
+            return sSideQuests[questId].desc;
+    }
+}
+
+static const u8 *GetQuestDesc_MainStory(void)
+{
+    switch (VarGet(VAR_MAIN_STORY))
+    {
+        case 1:
+            return gText_MainQuestDesc_1;
+        case 2:
+            return gText_MainQuestDesc_2;
+        case 3:
+            return gText_MainQuestDesc_3;
+        case 4:
+            return gText_MainQuestDesc_4;
+		case 5:
+		    return gText_MainQuestDesc_5;
+		default:
+		    return gText_SideQuestDesc_1;
+    }
+}
+
 void PrintQuestFlavorText(s32 questId)
 {
 	QuestMenu_AddTextPrinterParameterized(1, 2, gStringVar3, 40, 19, 5, 0, 0,
@@ -2129,7 +2163,7 @@ bool8 IsQuestCompletedState(s32 questId)
 	}
 }
 
-bool8 UNUSED IsQuestUnlocked(s32 questId)
+bool8 IsQuestUnlocked(s32 questId)
 {
 	if (QuestMenu_GetSetQuestState(questId, FLAG_GET_UNLOCKED))
 	{
@@ -2145,6 +2179,16 @@ void DetermineSpriteType(s32 questId)
 {
 	u16 spriteId;
 	u8 spriteType;
+
+    if (IsQuestUnlocked(questId) == FALSE)
+	{
+		QuestMenu_CreateSprite(ITEM_NONE, sStateDataPtr->spriteIconSlot, ITEM);
+	}
+
+	if (questId == QUEST_1_MAIN_STORY)
+	{
+		QuestMenu_CreateSprite(GetSpriteType_MainStory(), sStateDataPtr->spriteIconSlot, OBJECT);
+	}
 
 	if (IsSubquestMode() == FALSE)
 	{
@@ -2243,6 +2287,26 @@ static void QuestMenu_DestroySprite(u8 idx)
 		}
 	}
 }
+
+static u8 GetSpriteType_MainStory(void)
+{
+	switch (VarGet(VAR_MAIN_STORY))
+    {
+		case 1:
+		    return OBJ_EVENT_GFX_MOM;
+		case 2:
+		    return OBJ_EVENT_GFX_WALLY;
+		case 3:
+		    return OBJ_EVENT_GFX_PROF_BIRCH;
+		case 4:
+		    return OBJ_EVENT_GFX_WALLY;
+		case 5:
+		    return OBJ_EVENT_GFX_SAILOR;
+		default:
+		    return OBJ_EVENT_ID_PLAYER;
+	} 
+}
+
 static void GenerateStateAndPrint(u8 windowId, u32 questId,
                                   u8 y)
 {

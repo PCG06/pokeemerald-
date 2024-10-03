@@ -216,8 +216,9 @@
 #define MAPSEC_TRAINER_HILL                 0xD4
 
 #define MAPSEC_CASTBELLE_TOWN               0xD5
-#define MAPSEC_ROUTE_001                    0xD6
-#define MAPSEC_NONE                         0xD7
+#define MAPSEC_CASTBELLE_PATH                    0xD6
+#define MAPSEC_SOLA_CITY                    0xD7
+#define MAPSEC_NONE                         0xD8
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

@@ -1,0 +1,117 @@
+const LOCALID_BRIAN = 1
+
+mapscripts CastbellePath_MapScripts {}
+
+script CastbellePath_EventScript_SignPost_North {
+    msgbox("Castbelle Path\n"
+            "{UP_ARROW} Sola City", MSGBOX_SIGN)
+}
+
+script CastbellePath_EventScript_SignPost_South {
+    msgbox("Castbelle Path\n"
+            "{DOWN_ARROW} Castbelle Town", MSGBOX_SIGN)
+}
+
+script CastbellePath_EventScript_TrainerTips {
+    msgbox("Trainer Tips\p"
+	        "In addition to Hit Points (HP), Pokémon\n"
+	        "have Power Points (PP) that are used to\l"
+	        "make moves during battle.\p"
+	        "If a Pokémon runs out of PP, it must be\n"
+	        "taken to a Pokémon Center.\p"
+            "The closest Pokémon Center is in Sola City!", MSGBOX_SIGN)
+}
+
+script CastbellePath_EventScript_Brian {
+    lock
+    faceplayer
+    msgbox("Brian: Hey, {PLAYER}!\p"
+            "I caught some Pokémon here.\n"
+            "Wanna battle me?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {  
+        msgbox("Alright! Here I come!", MSGBOX_DEFAULT)
+        switch (var(VAR_STARTER_MON))
+        {
+            default:
+            case STARTER_GRASS:
+                trainerbattle_no_intro(TRAINER_BRIAN_2_GRASS, "Brian: You gotta be kidding me!\pNo way!")
+
+            case STARTER_FIRE:
+                trainerbattle_no_intro(TRAINER_BRIAN_2_FIRE, "Brian: You gotta be kidding me!\pNo way!")
+
+            case STARTER_WATER:
+                trainerbattle_no_intro(TRAINER_BRIAN_2_WATER, "Brian: You gotta be kidding me!\pNo way!")
+        }
+        playbgm(MUS_DP_RIVAL, FALSE)
+        msgbox("Brian: Man! You're strong!\n"
+                "That was a fun battle!\p"
+                "… … … … … … …\p"
+                "Brian: Huh? My Pokédex?\n"
+                "Couldn't you have started with that?\p"
+                "Would have saved me some shame!", MSGBOX_AUTOCLOSE)
+        playfanfare(MUS_OBTAIN_TMHM)
+        message("{PLAYER} handed over the Pokédex!")
+        waitmessage
+	    waitfanfare
+        closemessage
+        msgbox("Brian: Thank you, {PLAYER}!\n"
+                "I am quite hasty, haha.\p"
+                "Now, I'm headed towards Sola City to\n"
+                "catch the next ferry!\p"
+                "I expect you to be there as well!\n"
+                "Don't be late!", MSGBOX_NPC)
+        getplayerxy(VAR_0x8000, VAR_0x8001)
+        if (var(VAR_0x8000) == 5 && var(VAR_0x8001) == 14) {
+            applymove(LOCALID_BRIAN, BrianExitsCastbellePath_2)
+        }
+        else {
+            applymove(LOCALID_BRIAN, BrianExitsCastbellePath)
+        }
+        fadedefaultbgm
+        removeobject(LOCALID_BRIAN)
+        setvar(VAR_MAIN_STORY, 5)
+    }
+    else {
+        msgbox("Weak.\p"
+                "I'll be here for another while.\n"
+                "I think I saw a rare Pokémon!", MSGBOX_AUTOCLOSE)
+    }
+    release
+    end
+}
+
+movement BrianExitsCastbellePath {
+    walk_right
+    walk_up * 7
+}
+
+movement BrianExitsCastbellePath_2 {
+    walk_up * 7
+}
+
+script CastbellePath_EventScript_Boy {
+    msgbox("I'm trying to catch a Pidgey here.\n"
+            "Hmm…\l"
+            "I can't seem to find one anywhere.", MSGBOX_NPC)
+}
+
+script CastbellePath_EventScript_Woman {
+    msgbox("Oh, no! I'm not trapped here.\n"
+            "Hmm…\l"
+            "The ledges let us jump down from here.", MSGBOX_NPC)
+}
+
+script CastbellePath_EventScript_Girl {
+    msgbox("Did you know?\p"
+            "You can go back to Castbelle Town from\n"
+            "here without walking on a single\l"
+            "grass patch!\p"
+            "How?\n"
+            "Use the ledges on the left side!", MSGBOX_NPC)
+}
+
+script CastbellePath_EventScript_YoungsterJoey {
+    trainerbattle_single(TRAINER_JOEY, "I love wearing shorts!\nThey are comfy and easy to wear!", "You got no chill!")
+    msgbox("You seem ill-tempered!\n"
+            "Wearing shorts would fix that!", MSGBOX_NPC)
+}

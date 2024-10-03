@@ -1720,11 +1720,19 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_ROUTE_001",
-      "name": "Route 1",
+      "map_section": "MAPSEC_CASTBELLE_PATH",
+      "name": "Castbelle Path",
       "x": 4,
       "y": 10,
       "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SOLA_CITY",
+      "name": "Sola City",
+      "x": 18,
+      "y": 3,
+      "width": 2,
       "height": 1
     }
   ]

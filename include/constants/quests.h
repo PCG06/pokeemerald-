@@ -16,7 +16,7 @@
 
 // quest number defines
 #define QUEST_1_MAIN_STORY      0
-#define QUEST_2_DELIVER_THE_DEX 1
+#define QUEST_2          1
 #define QUEST_3          2
 #define QUEST_4          3
 #define QUEST_5          4

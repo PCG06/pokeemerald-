@@ -39,7 +39,8 @@
   ],
   "gMapGroup_NewTownsAndRoutes": [
     "CastbelleTown",
-    "Route001"
+    "CastbellePath",
+    "SolaCity"
   ],
   "gMapGroup_IndoorCastbelle": [
     "CastbelleTown_PlayersHouse_1F",

@@ -6010,9 +6010,20 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Machop
-Level: 9
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pidgey (F)
+Level: 4
+IVs: 0 HP / 12 Atk / 0 Def / 12 SpA / 0 SpD / 0 Spe
+- Tackle
+- Gust
+- Sand Attack
+
+Sandshrew (M)
+Level: 5
+IVs: 0 HP / 12 Atk / 0 Def / 12 SpA / 0 SpD / 0 Spe
+- Tackle
+- Mud Slap
+- Sand Attack
+- Poison Sting
 
 === TRAINER_BEN ===
 Name: BEN
@@ -9509,33 +9520,39 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Green
 
-Chikorita @ Oran Berry
+Chikorita (F) @ Oran Berry
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_BRENDAN_ROUTE_110_MUDKIP ===
-Name: BRENDAN
+=== TRAINER_BRIAN_2_WATER ===
+Name: Brian
 Class: Rival
-Pic: Brendan
+Pic: Wally
 Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Green
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Rookidee (M)
+Level: 5
+IVs: 0 HP / 12 Atk / 12 Def / 0 SpA / 0 SpD / 0 Spe
+- Peck
+- Leer
+- Hone Claws
+- Power Trip
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Chikorita (F) @ Oran Berry
+Level: 8
+IVs: 0 HP / 12 Atk / 0 Def / 0 SpA / 0 SpD / 12 Spe
+- Tackle
+- Growl
+- Razor Leaf
+- Synthesis
 
-Grovyle
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_BRENDAN_ROUTE_119_MUDKIP ===
+=== TRAINER_BRIAN_3_WATER ===
 Name: BRENDAN
 Class: Rival
 Pic: Brendan
@@ -9564,33 +9581,39 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Green
 
-Litten @ Oran Berry
+Litten (M) @ Oran Berry
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_BRENDAN_ROUTE_110_TREECKO ===
-Name: BRENDAN
+=== TRAINER_BRIAN_2_GRASS ===
+Name: Brian
 Class: Rival
-Pic: Brendan
+Pic: Wally
 Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Green
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Rookidee (M)
+Level: 5
+IVs: 0 HP / 12 Atk / 12 Def / 0 SpA / 0 SpD / 0 Spe
+- Peck
+- Leer
+- Hone Claws
+- Power Trip
 
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Litten (M) @ Oran Berry
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Scratch
+- Ember
+- Leer
+- Lick
 
-Combusken
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_BRENDAN_ROUTE_119_TREECKO ===
+=== TRAINER_BRIAN_3_GRASS ===
 Name: BRENDAN
 Class: Rival
 Pic: Brendan
@@ -9619,33 +9642,39 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Green
 
-Piplup @ Oran Berry
+Piplup (M) @ Oran Berry
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_BRENDAN_ROUTE_110_TORCHIC ===
-Name: BRENDAN
+=== TRAINER_BRIAN_2_FIRE ===
+Name: Brian
 Class: Rival
-Pic: Brendan
+Pic: Wally
 Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
+Mugshot: Green
 
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Rookidee (M)
+Level: 5
+IVs: 0 HP / 12 Atk / 12 Def / 0 SpA / 0 SpD / 0 Spe
+- Peck
+- Leer
+- Hone Claws
+- Power Trip
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Piplup (M) @ Oran Berry
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Pound
+- Growl
+- Water Gun
+- Peck
 
-Marshtomp
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-=== TRAINER_BRENDAN_ROUTE_119_TORCHIC ===
+=== TRAINER_BRIAN_3_FIRE ===
 Name: BRENDAN
 Class: Rival
 Pic: Brendan
@@ -9666,7 +9695,7 @@ Marshtomp
 Level: 31
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_MAY_ROUTE_103_MUDKIP ===
+=== TRAINER_BRIAN_4_GRASS ===
 Name: MAY
 Class: Rival
 Pic: May
@@ -9679,7 +9708,7 @@ Treecko
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_MAY_ROUTE_110_MUDKIP ===
+=== TRAINER_BRIAN_4_FIRE ===
 Name: MAY
 Class: Rival
 Pic: May
@@ -9700,7 +9729,7 @@ Grovyle
 Level: 20
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_MAY_ROUTE_119_MUDKIP ===
+=== TRAINER_BRIAN_4_WATER ===
 Name: MAY
 Class: Rival
 Pic: May

@@ -257,13 +257,13 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     {
         default:
         case STARTER_GRASS:
-            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_GRASS, "Ow man!\pYou got lucky!")
+            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_GRASS, "Brian: Ow man!\pYou got lucky!")
 
         case STARTER_FIRE:
-            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_FIRE, "Ow man!\pYou got lucky!")
+            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_FIRE, "Brian: Ow man!\pYou got lucky!")
 
         case STARTER_WATER:
-            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_WATER, "Ow man!\pYou got lucky!")
+            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_WATER, "Brian: Ow man!\pYou got lucky!")
     }
     special(HealPlayerParty)
     msgbox("Brian: That was fun!", MSGBOX_AUTOCLOSE)
@@ -374,7 +374,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfPineGivesPokedex {
             "Don't forget to meet your mother\l"
             "before you leave.\p"
             "It's rude to leave without goodbyes.", MSGBOX_NPC)
-    questmenu(QUEST_MENU_SET_ACTIVE, QUEST_2_DELIVER_THE_DEX)
+    setvar(VAR_MAIN_STORY, 4)
     release
     end
 }

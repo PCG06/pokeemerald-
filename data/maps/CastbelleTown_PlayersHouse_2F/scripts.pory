@@ -1,1 +1,28 @@
 mapscripts CastbelleTown_PlayersHouse_2F_MapScripts {}
+
+
+script CastbelleTown_PlayerHouse_2F_EventScript_TriggerGetQuestMenu {
+    lock
+    msgbox("I should check my table before leaving!", MSGBOX_AUTOCLOSE)
+    applymoveplayer(Common_Movement_WalkDown)
+    release
+    end
+}
+
+script CastbelleTown_PlayerHouse_2F_EventScript_Notebook {
+    lock
+    if (var(VAR_MAIN_STORY) == 0)
+    {
+        msgbox("It's my Quest Log!", MSGBOX_AUTOCLOSE)
+        playfanfare(MUS_OBTAIN_ITEM)
+        message("{PLAYER} obtained a Quest Log!")
+        waitfanfare
+        closemessage
+        setflag(FLAG_SYS_QUEST_MENU_GET)
+        setvar(VAR_MAIN_STORY, 1)
+        startquest(QUEST_1_MAIN_STORY)
+    }
+    else {
+        msgbox(PlayersHouse_2F_Text_Notebook, MSGBOX_SIGN)
+    }
+}

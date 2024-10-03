@@ -1846,13 +1846,13 @@ const u8 gText_PM[] = _("PM");
 
 //// side quest data
 //generic strings
-const u8 gText_QuestAnnounce[] = _("The quest '{STR_VAR_1}'\nis now {STR_VAR_2}.");
+const u8 gText_QuestAnnounce[] = _("The quest “{STR_VAR_1}”\nis now {STR_VAR_2}.");
 const u8 gText_QuestComplete[] =_("complete");
 const u8 gText_QuestActive[] =_("active");
 
 //names
 const u8 gText_SideQuestName_1[] = _("Main Story!");
-const u8 gText_SideQuestName_2[] = _("Deliver the Dex!");
+const u8 gText_SideQuestName_2[] = _("Side Quest 2");
 const u8 gText_SideQuestName_3[] = _("Side Quest 3");
 const u8 gText_SideQuestName_4[] = _("Side Quest 4");
 const u8 gText_SideQuestName_5[] = _("Side Quest 5");
@@ -1883,8 +1883,8 @@ const u8 gText_SideQuestName_29[] = _("Side Quest 29");
 const u8 gText_SideQuestName_30[] = _("Side Quest 30");
 
 //descriptions
-const u8 gText_SideQuestDesc_1[] = _("Talk to Mom downstairs.");
-const u8 gText_SideQuestDesc_2[] = _("Deliver the Pokédex to Brian.\nHe must be around Castbelle Path.");
+const u8 gText_SideQuestDesc_1[] = _("Main story.");
+const u8 gText_SideQuestDesc_2[] = _("Description 2");
 const u8 gText_SideQuestDesc_3[] = _("Description 3");
 const u8 gText_SideQuestDesc_4[] = _("Description 4");
 const u8 gText_SideQuestDesc_5[] = _("Description 5");
@@ -1915,7 +1915,7 @@ const u8 gText_SideQuestDesc_29[] = _("Description 29");
 const u8 gText_SideQuestDesc_30[] = _("Description 30");
 
 //completed quest description
-const u8 gText_SideQuestDoneDesc_1[] = _("Delivered the Pokédex to Brian in Castbelle Path.");
+const u8 gText_SideQuestDoneDesc_1[] = _("You have completed the main story!\nExplore the postgame as you wish.");
 const u8 gText_SideQuestDoneDesc_2[] = _("Completed Quest 2");
 const u8 gText_SideQuestDoneDesc_3[] = _("Completed Quest 3");
 const u8 gText_SideQuestDoneDesc_4[] = _("Completed Quest 4");
@@ -1945,6 +1945,17 @@ const u8 gText_SideQuestDoneDesc_27[] = _("Completed Quest 27");
 const u8 gText_SideQuestDoneDesc_28[] = _("Completed Quest 28");
 const u8 gText_SideQuestDoneDesc_29[] = _("Completed Quest 29");
 const u8 gText_SideQuestDoneDesc_30[] = _("Completed Quest 30");
+
+const u8 gText_MainQuestDesc_1[] = _("Go downstairs and talk to Mom!");
+const u8 gText_MainQuestDesc_2[] = _("Go and meet Brian at his residence!");
+const u8 gText_MainQuestDesc_3[] = _("Go and meet Prof. Pine to claim your\nstarter!");
+const u8 gText_MainQuestDesc_4[] = _("Deliver the Pokédex to Brian.\nHe must be around Castbelle Path.");
+const u8 gText_MainQuestDesc_5[] = _("Go to Sola Port and catch the next\nferry to the mainland!");
+const u8 gText_MainQuestDesc_6[] = _(" ");
+const u8 gText_MainQuestDesc_7[] = _(" ");
+const u8 gText_MainQuestDesc_8[] = _(" ");
+const u8 gText_MainQuestDesc_9[] = _(" ");
+const u8 gText_MainQuestDesc_10[] = _(" ");
 
 //map
 const u8 gText_SideQuestMap1[] = _("Castbelle Path");

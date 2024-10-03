@@ -4422,14 +4422,14 @@
       "blockdata_filepath": "data/layouts/CastbelleTown/map.bin"
     },
     {
-      "id": "LAYOUT_ROUTE001",
-      "name": "Route001_Layout",
-      "width": 20,
-      "height": 26,
+      "id": "LAYOUT_CASTBELLE_PATH",
+      "name": "CastbellePath_Layout",
+      "width": 44,
+      "height": 36,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/Route001/border.bin",
-      "blockdata_filepath": "data/layouts/Route001/map.bin"
+      "border_filepath": "data/layouts/CastbellePath/border.bin",
+      "blockdata_filepath": "data/layouts/CastbellePath/map.bin"
     },
     {
       "id": "LAYOUT_CASTBELLE_TOWN_PLAYERS_HOUSE",
@@ -4500,6 +4500,16 @@
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/CastbelleTown_BerryShop/border.bin",
       "blockdata_filepath": "data/layouts/CastbelleTown_BerryShop/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY",
+      "name": "SolaCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lilycove",
+      "border_filepath": "data/layouts/SolaCity/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity/map.bin"
     }
   ]
 }

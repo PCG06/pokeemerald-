@@ -42,6 +42,7 @@ script CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady {
     playse(SE_EXIT)
 	fadedefaultbgm
     setvar(VAR_CASTBELLE_TOWN_STATE, 2)
+    setvar(VAR_MAIN_STORY, 3)
     clearflag(FLAG_HIDE_CASTBELLE_TOWN_BERRY_SHOP_BRIAN)
     clearflag(FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_PROF_PINE)
     release
