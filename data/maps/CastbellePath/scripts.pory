@@ -110,6 +110,11 @@ script CastbellePath_EventScript_Girl {
             "Use the ledges on the left side!", MSGBOX_NPC)
 }
 
+script CastbellePath_EventScript_OldLady {
+    msgbox("Walking on this grass path heal my tired,\n"
+            "old feet.", MSGBOX_NPC)
+}
+
 script CastbellePath_EventScript_YoungsterJoey {
     trainerbattle_single(TRAINER_JOEY, "I love wearing shorts!\nThey are comfy and easy to wear!", "You got no chill!")
     msgbox("You seem ill-tempered!\n"

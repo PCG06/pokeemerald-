@@ -1958,7 +1958,7 @@ const u8 gText_MainQuestDesc_9[] = _(" ");
 const u8 gText_MainQuestDesc_10[] = _(" ");
 
 //map
-const u8 gText_SideQuestMap1[] = _("Castbelle Path");
+const u8 gText_SideQuestMap1[] = _("Entire region");
 const u8 gText_SideQuestMap2[] = _("Map 2");
 const u8 gText_SideQuestMap3[] = _("Map 3");
 const u8 gText_SideQuestMap4[] = _("Map 4");

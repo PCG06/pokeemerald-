@@ -20,6 +20,7 @@
 #include "party_menu.h"
 #include "pokemon_icon.h"
 #include "random.h"
+#include "region_map.h"
 #include "scanline_effect.h"
 #include "sound.h"
 #include "string_util.h"
@@ -33,6 +34,7 @@
 #include "constants/items.h"
 #include "constants/field_weather.h"
 #include "constants/quests.h"
+#include "constants/region_map_sections.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/species.h"
@@ -146,6 +148,7 @@ static void UpdateQuestFlavorText(s32 questId);
 static void PrintQuestFlavorText(s32 questId);
 static const u8 *GetQuestDesc(s32 questId);
 static const u8 *GetQuestDesc_MainStory(void);
+static const u8 *GetQuestLocation_MainStory(void);
 
 static bool8 IsQuestUnlocked(s32 questId);
 static bool8 IsQuestActiveState(s32 questId);
@@ -2007,6 +2010,7 @@ void GenerateAndPrintQuestDetails(s32 questId)
 }
 void GenerateQuestLocation(s32 questId)
 {
+
 	if (!IsSubquestMode())
 	{
 		StringCopy(gStringVar2, sSideQuests[questId].map);
@@ -2017,8 +2021,35 @@ void GenerateQuestLocation(s32 questId)
 		           sSideQuests[sStateDataPtr->parentQuest].subquests[questId].map);
 	}
 
+	if (questId == QUEST_1_MAIN_STORY)
+	{
+	    StringCopy(gStringVar2, GetQuestLocation_MainStory());
+	}
+
 	StringExpandPlaceholders(gStringVar4, sText_ShowLocation);
 }
+
+static const u8 *GetQuestLocation_MainStory(void)
+{
+    switch (VarGet(VAR_MAIN_STORY))
+	{
+		default:
+		case 1:
+		case 2:
+		case 3:
+		    StringCopy(gStringVar3, COMPOUND_STRING("Castbelle Town"));
+			break;
+		case 4:
+		    StringCopy(gStringVar3, COMPOUND_STRING("Castbelle Path"));
+			break;
+		case 5:
+		    StringCopy(gStringVar3, COMPOUND_STRING("Sola City"));
+			break;
+	}
+
+	return gStringVar3;
+}
+
 void PrintQuestLocation(s32 questId)
 {
 	FillWindowPixelBuffer(1, 0);
