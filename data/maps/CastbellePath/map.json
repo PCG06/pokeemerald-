@@ -17,6 +17,11 @@
       "map": "MAP_CASTBELLE_TOWN",
       "offset": 6,
       "direction": "down"
+    },
+    {
+      "map": "MAP_SOLA_CITY",
+      "offset": -8,
+      "direction": "up"
     }
   ],
   "object_events": [

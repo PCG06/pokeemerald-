@@ -1,1 +1,5 @@
-mapscripts SolaCity_MapScripts {}
+mapscripts SolaCity_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_VISITED_SOLA_CITY)
+    }
+}

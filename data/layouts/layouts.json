@@ -4504,10 +4504,10 @@
     {
       "id": "LAYOUT_SOLA_CITY",
       "name": "SolaCity_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 62,
+      "height": 51,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/SolaCity/border.bin",
       "blockdata_filepath": "data/layouts/SolaCity/map.bin"
     }
