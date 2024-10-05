@@ -1,6 +1,70 @@
+const LOCALID_FISHERMAN = 3
+
 mapscripts SolaCity_PokemonCenter_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setrespawn(HEAL_LOCATION_SOLA_CITY)
     }
 	MAP_SCRIPT_ON_RESUME: CableClub_OnResume
+}
+
+script SolaCity_PokemonCenter_EventScript_Fisherman {
+    lock
+    faceplayer
+    msgbox("What?\n"
+            "Surprised to see a fisherman in the\l"
+            "Sailor's City?\p"
+            "I'm departing in a few minutes,\n"
+            "nonetheless, do you want my most\l"
+            "recent catch?\p"
+            "Don't worry, I catch plenty of these.", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        msgbox("Okay, here's the fish!", MSGBOX_AUTOCLOSE)
+        givemon(SPECIES_MAGIKARP, 5, ITEM_LEFTOVERS, ITEM_DIVE_BALL, NATURE_ADAMANT, 2, MON_MALE, 4, 144, 0, 32, 0, 0, 31, 31, 0, 31, 0, 31, MOVE_SPLASH, MOVE_TACKLE, MOVE_FLAIL, MOVE_NONE)
+	    bufferspeciesname(STR_VAR_1, SPECIES_MAGIKARP)
+	    setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MAGIKARP)
+        playfanfare(MUS_DP_OBTAIN_ITEM)
+        message("{PLAYER} received a Magikarp!")
+	    waitfanfare
+        closemessage
+        if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+            msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+                call(Common_EventScript_GetGiftMonPartySlot)
+	            call(Common_EventScript_NameReceivedPartyMon)
+            }
+        }
+        else {
+            msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES) {
+	            call(Common_EventScript_NameReceivedBoxMon)
+            }
+            else {
+                call(Common_EventScript_TransferredToPC)
+            }
+        }
+    }
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT) // follower returns to ball when fisherman walks away
+    msgbox("Alright, I shall now leave.", MSGBOX_AUTOCLOSE)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 3 && var(VAR_TEMP_2) == 5) {
+        applymove(LOCALID_FISHERMAN, FishermanLeaveSolaPokeCenter_1)
+    }
+    else {
+        applymove(LOCALID_FISHERMAN, FishermanLeaveSolaPokeCenter_2)
+    }
+    playse(SE_SLIDING_DOOR)
+    removeobject(LOCALID_FISHERMAN)
+    release
+    end
+}
+
+movement FishermanLeaveSolaPokeCenter_1 {
+    walk_down * 2
+    walk_right * 4
+    walk_down * 7
+}
+
+movement FishermanLeaveSolaPokeCenter_2 {
+    walk_right * 4
+    walk_down * 7
 }

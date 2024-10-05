@@ -50,7 +50,7 @@
 #define FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_BRIAN            0x25
 #define FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_PROF_PINE        0x26
 #define FLAG_HIDE_CASTBELLE_PATH_BRIAN                           0x27
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
+#define FLAG_HIDE_SOLA_CITY_POKEMON_CENTER_FISHERMAN             0x28
 #define FLAG_UNUSED_0x029    0x29 // Unused Flag
 #define FLAG_UNUSED_0x02A    0x2A // Unused Flag
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag

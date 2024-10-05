@@ -3,3 +3,15 @@ const LOCALID_SHIP_SHADOW = 2
 const LOCALID_SAILOR = 3
 
 mapscripts SolaCity_Harbor_MapScripts {}
+
+script SolaCity_Harbor_EventScript_Sailor {
+    msgbox("I am sorry, but the ship won't set sail\n"
+            "til tomorrow.\p"
+            "The captain's has gone on a break.", MSGBOX_NPC)
+}
+
+script SolaCity_Harbor_EventScript_Fisherman {
+    msgbox("This harbor is busiest on the weekends.\n"
+            "Loads of cargo gets dropped off and\l"
+            "picked up here.", MSGBOX_NPC)
+}

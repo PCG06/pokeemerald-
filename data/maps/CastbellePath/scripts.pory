@@ -60,16 +60,17 @@ script CastbellePath_EventScript_Brian {
                 "catch the next ferry!\p"
                 "I expect you to be there as well!\n"
                 "Don't be late!", MSGBOX_NPC)
-        getplayerxy(VAR_0x8000, VAR_0x8001)
-        if (var(VAR_0x8000) == 5 && var(VAR_0x8001) == 14) {
-            applymove(LOCALID_BRIAN, BrianExitsCastbellePath_2)
+        getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+        if (var(VAR_TEMP_1) == 4 && var(VAR_TEMP_2) == 13) {
+            applymove(LOCALID_BRIAN, BrianExitsCastbellePath_1)
         }
         else {
-            applymove(LOCALID_BRIAN, BrianExitsCastbellePath)
+            applymove(LOCALID_BRIAN, BrianExitsCastbellePath_2)
         }
         fadedefaultbgm
         removeobject(LOCALID_BRIAN)
         setvar(VAR_MAIN_STORY, 5)
+        setvar(VAR_CASTBELLE_TOWN_STATE, 6)
     }
     else {
         msgbox("Weak.\p"
@@ -80,7 +81,7 @@ script CastbellePath_EventScript_Brian {
     end
 }
 
-movement BrianExitsCastbellePath {
+movement BrianExitsCastbellePath_1 {
     walk_right
     walk_up * 7
 }
@@ -119,4 +120,12 @@ script CastbellePath_EventScript_YoungsterJoey {
     trainerbattle_single(TRAINER_JOEY, "I love wearing shorts!\nThey are comfy and easy to wear!", "You got no chill!")
     msgbox("You seem ill-tempered!\n"
             "Wearing shorts would fix that!", MSGBOX_NPC)
+}
+
+script CastbellePath_EventScript_TriggerMeetBrian {
+    lock
+    msgbox("I should hand over Brian his dex!", MSGBOX_AUTOCLOSE)
+    applymoveplayer(Common_Movement_WalkDown)
+    release
+    end
 }

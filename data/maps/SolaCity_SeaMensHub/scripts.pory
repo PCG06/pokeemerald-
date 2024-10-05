@@ -1,1 +1,11 @@
 mapscripts SolaCity_SeaMensHub_MapScripts {}
+
+script SolaCity_SeaMensHub_Sailor1 {}
+
+script SolaCity_SeaMensHub_Sailor2 {}
+
+script SolaCity_SeaMensHub_Sailor3 {}
+
+script SolaCity_SeaMensHub_Sailor4 {}
+
+script SolaCity_SeaMensHub_Sailor5 {}

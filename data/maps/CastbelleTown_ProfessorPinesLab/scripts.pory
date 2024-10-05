@@ -23,6 +23,10 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPine {
                 "He must be wandering around Castbelle\n"
                 "Path!", MSGBOX_NPC)
     }
+    else {
+        msgbox("Prof. Pine: Hey, {PLAYER}!\p"
+                "I hope your adventure goes smoothly!", MSGBOX_NPC)
+    }
 }
 
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon {
@@ -167,8 +171,8 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ReceivedMon {
 	delay(40)
 	waitmoncry
     removeobject(VAR_LAST_TALKED)
-    playfanfare(MUS_OBTAIN_ITEM)
-	msgbox("{PLAYER} received the {STR_VAR_1}\n"
+    playfanfare(MUS_DP_OBTAIN_ITEM)
+	message("{PLAYER} received the {STR_VAR_1}\n"
             "from Prof. Pine!")
 	waitfanfare
     closemessage
@@ -482,10 +486,10 @@ movement PlayerBackToCenter_4 {
 }
 
 script CastbelleTown_ProfessorPinesLab_EventScript_Aide1 {
-    msgbox("I help out Prof Pine in his research.\n"
+    msgbox("I help out Prof. Pine in his research.\n"
             "He is a very passionate man!\p"
-            "You'll learn a lot under him!\n"
-            "I can guarentee that.", MSGBOX_NPC)
+            "You'll learn a lot under him.\n"
+            "I can guarentee that!", MSGBOX_NPC)
     faceoriginaldir
     end
 }
