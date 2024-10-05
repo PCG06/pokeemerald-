@@ -401,6 +401,7 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(LEAF, Leaf),
     TRAINER_SPRITE(RS_BRENDAN, RubySapphireBrendan),
     TRAINER_SPRITE(RS_MAY, RubySapphireMay),
+    TRAINER_SPRITE(CAPTAIN, EliteFourDrake),
 };
 
 static const union AnimCmd sAnimCmd_Hoenn[] =

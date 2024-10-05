@@ -1,11 +1,53 @@
 mapscripts SolaCity_SeaMensHub_MapScripts {}
 
-script SolaCity_SeaMensHub_Sailor1 {}
+script SolaCity_SeaMensHub_CaptainBruce {
+    lock
+    faceplayer
+    if (defeated(TRAINER_TERRY)
+        && defeated(TRAINER_CLARENCE)
+        && defeated(TRAINER_RAYAN)
+        && defeated(TRAINER_SHAUN)) {
+            msgbox("Huh?\n"
+                    "You beat all four of them?\p"
+                    "Alright, show me what you got!", MSGBOX_DEFAULT)
+        trainerbattle_no_intro(TRAINER_BRUCE, "Hahaha!\nNo surprise you beat them all!")
+        msgbox("Hahaha!\p"
+                "You got skill, young one.\n"
+                "What's your name?\p"
+                "… … … … … … … …\p"
+                "{PLAYER}! Since you beat me,\n"
+                "I'll sail you to the mainland and back,\l"
+                "whenever you want!", MSGBOX_AUTOCLOSE)
+        }
+    else {
+        msgbox("Hahaha!\p"
+                "You wanna challenge me?!\n"
+                "In your dreams, kid!", MSGBOX_AUTOCLOSE)
+    }
+    release
+    end
+}
 
-script SolaCity_SeaMensHub_Sailor2 {}
+script SolaCity_SeaMensHub_SailorTerry {
+    trainerbattle_single(TRAINER_TERRY, "My waves will crash you down!", "They crashed on me instead!")
+    msgbox("I used to surf on big waves back in my\n"
+            "day.", MSGBOX_NPC)
+}
 
-script SolaCity_SeaMensHub_Sailor3 {}
+script SolaCity_SeaMensHub_SailorClarence {
+    trainerbattle_single(TRAINER_CLARENCE, "Stop right there!\pNot a step further!", "You may proceed…")
+    msgbox("Bruce will put you back to your place,\n"
+            "kiddo!", MSGBOX_NPC)
+}
 
-script SolaCity_SeaMensHub_Sailor4 {}
+script SolaCity_SeaMensHub_SailorRayan {
+    trainerbattle_single(TRAINER_RAYAN, "Welcome to Sea Men's!", "Hope you have a pleasant stay…")
+    msgbox("I used to work here, but then Bruce\n"
+            "called me on his voyage!", MSGBOX_NPC)
+}
 
-script SolaCity_SeaMensHub_Sailor5 {}
+script SolaCity_SeaMensHub_SailorShaun {
+    trainerbattle_single(TRAINER_SHAUN, "Storm's a brewing!", "Uh, it calmed down!")
+    msgbox("The sea  calls on to me!\n"
+            "It relaxes my mind.", MSGBOX_NPC)
+}

@@ -4,11 +4,11 @@
 #include "constants/battle_partner.h"
 
 #define TRAINER_NONE                          0
-#define TRAINER_SAWYER_1                      1
-#define TRAINER_GRUNT_AQUA_HIDEOUT_1          2
-#define TRAINER_GRUNT_AQUA_HIDEOUT_2          3
-#define TRAINER_GRUNT_AQUA_HIDEOUT_3          4
-#define TRAINER_GRUNT_AQUA_HIDEOUT_4          5
+#define TRAINER_TERRY                         1
+#define TRAINER_CLARENCE                      2
+#define TRAINER_RAYAN                         3
+#define TRAINER_SHAUN                         4
+#define TRAINER_BRUCE                         5
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_1       6
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_2       7
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_3       8
@@ -583,8 +583,8 @@
 #define TRAINER_ATHENA                      577
 #define TRAINER_HARRISON                    578
 #define TRAINER_GRUNT_MT_CHIMNEY_2          579
-#define TRAINER_CLARENCE                    580
-#define TRAINER_TERRY                       581
+#define TRAINER_CLARENCE_1                  580
+#define TRAINER_TERRY_1                     581
 #define TRAINER_NATE                        582
 #define TRAINER_KATHLEEN                    583
 #define TRAINER_CLIFFORD                    584

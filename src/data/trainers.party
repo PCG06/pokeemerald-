@@ -81,74 +81,116 @@ Gender: Male
 Music: Male
 Double Battle: No
 
-=== TRAINER_SAWYER_1 ===
-Name: SAWYER
-Class: Hiker
-Pic: Hiker
+=== TRAINER_TERRY ===
+Name: Terry
+Class: Sailor
+Pic: Sailor
 Gender: Male
-Music: Hiker
+Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Geodude
-Level: 21
+Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_AQUA_HIDEOUT_1 ===
-Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
+Poliwag
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_CLARENCE ===
+Name: Clarence
+Class: Sailor
+Pic: Sailor
 Gender: Male
-Music: Aqua
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Poochyena
-Level: 32
+Lechonk
+Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_AQUA_HIDEOUT_2 ===
-Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
+Horsea
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_RAYAN ===
+Name: Rayan
+Class: Sailor
+Pic: Sailor
 Gender: Male
-Music: Aqua
-Double Battle: No
-AI: Check Bad Move
-
-Zubat
-Level: 31
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Carvanha
-Level: 31
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_GRUNT_AQUA_HIDEOUT_3 ===
-Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
-Gender: Male
-Music: Aqua
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 32
+Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_AQUA_HIDEOUT_4 ===
-Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
+Tympole
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SHAUN ===
+Name: Shaun
+Class: Sailor
+Pic: Sailor
 Gender: Male
-Music: Aqua
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Carvanha
-Level: 32
+Zigzagoon-Galar
+Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Staryu
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_BRUCE ===
+Name: Bruce
+Class: Captain
+Pic: Captain
+Gender: Male
+Music: Male
+Double Battle: Yes
+AI: Check Bad Move / HP Aware / Prefer Strongest Move / Check Viability / Ace Pokemon
+
+Machop @ Leftovers
+Level: 7
+IVs: 0 HP / 8 Atk / 8 Def / 0 SpA / 0 SpD / 0 Spe
+- Bulk Up
+- Reversal
+- Bullet Punch
+- Leer
+
+Cetoddle @ Chesto Berry
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 12 SpA / 0 SpD / 0 Spe
+- Icy Wind
+- Growl
+- Rest
+- Yawn
+
+Finizen @ Mystic Water
+Level: 8
+IVs: 0 HP / 0 Atk / 0 Def / 31 SpA / 0 SpD / 17 Spe
+EVs: 60 Spe
+- Aqua Jet
+- Tickle
+- Charm
+- Chilling Water
+
+Carvanha @ Rindo Berry
+Level: 9
+IVs: 0 HP / 18 Atk / 0 Def / 0 SpA / 0 SpD / 25 Spe
+EVs: 60 Atk / 60 Spe
+- Aqua Jet
+- Leer
+- Poison Fang
+- Thief
 
 === TRAINER_GRUNT_SEAFLOOR_CAVERN_1 ===
 Name: GRUNT
@@ -10711,7 +10753,7 @@ Zubat
 Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_CLARENCE ===
+=== TRAINER_CLARENCE_1 ===
 Name: CLARENCE
 Class: Swimmer M
 Pic: Swimmer M
@@ -10724,7 +10766,7 @@ Sharpedo
 Level: 34
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_TERRY ===
+=== TRAINER_TERRY_1 ===
 Name: TERRY
 Class: Psychic
 Pic: Psychic F
