@@ -2,6 +2,7 @@
   "group_order": [
     "gMapGroup_NewTownsAndRoutes",
     "gMapGroup_IndoorCastbelle",
+    "gMapGroup_IndoorSolaCity",
     "gMapGroup_TownsAndRoutes",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
@@ -50,6 +51,11 @@
     "CastbelleTown_ProfessorPinesLab",
     "CastbelleTown_ProfessorPinesHouse",
     "CastbelleTown_BerryShop"
+  ],
+  "gMapGroup_IndoorSolaCity": [
+    "SolaCity_PokemonCenter",
+    "SolaCity_Harbor",
+    "SolaCity_SeaMensHub"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",

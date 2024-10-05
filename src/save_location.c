@@ -57,6 +57,7 @@ static const u16 sSaveLocationPokeCenterList[] =
     MAP_TRADE_CENTER,
     MAP_RECORD_CORNER,
     MAP_BATTLE_COLOSSEUM_4P,
+    MAP_SOLA_CITY_POKEMON_CENTER,
     LIST_END,
 };
 

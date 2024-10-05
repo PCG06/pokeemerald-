@@ -1,0 +1,6 @@
+mapscripts SolaCity_PokemonCenter_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setrespawn(HEAL_LOCATION_SOLA_CITY)
+    }
+	MAP_SCRIPT_ON_RESUME: CableClub_OnResume
+}

@@ -655,6 +655,7 @@ EventScript_SetBrineyLocation_Route109::
 	return
 
 	.include "data/scripts/pkmn_center_nurse.inc"
+	.include "data/scripts/mart_clerk.inc"
 	.include "data/scripts/obtain_item.inc"
 	.include "data/scripts/record_mix.inc"
 	.include "data/scripts/pc.inc"
@@ -1089,3 +1090,9 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/CastbelleTown_ProfessorPinesHouse/scripts.inc"
 	.include "data/maps/CastbelleTown_BerryShop/scripts.inc"
 	.include "data/maps/SolaCity/scripts.inc"
+
+	.include "data/maps/SolaCity_PokemonCenter/scripts.inc"
+
+	.include "data/maps/SolaCity_Harbor/scripts.inc"
+
+	.include "data/maps/SolaCity_SeaMensHub/scripts.inc"

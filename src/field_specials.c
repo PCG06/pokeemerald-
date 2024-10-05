@@ -2050,6 +2050,7 @@ bool8 UsedPokemonCenterWarp(void)
         MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F,
         MAP_BATTLE_FRONTIER_POKEMON_CENTER_1F,
         MAP_UNION_ROOM,
+        MAP_SOLA_CITY_POKEMON_CENTER,
         MAP_UNDEFINED
     };
 
@@ -3836,6 +3837,7 @@ bool8 InPokemonCenter(void)
         MAP_TRADE_CENTER,
         MAP_RECORD_CORNER,
         MAP_BATTLE_COLOSSEUM_4P,
+        MAP_SOLA_CITY_POKEMON_CENTER,
         MAP_UNDEFINED
     };
 

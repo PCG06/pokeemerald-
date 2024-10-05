@@ -3145,11 +3145,6 @@ extern const u8 gText_SubQuest1_Name2[];
 extern const u8 gText_SubQuest1_Name3[];
 extern const u8 gText_SubQuest1_Name4[];
 extern const u8 gText_SubQuest1_Name5[];
-extern const u8 gText_SubQuest1_Name6[];
-extern const u8 gText_SubQuest1_Name7[];
-extern const u8 gText_SubQuest1_Name8[];
-extern const u8 gText_SubQuest1_Name9[];
-extern const u8 gText_SubQuest1_Name10[];
 
 extern const u8 gText_SubQuest2_Name1[];
 extern const u8 gText_SubQuest2_Name2[];

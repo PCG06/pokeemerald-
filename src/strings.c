@@ -1852,7 +1852,7 @@ const u8 gText_QuestActive[] =_("active");
 
 //names
 const u8 gText_SideQuestName_1[] = _("Main Story!");
-const u8 gText_SideQuestName_2[] = _("Side Quest 2");
+const u8 gText_SideQuestName_2[] = _("Beat the Sea Men!");
 const u8 gText_SideQuestName_3[] = _("Side Quest 3");
 const u8 gText_SideQuestName_4[] = _("Side Quest 4");
 const u8 gText_SideQuestName_5[] = _("Side Quest 5");
@@ -1884,7 +1884,7 @@ const u8 gText_SideQuestName_30[] = _("Side Quest 30");
 
 //descriptions
 const u8 gText_SideQuestDesc_1[] = _("Main story.");
-const u8 gText_SideQuestDesc_2[] = _("Description 2");
+const u8 gText_SideQuestDesc_2[] = _("Beat all the sailors in Sea Men's\nHub and report back to the sailor\noutside.");
 const u8 gText_SideQuestDesc_3[] = _("Description 3");
 const u8 gText_SideQuestDesc_4[] = _("Description 4");
 const u8 gText_SideQuestDesc_5[] = _("Description 5");
@@ -1959,7 +1959,7 @@ const u8 gText_MainQuestDesc_10[] = _(" ");
 
 //map
 const u8 gText_SideQuestMap1[] = _("Entire region");
-const u8 gText_SideQuestMap2[] = _("Map 2");
+const u8 gText_SideQuestMap2[] = _("Sea Men's Hub");
 const u8 gText_SideQuestMap3[] = _("Map 3");
 const u8 gText_SideQuestMap4[] = _("Map 4");
 const u8 gText_SideQuestMap5[] = _("Map 5");
@@ -1995,11 +1995,6 @@ const u8 gText_SubQuest1_Name2[] = _("Part 2");
 const u8 gText_SubQuest1_Name3[] = _("Part 3");
 const u8 gText_SubQuest1_Name4[] = _("Part 4");
 const u8 gText_SubQuest1_Name5[] = _("Part 5");
-const u8 gText_SubQuest1_Name6[] = _("Part 6");
-const u8 gText_SubQuest1_Name7[] = _("Part 7");
-const u8 gText_SubQuest1_Name8[] = _("Part 8");
-const u8 gText_SubQuest1_Name9[] = _("Part 9");
-const u8 gText_SubQuest1_Name10[] = _("Part 10");
 
 const u8 gText_SubQuest2_Name1[] = _("Part 1");
 const u8 gText_SubQuest2_Name2[] = _("Part 2");

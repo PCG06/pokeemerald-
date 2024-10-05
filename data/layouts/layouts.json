@@ -4510,6 +4510,36 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/SolaCity/border.bin",
       "blockdata_filepath": "data/layouts/SolaCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_POKEMON_CENTER",
+      "name": "SolaCity_PokemonCenter_Layout",
+      "width": 16,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/SolaCity_PokemonCenter/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_PokemonCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_HARBOR",
+      "name": "SolaCity_Harbor_Layout",
+      "width": 24,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/SolaCity_Harbor/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_Harbor/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_SEA_MENS_HUB",
+      "name": "SolaCity_SeaMensHub_Layout",
+      "width": 14,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SeashoreHouse",
+      "border_filepath": "data/layouts/SolaCity_SeaMensHub/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_SeaMensHub/map.bin"
     }
   ]
 }

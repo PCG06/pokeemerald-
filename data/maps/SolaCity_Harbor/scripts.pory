@@ -1,0 +1,5 @@
+const LOCALID_SHIP = 1
+const LOCALID_SHIP_SHADOW = 2
+const LOCALID_SAILOR = 3
+
+mapscripts SolaCity_Harbor_MapScripts {}

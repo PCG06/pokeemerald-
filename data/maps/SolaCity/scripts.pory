@@ -1,5 +1,64 @@
+const LOCALID_SAILOR = 5
+
 mapscripts SolaCity_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setflag(FLAG_VISITED_SOLA_CITY)
     }
+}
+
+script SolaCity_EventScript_Sailor1 {
+    msgbox("Ahoy, matey!\n"
+            "Welcome to Sola City!\p"
+            "Enjoy the Sailors' City!", MSGBOX_NPC)
+}
+
+script SolaCity_EventScript_Sailor2 {
+    msgbox("I need to get to work now.\n"
+            "This places makes me forget how\l"
+            "unforgiving the sea is!", MSGBOX_NPC)
+}
+
+script SolaCity_EventScript_Sailor3 {
+    msgbox("Did you know?\p"
+            "These safehouses are free of cost for\n"
+            "everyone!\p"
+            "Not just sailors, or sea men, but any\n"
+            "traveller who wishes to take a rest.", MSGBOX_NPC)
+}
+
+script SolaCity_EventScript_Sailor4 {
+    msgbox("I'm thinking of settling here.\n"
+            "My family could move here, and I'd be\l"
+            "able to see them everyday.\p"
+            "Yeah!\n"
+            "That's the dream!", MSGBOX_NPC)
+}
+
+script SolaCity_EventScript_Sailor5 {
+    lock
+    faceplayer
+    msgbox("This building right here is called\n"
+            "The Sea Men's Hub.\p"
+            "Yes, you'll see a lot of sailors in\n"
+            "there!\p"
+            "You could also challenge them a battle.\n"
+            "Those guys have caught a lot of\l"
+            "Pokémon they caught during their time\l"
+            "by the sea.\p"
+            "A Trainer such as yourself would surely\n"
+            "not miss such an opportunity, eh?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        emote(LOCALID_SAILOR, EMOTE_EXCLAIM)
+        msgbox("Ah ha!\p"
+                "Beat them up, and I'll reward you\n"
+                "handsomely!")
+        startquest(QUEST_2_BEAT_THE_SEA_MEN)
+    }
+    else {
+        msgbox("Ah, darn!\p"
+                "In case you change your mind,\n"
+                "you know where to find me.", MSGBOX_NPC)
+    }
+    release
+    end
 }
