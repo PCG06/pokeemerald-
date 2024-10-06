@@ -219,7 +219,8 @@
             {
 #line 161
             .species = SPECIES_MACHOP,
-            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 161
+            .gender = TRAINER_MON_MALE,
 #line 161
             .heldItem = ITEM_LEFTOVERS,
 #line 163
@@ -239,7 +240,8 @@
             {
 #line 169
             .species = SPECIES_CETODDLE,
-            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 169
+            .gender = TRAINER_MON_FEMALE,
 #line 169
             .heldItem = ITEM_CHESTO_BERRY,
 #line 171
@@ -259,13 +261,12 @@
             {
 #line 177
             .species = SPECIES_FINIZEN,
-            .gender = TRAINER_MON_RANDOM_GENDER,
 #line 177
-            .heldItem = ITEM_MYSTIC_WATER,
+            .gender = TRAINER_MON_MALE,
 #line 180
             .ev = TRAINER_PARTY_EVS(0, 0, 0, 60, 0, 0),
 #line 179
-            .iv = TRAINER_PARTY_IVS(0, 0, 0, 17, 31, 0),
+            .iv = TRAINER_PARTY_IVS(0, 0, 0, 17, 20, 0),
 #line 178
             .lvl = 8,
             .nature = NATURE_HARDY,
@@ -281,13 +282,14 @@
             {
 #line 186
             .species = SPECIES_CARVANHA,
-            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 186
+            .gender = TRAINER_MON_MALE,
 #line 186
             .heldItem = ITEM_RINDO_BERRY,
 #line 189
             .ev = TRAINER_PARTY_EVS(0, 60, 0, 60, 0, 0),
 #line 188
-            .iv = TRAINER_PARTY_IVS(0, 18, 0, 25, 0, 0),
+            .iv = TRAINER_PARTY_IVS(0, 18, 0, 12, 0, 0),
 #line 187
             .lvl = 9,
             .nature = NATURE_HARDY,

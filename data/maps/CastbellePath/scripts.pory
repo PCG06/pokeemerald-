@@ -49,17 +49,17 @@ script CastbellePath_EventScript_Brian {
                 "Brian: Huh? My Pokédex?\n"
                 "Couldn't you have started with that?\p"
                 "Would have saved me some shame!", MSGBOX_AUTOCLOSE)
-        playfanfare(MUS_OBTAIN_TMHM)
+        playfanfare(MUS_HG_OBTAIN_TMHM)
         message("{PLAYER} handed over the Pokédex!")
+        waitfanfare
         waitmessage
-	    waitfanfare
-        closemessage
         msgbox("Brian: Thank you, {PLAYER}!\n"
                 "I am quite hasty, haha.\p"
                 "Now, I'm headed towards Sola City to\n"
                 "catch the next ferry!\p"
                 "I expect you to be there as well!\n"
                 "Don't be late!", MSGBOX_NPC)
+        setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
         getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
         if (var(VAR_TEMP_1) == 4 && var(VAR_TEMP_2) == 13) {
             applymove(LOCALID_BRIAN, BrianExitsCastbellePath_1)
@@ -124,7 +124,8 @@ script CastbellePath_EventScript_YoungsterJoey {
 
 script CastbellePath_EventScript_TriggerMeetBrian {
     lock
-    msgbox("I should hand over Brian his dex!", MSGBOX_AUTOCLOSE)
+    msgbox("I should hand over Brian his Pokédex!", MSGBOX_AUTOCLOSE)
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     applymoveplayer(Common_Movement_WalkDown)
     release
     end

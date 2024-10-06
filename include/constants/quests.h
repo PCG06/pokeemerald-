@@ -47,11 +47,11 @@
 #define QUEST_30        29
 #define QUEST_COUNT     (QUEST_30 + 1)
 
-#define SUB_QUEST_1          0
-#define SUB_QUEST_2          1
-#define SUB_QUEST_3          2
-#define SUB_QUEST_4          3
-#define SUB_QUEST_5          4
+#define SUB_QUEST_2_SAILOR_RAYAN          0
+#define SUB_QUEST_2_SAILOR_SHAUN          1
+#define SUB_QUEST_2_SAILOR_TERRY          2
+#define SUB_QUEST_2_SAILOR_CLARENCE       3
+#define SUB_QUEST_2_CAPTAIN_BRUCE         4
 #define SUB_QUEST_6          5
 #define SUB_QUEST_7          6
 #define SUB_QUEST_8          7

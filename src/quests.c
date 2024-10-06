@@ -237,6 +237,7 @@ static const u8 sText_ReturnRecieveReward[] =
 static const u8 sText_SubQuestButton[] = _(" {A_BUTTON}");
 static const u8 sText_Type[] = _("{R_BUTTON}Type");
 static const u8 sText_Caught[] = _("Caught");
+static const u8 sText_Beaten[] = _("Beaten");
 static const u8 sText_Found[] = _("Found");
 static const u8 sText_Read[] = _("Read");
 static const u8 sText_Back[] = _("Back");
@@ -256,50 +257,50 @@ static const struct SubQuest sSubQuests1[QUEST_2_SUB_COUNT] =
 	      0,
 	      gText_SubQuest1_Name1,
 	      gText_SubQuest1_Desc1,
-	      gText_SideQuestMap1,
+	      gText_SubQuest2_Map,
 	      OBJ_EVENT_GFX_SAILOR,
 	      OBJECT,
-	      sText_Found
+	      sText_Beaten
 	),
 
 	sub_quest(
 	      1,
 	      gText_SubQuest1_Name2,
 	      gText_SubQuest1_Desc2,
-	      gText_SideQuestMap2,
+	      gText_SubQuest2_Map,
 	      OBJ_EVENT_GFX_SAILOR,
 	      OBJECT,
-	      sText_Found
+	      sText_Beaten
 	),
 
 	sub_quest(
 	      2,
 	      gText_SubQuest1_Name3,
 	      gText_SubQuest1_Desc3,
-	      gText_SideQuestMap3,
+	      gText_SubQuest2_Map,
 	      OBJ_EVENT_GFX_SAILOR,
 	      OBJECT,
-	      sText_Found
+	      sText_Beaten
 	),
 
 	sub_quest(
 	      3,
 	      gText_SubQuest1_Name4,
 	      gText_SubQuest1_Desc4,
-	      gText_SideQuestMap4,
+	      gText_SubQuest2_Map,
 	      OBJ_EVENT_GFX_SAILOR,
 	      OBJECT,
-	      sText_Found
+	      sText_Beaten
 	),
 
 	sub_quest(
 	      4,
 	      gText_SubQuest1_Name5,
 	      gText_SubQuest1_Desc5,
-	      gText_SideQuestMap5,
+	      gText_SubQuest2_Map,
 	      OBJ_EVENT_GFX_DRAKE,
 	      OBJECT,
-	      sText_Found
+	      sText_Beaten
 	),
 };
 

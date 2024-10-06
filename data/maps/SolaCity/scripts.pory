@@ -6,6 +6,26 @@ mapscripts SolaCity_MapScripts {
     }
 }
 
+script SolaCity_EventScript_SolaCitySign {
+    msgbox("Sola City\n"
+            "“City of the blue sailors!”", MSGBOX_SIGN)
+}
+
+script SolaCity_EventScript_SeaMensHubSign {
+    msgbox("Sea Men's Hub\n"
+            "“Welcome the the sea!”", MSGBOX_SIGN)
+}
+
+script SolaCity_EventScript_HarborSign {
+    msgbox("Sola Harbor\n"
+            "“Cruising to the mainland!”", MSGBOX_SIGN)
+}
+
+script SolaCity_EventScript_InnsSign {
+    msgbox("Sola Inns\n"
+            "“Take a rest, forget the rest!”", MSGBOX_SIGN)
+}
+
 script SolaCity_EventScript_Sailor1 {
     msgbox("Ahoy, matey!\n"
             "Welcome to Sola City!\p"
@@ -37,8 +57,11 @@ script SolaCity_EventScript_Sailor4 {
 script SolaCity_EventScript_Sailor5 {
     lock
     faceplayer
+    goto_if_quest_complete(QUEST_2_BEAT_THE_SEA_MEN, SolaCity_EventScript_Sailor5_QuestComplete)
+    goto_if_quest_reward(QUEST_2_BEAT_THE_SEA_MEN, SolaCity_EventScript_Sailor5_QuestReward)
+    goto_if_quest_active(QUEST_2_BEAT_THE_SEA_MEN, SolaCity_EventScript_Sailor5_QuestCheck)
     msgbox("This building right here is called\n"
-            "The Sea Men's Hub.\p"
+            "the Sea Men's Hub.\p"
             "Yes, you'll see a lot of sailors in\n"
             "there!\p"
             "You could also challenge them a battle.\n"
@@ -61,4 +84,105 @@ script SolaCity_EventScript_Sailor5 {
     }
     release
     end
+}
+
+script SolaCity_EventScript_Sailor5_QuestCheck {
+    msgbox("Did you beat those sailors yet?", MSGBOX_NPC)
+}
+
+script SolaCity_EventScript_Sailor5_QuestReward {
+    emote(LOCALID_SAILOR, EMOTE_EXCLAIM)
+    msgbox("What?! You beat them?\p"
+            "Ahoy! You are good at this!\n"
+            "Now for your reward.", MSGBOX_AUTOCLOSE)
+    giveitem(ITEM_TM_BULK_UP)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    msgbox("You got skills, kid!\p"
+            "Keep training like this and no doubt\n"
+            "one day you might just become the very\l"
+            "best!", MSGBOX_AUTOCLOSE)
+    completequest(QUEST_2_BEAT_THE_SEA_MEN)
+    release
+    end
+}
+
+script SolaCity_EventScript_Sailor5_QuestComplete {
+    msgbox("You got skills, kid!\p"
+            "Keep training like this and no doubt\n"
+            "one day you might just become the very\l"
+            "best!", MSGBOX_NPC)
+}
+
+script SolaCity_EventScript_TMsSeller {
+    lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(TMsSeller_Items)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end 
+}
+
+mart TMsSeller_Items {
+    ITEM_TM_HIDDEN_POWER
+    ITEM_TM_SECRET_POWER
+    ITEM_TM_PROTECT
+}
+
+script SolaCity_EventScript_BerrySeller1 {
+    lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+    pokemart(BerrySeller1)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end 
+}
+
+mart BerrySeller1 {
+    ITEM_CHILAN_BERRY
+    ITEM_OCCA_BERRY
+    ITEM_PASSHO_BERRY
+    ITEM_WACAN_BERRY
+    ITEM_RINDO_BERRY
+    ITEM_YACHE_BERRY
+    ITEM_CHOPLE_BERRY
+    ITEM_KEBIA_BERRY
+    ITEM_SHUCA_BERRY
+}
+
+script SolaCity_EventScript_BerrySeller2 {
+    lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+    pokemart(BerrySeller2)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end 
+}
+
+mart BerrySeller2 {
+    ITEM_COBA_BERRY
+    ITEM_PAYAPA_BERRY
+    ITEM_TANGA_BERRY
+    ITEM_CHARTI_BERRY
+    ITEM_KASIB_BERRY
+    ITEM_HABAN_BERRY
+    ITEM_COLBUR_BERRY
+    ITEM_BABIRI_BERRY
+    ITEM_ROSELI_BERRY
+}
+
+script SolaCity_EventScript_Items {}
+
+mart ItemsList {
+    ITEM_POMEG_BERRY
+    ITEM_KELPSY_BERRY
+    ITEM_QUALOT_BERRY
+    ITEM_HONDEW_BERRY
+    ITEM_GREPA_BERRY
+    ITEM_TAMATO_BERRY
 }

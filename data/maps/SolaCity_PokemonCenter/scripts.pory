@@ -68,3 +68,28 @@ movement FishermanLeaveSolaPokeCenter_2 {
     walk_right * 4
     walk_down * 7
 }
+
+script SolaCity_PokemonCenter_EventScript_Woman1 {
+    msgbox("Did you know?\p"
+            "Up until a few years ago, the Pokémon\n"
+            "Center and Pokémon Mart were owned by\l"
+            "two different corparation.\p"
+            "They were acquired by the Pokémon\n"
+            "League, which then decided to merge\l"
+            "both of them.", MSGBOX_NPC)
+}
+
+script SolaCity_PokemonCenter_EventScript_Woman2 {
+    msgbox("I used to be employed at the old\n"
+            "Pokémon Mart.\p"
+            "Yeah, now I am jobless.\n"
+            "This economy is unbearable!", MSGBOX_NPC)
+}
+
+script SolaCity_PokemonCenter_EventScript_Hiker {
+    msgbox("My wife used to work at the old\n"
+            "Pokémon Mart.\p"
+            "Our lives were great back then.\n"
+            "We were both employed and happy.\p"
+            "Now I need to earn for two!", MSGBOX_NPC)
+}

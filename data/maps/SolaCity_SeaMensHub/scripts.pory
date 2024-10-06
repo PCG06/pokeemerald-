@@ -1,24 +1,49 @@
-mapscripts SolaCity_SeaMensHub_MapScripts {}
+const LOCALID_CAP_BRUCE = 1
+
+mapscripts SolaCity_SeaMensHub_MapScripts {
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_TEMP_0, 0 {
+            if(!(defeated(TRAINER_BRUCE))) {
+                cleartrainerflag(TRAINER_TERRY)
+                cleartrainerflag(TRAINER_CLARENCE)
+                cleartrainerflag(TRAINER_RAYAN)
+                cleartrainerflag(TRAINER_SHAUN)
+                setvar(VAR_TEMP_0, 1)
+            }
+        }
+    ]
+}
 
 script SolaCity_SeaMensHub_CaptainBruce {
     lock
     faceplayer
-    if (defeated(TRAINER_TERRY)
-        && defeated(TRAINER_CLARENCE)
-        && defeated(TRAINER_RAYAN)
-        && defeated(TRAINER_SHAUN)) {
-            msgbox("Huh?\n"
-                    "You beat all four of them?\p"
-                    "Alright, show me what you got!", MSGBOX_DEFAULT)
-        trainerbattle_no_intro(TRAINER_BRUCE, "Hahaha!\nNo surprise you beat them all!")
-        msgbox("Hahaha!\p"
-                "You got skill, young one.\n"
-                "What's your name?\p"
-                "… … … … … … … …\p"
-                "{PLAYER}! Since you beat me,\n"
-                "I'll sail you to the mainland and back,\l"
-                "whenever you want!", MSGBOX_AUTOCLOSE)
+    if (defeated(TRAINER_TERRY) &&
+        defeated(TRAINER_CLARENCE) &&
+        defeated(TRAINER_RAYAN) &&
+        defeated(TRAINER_SHAUN)) {
+        trainerbattle_single(TRAINER_BRUCE, "Captain Bruce: Huh?\nYou beat all four of them?\pAlright, show me what you got!", "Captain Bruce: Hahaha!\nNo surprise you beat them all!", SolaCity_SeaMensHub_CaptainBruceDefeated)
+        msgbox("Captain Bruce: You want to sail to the\n"
+                "mainland, now?", MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES) {
+            msgbox("Captain Bruce: Alright meet me at the\n"
+                    "harbor!", MSGBOX_AUTOCLOSE)
+            getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+            setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+            if (var(VAR_TEMP_1) == 6 && var(VAR_TEMP_2) == 3) {
+                applymove(LOCALID_CAP_BRUCE, CapBruceLeaveToHarbor_1)
+            }
+            else {
+                applymove(LOCALID_CAP_BRUCE, CapBruceLeaveToHarbor_2)
+            }
+            playse(SE_EXIT)
+            removeobject(LOCALID_CAP_BRUCE)
+            clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE)
         }
+        else {
+            msgbox("Captain Bruce: Arr!\n"
+                    "Talk to me when you wanna go!", MSGBOX_NPC)
+        }
+    }
     else {
         msgbox("Hahaha!\p"
                 "You wanna challenge me?!\n"
@@ -28,26 +53,70 @@ script SolaCity_SeaMensHub_CaptainBruce {
     end
 }
 
+movement CapBruceLeaveToHarbor_1 {
+    walk_right
+    walk_down * 7
+}
+
+movement CapBruceLeaveToHarbor_2 {
+    walk_down * 7
+}
+
+script SolaCity_SeaMensHub_CaptainBruceDefeated {
+    msgbox("Captain Bruce: Hahaha!\p"
+            "You got skill, young one.\n"
+            "What's your name?\p"
+            "… … … … … … … …\p"
+            "Captain Bruce: {PLAYER}!\n"
+            "Since you beat me,\l"
+            "I'll sail you to the mainland and back,\l"
+            "whenever you want!", MSGBOX_AUTOCLOSE)
+    subquestmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_2_BEAT_THE_SEA_MEN, SUB_QUEST_2_CAPTAIN_BRUCE)
+    questmenu(QUEST_MENU_SET_REWARD, QUEST_2_BEAT_THE_SEA_MEN)
+    return
+}
+
 script SolaCity_SeaMensHub_SailorTerry {
-    trainerbattle_single(TRAINER_TERRY, "My waves will crash you down!", "They crashed on me instead!")
+    trainerbattle_single(TRAINER_TERRY, "My waves will crash you down!", "They crashed on me instead!", SolaCity_SeaMensHub_DefeatedTerry)
     msgbox("I used to surf on big waves back in my\n"
             "day.", MSGBOX_NPC)
 }
 
+script SolaCity_SeaMensHub_DefeatedTerry {
+    subquestmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_2_BEAT_THE_SEA_MEN, SUB_QUEST_2_SAILOR_TERRY)
+}
+
 script SolaCity_SeaMensHub_SailorClarence {
-    trainerbattle_single(TRAINER_CLARENCE, "Stop right there!\pNot a step further!", "You may proceed…")
+    trainerbattle_single(TRAINER_CLARENCE, "Stop right there!\pNot a step further!", "You may proceed…", SolaCity_SeaMensHub_DefeatedClarence)
     msgbox("Bruce will put you back to your place,\n"
             "kiddo!", MSGBOX_NPC)
 }
 
+script SolaCity_SeaMensHub_DefeatedClarence {
+    subquestmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_2_BEAT_THE_SEA_MEN, SUB_QUEST_2_SAILOR_CLARENCE)
+}
+
 script SolaCity_SeaMensHub_SailorRayan {
-    trainerbattle_single(TRAINER_RAYAN, "Welcome to Sea Men's!", "Hope you have a pleasant stay…")
+    trainerbattle_single(TRAINER_RAYAN, "Welcome to Sea Men's!", "Hope you have a pleasant stay…", SolaCity_SeaMensHub_DefeatedRayan)
     msgbox("I used to work here, but then Bruce\n"
             "called me on his voyage!", MSGBOX_NPC)
 }
 
+script SolaCity_SeaMensHub_DefeatedRayan {
+    subquestmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_2_BEAT_THE_SEA_MEN, SUB_QUEST_2_SAILOR_RAYAN)
+}
+
 script SolaCity_SeaMensHub_SailorShaun {
-    trainerbattle_single(TRAINER_SHAUN, "Storm's a brewing!", "Uh, it calmed down!")
+    trainerbattle_single(TRAINER_SHAUN, "Storm's a brewing!", "Uh, it calmed down!", SolaCity_SeaMensHub_DefeatedShaun)
     msgbox("The sea  calls on to me!\n"
             "It relaxes my mind.", MSGBOX_NPC)
+}
+
+script SolaCity_SeaMensHub_DefeatedShaun {
+    subquestmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_2_BEAT_THE_SEA_MEN, SUB_QUEST_2_SAILOR_SHAUN)
+}
+
+script SolaCity_SeaMensHub_Man {
+    msgbox("Oh, me?\n"
+            "I'm no sailor. I just work here.", MSGBOX_NPC)
 }

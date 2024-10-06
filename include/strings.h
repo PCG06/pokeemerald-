@@ -3199,6 +3199,8 @@ extern const u8 gText_SubQuest2_Desc18[];
 extern const u8 gText_SubQuest2_Desc19[];
 extern const u8 gText_SubQuest2_Desc20[];
 
+extern const u8 gText_SubQuest2_Map[];
+
 // Berry Blender
 extern const u8 gText_SavingDontTurnOff2[];
 extern const u8 gText_BlenderMaxSpeedRecord[];

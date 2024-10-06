@@ -5,9 +5,24 @@ const LOCALID_SAILOR = 3
 mapscripts SolaCity_Harbor_MapScripts {}
 
 script SolaCity_Harbor_EventScript_Sailor {
-    msgbox("I am sorry, but the ship won't set sail\n"
-            "til tomorrow.\p"
-            "The captain's has gone on a break.", MSGBOX_NPC)
+    if (flag(FLAG_HIDE_SOLA_CITY_SEA_MENS_HUB_CAPTAIN_BRUCE) != true) {
+        msgbox("I am sorry, but the ship won't set sail\n"
+                "til tomorrow.\p"
+                "The captain's has gone on a break.", MSGBOX_NPC)
+    }
+    else {
+        msgbox("Captain's back!\n"
+                "We'll set sail soon!", MSGBOX_NPC)
+    }
+    release
+    end
+}
+
+script SolaCity_Harbor_EventScript_CaptainBruce {
+    msgbox("Dev's note: PCG here!\n"
+            "I did not finish scripting this!\p"
+            "The next test demo will certainly have\n"
+            "this part scripted!", MSGBOX_NPC)
 }
 
 script SolaCity_Harbor_EventScript_Fisherman {

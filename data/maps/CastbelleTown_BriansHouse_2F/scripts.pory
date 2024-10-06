@@ -25,7 +25,7 @@ script CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady {
             "I've been going over my type matchups,\n"
             "like Prof. Pine told us to.\p"
             "You'd better be ready to battle when\n"
-            "we get our Pokemon!\p"
+            "we get our Pokémon!\p"
             "Phew!\n"
             "Now, let's go!\p"
             "I can't wait to pick my starter!", MSGBOX_AUTOCLOSE)

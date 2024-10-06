@@ -1916,7 +1916,7 @@ const u8 gText_SideQuestDesc_30[] = _("Description 30");
 
 //completed quest description
 const u8 gText_SideQuestDoneDesc_1[] = _("You have completed the main story!\nExplore the postgame as you wish.");
-const u8 gText_SideQuestDoneDesc_2[] = _("Completed Quest 2");
+const u8 gText_SideQuestDoneDesc_2[] = _("Defeated the Sea Men in the\nSea Men's Hub.");
 const u8 gText_SideQuestDoneDesc_3[] = _("Completed Quest 3");
 const u8 gText_SideQuestDoneDesc_4[] = _("Completed Quest 4");
 const u8 gText_SideQuestDoneDesc_5[] = _("Completed Quest 5");
@@ -1990,11 +1990,11 @@ const u8 gText_SideQuestMap29[] = _("Map 29");
 const u8 gText_SideQuestMap30[] = _("Map 30");
 
 //subquests
-const u8 gText_SubQuest1_Name1[] = _("Part 1");
-const u8 gText_SubQuest1_Name2[] = _("Part 2");
-const u8 gText_SubQuest1_Name3[] = _("Part 3");
-const u8 gText_SubQuest1_Name4[] = _("Part 4");
-const u8 gText_SubQuest1_Name5[] = _("Part 5");
+const u8 gText_SubQuest1_Name1[] = _("Sailor Rayan");
+const u8 gText_SubQuest1_Name2[] = _("Sailor Shaun");
+const u8 gText_SubQuest1_Name3[] = _("Sailor Terry");
+const u8 gText_SubQuest1_Name4[] = _("Sailor Clarence");
+const u8 gText_SubQuest1_Name5[] = _("Captain Bruce");
 
 const u8 gText_SubQuest2_Name1[] = _("Part 1");
 const u8 gText_SubQuest2_Name2[] = _("Part 2");
@@ -2017,11 +2017,11 @@ const u8 gText_SubQuest2_Name18[] = _("Part 18");
 const u8 gText_SubQuest2_Name19[] = _("Part 19");
 const u8 gText_SubQuest2_Name20[] = _("Part 20");
 
-const u8 gText_SubQuest1_Desc1[] = _("Description Sub 1");
-const u8 gText_SubQuest1_Desc2[] = _("Description Sub 2");
-const u8 gText_SubQuest1_Desc3[] = _("Description Sub 3");
-const u8 gText_SubQuest1_Desc4[] = _("Description Sub 4");
-const u8 gText_SubQuest1_Desc5[] = _("Description Sub 5");
+const u8 gText_SubQuest1_Desc1[] = _("Defeated Sailor Rayan.");
+const u8 gText_SubQuest1_Desc2[] = _("Defeated Sailor Shaun.");
+const u8 gText_SubQuest1_Desc3[] = _("Defeated Sailor Terry.");
+const u8 gText_SubQuest1_Desc4[] = _("Defeated Sailor Clarence.");
+const u8 gText_SubQuest1_Desc5[] = _("Defeated Captain Bruce!\nThe Sea Men have been defeated!");
 const u8 gText_SubQuest1_Desc6[] = _("Description Sub 6");
 const u8 gText_SubQuest1_Desc7[] = _("Description Sub 7");
 const u8 gText_SubQuest1_Desc8[] = _("Description Sub 8");
@@ -2048,3 +2048,5 @@ const u8 gText_SubQuest2_Desc17[] = _("Description Sub 17");
 const u8 gText_SubQuest2_Desc18[] = _("Description Sub 18");
 const u8 gText_SubQuest2_Desc19[] = _("Description Sub 19");
 const u8 gText_SubQuest2_Desc20[] = _("Description Sub 20");
+
+const u8 gText_SubQuest2_Map[] = _("Sea Men's Hub");

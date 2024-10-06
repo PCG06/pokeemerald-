@@ -278,9 +278,9 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     applymove(LOCALID_BRIAN, Common_Movement_FacePlayer)
     msgbox("Brian: Hehe! I'm only joking,\n"
             "{PLAYER}!\p"
-            "Anyway, I'm off to 'next town'!\n"
+            "Anyway, I'm off to Sola City!\n"
             "I wanna catch the ferry to the\l"
-            "mainland and challenge 'gym 1 leader'!", MSGBOX_AUTOCLOSE)
+            "mainland and challenge the Gym Leader!", MSGBOX_AUTOCLOSE)
     applymove(LOCALID_BRIAN, BrianExitLab)
     removeobject(LOCALID_BRIAN)
     emote(LOCALID_PROF_PINE, EMOTE_EXCLAIM)
@@ -335,6 +335,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfPineGivesPokedex {
             "him the Pokédex?\p"
             "… … … … … … …\p"
             "Of course! You're getting one too!\n"
+            "I should have started that way…\l"
             "Haha!", MSGBOX_AUTOCLOSE)
 	playfanfare(MUS_OBTAIN_ITEM)
     message("{PLAYER} received the Pokédex!")
