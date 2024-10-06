@@ -2050,3 +2050,22 @@ const u8 gText_SubQuest2_Desc19[] = _("Description Sub 19");
 const u8 gText_SubQuest2_Desc20[] = _("Description Sub 20");
 
 const u8 gText_SubQuest2_Map[] = _("Sea Men's Hub");
+
+const u8 *const gDayNameStringsTable[] =
+{
+    [DAY_SUNDAY] = gText_Sunday,
+    [DAY_MONDAY] = gText_Monday,
+    [DAY_TUESDAY] = gText_Tuesday,
+    [DAY_WEDNESDAY] = gText_Wednesday,
+    [DAY_THURSDAY] = gText_Thursday,
+    [DAY_FRIDAY] = gText_Friday,
+    [DAY_SATURDAY] = gText_Saturday,
+};
+
+const u8 gText_Sunday[]    = _("Sun,");
+const u8 gText_Monday[]    = _("Mon,");
+const u8 gText_Tuesday[]   = _("Tue,");
+const u8 gText_Wednesday[] = _("Wed,");
+const u8 gText_Thursday[]  = _("Thu,");
+const u8 gText_Friday[]    = _("Fri,");
+const u8 gText_Saturday[]  = _("Sat,");
