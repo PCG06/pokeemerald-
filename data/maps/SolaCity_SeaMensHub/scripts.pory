@@ -22,26 +22,28 @@ script SolaCity_SeaMensHub_CaptainBruce {
         defeated(TRAINER_RAYAN) &&
         defeated(TRAINER_SHAUN)) {
         trainerbattle_single(TRAINER_BRUCE, "Captain Bruce: Huh?\nYou beat all four of them?\pAlright, show me what you got!", "Captain Bruce: Hahaha!\nNo surprise you beat them all!", SolaCity_SeaMensHub_CaptainBruceDefeated)
-        msgbox("Captain Bruce: You want to sail to the\n"
-                "mainland, now?", MSGBOX_YESNO)
-        if (var(VAR_RESULT) == YES) {
-            msgbox("Captain Bruce: Alright meet me at the\n"
-                    "harbor!", MSGBOX_AUTOCLOSE)
-            getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
-            setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
-            if (var(VAR_TEMP_1) == 6 && var(VAR_TEMP_2) == 3) {
+        if (var(VAR_TEMP_1 == 0)) {    
+            msgbox("Captain Bruce: You want to sail to the\n"
+                     "mainland, now?", MSGBOX_YESNO)
+            if (var(VAR_RESULT) == YES) {
+                msgbox("Captain Bruce: Alright meet me at the\n"
+                        "harbor!", MSGBOX_AUTOCLOSE)
+                getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+                setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+                if (var(VAR_TEMP_1) == 6 && var(VAR_TEMP_2) == 3) {
                 applymove(LOCALID_CAP_BRUCE, CapBruceLeaveToHarbor_1)
+                }
+                else {
+                    applymove(LOCALID_CAP_BRUCE, CapBruceLeaveToHarbor_2)
+                }
+                playse(SE_EXIT)
+                removeobject(LOCALID_CAP_BRUCE)
+                clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE)
             }
             else {
-                applymove(LOCALID_CAP_BRUCE, CapBruceLeaveToHarbor_2)
-            }
-            playse(SE_EXIT)
-            removeobject(LOCALID_CAP_BRUCE)
-            clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE)
-        }
-        else {
             msgbox("Captain Bruce: Arr!\n"
                     "Talk to me when you wanna go!", MSGBOX_NPC)
+            }
         }
     }
     else {
@@ -64,6 +66,7 @@ script SolaCity_SeaMensHub_CaptainBruceDefeated {
             "whenever you want!", MSGBOX_AUTOCLOSE)
     subquestmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_2_BEAT_THE_SEA_MEN, SUB_QUEST_2_CAPTAIN_BRUCE)
     questmenu(QUEST_MENU_SET_REWARD, QUEST_2_BEAT_THE_SEA_MEN)
+    setvar(VAR_TEMP_1, 1) // Just to avoid a few workarounds with movements going over follower
     return
 }
 

@@ -19,7 +19,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPine {
     }
     elif (var(VAR_CASTBELLE_TOWN_STATE) == 5) {
         msgbox("Prof. Pine: Please when you meet Brian,\n"
-                "give Brian his Pokédex, {PLAYER}.\p"
+                "give him his Pokédex, {PLAYER}.\p"
                 "He must be wandering around Castbelle\n"
                 "Path!", MSGBOX_NPC)
     }
@@ -193,6 +193,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     playse(SE_EXIT)
     waitse
     msgbox("???: I'M HERE!", MSGBOX_AUTOCLOSE)
+    setflag(FLAG_HIDE_CASTBELLE_TOWN_BERRY_SHOP_BRIAN)
     emotenowait(LOCALID_PROF_PINE, EMOTE_QUESTION)
     emotenowait(OBJ_EVENT_ID_PLAYER, EMOTE_QUESTION)
     playbgm(MUS_DP_RIVAL, TRUE) // So that the music plays even after battle ends
@@ -285,6 +286,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     removeobject(LOCALID_BRIAN)
     emote(LOCALID_PROF_PINE, EMOTE_EXCLAIM)
     msgbox("Prof. Pine: Oh! Brian! Wait!", MSGBOX_DEFAULT)
+    delay(6)
     playse(SE_EXIT)
     delay(24)
     msgbox("sigh…\p"
@@ -299,7 +301,7 @@ movement BrianRushToProf {
 }
 
 movement BrianExitLab {
-    walk_down * 5
+    walk_down * 6
 }
 
 movement BrianWalkToFireStarter {
@@ -331,12 +333,9 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfPineGivesPokedex {
     }
     turnplayer(DIR_WEST)
     msgbox("Prof. Pine: {PLAYER}!\n"
-            "Could you chase after Brian and give\l"
-            "him the Pokédex?\p"
-            "… … … … … … …\p"
-            "Of course! You're getting one too!\n"
-            "I should have started that way…\l"
-            "Haha!", MSGBOX_AUTOCLOSE)
+            "Now, for the main reason why I need\l"
+            "your help!\p"
+            "This is the Pokédex!", MSGBOX_AUTOCLOSE)
 	playfanfare(MUS_OBTAIN_ITEM)
     message("{PLAYER} received the Pokédex!")
 	waitfanfare
@@ -372,6 +371,13 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfPineGivesPokedex {
             "Trainer's Pokémon!\p"
             "Due to recent events, I feel like I'd\n"
             "need to announce it now.\p"
+            "Also, Brian was supposed to get his\n"
+            "Pokédex right now, too.\p"
+            "But, he ran off in a hurry.\n"
+            "So, I need you to find him and give\l"
+            "him his Pokédex.\p"
+            "He must be wandering around Castbelle\n"
+            "Path right now.\p"
             "Anyway, {PLAYER}!\p"
             "I wish you all the best in your Pokémon\n"
             "adventure!\p"

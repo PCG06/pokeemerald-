@@ -2594,7 +2594,7 @@
 	.ifb \mode
 		playmoncry \species, CRY_MODE_NORMAL
 	.else
-		playmoncry \species, mode
+		playmoncry \species, \mode
 	.endif
 		bufferspeciesname 1, \species
 		bufferstring 2, \message

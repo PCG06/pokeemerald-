@@ -49,11 +49,11 @@ script CastbelleTown_EventScript_BrianHouseSign {
 }
 
 script CastbelleTown_EventScript_ProfPinesLabSign {
-    msgbox("Professor Wood's Laboratory", MSGBOX_SIGN)
+    msgbox("Professor Pines's Laboratory", MSGBOX_SIGN)
 }
 
-script CastbelleTown_EventScript_ProofWoodsHouseSign {
-    msgbox("Professor Wood's House", MSGBOX_SIGN)
+script CastbelleTown_EventScript_ProofPinesHouseSign {
+    msgbox("Professor Pines's House", MSGBOX_SIGN)
 }
 
 script CastbelleTown_EventScript_BerryShop {

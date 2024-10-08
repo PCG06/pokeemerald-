@@ -20,7 +20,10 @@ script CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon {
             "You just got your Trainer Card,\n"
             "why not get yourself a new companion?\p"
             "Prof. Pine would be glad to give you\n"
-            "one!", MSGBOX_AUTOCLOSE)
+            "one!"
+            "Oh! Brian came earlier to meet you.\n"
+            "It would be better if you go and meet\l"
+            "him before going to Prof. Pine's lab.", MSGBOX_AUTOCLOSE)
     delay(24)
     applymove(LOCALID_MOM, MomWalkToChair)
     applymove(LOCALID_MOM, Common_Movement_FaceLeft)
@@ -65,7 +68,7 @@ script CastbelleTown_PlayerHouse_1F_EventScript_AfterGettingPartnerPokemon {
             "If you're ever tired, you can always\l"
             "come home and take rest!\p"
 	        "… … … … … … … …\n"
-	        "… … … … … … … …\p", MSGBOX_AUTOCLOSE)
+	        "… … … … … … … …", MSGBOX_AUTOCLOSE)
     applymove(LOCALID_MOM, MomWalkToChair_2)
     delay(24)
     setvar(VAR_CASTBELLE_TOWN_STATE, 5)

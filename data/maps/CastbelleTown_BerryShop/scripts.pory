@@ -1,33 +1,37 @@
 mapscripts CastbelleTown_BerryShop_MapScripts {}
 
 script CastbelleTown_BerryShop_EventScript_Clerk {
-    if (var(VAR_CASTBELLE_TOWN_STATE) <= 1)
-    {   // Before meeting rival
-        lock
-        faceplayer
-        msgbox("Hello, {PLAYER}!\n"
-                "We're currently all out of berries.\p"
-                "Our goods will be supplied in a short\n"
-                "awhile.\p"
-                "We sincerely apologize and hope such\n"
-                "disasters won't happen in the future.", MSGBOX_AUTOCLOSE)
-    }
-    elif (var(VAR_CASTBELLE_TOWN_STATE) < 3)
-    {   // After meeting rival, before getting a Pokemon
-        end
-    }
-    else {
+    switch(var(VAR_CASTBELLE_TOWN_STATE))
+    {
+        // Before meeting rival
+        case 0:
+        case 1:
+            lock
+            faceplayer
+            msgbox("Hello, {PLAYER}!\n"
+                    "We're currently all out of berries.\p"
+                    "Our goods will be supplied in a short\n"
+                    "awhile.\p"
+                    "We sincerely apologize and hope such\n"
+                    "disasters won't happen in the future.", MSGBOX_AUTOCLOSE)
+
+        // After meeting rival, before getting a Pokemon
+        case 2:
+            end
+
         // After getting a Pokemon
-        lock
-        faceplayer
-        message("Hello {PLAYER},\n"
-                "welcome to our Berry Shop!\l"
-                "How may I serve you?")
-        waitmessage
-        pokemart(BerryShop_Items)
-        msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
-        release
-        end
+        default:
+        // case 3: and greater
+            lock
+            faceplayer
+            message("Hello. {PLAYER}!\n"
+                    "Welcome to our Berry Shop!\l"
+                    "How may I serve you?")
+            waitmessage
+            pokemart(BerryShop_Items)
+            msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+            release
+            end
     }
 }
 
@@ -40,6 +44,23 @@ mart BerryShop_Items {
     ITEM_LEPPA_BERRY
     ITEM_ORAN_BERRY
     ITEM_PERSIM_BERRY
+}
+
+mart BerryShop_Items_Expanded { # For future
+	ITEM_CHERI_BERRY
+	ITEM_CHESTO_BERRY
+    ITEM_PECHA_BERRY
+    ITEM_RAWST_BERRY
+    ITEM_ASPEAR_BERRY
+    ITEM_LEPPA_BERRY
+    ITEM_ORAN_BERRY
+    ITEM_PERSIM_BERRY
+    ITEM_POMEG_BERRY
+    ITEM_KELPSY_BERRY
+    ITEM_QUALOT_BERRY
+    ITEM_HONDEW_BERRY
+    ITEM_GREPA_BERRY
+    ITEM_TAMATO_BERRY
 }
 
 script CastbelleTown_BerryShop_EventScript_Brian {

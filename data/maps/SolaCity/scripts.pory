@@ -1,4 +1,5 @@
 const LOCALID_SAILOR = 5
+const LOCALID_SPHEAL = 11
 
 mapscripts SolaCity_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
@@ -24,6 +25,11 @@ script SolaCity_EventScript_HarborSign {
 script SolaCity_EventScript_InnsSign {
     msgbox("Sola Inns\n"
             "“Take a rest, forget the rest!”", MSGBOX_SIGN)
+}
+
+script SolaCity_EventScript_MarketSign {
+    msgbox("Sola Market\n"
+            "“Mainland goods for half the price!”", MSGBOX_SIGN)
 }
 
 script SolaCity_EventScript_Sailor1 {
@@ -113,6 +119,27 @@ script SolaCity_EventScript_Sailor5_QuestComplete {
             "best!", MSGBOX_NPC)
 }
 
+script SolaCity_EventScript_LittleBoy {
+    lock
+    msgbox("Here, Spheal! Look at me!", MSGBOX_AUTOCLOSE)
+    release
+    end
+}
+
+script SolaCity_EventScript_LittleGirl {
+    lock
+    msgbox("No! Spheal, look at me!", MSGBOX_AUTOCLOSE)
+    release
+    end
+}
+
+script SolaCity_EventScript_Spheal {
+    emote(LOCALID_SPHEAL, EMOTE_QUESTION)
+    moncryscript(SPECIES_SPHEAL, "Sphea?", CRY_MODE_FAINT)
+    faceoriginaldir
+    release
+}
+
 script SolaCity_EventScript_TMsSeller {
     lock
 	faceplayer
@@ -133,7 +160,7 @@ mart TMsSeller_Items {
 script SolaCity_EventScript_BerrySeller1 {
     lock
 	faceplayer
-	message(gText_HowMayIServeYou)
+	message(gText_HowMayIServeYouBerryShop)
 	waitmessage
     pokemart(BerrySeller1)
 	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
@@ -156,7 +183,7 @@ mart BerrySeller1 {
 script SolaCity_EventScript_BerrySeller2 {
     lock
 	faceplayer
-	message(gText_HowMayIServeYou)
+	message(gText_HowMayIServeYouBerryShop)
 	waitmessage
     pokemart(BerrySeller2)
 	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
@@ -174,15 +201,4 @@ mart BerrySeller2 {
     ITEM_COLBUR_BERRY
     ITEM_BABIRI_BERRY
     ITEM_ROSELI_BERRY
-}
-
-script SolaCity_EventScript_Items {}
-
-mart ItemsList {
-    ITEM_POMEG_BERRY
-    ITEM_KELPSY_BERRY
-    ITEM_QUALOT_BERRY
-    ITEM_HONDEW_BERRY
-    ITEM_GREPA_BERRY
-    ITEM_TAMATO_BERRY
 }

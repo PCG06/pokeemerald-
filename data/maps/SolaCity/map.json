@@ -88,7 +88,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
       "x": 7,
-      "y": 33,
+      "y": 28,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -101,7 +101,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
       "x": 7,
-      "y": 29,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -114,7 +114,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
       "x": 6,
-      "y": 29,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -125,16 +125,42 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
-      "x": 7,
-      "y": 25,
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
+      "x": 31,
+      "y": 45,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SolaCity_EventScript_LittleBoy",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
+      "x": 33,
+      "y": 45,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SolaCity_EventScript_LittleGirl",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SPHEAL)",
+      "x": 32,
+      "y": 45,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SolaCity_EventScript_Spheal",
       "flag": "0"
     }
   ],
@@ -245,7 +271,7 @@
     {
       "type": "sign",
       "x": 13,
-      "y": 43,
+      "y": 41,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SolaCity_EventScript_SolaCitySign"
@@ -289,6 +315,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 30,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SolaCity_EventScript_MarketSign"
     }
   ]
 }

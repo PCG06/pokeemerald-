@@ -19,7 +19,8 @@ script CastbellePath_EventScript_TrainerTips {
 	        "make moves during battle.\p"
 	        "If a Pokémon runs out of PP, it must be\n"
 	        "taken to a Pokémon Center.\p"
-            "The closest Pokémon Center is in Sola City!", MSGBOX_SIGN)
+            "The closest Pokémon Center is in Sola\n"
+            "City!", MSGBOX_SIGN)
 }
 
 script CastbellePath_EventScript_Brian {
@@ -82,11 +83,13 @@ script CastbellePath_EventScript_Brian {
 }
 
 movement BrianExitsCastbellePath_1 {
-    walk_right
-    walk_up * 7
+    walk_up * 2
+    walk_right * 2
+    walk_up * 5
 }
 
 movement BrianExitsCastbellePath_2 {
+    walk_right * 2
     walk_up * 7
 }
 
