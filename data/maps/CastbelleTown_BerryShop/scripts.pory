@@ -8,12 +8,18 @@ script CastbelleTown_BerryShop_EventScript_Clerk {
         case 1:
             lock
             faceplayer
-            msgbox("Hello, {PLAYER}!\n"
-                    "We're currently all out of berries.\p"
-                    "Our goods will be supplied in a short\n"
-                    "awhile.\p"
-                    "We sincerely apologize and hope such\n"
-                    "disasters won't happen in the future.", MSGBOX_AUTOCLOSE)
+            dotimebasedevents
+            if(flag(FLAG_DAILY_CASTBELLE_TOWN_BERRY_SHOP_RECEIVED_BERRY) != true) {
+                goto(CastbelleTown_BerryShop_EventScript_DailyFreeBerry)
+            }
+            else {
+                msgbox("Hello, {PLAYER}!\n"
+                        "We're currently all out of berries.\p"
+                        "Our goods will be supplied in a short\n"
+                        "while.\p"
+                        "We sincerely apologize and hope such\n"
+                        "disasters won't happen in the future.", MSGBOX_AUTOCLOSE)
+            }
 
         // After meeting rival, before getting a Pokemon
         case 2:
@@ -24,14 +30,20 @@ script CastbelleTown_BerryShop_EventScript_Clerk {
         // case 3: and greater
             lock
             faceplayer
-            message("Hello. {PLAYER}!\n"
-                    "Welcome to our Berry Shop!\l"
-                    "How may I serve you?")
-            waitmessage
-            pokemart(BerryShop_Items)
-            msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
-            release
-            end
+            dotimebasedevents
+            if(flag(FLAG_DAILY_CASTBELLE_TOWN_BERRY_SHOP_RECEIVED_BERRY) != true) {
+                goto(CastbelleTown_BerryShop_EventScript_DailyFreeBerry)
+            }
+            else {
+                message("Hello. {PLAYER}!\n"
+                        "Welcome to our Berry Shop!\l"
+                        "How may I serve you?")
+                waitmessage
+                pokemart(BerryShop_Items)
+                msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+                release
+                end
+            }
     }
 }
 
@@ -63,6 +75,14 @@ mart BerryShop_Items_Expanded { # For future
     ITEM_TAMATO_BERRY
 }
 
+script CastbelleTown_BerryShop_EventScript_DailyFreeBerry {
+    dotimebasedevents
+    msgbox("Hello, {PLAYER}.\n"
+            "Here's a free berry as a gift from me.", MSGBOX_AUTOCLOSE)
+    giveitem(ITEM_ORAN_BERRY)
+    setflag(FLAG_DAILY_CASTBELLE_TOWN_BERRY_SHOP_RECEIVED_BERRY)
+    end
+}
 script CastbelleTown_BerryShop_EventScript_Brian {
     lock
     msgbox("Brian: Umm, I'll take 3 Oran Berries\n"
