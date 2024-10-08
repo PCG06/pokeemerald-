@@ -440,3 +440,10 @@ void RtcSetDayOfWeek(s8 dayOfWeek)
     RtcGetInfo(&sRtc);
     RtcCalcTimeDifference(&sRtc, &gSaveBlock2Ptr->localTimeOffset, &gLocalTime);
 }
+
+u8 GetDate(void)
+{
+    RtcGetInfo(&sRtc);
+
+    return ConvertBcdToBinary(sRtc.day);
+}

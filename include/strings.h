@@ -3284,4 +3284,6 @@ extern const u8 gText_Thursday[];
 extern const u8 gText_Friday[];
 extern const u8 gText_Saturday[];
 
+extern const u8 gText_Date[];
+
 #endif // GUARD_STRINGS_H

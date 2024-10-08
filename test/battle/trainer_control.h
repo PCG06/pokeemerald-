@@ -41,7 +41,7 @@
 #line 12
             .ability = ABILITY_TELEPATHY,
 #line 11
-            .lvl = 67,
+            .lvl = 5,
 #line 17
             .ball = ITEM_MASTER_BALL,
 #line 15

@@ -2,6 +2,7 @@
 #include "test/test.h"
 #include "battle.h"
 #include "battle_main.h"
+#include "battle_tower.h"
 #include "data.h"
 #include "malloc.h"
 #include "random.h"
@@ -20,6 +21,7 @@ TEST("CreateNPCTrainerPartyForTrainer generates customized Pokémon")
 {
     struct Pokemon *testParty = Alloc(6 * sizeof(struct Pokemon));
     u8 nickBuffer[20];
+    u8 level = GetHighestLevelInPlayerParty();
     CreateNPCTrainerPartyFromTrainer(testParty, &sTestTrainers[0], TRUE, BATTLE_TYPE_TRAINER);
     EXPECT(IsMonShiny(&testParty[0]));
     EXPECT(!IsMonShiny(&testParty[1]));
@@ -68,8 +70,8 @@ TEST("CreateNPCTrainerPartyForTrainer generates customized Pokémon")
     EXPECT(GetMonData(&testParty[1], MON_DATA_SPATK_EV, 0) == 0);
     EXPECT(GetMonData(&testParty[1], MON_DATA_SPDEF_EV, 0) == 0);
 
-    EXPECT(GetMonData(&testParty[0], MON_DATA_LEVEL, 0) == 67);
-    EXPECT(GetMonData(&testParty[1], MON_DATA_LEVEL, 0) == 5);
+    EXPECT(GetMonData(&testParty[0], MON_DATA_LEVEL, 0) == (level + 5));
+    EXPECT(GetMonData(&testParty[1], MON_DATA_LEVEL, 0) == (level + 5));
 
     EXPECT(GetMonData(&testParty[0], MON_DATA_MOVE1, 0) == MOVE_AIR_SLASH);
     EXPECT(GetMonData(&testParty[0], MON_DATA_MOVE2, 0) == MOVE_BARRIER);
