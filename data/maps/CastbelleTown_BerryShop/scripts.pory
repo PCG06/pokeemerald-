@@ -83,6 +83,7 @@ script CastbelleTown_BerryShop_EventScript_DailyFreeBerry {
     setflag(FLAG_DAILY_CASTBELLE_TOWN_BERRY_SHOP_RECEIVED_BERRY)
     end
 }
+
 script CastbelleTown_BerryShop_EventScript_Brian {
     lock
     msgbox("Brian: Umm, I'll take 3 Oran Berries\n"

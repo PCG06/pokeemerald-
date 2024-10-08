@@ -4,6 +4,7 @@
 #include "battle_anim.h"
 #include "battle_ai_main.h"
 #include "battle_ai_util.h"
+#include "battle_tower.h"
 #include "battle_scripts.h"
 #include "battle_z_move.h"
 #include "bw_summary_screen.h"
@@ -7759,7 +7760,7 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
         const struct TrainerMon *party = GetTrainerPartyFromId(trainerId);
         if (party == NULL)
             return 20;
-        lastMonLevel = party[GetTrainerPartySizeFromId(trainerId) - 1].lvl;
+        lastMonLevel = (GetHighestLevelInPlayerParty() + party[GetTrainerPartySizeFromId(trainerId) - 1].lvl);
         trainerMoney = gTrainerClasses[GetTrainerClassFromId(trainerId)].money;
 
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)

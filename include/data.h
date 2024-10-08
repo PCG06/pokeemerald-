@@ -62,7 +62,7 @@ struct TrainerMon
     u16 species;
     u16 heldItem;
     u16 ability;
-    u8 lvl;
+    s8 lvl;
     u8 ball;
     u8 friendship;
     u8 nature:5;
