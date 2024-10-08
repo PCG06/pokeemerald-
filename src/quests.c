@@ -251,10 +251,10 @@ static const u8 sText_AZ[] = _(" A-Z");
 
 //Declaration of subquest structures. Edits to subquests are made here.
 #define sub_quest(i, n, d, m, s, st, t) {.id = i, .name = n, .desc = d, .map = m, .sprite = s, .spritetype = st, .type = t}
-static const struct SubQuest sSubQuests1[QUEST_2_SUB_COUNT] =
+static const struct SubQuest sSubQuest_BeatTheSeaMen[QUEST_2_SUB_COUNT] =
 {
 	sub_quest(
-	      0,
+	      SUB_QUEST_2_SAILOR_RAYAN,
 	      gText_SubQuest1_Name1,
 	      gText_SubQuest1_Desc1,
 	      gText_SubQuest2_Map,
@@ -264,7 +264,7 @@ static const struct SubQuest sSubQuests1[QUEST_2_SUB_COUNT] =
 	),
 
 	sub_quest(
-	      1,
+	      SUB_QUEST_2_SAILOR_SHAUN,
 	      gText_SubQuest1_Name2,
 	      gText_SubQuest1_Desc2,
 	      gText_SubQuest2_Map,
@@ -274,7 +274,7 @@ static const struct SubQuest sSubQuests1[QUEST_2_SUB_COUNT] =
 	),
 
 	sub_quest(
-	      2,
+	      SUB_QUEST_2_SAILOR_TERRY,
 	      gText_SubQuest1_Name3,
 	      gText_SubQuest1_Desc3,
 	      gText_SubQuest2_Map,
@@ -284,7 +284,7 @@ static const struct SubQuest sSubQuests1[QUEST_2_SUB_COUNT] =
 	),
 
 	sub_quest(
-	      3,
+	      SUB_QUEST_2_SAILOR_CLARENCE,
 	      gText_SubQuest1_Name4,
 	      gText_SubQuest1_Desc4,
 	      gText_SubQuest2_Map,
@@ -294,7 +294,7 @@ static const struct SubQuest sSubQuests1[QUEST_2_SUB_COUNT] =
 	),
 
 	sub_quest(
-	      4,
+	      SUB_QUEST_2_CAPTAIN_BRUCE,
 	      gText_SubQuest1_Name5,
 	      gText_SubQuest1_Desc5,
 	      gText_SubQuest2_Map,
@@ -314,7 +314,7 @@ static const struct SubQuest sSubQuests1[QUEST_2_SUB_COUNT] =
 #define side_quest(n, d, dd, m, s, st, sq, ns) {.name = n, .desc = d, .donedesc = dd, .map = m, .sprite = s, .spritetype = st, .subquests = sq, .numSubquests = ns}
 static const struct SideQuest sSideQuests[QUEST_COUNT] =
 {
-	side_quest(
+	side_quest( // QUEST_1_MAIN_STORY
 	      gText_SideQuestName_1,
 	      gText_SideQuestDesc_1,
 	      gText_SideQuestDoneDesc_1,
@@ -324,14 +324,14 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      NULL,
 	      0
 	),
-	side_quest(
+	side_quest( // QUEST_2_BEAT_THE_SEA_MEN
 	      gText_SideQuestName_2,
 	      gText_SideQuestDesc_2,
 	      gText_SideQuestDoneDesc_2,
 	      gText_SideQuestMap2,
 	      OBJ_EVENT_GFX_SAILOR,
 	      OBJECT,
-	      sSubQuests1,
+	      sSubQuest_BeatTheSeaMen,
 	      QUEST_2_SUB_COUNT
 	),
 	side_quest(
@@ -1757,17 +1757,18 @@ void GenerateAndPrintQuestDetails(s32 questId)
 void GenerateQuestLocation(s32 questId)
 {
 
-	if (!IsSubquestMode())
-	{
-		StringCopy(gStringVar2, sSideQuests[questId].map);
+	if (questId != QUEST_1_MAIN_STORY)
+	{	
+	    if (!IsSubquestMode())
+    	{
+    		StringCopy(gStringVar2, sSideQuests[questId].map);
+    	}
+    	else
+    	{
+    		StringCopy(gStringVar2, sSideQuests[sStateDataPtr->parentQuest].subquests[questId].map);
+    	}
 	}
 	else
-	{
-		StringCopy(gStringVar2,
-		           sSideQuests[sStateDataPtr->parentQuest].subquests[questId].map);
-	}
-
-	if (questId == QUEST_1_MAIN_STORY)
 	{
 	    StringCopy(gStringVar2, GetQuestLocation_MainStory());
 	}
@@ -1783,24 +1784,19 @@ static const u8 *GetQuestLocation_MainStory(void)
 		case 1:
 		case 2:
 		case 3:
-		    StringCopy(gStringVar3, COMPOUND_STRING("Castbelle Town"));
-			break;
+		    return gText_MainQuestMap_1;
 		case 4:
-		    StringCopy(gStringVar3, COMPOUND_STRING("Castbelle Path"));
-			break;
+		    return gText_MainQuestMap_4;
 		case 5:
-		    StringCopy(gStringVar3, COMPOUND_STRING("Sola City"));
-			break;
+		    return gText_MainQuestMap_5;
 	}
 
-	return gStringVar3;
 }
 
 void PrintQuestLocation(s32 questId)
 {
 	FillWindowPixelBuffer(1, 0);
-	QuestMenu_AddTextPrinterParameterized(1, 2, gStringVar4, 2, 3, 2, 0, 0,
-	                                      4);
+	QuestMenu_AddTextPrinterParameterized(1, 2, gStringVar4, 2, 3, 2, 0, 0, 4);
 }
 void GenerateQuestFlavorText(s32 questId)
 {

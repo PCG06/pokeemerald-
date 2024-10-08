@@ -1916,7 +1916,7 @@ const u8 gText_SideQuestDesc_30[] = _("Description 30");
 
 //completed quest description
 const u8 gText_SideQuestDoneDesc_1[] = _("You have completed the main story!\nExplore the postgame as you wish.");
-const u8 gText_SideQuestDoneDesc_2[] = _("Defeated the Sea Men in the\nSea Men's Hub.");
+const u8 gText_SideQuestDoneDesc_2[] = _("Defeated the sailors in the\nSea Men's Hub.");
 const u8 gText_SideQuestDoneDesc_3[] = _("Completed Quest 3");
 const u8 gText_SideQuestDoneDesc_4[] = _("Completed Quest 4");
 const u8 gText_SideQuestDoneDesc_5[] = _("Completed Quest 5");
@@ -1956,6 +1956,15 @@ const u8 gText_MainQuestDesc_7[] = _(" ");
 const u8 gText_MainQuestDesc_8[] = _(" ");
 const u8 gText_MainQuestDesc_9[] = _(" ");
 const u8 gText_MainQuestDesc_10[] = _(" ");
+
+const u8 gText_MainQuestMap_1[] = _("Castbelle Town");
+const u8 gText_MainQuestMap_4[] = _("Castbelle Path");
+const u8 gText_MainQuestMap_5[] = _("Sola City");
+const u8 gText_MainQuestMap_6[] = _(" ");
+const u8 gText_MainQuestMap_7[] = _(" ");
+const u8 gText_MainQuestMap_8[] = _(" ");
+const u8 gText_MainQuestMap_9[] = _(" ");
+const u8 gText_MainQuestMap_10[] = _(" ");
 
 //map
 const u8 gText_SideQuestMap1[] = _("Entire region");

@@ -53,15 +53,6 @@ script SolaCity_SeaMensHub_CaptainBruce {
     end
 }
 
-movement CapBruceLeaveToHarbor_1 {
-    walk_right
-    walk_down * 7
-}
-
-movement CapBruceLeaveToHarbor_2 {
-    walk_down * 7
-}
-
 script SolaCity_SeaMensHub_CaptainBruceDefeated {
     msgbox("Captain Bruce: Hahaha!\p"
             "You got skill, young one.\n"
@@ -74,6 +65,15 @@ script SolaCity_SeaMensHub_CaptainBruceDefeated {
     subquestmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_2_BEAT_THE_SEA_MEN, SUB_QUEST_2_CAPTAIN_BRUCE)
     questmenu(QUEST_MENU_SET_REWARD, QUEST_2_BEAT_THE_SEA_MEN)
     return
+}
+
+movement CapBruceLeaveToHarbor_1 {
+    walk_right
+    walk_down * 7
+}
+
+movement CapBruceLeaveToHarbor_2 {
+    walk_down * 7
 }
 
 script SolaCity_SeaMensHub_SailorTerry {
