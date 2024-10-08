@@ -522,9 +522,11 @@ static void ShowTimeWindow(void)
     AddTextPrinterParameterized(sStartClockWindowId, 1, gStringVar4, 0, 1, 0xFF, NULL);
 
     ConvertIntToDecimalStringN(gStringVar1, GetDate(), STR_CONV_MODE_RIGHT_ALIGN, 2);
-    StringExpandPlaceholders(gStringVar3, gText_Date);
+    ConvertIntToDecimalStringN(gStringVar2, GetMonth(), STR_CONV_MODE_RIGHT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar3, GetYear(), STR_CONV_MODE_RIGHT_ALIGN, 2);
+    StringExpandPlaceholders(gStringVar4, gText_Date);
 
-    AddTextPrinterParameterized(sStartClockWindowId, 1, gStringVar3, 0, 16, 0xFF, NULL);
+    AddTextPrinterParameterized(sStartClockWindowId, 1, gStringVar4, 0, 16, 0xFF, NULL);
 
     ptr = ConvertIntToDecimalStringN(gStringVar4, convertedHours, STR_CONV_MODE_LEFT_ALIGN, 3);
     *ptr = 0xF0;

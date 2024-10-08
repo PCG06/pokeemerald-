@@ -447,3 +447,17 @@ u8 GetDate(void)
 
     return ConvertBcdToBinary(sRtc.day);
 }
+
+u8 GetMonth(void)
+{
+    RtcGetInfo(&sRtc);
+
+    return ConvertBcdToBinary(sRtc.month);
+}
+
+u8 GetYear(void)
+{
+    RtcGetInfo(&sRtc);
+
+    return ConvertBcdToBinary(sRtc.year);
+}
