@@ -70,8 +70,8 @@ TEST("CreateNPCTrainerPartyForTrainer generates customized Pokémon")
     EXPECT(GetMonData(&testParty[1], MON_DATA_SPATK_EV, 0) == 0);
     EXPECT(GetMonData(&testParty[1], MON_DATA_SPDEF_EV, 0) == 0);
 
-    EXPECT(GetMonData(&testParty[0], MON_DATA_LEVEL, 0) == (level + 5));
-    EXPECT(GetMonData(&testParty[1], MON_DATA_LEVEL, 0) == (level + 5));
+    EXPECT(GetMonData(&testParty[0], MON_DATA_LEVEL, 0) == 100);
+    EXPECT(GetMonData(&testParty[1], MON_DATA_LEVEL, 0) == 100);
 
     EXPECT(GetMonData(&testParty[0], MON_DATA_MOVE1, 0) == MOVE_AIR_SLASH);
     EXPECT(GetMonData(&testParty[0], MON_DATA_MOVE2, 0) == MOVE_BARRIER);
@@ -120,27 +120,27 @@ static const struct TrainerMon sTestParty2[] =
 {
     {
         .species = SPECIES_WYNAUT,
-        .lvl = 5,
+        .lvl = 100,
     },
     {
         .species = SPECIES_WYNAUT,
-        .lvl = 5,
+        .lvl = 100,
     },
     {
         .species = SPECIES_WYNAUT,
-        .lvl = 5,
+        .lvl = 100,
     },
     {
         .species = SPECIES_WYNAUT,
-        .lvl = 5,
+        .lvl = 100,
     },
     {
         .species = SPECIES_WYNAUT,
-        .lvl = 5,
+        .lvl = 100,
     },
     {
         .species = SPECIES_WYNAUT,
-        .lvl = 5,
+        .lvl = 100,
     },
 };
 
