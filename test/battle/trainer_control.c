@@ -21,7 +21,6 @@ TEST("CreateNPCTrainerPartyForTrainer generates customized Pokémon")
 {
     struct Pokemon *testParty = Alloc(6 * sizeof(struct Pokemon));
     u8 nickBuffer[20];
-    u8 level = GetHighestLevelInPlayerParty();
     CreateNPCTrainerPartyFromTrainer(testParty, &sTestTrainers[0], TRUE, BATTLE_TYPE_TRAINER);
     EXPECT(IsMonShiny(&testParty[0]));
     EXPECT(!IsMonShiny(&testParty[1]));
