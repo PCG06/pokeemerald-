@@ -1096,3 +1096,9 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/SolaCity_Harbor/scripts.inc"
 
 	.include "data/maps/SolaCity_SeaMensHub/scripts.inc"
+
+	.include "data/maps/WindshearRiver_1/scripts.inc"
+
+	.include "data/maps/WindshearRiver_2/scripts.inc"
+
+	.include "data/maps/MistfallCity/scripts.inc"

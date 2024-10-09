@@ -1734,6 +1734,14 @@
       "y": 3,
       "width": 2,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_WINDSHEAR_RIVER",
+      "name": "Windshear River",
+      "x": 18,
+      "y": 3,
+      "width": 2,
+      "height": 1
     }
   ]
 }

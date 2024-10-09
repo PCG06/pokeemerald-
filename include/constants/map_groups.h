@@ -6,9 +6,12 @@
 //
 
 // gMapGroup_NewTownsAndRoutes
-#define MAP_CASTBELLE_TOWN (0 | (0 << 8))
-#define MAP_CASTBELLE_PATH (1 | (0 << 8))
-#define MAP_SOLA_CITY      (2 | (0 << 8))
+#define MAP_CASTBELLE_TOWN    (0 | (0 << 8))
+#define MAP_CASTBELLE_PATH    (1 | (0 << 8))
+#define MAP_SOLA_CITY         (2 | (0 << 8))
+#define MAP_WINDSHEAR_RIVER_1 (3 | (0 << 8))
+#define MAP_WINDSHEAR_RIVER_2 (4 | (0 << 8))
+#define MAP_MISTFALL_CITY     (5 | (0 << 8))
 
 // gMapGroup_IndoorCastbelle
 #define MAP_CASTBELLE_TOWN_PLAYERS_HOUSE_1F      (0 | (1 << 8))

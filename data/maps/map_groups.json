@@ -41,7 +41,10 @@
   "gMapGroup_NewTownsAndRoutes": [
     "CastbelleTown",
     "CastbellePath",
-    "SolaCity"
+    "SolaCity",
+    "WindshearRiver_1",
+    "WindshearRiver_2",
+    "MistfallCity"
   ],
   "gMapGroup_IndoorCastbelle": [
     "CastbelleTown_PlayersHouse_1F",

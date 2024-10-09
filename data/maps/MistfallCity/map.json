@@ -1,0 +1,89 @@
+{
+  "id": "MAP_MISTFALL_CITY",
+  "name": "MistfallCity",
+  "layout": "LAYOUT_MISTFALL_CITY",
+  "music": "MUS_DP_JUBILIFE_NIGHT",
+  "region_map_section": "MAPSEC_MISTFALL_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_CITY",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_WINDSHEAR_RIVER_2",
+      "offset": 8,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 20,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_WINDSHEAR_RIVER_2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 21,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_WINDSHEAR_RIVER_2",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 22,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_WINDSHEAR_RIVER_2",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 23,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_WINDSHEAR_RIVER_2",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 24,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_WINDSHEAR_RIVER_2",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 25,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_WINDSHEAR_RIVER_2",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 26,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_WINDSHEAR_RIVER_2",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 27,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_WINDSHEAR_RIVER_2",
+      "dest_warp_id": "7"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

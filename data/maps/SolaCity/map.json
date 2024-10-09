@@ -17,6 +17,11 @@
       "map": "MAP_CASTBELLE_PATH",
       "offset": 8,
       "direction": "down"
+    },
+    {
+      "map": "MAP_WINDSHEAR_RIVER_1",
+      "offset": 2,
+      "direction": "right"
     }
   ],
   "object_events": [
