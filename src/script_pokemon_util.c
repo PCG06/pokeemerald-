@@ -505,6 +505,10 @@ void ScrCmd_createmon(struct ScriptContext *ctx)
     u8 ivs[NUM_STATS]        = {hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv};
     u16 moves[MAX_MON_MOVES] = {move1, move2, move3, move4};
 
+        
+    if (level == 0)
+        level = ChooseNonEncounterMonLevel();
+
     gSpecialVar_Result = ScriptGiveMonParameterized(side, slot, species, level, item, ball, nature, abilityNum, gender, evs, ivs, moves, isShiny, ggMaxFactor, teraType);
 }
 
