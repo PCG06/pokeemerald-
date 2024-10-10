@@ -1757,8 +1757,13 @@ void GenerateAndPrintQuestDetails(s32 questId)
 void GenerateQuestLocation(s32 questId)
 {
 
-	if (questId != QUEST_1_MAIN_STORY)
+	if (questId == QUEST_1_MAIN_STORY)
 	{	
+	    StringCopy(gStringVar2, GetQuestLocation_MainStory());
+		
+	}
+	else
+	{
 	    if (!IsSubquestMode())
     	{
     		StringCopy(gStringVar2, sSideQuests[questId].map);
@@ -1767,10 +1772,6 @@ void GenerateQuestLocation(s32 questId)
     	{
     		StringCopy(gStringVar2, sSideQuests[sStateDataPtr->parentQuest].subquests[questId].map);
     	}
-	}
-	else
-	{
-	    StringCopy(gStringVar2, GetQuestLocation_MainStory());
 	}
 
 	StringExpandPlaceholders(gStringVar4, sText_ShowLocation);
@@ -1798,6 +1799,7 @@ void PrintQuestLocation(s32 questId)
 	FillWindowPixelBuffer(1, 0);
 	QuestMenu_AddTextPrinterParameterized(1, 2, gStringVar4, 2, 3, 2, 0, 0, 4);
 }
+
 void GenerateQuestFlavorText(s32 questId)
 {
 	if (IsSubquestMode() == FALSE)

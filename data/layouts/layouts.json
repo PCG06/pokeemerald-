@@ -4564,10 +4564,10 @@
     {
       "id": "LAYOUT_MISTFALL_CITY",
       "name": "MistfallCity_Layout",
-      "width": 50,
+      "width": 60,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/MistfallCity/border.bin",
       "blockdata_filepath": "data/layouts/MistfallCity/map.bin"
     }
