@@ -174,6 +174,7 @@ struct Time
     /*0x03*/ s8 minutes;
     /*0x04*/ s8 seconds;
     /*0x05*/ s8 dayOfWeek;
+    /*0x06*/ s8 month;
 };
 
 

@@ -30,6 +30,19 @@ enum
     MONTH_COUNT = MONTH_DEC
 };
 
+enum
+{
+    DAY_SUNDAY,   
+    DAY_MONDAY,   
+    DAY_TUESDAY,  
+    DAY_WEDNESDAY,
+    DAY_THURSDAY, 
+    DAY_FRIDAY,   
+    DAY_SATURDAY, 
+    DAYS_PER_WEEK,
+    DAY_CURRENT = DAYS_PER_WEEK
+};
+
 struct SiiRtcInfo
 {
     u8 year;

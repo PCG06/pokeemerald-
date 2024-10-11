@@ -2,6 +2,7 @@
 #include "strings.h"
 #include "battle_pyramid_bag.h"
 #include "item_menu.h"
+#include "siirtc.h"
 
 ALIGNED(4)
 const u8 gText_ExpandedPlaceholder_Empty[] = _("");
@@ -2085,6 +2086,36 @@ const u8 gText_Thursday[]  = _("Thursday,");
 const u8 gText_Friday[]    = _("Friday,");
 const u8 gText_Saturday[]  = _("Saturday,");
 
+const u8 *const gMonthNameStringsTable[] =
+{
+    [MONTH_JAN] = gText_January,
+    [MONTH_FEB] = gText_February,
+    [MONTH_MAR] = gText_March,
+    [MONTH_APR] = gText_April,
+    [MONTH_MAY] = gText_May,
+    [MONTH_JUN] = gText_June,
+    [MONTH_JUL] = gText_July,
+    [MONTH_AUG] = gText_August,
+    [MONTH_SEP] = gText_September,
+    [MONTH_OCT] = gText_October,
+    [MONTH_NOV] = gText_November,
+    [MONTH_DEC] = gText_December,
+};
+
+const u8 gText_January[]    = _("Jan");
+const u8 gText_February[]   = _("Feb");
+const u8 gText_March[]      = _("Mar");
+const u8 gText_April[]      = _("Apr");
+const u8 gText_May[]        = _("May");
+const u8 gText_June[]       = _("Jun");
+const u8 gText_July[]       = _("Jul");
+const u8 gText_August[]     = _("Aug");
+const u8 gText_September[]  = _("Sep");
+const u8 gText_October[]    = _("Oct");
+const u8 gText_November[]   = _("Nov");
+const u8 gText_December[]   = _("Dec");
+
+
 const u8 gText_StartMenuTime[] = _("Time:");
 
-const u8 gText_Date[] = _("{STR_VAR_1}-{STR_VAR_2}-{STR_VAR_3}");
+const u8 gText_Date[] = _("{STR_VAR_2} {STR_VAR_1}, {STR_VAR_3}");

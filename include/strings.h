@@ -3290,6 +3290,22 @@ extern const u8 gText_Thursday[];
 extern const u8 gText_Friday[];
 extern const u8 gText_Saturday[];
 
+// Month Strings
+extern const u8 *const gMonthNameStringsTable[];
+
+extern const u8 gText_January[];
+extern const u8 gText_February[];
+extern const u8 gText_March[];
+extern const u8 gText_April[];
+extern const u8 gText_May[];
+extern const u8 gText_June[];
+extern const u8 gText_July[];
+extern const u8 gText_August[];
+extern const u8 gText_September[];
+extern const u8 gText_October[];
+extern const u8 gText_November[];
+extern const u8 gText_December[];
+
 extern const u8 gText_StartMenuTime[];
 extern const u8 gText_Date[];
 

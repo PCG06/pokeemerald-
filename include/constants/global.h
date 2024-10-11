@@ -172,16 +172,6 @@
 #define CONNECTION_DIVE     5
 #define CONNECTION_EMERGE   6
 
-#define DAY_SUNDAY             0
-#define DAY_MONDAY             1
-#define DAY_TUESDAY            2
-#define DAY_WEDNESDAY          3
-#define DAY_THURSDAY           4
-#define DAY_FRIDAY             5
-#define DAY_SATURDAY           6
-#define DAYS_PER_WEEK          7
-#define DAY_CURRENT            DAYS_PER_WEEK
-
 #if TESTING
 #include "config/test.h"
 #endif
