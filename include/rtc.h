@@ -123,6 +123,6 @@ void RtcSetDayOfWeek(s8 dayOfWeek);
 u8 RtcSecondChange(void);
 u8 GetDate(void);
 u8 GetMonth(void);
-u8 GetYear(void);
+u32 GetYear(void);
 
 #endif // GUARD_RTC_UTIL_H

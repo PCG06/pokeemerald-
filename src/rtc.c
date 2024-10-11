@@ -472,9 +472,9 @@ u8 GetMonth(void)
     return ConvertBcdToBinary(sRtc.month);
 }
 
-u8 GetYear(void)
+u32 GetYear(void)
 {
     RtcGetInfo(&sRtc);
 
-    return ConvertBcdToBinary(sRtc.year);
+    return (2000 + ConvertBcdToBinary(sRtc.year));
 }

@@ -38,7 +38,7 @@ const u8 gJPText_No1MSubCircuit[] = _("1Mサブきばんが ささっていま�
 const u8 gText_BatteryRunDry[] = _("The internal battery has run dry.\nThe game can be played.\pHowever, clock-based events will\nno longer occur.");
 const u8 gText_Player[] = _("PLAYER"); // Unused
 const u8 gText_Pokedex[] = _("POKéDEX"); // Unused
-const u8 gText_Time[] = _("TIME");
+const u8 gText_Time[] = _("Time");
 const u8 gText_Badges[] = _("BADGES"); // Unused
 const u8 gText_AButton[] = _("A Button"); // Unused
 const u8 gText_BButton[] = _("B Button"); // Unused
@@ -2077,12 +2077,14 @@ const u8 *const gDayNameStringsTable[] =
     [DAY_SATURDAY] = gText_Saturday,
 };
 
-const u8 gText_Sunday[]    = _("Sun,");
-const u8 gText_Monday[]    = _("Mon,");
-const u8 gText_Tuesday[]   = _("Tue,");
-const u8 gText_Wednesday[] = _("Wed,");
-const u8 gText_Thursday[]  = _("Thu,");
-const u8 gText_Friday[]    = _("Fri,");
-const u8 gText_Saturday[]  = _("Sat,");
+const u8 gText_Sunday[]    = _("Sunday,");
+const u8 gText_Monday[]    = _("Monday,");
+const u8 gText_Tuesday[]   = _("Tuesday,");
+const u8 gText_Wednesday[] = _("Wednesday,");
+const u8 gText_Thursday[]  = _("Thursday,");
+const u8 gText_Friday[]    = _("Friday,");
+const u8 gText_Saturday[]  = _("Saturday,");
 
-const u8 gText_Date[] = _("{STR_VAR_1}-{STR_VAR_2}-20{STR_VAR_3}");
+const u8 gText_StartMenuTime[] = _("Time:");
+
+const u8 gText_Date[] = _("{STR_VAR_1}-{STR_VAR_2}-{STR_VAR_3}");

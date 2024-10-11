@@ -160,8 +160,8 @@ static const struct WindowTemplate sWindowTemplate_StartClock = {
     .bg = 0, 
     .tilemapLeft = 1, 
     .tilemapTop = 1, 
-    .width = 9, // If you want to shorten the dates to Sat., Sun., etc., change this to 9. If you want to make the dates larger change this to 13.
-    .height = 4, 
+    .width = 10, // If you want to shorten the dates to Sat., Sun., etc., change this to 9. If you want to make the dates larger change this to 13.
+    .height = 6, 
     .paletteNum = 15,
     .baseBlock = 0x30
 };
@@ -519,14 +519,16 @@ static void ShowTimeWindow(void)
     else
         StringCopy(gStringVar4, gText_None);
     
-    AddTextPrinterParameterized(sStartClockWindowId, 1, gStringVar4, 0, 1, 0xFF, NULL);
+    AddTextPrinterParameterized(sStartClockWindowId, 1, gStringVar4, 0, 16, 0xFF, NULL);
 
     ConvertIntToDecimalStringN(gStringVar1, GetDate(), STR_CONV_MODE_RIGHT_ALIGN, 2);
     ConvertIntToDecimalStringN(gStringVar2, GetMonth(), STR_CONV_MODE_RIGHT_ALIGN, 2);
-    ConvertIntToDecimalStringN(gStringVar3, GetYear(), STR_CONV_MODE_RIGHT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar3, GetYear(), STR_CONV_MODE_RIGHT_ALIGN, 4);
     StringExpandPlaceholders(gStringVar4, gText_Date);
-
-    AddTextPrinterParameterized(sStartClockWindowId, 1, gStringVar4, 0, 16, 0xFF, NULL);
+    AddTextPrinterParameterized(sStartClockWindowId, 1, gStringVar4, 0, 32, 0xFF, NULL);
+    
+    StringCopy(gStringVar4, gText_StartMenuTime);
+    AddTextPrinterParameterized(sStartClockWindowId, 1, gStringVar4, 0, 1, 0xFF, NULL);
 
     ptr = ConvertIntToDecimalStringN(gStringVar4, convertedHours, STR_CONV_MODE_LEFT_ALIGN, 3);
     *ptr = 0xF0;
