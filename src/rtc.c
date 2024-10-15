@@ -505,6 +505,27 @@ u8 GetMonth(void)
     return ConvertBcdToBinary(sRtc.month);
 }
 
+u8 GetHour(void)
+{
+    RtcGetInfo(&sRtc);
+
+    return ConvertBcdToBinary(sRtc.hour);
+}
+
+u8 GetMinute(void)
+{
+    RtcGetInfo(&sRtc);
+
+    return ConvertBcdToBinary(sRtc.minute);
+}
+
+u8 GetSecond(void)
+{
+    RtcGetInfo(&sRtc);
+
+    return ConvertBcdToBinary(sRtc.second);
+}
+
 u32 GetYear(void)
 {
     RtcGetInfo(&sRtc);

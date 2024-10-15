@@ -138,18 +138,15 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
-	special SavePlayerParty
-	fadescreen FADE_TO_BLACK
-	special ChooseHalfPartyForBattle
-	waitstate
-	goto_if_ne VAR_RESULT, 0, Test_Script
-	special LoadPlayerParty
-	goto Debug_EventScript_Script_1
+	lock
+	gettime
+	msgbox Show_Time, MSGBOX_AUTOCLOSE
 	release
 	end
 
-Test_Script::
-	multi_2_vs_2 TRAINER_MAXIE_MOSSDEEP, MossdeepCity_SpaceCenter_2F_Text_JustWantToExpandLand, TRAINER_TABITHA_MOSSDEEP, MossdeepCity_SpaceCenter_Text_TabithaDefeat, PARTNER_STEVEN
+Show_Time::
+	.string "Month: {STR_VAR_1}\n"
+	.string "Time: {STR_VAR_2}:{STR_VAR_3}$"
 
 Debug_EventScript_Script_2::
 	release

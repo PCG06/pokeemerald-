@@ -124,6 +124,9 @@ void RtcSetMonth(s8 month);
 u8 RtcSecondChange(void);
 u8 GetDate(void);
 u8 GetMonth(void);
+u8 GetHour(void);
+u8 GetMinute(void);
+u8 GetSecond(void);
 u32 GetYear(void);
 
 #endif // GUARD_RTC_UTIL_H

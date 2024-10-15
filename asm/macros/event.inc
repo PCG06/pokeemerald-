@@ -319,7 +319,13 @@
 	.byte 0x2d
 	.endm
 
-	@ Sets the values of variables VAR_0x8000, VAR_0x8001, and VAR_0x8002 to the current hour, minute, and second.
+	@ Sets the values of variables
+	@ VAR_0x8000 to the current day time,
+	@ VAR_0x8001 to the current month,
+	@ VAR_0x8002 to the current day of week,
+	@ VAR_0x8003 to the current hour,
+	@ VAR_0x8004 to the current minute,
+	@ VAR_0x8005 to the current second,
 	.macro gettime
 	.byte 0x2e
 	.endm
