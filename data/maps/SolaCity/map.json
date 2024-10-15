@@ -167,6 +167,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SolaCity_EventScript_Spheal",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "x": 12,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SolaCity_EventScript_Woman",
+      "flag": "0"
     }
   ],
   "warp_events": [

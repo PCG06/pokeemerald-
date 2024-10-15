@@ -6,6 +6,7 @@ script CastbelleTown_BerryShop_EventScript_Clerk {
         // Before meeting rival
         case 0:
         case 1:
+	        playse(SE_SELECT)
             lock
             faceplayer
             dotimebasedevents
@@ -28,6 +29,7 @@ script CastbelleTown_BerryShop_EventScript_Clerk {
         // After getting a Pokemon
         default:
         // case 3: and greater
+	        playse(SE_SELECT)
             lock
             faceplayer
             dotimebasedevents

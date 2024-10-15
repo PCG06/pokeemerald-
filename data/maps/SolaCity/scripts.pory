@@ -133,6 +133,12 @@ script SolaCity_EventScript_LittleGirl {
     end
 }
 
+script SolaCity_EventScript_Woman {
+    msgbox("I'm here to buy some berries and TM for\n"
+            "my daughter.", MSGBOX_NPC)
+    end
+}
+
 script SolaCity_EventScript_Spheal {
     emote(LOCALID_SPHEAL, EMOTE_QUESTION)
     moncryscript(SPECIES_SPHEAL, "Sphea?", CRY_MODE_FAINT)
