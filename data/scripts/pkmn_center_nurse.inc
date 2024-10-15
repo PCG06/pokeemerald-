@@ -119,33 +119,25 @@ EventScript_PkmnCenterNurse_AskForUsual_Morning::
 	msgbox gText_YouWantTheUsual_Morning, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, EventScript_PkmnCenterNurse_GoldCardHealPkmn
 	message gText_TakeCareStaySafeOutTherePlayer
-	waitmessage
-	closemessage
-	end
+	return
 
 EventScript_PkmnCenterNurse_AskForUsual_Day::
 	msgbox gText_YouWantTheUsual_Day, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, EventScript_PkmnCenterNurse_GoldCardHealPkmn
-	message gText_TakeCareStaySafeOutTherePlayer
-	waitmessage
-	closemessage
-	end
+	message 
+	return
 
 EventScript_PkmnCenterNurse_AskForUsual_Evening::
 	msgbox gText_YouWantTheUsual_Evening, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, EventScript_PkmnCenterNurse_GoldCardHealPkmn
 	message gText_TakeCareStaySafeOutTherePlayer
-	waitmessage
-	closemessage
-	end
+	return
 
 EventScript_PkmnCenterNurse_AskForUsual_Night::
 	msgbox gText_YouWantTheUsual_Night, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, EventScript_PkmnCenterNurse_GoldCardHealPkmn
 	message gText_TakeCareStaySafeOutTherePlayer
-	waitmessage
-	closemessage
-	end
+	return
 
 EventScript_PkmnCenterNurse_GoldCardHealPkmn::
 	setvar VAR_0x800A, 1
