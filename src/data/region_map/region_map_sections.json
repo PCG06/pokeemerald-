@@ -1742,6 +1742,14 @@
       "y": 3,
       "width": 2,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_MISTFALL_CITY",
+      "name": "Mistfall City",
+      "x": 18,
+      "y": 3,
+      "width": 2,
+      "height": 1
     }
   ]
 }

@@ -26,6 +26,17 @@
 #define MAP_SOLA_CITY_POKEMON_CENTER (0 | (2 << 8))
 #define MAP_SOLA_CITY_HARBOR         (1 | (2 << 8))
 #define MAP_SOLA_CITY_SEA_MENS_HUB   (2 | (2 << 8))
+#define MAP_SOLA_CITY_SAILORS_HOUSE1 (3 | (2 << 8))
+#define MAP_SOLA_CITY_SAILORS_HOUSE2 (4 | (2 << 8))
+#define MAP_SOLA_CITY_HOUSE1         (5 | (2 << 8))
+#define MAP_SOLA_CITY_HOUSE2         (6 | (2 << 8))
+#define MAP_SOLA_CITY_HOUSE3         (7 | (2 << 8))
+#define MAP_SOLA_CITY_INN1           (8 | (2 << 8))
+#define MAP_SOLA_CITY_INN2           (9 | (2 << 8))
+#define MAP_SOLA_CITY_INN3           (10 | (2 << 8))
+#define MAP_SOLA_CITY_INN4           (11 | (2 << 8))
+#define MAP_SOLA_CITY_INN5           (12 | (2 << 8))
+#define MAP_SOLA_CITY_INN6           (13 | (2 << 8))
 
 // gMapGroup_TownsAndRoutes
 #define MAP_PETALBURG_CITY      (0 | (3 << 8))

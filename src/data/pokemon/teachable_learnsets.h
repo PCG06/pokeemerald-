@@ -7223,6 +7223,7 @@ static const u16 sTaurosPaldeanAquaBreedTeachableLearnset[] = {
 
 #if P_FAMILY_MAGIKARP
 static const u16 sMagikarpTeachableLearnset[] = {
+    MOVE_SURF,
     MOVE_UNAVAILABLE,
 };
 

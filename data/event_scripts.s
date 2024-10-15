@@ -1090,15 +1090,20 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/CastbelleTown_ProfessorPinesHouse/scripts.inc"
 	.include "data/maps/CastbelleTown_BerryShop/scripts.inc"
 	.include "data/maps/SolaCity/scripts.inc"
-
 	.include "data/maps/SolaCity_PokemonCenter/scripts.inc"
-
 	.include "data/maps/SolaCity_Harbor/scripts.inc"
-
 	.include "data/maps/SolaCity_SeaMensHub/scripts.inc"
-
 	.include "data/maps/WindshearRiver_1/scripts.inc"
-
 	.include "data/maps/WindshearRiver_2/scripts.inc"
-
 	.include "data/maps/MistfallCity/scripts.inc"
+	.include "data/maps/SolaCity_SailorsHouse1/scripts.inc"
+	.include "data/maps/SolaCity_SailorsHouse2/scripts.inc"
+	.include "data/maps/SolaCity_House1/scripts.inc"
+	.include "data/maps/SolaCity_House2/scripts.inc"
+	.include "data/maps/SolaCity_House3/scripts.inc"
+	.include "data/maps/SolaCity_Inn1/scripts.inc"
+	.include "data/maps/SolaCity_Inn2/scripts.inc"
+	.include "data/maps/SolaCity_Inn3/scripts.inc"
+	.include "data/maps/SolaCity_Inn4/scripts.inc"
+	.include "data/maps/SolaCity_Inn5/scripts.inc"
+	.include "data/maps/SolaCity_Inn6/scripts.inc"

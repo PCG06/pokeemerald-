@@ -58,7 +58,18 @@
   "gMapGroup_IndoorSolaCity": [
     "SolaCity_PokemonCenter",
     "SolaCity_Harbor",
-    "SolaCity_SeaMensHub"
+    "SolaCity_SeaMensHub",
+    "SolaCity_SailorsHouse1",
+    "SolaCity_SailorsHouse2",
+    "SolaCity_House1",
+    "SolaCity_House2",
+    "SolaCity_House3",
+    "SolaCity_Inn1",
+    "SolaCity_Inn2",
+    "SolaCity_Inn3",
+    "SolaCity_Inn4",
+    "SolaCity_Inn5",
+    "SolaCity_Inn6"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",

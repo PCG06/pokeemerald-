@@ -4424,7 +4424,7 @@
     {
       "id": "LAYOUT_CASTBELLE_PATH",
       "name": "CastbellePath_Layout",
-      "width": 44,
+      "width": 46,
       "height": 36,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
@@ -4504,8 +4504,8 @@
     {
       "id": "LAYOUT_SOLA_CITY",
       "name": "SolaCity_Layout",
-      "width": 60,
-      "height": 50,
+      "width": 62,
+      "height": 51,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/SolaCity/border.bin",
@@ -4570,6 +4570,116 @@
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/MistfallCity/border.bin",
       "blockdata_filepath": "data/layouts/MistfallCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_SAILORS_HOUSE1",
+      "name": "SolaCity_SailorsHouse1_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SolaCity_SailorsHouse1/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_SailorsHouse1/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_SAILORS_HOUSE2",
+      "name": "SolaCity_SailorsHouse2_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SolaCity_SailorsHouse2/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_SailorsHouse2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_HOUSE1",
+      "name": "SolaCity_House1_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SolaCity_House1/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_HOUSE2",
+      "name": "SolaCity_House2_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SolaCity_House2/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_HOUSE3",
+      "name": "SolaCity_House3_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SolaCity_House3/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_House3/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_INN1",
+      "name": "SolaCity_Inn1_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SolaCity_Inn1/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_Inn1/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_INN2",
+      "name": "SolaCity_Inn2_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SolaCity_Inn2/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_Inn2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_INN3",
+      "name": "SolaCity_Inn3_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SolaCity_Inn3/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_Inn3/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_INN4",
+      "name": "SolaCity_Inn4_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SolaCity_Inn4/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_Inn4/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_INN5",
+      "name": "SolaCity_Inn5_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SolaCity_Inn5/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_Inn5/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLA_CITY_INN6",
+      "name": "SolaCity_Inn6_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SolaCity_Inn6/border.bin",
+      "blockdata_filepath": "data/layouts/SolaCity_Inn6/map.bin"
     }
   ]
 }

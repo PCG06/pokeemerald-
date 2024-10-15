@@ -10427,7 +10427,9 @@
       }
     ],
     "PreEvoMoves": [],
-    "TMMoves": [],
+    "TMMoves": [
+      "MOVE_SURF"
+    ],
     "EggMoves": [],
     "TutorMoves": []
   },

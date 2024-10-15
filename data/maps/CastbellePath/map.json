@@ -20,14 +20,14 @@
     },
     {
       "map": "MAP_SOLA_CITY",
-      "offset": -8,
+      "offset": -6,
       "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WALLY",
-      "x": 3,
+      "x": 8,
       "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -53,8 +53,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
-      "x": 4,
-      "y": 20,
+      "x": 13,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
       "movement_range_x": 0,
@@ -66,7 +66,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
-      "x": 21,
+      "x": 25,
       "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -92,7 +92,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
-      "x": 38,
+      "x": 40,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
@@ -108,42 +108,6 @@
 
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_CASTBELLE_TOWN_STATE",
-      "var_value": "5",
-      "script": "CastbellePath_EventScript_TriggerMeetBrian"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_CASTBELLE_TOWN_STATE",
-      "var_value": "5",
-      "script": "CastbellePath_EventScript_TriggerMeetBrian"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_CASTBELLE_TOWN_STATE",
-      "var_value": "5",
-      "script": "CastbellePath_EventScript_TriggerMeetBrian"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_CASTBELLE_TOWN_STATE",
-      "var_value": "5",
-      "script": "CastbellePath_EventScript_TriggerMeetBrian"
-    },
     {
       "type": "trigger",
       "x": 8,
@@ -179,6 +143,42 @@
       "var": "VAR_CASTBELLE_TOWN_STATE",
       "var_value": "5",
       "script": "CastbellePath_EventScript_TriggerMeetBrian"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "5",
+      "script": "CastbellePath_EventScript_TriggerMeetBrian"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "5",
+      "script": "CastbellePath_EventScript_TriggerMeetBrian"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "5",
+      "script": "CastbellePath_EventScript_TriggerMeetBrian"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_CASTBELLE_TOWN_STATE",
+      "var_value": "5",
+      "script": "CastbellePath_EventScript_TriggerMeetBrian"
     }
   ],
   "bg_events": [
@@ -192,7 +192,7 @@
     },
     {
       "type": "sign",
-      "x": 10,
+      "x": 14,
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

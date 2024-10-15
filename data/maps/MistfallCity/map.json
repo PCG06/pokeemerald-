@@ -23,62 +23,7 @@
 
   ],
   "warp_events": [
-    {
-      "x": 28,
-      "y": 37,
-      "elevation": 0,
-      "dest_map": "MAP_WINDSHEAR_RIVER_2",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 29,
-      "y": 37,
-      "elevation": 0,
-      "dest_map": "MAP_WINDSHEAR_RIVER_2",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 30,
-      "y": 37,
-      "elevation": 0,
-      "dest_map": "MAP_WINDSHEAR_RIVER_2",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 31,
-      "y": 37,
-      "elevation": 0,
-      "dest_map": "MAP_WINDSHEAR_RIVER_2",
-      "dest_warp_id": "3"
-    },
-    {
-      "x": 32,
-      "y": 37,
-      "elevation": 0,
-      "dest_map": "MAP_WINDSHEAR_RIVER_2",
-      "dest_warp_id": "4"
-    },
-    {
-      "x": 33,
-      "y": 37,
-      "elevation": 0,
-      "dest_map": "MAP_WINDSHEAR_RIVER_2",
-      "dest_warp_id": "5"
-    },
-    {
-      "x": 34,
-      "y": 37,
-      "elevation": 0,
-      "dest_map": "MAP_WINDSHEAR_RIVER_2",
-      "dest_warp_id": "6"
-    },
-    {
-      "x": 35,
-      "y": 37,
-      "elevation": 0,
-      "dest_map": "MAP_WINDSHEAR_RIVER_2",
-      "dest_warp_id": "7"
-    }
+
   ],
   "coord_events": [
 
