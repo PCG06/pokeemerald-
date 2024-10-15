@@ -124,7 +124,7 @@ EventScript_PkmnCenterNurse_AskForUsual_Morning::
 EventScript_PkmnCenterNurse_AskForUsual_Day::
 	msgbox gText_YouWantTheUsual_Day, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, EventScript_PkmnCenterNurse_GoldCardHealPkmn
-	message 
+	message gText_TakeCareStaySafeOutTherePlayer
 	return
 
 EventScript_PkmnCenterNurse_AskForUsual_Evening::
