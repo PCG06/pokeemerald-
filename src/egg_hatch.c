@@ -597,7 +597,7 @@ static void Task_EggHatchPlayBGM(u8 taskId)
 
     if (gTasks[taskId].tTimer > 60)
     {
-        PlayBGM(MUS_EVOLUTION);
+        PlayBGM(MUS_HG_EVOLUTION);
         DestroyTask(taskId);
     }
     gTasks[taskId].tTimer++;
