@@ -1,1 +1,9 @@
 mapscripts SolaCity_House1_MapScripts {}
+
+script SolaCity_House1_EventScript_Woman {
+    msgbox("Sola City is a nice calm, ocean side\n"
+            "city.\p"
+            "No wonder people from the mainland want\n"
+            "to live here.\p"
+            "It's so peaceful!", MSGBOX_NPC)
+}
