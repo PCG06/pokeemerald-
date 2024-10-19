@@ -139,14 +139,10 @@ Debug_EventScript_Text_DefensiveIVs:
 
 Debug_EventScript_Script_1::
 	lock
-	gettime
-	msgbox Show_Time, MSGBOX_AUTOCLOSE
+	givemon SPECIES_BULBASAUR, 0, ITEM_ORAN_BERRY, isShiny=TRUE
+	call Common_EventScript_PlayerReceivedPokemon
 	release
 	end
-
-Show_Time::
-	.string "Month: {STR_VAR_1}\n"
-	.string "Time: {STR_VAR_2}:{STR_VAR_3}$"
 
 Debug_EventScript_Script_2::
 	release

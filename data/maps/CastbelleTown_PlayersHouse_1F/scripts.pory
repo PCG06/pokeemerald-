@@ -20,7 +20,7 @@ script CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon {
             "You just got your Trainer Card,\n"
             "why not get yourself a new companion?\p"
             "Prof. Pine would be glad to give you\n"
-            "one!"
+            "one!\p"
             "Oh! Brian came earlier to meet you.\n"
             "It would be better if you go and meet\l"
             "him before going to Prof. Pine's lab.", MSGBOX_AUTOCLOSE)

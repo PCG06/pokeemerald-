@@ -177,7 +177,7 @@ CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon_Text_0:
 	.string "You just got your Trainer Card,\n"
 	.string "why not get yourself a new companion?\p"
 	.string "Prof. Pine would be glad to give you\n"
-	.string "one!"
+	.string "one!\p"
 	.string "Oh! Brian came earlier to meet you.\n"
 	.string "It would be better if you go and meet\l"
 	.string "him before going to Prof. Pine's lab.$"

@@ -48,3 +48,53 @@ Common_EventScript_NoMoreRoomForPokemon::
 	msgbox gText_NoMoreRoomForPokemon, MSGBOX_DEFAULT
 	release
 	end
+
+Common_EventScript_PlayerReceivedPokemon::
+	playfanfare MUS_DP_OBTAIN_ITEM
+	message gText_PlayerReceivedPokemon
+	waitfanfare
+	closemessage
+	call Common_EventScript_ShowPokemonNature
+	call Common_EventScript_NicknameGiftPokemon
+	return
+
+Common_EventScript_ShowPokemonNature::
+	goto_if_eq VAR_0x8014, TRUE, PlayShinySoundShowShinyNature
+	goto_if_eq VAR_0x8014, FALSE, ShowNature
+
+PlayShinySoundShowShinyNature::
+	playse SE_SHINY
+	message gText_ItHasTheXNature
+	waitse
+	waitbuttonpress
+	return
+
+ShowNature::
+	message gText_ItHasTheXNature
+	waitbuttonpress
+	return
+
+Common_EventScript_NicknameGiftPokemon::
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, NicknamePartyMonYesNo
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, NicknameBoxMonYesNo
+	return
+
+NicknamePartyMonYesNo::
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, NicknamePartyMon
+	return
+
+NicknamePartyMon::
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	return
+
+NicknameBoxMonYesNo::
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, NicknameBoxMon
+	goto Common_EventScript_TransferredToPC
+	return
+
+NicknameBoxMon::
+	call Common_EventScript_NameReceivedBoxMon
+	return

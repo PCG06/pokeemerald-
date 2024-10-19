@@ -176,6 +176,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ReceivedMon {
             "from Prof. Pine!")
 	waitfanfare
     closemessage
+    call(Common_EventScript_ShowPokemonNature)
 	msgbox("Prof Pine: Would you like to give a\n"
             "nickname to your {STR_VAR_1}?", MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES) {
