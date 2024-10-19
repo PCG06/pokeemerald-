@@ -192,6 +192,8 @@ SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
 
 MAKEFLAGS += --no-print-directory
 
++AUTO_GEN_TARGETS += $(patsubst %.pory,%.inc,$(shell find data/ -type f -name '*.pory'))
+
 # Clear the default suffixes
 .SUFFIXES:
 # Don't delete intermediate files
