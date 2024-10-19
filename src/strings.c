@@ -2115,7 +2115,10 @@ const u8 gText_October[]    = _("Oct");
 const u8 gText_November[]   = _("Nov");
 const u8 gText_December[]   = _("Dec");
 
-
-const u8 gText_StartMenuTime[] = _("Time:");
-
-const u8 gText_Date[] = _("{STR_VAR_2} {STR_VAR_1}, {STR_VAR_3}");
+const u8 gText_CurrentTime[] = _("Time: {STR_VAR_1}:{STR_VAR_2}");
+const u8 gText_CurrentTimeOff[] = _("Time: {STR_VAR_1} {STR_VAR_2}");
+const u8 gText_CurrentTimeAM[] = _("Time: {STR_VAR_1}:{STR_VAR_2} AM");
+const u8 gText_CurrentTimeAMOff[] = _("Time: {STR_VAR_1} {STR_VAR_2} AM");
+const u8 gText_CurrentTimePM[] = _("Time: {STR_VAR_1}:{STR_VAR_2} PM");
+const u8 gText_CurrentTimePMOff[] = _("Time: {STR_VAR_1} {STR_VAR_2} PM");
+const u8 gText_Date[] = _("{STR_VAR_1} {STR_VAR_2}, {STR_VAR_3}");
