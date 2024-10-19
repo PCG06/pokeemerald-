@@ -23,7 +23,20 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 34,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_MISTFALL_CITY_POKEMON_CENTER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_MISTFALL_CITY_HARBOR",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

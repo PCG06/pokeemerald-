@@ -1,11 +1,12 @@
 const LOCALID_SHIP = 1
 const LOCALID_SHIP_SHADOW = 2
 const LOCALID_SAILOR = 3
+const LOCALID_CAP_BRUCE = 5
 
 mapscripts SolaCity_Harbor_MapScripts {}
 
 script SolaCity_Harbor_EventScript_Sailor {
-    if (flag(FLAG_HIDE_SOLA_CITY_SEA_MENS_HUB_CAPTAIN_BRUCE) != true) {
+    if (var(VAR_BRUCE_SHIP) != 0) {
         msgbox("I am sorry, but the ship won't set sail\n"
                 "til tomorrow.\p"
                 "The captain's has gone on a break.", MSGBOX_NPC)
@@ -19,10 +20,36 @@ script SolaCity_Harbor_EventScript_Sailor {
 }
 
 script SolaCity_Harbor_EventScript_CaptainBruce {
-    msgbox("Dev's note: PCG here!\n"
-            "I did not finish scripting this!\p"
-            "The next test demo will certainly have\n"
-            "this part scripted!", MSGBOX_NPC)
+    lock
+    faceplayer
+    msgbox("Captain Bruce: So, you wanna set sail\n"
+            "now, {PLAYER}?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceDown)
+        msgbox("Captain Bruce: Arr we go!", MSGBOX_AUTOCLOSE)
+        applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceUp)
+        removeobject(LOCALID_CAP_BRUCE)
+        applymoveplayer(Player_WalkUp)
+	    hideobjectat(OBJ_EVENT_ID_PLAYER, MAP_SOLA_CITY_HARBOR)
+    	fadescreen (FADE_TO_BLACK)
+        delay(90)
+        showobjectat(OBJ_EVENT_ID_PLAYER, MAP_MISTFALL_CITY_HARBOR)
+        warpsilent(MAP_MISTFALL_CITY_HARBOR, 8, 11)
+    	fadescreen (FADE_FROM_BLACK)
+        setvar(VAR_BRUCE_SHIP, 1)
+    }
+    else {
+        applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceDown)
+        msgbox("Captain Bruce: Arr! Okay then.", MSGBOX_AUTOCLOSE)
+        release
+        end
+    }
+}
+
+movement Player_WalkUp {
+    walk_up
+    walk_in_place_up
 }
 
 script SolaCity_Harbor_EventScript_Fisherman {

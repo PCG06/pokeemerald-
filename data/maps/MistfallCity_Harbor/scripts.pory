@@ -1,0 +1,26 @@
+const LOCALID_CAP_BRUCE = 1
+
+mapscripts MistfallCity_Harbor_MapScripts {
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_BRUCE_SHIP, 1 {
+            lock
+            addobject(LOCALID_CAP_BRUCE)
+            setobjectxyperm(LOCALID_CAP_BRUCE, 8, 10)
+            clearflag(FLAG_HIDE_MISTFALL_CITY_HARBOR_CAPTAIN_BRUCE)
+            setobjectxyperm(OBJ_EVENT_ID_PLAYER, 8, 11)
+            setvar(VAR_BRUCE_SHIP, 0)
+            turnplayer(DIR_NORTH)
+            msgbox("Captain Bruce: Here we reached\n"
+                    "Mistfall City!\p"
+                    "Let me know when we're sailing back to\n"
+                    "Sola.", MSGBOX_NPC)
+        }
+    ]
+}
+
+script MistfallCity_Harbor_EventScript_CaptainBruce {
+    msgbox("Captain Bruce: Here we reached\n"
+            "Mistfall City!\p"
+            "Let me know when we're sailing back to\n"
+            "Sola.", MSGBOX_NPC)
+}

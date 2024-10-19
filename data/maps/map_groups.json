@@ -3,6 +3,7 @@
     "gMapGroup_NewTownsAndRoutes",
     "gMapGroup_IndoorCastbelle",
     "gMapGroup_IndoorSolaCity",
+    "gMapGroup_IndoorMistfallCity",
     "gMapGroup_TownsAndRoutes",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
@@ -70,6 +71,10 @@
     "SolaCity_Inn4",
     "SolaCity_Inn5",
     "SolaCity_Inn6"
+  ],
+  "gMapGroup_IndoorMistfallCity": [
+    "MistfallCity_PokemonCenter",
+    "MistfallCity_Harbor"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",

@@ -1107,3 +1107,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/SolaCity_Inn4/scripts.inc"
 	.include "data/maps/SolaCity_Inn5/scripts.inc"
 	.include "data/maps/SolaCity_Inn6/scripts.inc"
+
+	.include "data/maps/MistfallCity_PokemonCenter/scripts.inc"
+
+	.include "data/maps/MistfallCity_Harbor/scripts.inc"
