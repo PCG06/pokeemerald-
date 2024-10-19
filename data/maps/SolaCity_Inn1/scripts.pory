@@ -1,1 +1,15 @@
 mapscripts SolaCity_Inn1_MapScripts {}
+
+script SolaCity_Inn1_EventScript_Man {
+    msgbox("We're here visiting from far away!", MSGBOX_NPC)
+}
+
+script SolaCity_Inn1_EventScript_Woman {
+    msgbox("Sola City is such a retreat compared to\n"
+            "where we're from.\p"
+            "How much is it to live here?", MSGBOX_NPC)
+}
+
+script SolaCity_Inn1_EventScript_Kid {
+    msgbox("Vacation is so always so exciting!", MSGBOX_NPC)
+}

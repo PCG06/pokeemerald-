@@ -1,1 +1,7 @@
 mapscripts SolaCity_Inn6_MapScripts {}
+
+script SolaCity_Inn6_EventScript_Woman {
+    msgbox("My husband always brings home\n"
+            "souvenirs from sea.\p"
+            "Maybe one day I'll go with him.", MSGBOX_NPC)
+}

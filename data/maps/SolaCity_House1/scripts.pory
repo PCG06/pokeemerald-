@@ -6,4 +6,5 @@ script SolaCity_House1_EventScript_Woman {
             "No wonder people from the mainland want\n"
             "to live here.\p"
             "It's so peaceful!", MSGBOX_NPC)
+    end
 }

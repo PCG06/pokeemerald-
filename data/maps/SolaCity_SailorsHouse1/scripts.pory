@@ -1,1 +1,11 @@
 mapscripts SolaCity_SailorsHouse1_MapScripts {}
+
+script SolaCity_SailorsHouse1_EventScript_Sailor {
+    msgbox("I've been out at sea for months now!\p"
+            "It's so relaxing to be back home.", MSGBOX_NPC)
+}
+
+script SolaCity_SailorsHouse1_EventScript_SailorWoman {
+    msgbox("My husband was out for so long. \p"
+            "I've missed him so much!", MSGBOX_NPC)
+}

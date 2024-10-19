@@ -1,1 +1,11 @@
 mapscripts SolaCity_SailorsHouse2_MapScripts {}
+
+script SolaCity_SailorsHouse2_EventScript_Sailor {
+    msgbox("There's nothing I love more than sailing\n"
+            "out there with my crew!", MSGBOX_NPC)
+}
+
+script SolaCity_SailorsHouse2_EventScript_Kid {
+    msgbox("When I grow up, I want to sail like my\n"
+            "dad!", MSGBOX_NPC)
+}

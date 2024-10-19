@@ -1,1 +1,10 @@
 mapscripts SolaCity_Inn3_MapScripts {}
+
+script SolaCity_Inn3_EventScript_Man {
+    msgbox("I'm so excited to take pictures of the\n"
+            "oceanside view!", MSGBOX_NPC)
+}
+
+script SolaCity_Inn3_EventScript_Man2 {
+    msgbox("What a gorgeous view Sola City gives us!", MSGBOX_NPC)
+}

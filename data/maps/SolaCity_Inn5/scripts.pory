@@ -1,1 +1,8 @@
 mapscripts SolaCity_Inn5_MapScripts {}
+
+script SolaCity_Inn5_EventScript_Fisherman {
+    msgbox("Years ago, I heard the ocean sing a song\n"
+            "to me.\p"
+            "People thought I was crazy. But I know\n"
+            "what I heard.", MSGBOX_NPC)
+}
