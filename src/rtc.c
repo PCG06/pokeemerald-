@@ -13,7 +13,7 @@ static u16 sSavedIme;
 static u8 gLastRtcSecond;
 
 // iwram common
-struct Time gLocalTime;
+COMMON_DATA struct Time gLocalTime = {0};
 
 // const rom
 
