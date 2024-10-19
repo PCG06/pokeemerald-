@@ -1,7 +1,7 @@
 {
   "id": "MAP_SOLA_CITY_POKEMON_CENTER",
   "name": "SolaCity_PokemonCenter",
-  "layout": "LAYOUT_SOLA_CITY_POKEMON_CENTER",
+  "layout": "LAYOUT_NEW_POKEMON_CENTER",
   "music": "MUS_HG_POKE_CENTER",
   "region_map_section": "MAPSEC_SOLA_CITY",
   "requires_flash": false,

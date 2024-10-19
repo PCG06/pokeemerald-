@@ -4512,7 +4512,7 @@
       "blockdata_filepath": "data/layouts/SolaCity/map.bin"
     },
     {
-      "id": "LAYOUT_SOLA_CITY_POKEMON_CENTER",
+      "id": "LAYOUT_NEW_POKEMON_CENTER",
       "name": "SolaCity_PokemonCenter_Layout",
       "width": 16,
       "height": 13,
@@ -4680,6 +4680,26 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/SolaCity_Inn6/border.bin",
       "blockdata_filepath": "data/layouts/SolaCity_Inn6/map.bin"
+    },
+    {
+      "id": "LAYOUT_MISTFALL_CITY_POKEMON_CENTER",
+      "name": "MistfallCity_PokemonCenter_Layout",
+      "width": 16,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/MistfallCity_PokemonCenter/border.bin",
+      "blockdata_filepath": "data/layouts/MistfallCity_PokemonCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_MISTFALL_CITY_HARBOR",
+      "name": "MistfallCity_Harbor_Layout",
+      "width": 24,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/MistfallCity_Harbor/border.bin",
+      "blockdata_filepath": "data/layouts/MistfallCity_Harbor/map.bin"
     }
   ]
 }
