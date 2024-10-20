@@ -6,6 +6,6 @@ script SolaCity_SailorsHouse1_EventScript_Sailor {
 }
 
 script SolaCity_SailorsHouse1_EventScript_SailorWoman {
-    msgbox("My husband was out for so long. \p"
+    msgbox("My husband was out for so long.\p"
             "I've missed him so much!", MSGBOX_NPC)
 }

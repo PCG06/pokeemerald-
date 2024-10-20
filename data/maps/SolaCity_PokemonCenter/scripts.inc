@@ -22,24 +22,24 @@ SolaCity_PokemonCenter_EventScript_Fisherman::
 	compare VAR_RESULT, YES
 	goto_if_eq SolaCity_PokemonCenter_EventScript_Fisherman_2
 SolaCity_PokemonCenter_EventScript_Fisherman_1:
-# 27 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 46 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
-# 28 "data/maps/SolaCity_PokemonCenter/scripts.pory"
-	msgbox SolaCity_PokemonCenter_EventScript_Fisherman_Text_2, MSGBOX_AUTOCLOSE
-# 29 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 47 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	msgbox SolaCity_PokemonCenter_EventScript_Fisherman_Text_3, MSGBOX_AUTOCLOSE
+# 48 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	getplayerxy VAR_TEMP_1, VAR_TEMP_2
-# 30 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 49 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	compare VAR_TEMP_1, 3
 	goto_if_eq SolaCity_PokemonCenter_EventScript_Fisherman_7
 SolaCity_PokemonCenter_EventScript_Fisherman_6:
-# 34 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 53 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	applymove 3, FishermanLeaveSolaPokeCenter_2
 SolaCity_PokemonCenter_EventScript_Fisherman_4:
-# 36 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 55 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	playse SE_SLIDING_DOOR
-# 37 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 56 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	removeobject 3
-# 38 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 57 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	release
 	end
 
@@ -53,91 +53,127 @@ SolaCity_PokemonCenter_EventScript_Fisherman_2:
 # 24 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MAGIKARP
 # 25 "data/maps/SolaCity_PokemonCenter/scripts.pory"
-	call Common_EventScript_PlayerReceivedPokemon
+	playfanfare MUS_DP_OBTAIN_ITEM
+# 26 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	message SolaCity_PokemonCenter_EventScript_Fisherman_Text_2
+# 27 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	waitfanfare
+# 28 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	closemessage
+# 29 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	compare VAR_RESULT, MON_GIVEN_TO_PARTY
+	goto_if_eq SolaCity_PokemonCenter_EventScript_Fisherman_10
+# 37 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+# 38 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	compare VAR_RESULT, YES
+	goto_if_eq SolaCity_PokemonCenter_EventScript_Fisherman_15
+# 42 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	call Common_EventScript_TransferredToPC
 	goto SolaCity_PokemonCenter_EventScript_Fisherman_1
 
 SolaCity_PokemonCenter_EventScript_Fisherman_5:
-# 31 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 50 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	applymove 3, FishermanLeaveSolaPokeCenter_1
 	goto SolaCity_PokemonCenter_EventScript_Fisherman_4
 
 SolaCity_PokemonCenter_EventScript_Fisherman_7:
-# 30 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 49 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	compare VAR_TEMP_2, 5
 	goto_if_eq SolaCity_PokemonCenter_EventScript_Fisherman_5
 	goto SolaCity_PokemonCenter_EventScript_Fisherman_6
 
+SolaCity_PokemonCenter_EventScript_Fisherman_10:
+# 30 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+# 31 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	compare VAR_RESULT, YES
+	goto_if_eq SolaCity_PokemonCenter_EventScript_Fisherman_13
+	goto SolaCity_PokemonCenter_EventScript_Fisherman_1
 
-# 42 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+SolaCity_PokemonCenter_EventScript_Fisherman_13:
+# 32 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	call Common_EventScript_GetGiftMonPartySlot
+# 33 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	call Common_EventScript_NameReceivedPartyMon
+	goto SolaCity_PokemonCenter_EventScript_Fisherman_1
+
+SolaCity_PokemonCenter_EventScript_Fisherman_15:
+# 39 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	call Common_EventScript_NameReceivedBoxMon
+	goto SolaCity_PokemonCenter_EventScript_Fisherman_1
+
+
+# 61 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 FishermanLeaveSolaPokeCenter_1:
-# 43 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 62 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 43 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 62 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 44 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 63 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_right
-# 44 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 63 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_right
-# 44 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 63 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_right
-# 44 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 63 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_right
-# 45 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 64 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 45 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 64 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 45 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 64 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 45 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 64 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 45 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 64 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 45 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 64 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 45 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 64 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
 	step_end
 
-# 48 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 67 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 FishermanLeaveSolaPokeCenter_2:
-# 49 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 68 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_right
-# 49 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 68 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_right
-# 49 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 68 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_right
-# 49 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 68 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_right
-# 50 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 69 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 50 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 69 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 50 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 69 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 50 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 69 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 50 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 69 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 50 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 69 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
-# 50 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 69 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	walk_down
 	step_end
 
 SolaCity_PokemonCenter_EventScript_Woman1::
-# 54 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 73 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	msgbox SolaCity_PokemonCenter_EventScript_Woman1_Text_0, MSGBOX_NPC
 	return
 
 
 SolaCity_PokemonCenter_EventScript_Woman2::
-# 64 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 83 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	msgbox SolaCity_PokemonCenter_EventScript_Woman2_Text_0, MSGBOX_NPC
 	return
 
 
 SolaCity_PokemonCenter_EventScript_Hiker::
-# 71 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 90 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	msgbox SolaCity_PokemonCenter_EventScript_Hiker_Text_0, MSGBOX_NPC
 	return
 
@@ -157,11 +193,15 @@ SolaCity_PokemonCenter_EventScript_Fisherman_Text_1:
 	.string "Okay, here's the fish!$"
 
 SolaCity_PokemonCenter_EventScript_Fisherman_Text_2:
-# 28 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 26 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+	.string "{PLAYER} received a Magikarp!$"
+
+SolaCity_PokemonCenter_EventScript_Fisherman_Text_3:
+# 47 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	.string "Alright, I shall now leave.$"
 
 SolaCity_PokemonCenter_EventScript_Woman1_Text_0:
-# 54 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 73 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	.string "Did you know?\p"
 	.string "Up until a few years ago, the Pokémon\n"
 	.string "Center and Pokémon Mart were owned by\l"
@@ -171,14 +211,14 @@ SolaCity_PokemonCenter_EventScript_Woman1_Text_0:
 	.string "both of them.$"
 
 SolaCity_PokemonCenter_EventScript_Woman2_Text_0:
-# 64 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 83 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	.string "I used to be employed at the old\n"
 	.string "Pokémon Mart.\p"
 	.string "Yeah, now I am jobless.\n"
 	.string "This economy is unbearable!$"
 
 SolaCity_PokemonCenter_EventScript_Hiker_Text_0:
-# 71 "data/maps/SolaCity_PokemonCenter/scripts.pory"
+# 90 "data/maps/SolaCity_PokemonCenter/scripts.pory"
 	.string "My wife used to work at the old\n"
 	.string "Pokémon Mart.\p"
 	.string "Our lives were great back then.\n"
