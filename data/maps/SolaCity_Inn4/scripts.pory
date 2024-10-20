@@ -1,1 +1,13 @@
 mapscripts SolaCity_Inn4_MapScripts {}
+
+script SolaCity_Inn4_EventScript_Kid {
+    msgbox("When I grow up, I'm gonna be the best\n"
+            "sailor in Sola City!", MSGBOX_NPC)
+}
+
+script SolaCity_Inn4_EventScript_Kid2{
+    msgbox("I heard the Captain once sailed all\n"
+            "the way to the farthest islands and\n"
+            "caught a Pokémon no one's ever seen before!\p"
+            "Do you think I can be like him one day?", MSGBOX_NPC)
+}

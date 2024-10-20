@@ -1,1 +1,6 @@
 mapscripts SolaCity_House3_MapScripts {}
+
+script SolaCity_House3_EventScript_Man {
+    msgbox("I'm here visiting my brother.\p"
+            "He's the one of the sailors in the hub!", MSGBOX_NPC)
+}

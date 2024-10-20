@@ -1,1 +1,7 @@
 mapscripts SolaCity_House2_MapScripts {}
+
+script SolaCity_House2_EventScript_Man {
+    msgbox("I hear there's a guy giving out\n"
+            "Magikarps' in the Pokemon Center.\p"
+            "Did you get one yet?", MSGBOX_NPC)
+}

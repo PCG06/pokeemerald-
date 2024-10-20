@@ -5,7 +5,7 @@ SolaCity_House1_MapScripts::
 SolaCity_House1_EventScript_Woman::
 # 4 "data/maps/SolaCity_House1/scripts.pory"
 	msgbox SolaCity_House1_EventScript_Woman_Text_0, MSGBOX_NPC
-	return
+	end
 
 
 SolaCity_House1_EventScript_Woman_Text_0:
