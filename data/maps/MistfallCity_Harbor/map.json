@@ -2,15 +2,15 @@
   "id": "MAP_MISTFALL_CITY_HARBOR",
   "name": "MistfallCity_Harbor",
   "layout": "LAYOUT_MISTFALL_CITY_HARBOR",
-  "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "music": "MUS_DP_JUBILIFE_NIGHT",
+  "region_map_section": "MAPSEC_MISTFALL_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": false,
-  "show_map_name": true,
+  "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MistfallCity_Harbor_EventScript_CaptainBruce",
       "flag": "FLAG_HIDE_MISTFALL_CITY_HARBOR_CAPTAIN_BRUCE"
     },
     {

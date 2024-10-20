@@ -1,9 +1,32 @@
 const LOCALID_SHIP = 1
 const LOCALID_SHIP_SHADOW = 2
 const LOCALID_SAILOR = 3
-const LOCALID_CAP_BRUCE = 5
+const LOCALID_CAP_BRUCE = 4
 
-mapscripts SolaCity_Harbor_MapScripts {}
+mapscripts SolaCity_Harbor_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if (var(VAR_BRUCE_SHIP) == 2) {
+            clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE)
+        }
+    }
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_BRUCE_SHIP, 2 {
+            turnplayer(DIR_NORTH)
+        }
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_BRUCE_SHIP, 2 {
+            lock
+            setvar(VAR_BRUCE_SHIP, 0)
+            msgbox("Captain Bruce: We reached Sola\n"
+                    "City!\p"
+                    "Let me know when we're sailing to\n"
+                    "Mistfall.", MSGBOX_NPC)
+            release
+            end
+        }
+    ]
+}
 
 script SolaCity_Harbor_EventScript_Sailor {
     if (var(VAR_BRUCE_SHIP) != 0) {
@@ -30,14 +53,12 @@ script SolaCity_Harbor_EventScript_CaptainBruce {
         msgbox("Captain Bruce: Arr we go!", MSGBOX_AUTOCLOSE)
         applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceUp)
         removeobject(LOCALID_CAP_BRUCE)
+        clearflag(FLAG_HIDE_MISTFALL_CITY_HARBOR_CAPTAIN_BRUCE)
         applymoveplayer(Player_WalkUp)
-	    hideobjectat(OBJ_EVENT_ID_PLAYER, MAP_SOLA_CITY_HARBOR)
-    	fadescreen (FADE_TO_BLACK)
-        delay(90)
-        showobjectat(OBJ_EVENT_ID_PLAYER, MAP_MISTFALL_CITY_HARBOR)
-        warpsilent(MAP_MISTFALL_CITY_HARBOR, 8, 11)
-    	fadescreen (FADE_FROM_BLACK)
+        delay(30)
         setvar(VAR_BRUCE_SHIP, 1)
+        warpsilent(MAP_MISTFALL_CITY_HARBOR, 8, 11)
+        end
     }
     else {
         applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceDown)
@@ -50,6 +71,8 @@ script SolaCity_Harbor_EventScript_CaptainBruce {
 movement Player_WalkUp {
     walk_up
     walk_in_place_up
+    delay_8
+	set_invisible
 }
 
 script SolaCity_Harbor_EventScript_Fisherman {

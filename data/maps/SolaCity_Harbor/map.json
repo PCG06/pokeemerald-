@@ -2,7 +2,7 @@
   "id": "MAP_SOLA_CITY_HARBOR",
   "name": "SolaCity_Harbor",
   "layout": "LAYOUT_SOLA_CITY_HARBOR",
-  "music": "MUS_DP_GREAT_MARSH",
+  "music": "MUS_DP_CANALAVE_DAY",
   "region_map_section": "MAPSEC_SOLA_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

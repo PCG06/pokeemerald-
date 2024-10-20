@@ -2524,7 +2524,6 @@
 	@ alias of turnobject with OBJ_EVENT_ID_PLAYER as the localid argument
 	.macro turnplayer direction:req
 	turnobject OBJ_EVENT_ID_PLAYER, \direction
-	waitmovement 0
 	.endm
 
 	@ face_original_direction as a macro for easy use

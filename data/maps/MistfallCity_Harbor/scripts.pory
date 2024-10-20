@@ -1,26 +1,52 @@
 const LOCALID_CAP_BRUCE = 1
 
 mapscripts MistfallCity_Harbor_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if (var(VAR_BRUCE_SHIP) == 1) {
+            clearflag(FLAG_HIDE_MISTFALL_CITY_HARBOR_CAPTAIN_BRUCE)
+        }
+    }
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
         VAR_BRUCE_SHIP, 1 {
-            lock
-            addobject(LOCALID_CAP_BRUCE)
-            setobjectxyperm(LOCALID_CAP_BRUCE, 8, 10)
-            clearflag(FLAG_HIDE_MISTFALL_CITY_HARBOR_CAPTAIN_BRUCE)
-            setobjectxyperm(OBJ_EVENT_ID_PLAYER, 8, 11)
-            setvar(VAR_BRUCE_SHIP, 0)
             turnplayer(DIR_NORTH)
-            msgbox("Captain Bruce: Here we reached\n"
-                    "Mistfall City!\p"
+        }
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_BRUCE_SHIP, 1 {
+            lock
+            setvar(VAR_BRUCE_SHIP, 0)
+            msgbox("Captain Bruce: We reached Mistfall\n"
+                    "City!\p"
                     "Let me know when we're sailing back to\n"
                     "Sola.", MSGBOX_NPC)
+            release
+            end
         }
     ]
 }
 
 script MistfallCity_Harbor_EventScript_CaptainBruce {
-    msgbox("Captain Bruce: Here we reached\n"
-            "Mistfall City!\p"
-            "Let me know when we're sailing back to\n"
-            "Sola.", MSGBOX_NPC)
+    lock
+    faceplayer
+    msgbox("Captain Bruce: Arr, sailing back to\n"
+            "Sola City, are we?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES)
+    {
+        applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceDown)
+        msgbox("Captain Bruce: Arr we go!", MSGBOX_AUTOCLOSE)
+        applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceUp)
+        removeobject(LOCALID_CAP_BRUCE)
+        clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE)
+        applymoveplayer(Player_WalkUp)
+        delay(30)
+        setvar(VAR_BRUCE_SHIP, 2)
+        warpsilent(MAP_SOLA_CITY_HARBOR, 8, 11)
+        end
+    }
+    else {
+        applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceDown)
+        msgbox("Captain Bruce: Arr! Okay then.", MSGBOX_AUTOCLOSE)
+        release
+        end
+    }
 }

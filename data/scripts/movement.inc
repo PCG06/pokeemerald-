@@ -122,3 +122,7 @@ Common_Movement_StopInPlaceWalkLeft::
 	lock_facing_direction
 	walk_fast_left
 	step_end
+
+Common_Movement_SetInvisible::
+	set_invisible
+	step_end
