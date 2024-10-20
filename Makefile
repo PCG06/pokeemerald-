@@ -192,7 +192,7 @@ SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
 
 MAKEFLAGS += --no-print-directory
 
-+AUTO_GEN_TARGETS += $(patsubst %.pory,%.inc,$(shell find data/ -type f -name '*.pory'))
+AUTO_GEN_TARGETS += $(patsubst %.pory,%.inc,$(shell find data/ -type f -name '*.pory'))
 
 # Clear the default suffixes
 .SUFFIXES:
@@ -201,8 +201,8 @@ MAKEFLAGS += --no-print-directory
 # Delete files that weren't built properly
 .DELETE_ON_ERROR:
 
-RULES_NO_SCAN += libagbsyscall clean clean-assets tidy tidymodern tidynonmodern tidycheck generated clean-generated $(TESTELF)
-.PHONY: all rom agbcc modern compare check
+RULES_NO_SCAN += libagbsyscall clean clean-assets tidy tidymodern tidynonmodern tidycheck generated clean-generated clean-pory $(TESTELF)
+.PHONY: all rom agbcc modern compare check pory
 .PHONY: $(RULES_NO_SCAN)
 
 infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst __SPACE__, ,$(line))))
@@ -311,7 +311,6 @@ syms: $(SYM)
 
 clean: tidy clean-tools clean-check-tools clean-generated clean-assets
 	@$(MAKE) clean -C libagbsyscall
-# rm -f $(patsubst %.pory,%.inc,$(shell find data/ -type f -name '*.pory'))
 
 clean-assets:
 	rm -f $(MID_SUBDIR)/*.s
@@ -335,6 +334,17 @@ tidycheck:
 	rm -f $(TESTELF) $(HEADLESSELF)
 	rm -rf $(MODERN_OBJ_DIR_NAME_TEST)
 	rm -rf $(OBJ_DIR_NAME_TEST)
+
+# Specifically to clean .inc files
+clean-pory:
+	rm -f $(patsubst %.pory,%.inc,$(shell find data/ -type f -name '*.pory'))
+
+# Target to compile only pory files to inc files
+pory: $(patsubst data/%.pory,data/%.inc,$(wildcard data/*.pory))
+
+# Rule for generating .inc files from .pory files
+data/%.inc: data/%.pory
+	$(SCRIPT) -i $< -o $@ -fc tools/poryscript/font_config.json -cc tools/poryscript/command_config.json
 
 # Other rules
 include graphics_file_rules.mk
