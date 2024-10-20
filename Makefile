@@ -31,7 +31,7 @@ ifeq (check,$(MAKECMDGOALS))
 endif
 
 # Default make rule
-all: rom
+all: pory rom
 
 # Toolchain selection
 TOOLCHAIN := $(DEVKITARM)

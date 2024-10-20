@@ -46,17 +46,13 @@ jobs:
         env:
           MODERN: 0
           COMPARE: 0
-        run: |
-          make pory
-          make -j${nproc} -O all
+        run: make -j${nproc} -O all
 
       - name: Modern
         env:
           MODERN: 1
           COMPARE: 0
-        run: |
-            make pory
-            make -j${nproc} -O all
+        run: make -j${nproc} -O all
 
       - name: Test
         env:
