@@ -60,3 +60,34 @@ jobs:
           TEST: 1
         run: |
           make -j${nproc} check
+
+      - name: Send failure notification to Discord
+        if: failure()   # Executes only if previous steps fail
+        run: |
+              curl -H "Content-Type: application/json" \
+                   -X POST \
+                   -d "{
+                     \"embeds\": [{
+                       \"title\": \"CI Job Failed\",
+                       \"description\": \"A CI job has failed.\",
+                       \"color\": 16711680,
+                       \"fields\": [
+                         {
+                           \"name\": \"Commit name:\",
+                           \"value\": \"${{ github.event.head_commit.message }}\",
+                           \"inline\": false
+                         },
+                         {
+                           \"name\": \"Commit hash:\",
+                           \"value\": \"[${{ github.event.head_commit.id }}](${{ github.event.head_commit.url }})\",
+                           \"inline\": false
+                         },
+                         {
+                           \"name\": \"Committed by:\",
+                           \"value\": \"[${{ github.actor }}](https://github.com/${{ github.actor }})\",
+                           \"inline\": false
+                         }
+                       ]
+                     }]
+                   }" \
+                   ${{ secrets.DISCORD_WEBHOOK }}
