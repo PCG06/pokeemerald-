@@ -1,8 +1,13 @@
 mapscripts SolaCity_Inn3_MapScripts {}
 
 script SolaCity_Inn3_EventScript_Man {
+    lock
+    faceplayer
     msgbox("I'm so excited to take pictures of the\n"
-            "oceanside view!", MSGBOX_NPC)
+            "oceanside view!", MSGBOX_AUTOCLOSE)
+    faceoriginaldir
+    release
+    end
 }
 
 script SolaCity_Inn3_EventScript_Man2 {

@@ -58,8 +58,6 @@ script CastbelleTown_PlayerHouse_1F_EventScript_AfterGettingPartnerPokemon {
             "I hope you two bond well!\p"
             "Now that you're going on your own\n"
             "adventure, you might need these!", MSGBOX_AUTOCLOSE)
-    giveitem(ITEM_OLD_ROD)
-    setflag(FLAG_RECEIVED_OLD_ROD)
     giveitem(ITEM_REPEL, 5)
     giveitem(ITEM_TM_RETURN)
     msgbox("Mom: These items will help you out in\n"

@@ -1,7 +1,34 @@
 mapscripts SolaCity_House2_MapScripts {}
 
 script SolaCity_House2_EventScript_Man {
-    msgbox("I hear there's a guy giving out\n"
-            "Magikarps' in the Pokemon Center.\p"
-            "Did you get one yet?", MSGBOX_NPC)
+    lock
+    faceplayer
+    if (flag(FLAG_HIDE_SOLA_CITY_POKEMON_CENTER_FISHERMAN) == false) {
+        msgbox("I hear there's a guy giving out\n"
+                "Magikarps' in the Pokemon Center.\p"
+                "Did you get one yet?", MSGBOX_NPC)
+    }
+    else {
+        if (flag(FLAG_RECEIVED_OLD_ROD) == false) {
+            msgbox("Do you like fishing?", MSGBOX_YESNO)
+            if (var(VAR_RESULT) == YES) {
+                msgbox("Grand!\n"
+                        "Here, I have an extra rod!", MSGBOX_DEFAULT)
+                giveitem(ITEM_OLD_ROD)
+                setflag(FLAG_RECEIVED_OLD_ROD)
+                msgbox("Go to edge of the river and enjoy your\n"
+                        "new favorite hobby!", MSGBOX_NPC)
+            }
+            else {
+                msgbox("Well, your loss.", MSGBOX_AUTOCLOSE)
+                faceoriginaldir
+            }
+        }
+        else {
+            msgbox("Go to edge of the river and enjoy your\n"
+                    "new favorite hobby!", MSGBOX_NPC)
+        }
+    }
+    release
+    end
 }

@@ -1,8 +1,6 @@
 mapscripts SolaCity_Inn2_MapScripts {}
 
-script SolaCity_Inn2_EventScript_Man {
-    msgbox("I'm here doing research on the marine life\n"
-            "in Sola City!", MSGBOX_NPC)
+script SolaCity_Inn2_EventScript_Scientist {
+    msgbox("I'm here doing research on the marine\n"
+            "life in Sola City!", MSGBOX_NPC)
 }
-
-
