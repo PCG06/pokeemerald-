@@ -88,7 +88,8 @@ script CastbelleTown_BerryShop_EventScript_DailyFreeBerry {
 
 script CastbelleTown_BerryShop_EventScript_Brian {
     lock
-    msgbox("Brian: Umm, I'll take 3 Oran Berries\n"
-            "and uhh do you have Berry Juice?", MSGBOX_AUTOCLOSE)
+    speakername("Brian")
+    msgbox("Umm, I'll take 3 Oran Berries and uhh,\n"
+            "do you have Berry Juice?", MSGBOX_AUTOCLOSE)
     release
 }

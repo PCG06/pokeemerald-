@@ -13,7 +13,8 @@ script CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon {
     applymove(LOCALID_MOM, Common_Movement_FaceUp)
     emote(LOCALID_MOM, EMOTE_EXCLAIM)
     applymove(LOCALID_MOM, MomWalkToPlayer)
-    msgbox("Mom: {PLAYER}!\n"
+    speakername("Mom")
+    msgbox("{PLAYER}!\n"
             "Did you hear?\p"
             "Prof. Pine is giving out Pokémon to new\n"
             "Trainers!\p"
@@ -50,7 +51,8 @@ script CastbelleTown_PlayerHouse_1F_EventScript_AfterGettingPartnerPokemon {
     turnobject(LOCALID_MOM, DIR_SOUTH)
     emote(LOCALID_MOM, EMOTE_EXCLAIM)
     applymove(LOCALID_MOM, MomWalkToPlayer_2)
-    msgbox("Mom: Hello, honey!\p"
+    speakername("Mom")
+    msgbox("Hello, honey!\p"
             "Oh, you got your first Pokémon,\n"
             "already?\p"
             "That's great!\n"
@@ -60,8 +62,9 @@ script CastbelleTown_PlayerHouse_1F_EventScript_AfterGettingPartnerPokemon {
             "adventure, you might need these!", MSGBOX_AUTOCLOSE)
     giveitem(ITEM_REPEL, 5)
     giveitem(ITEM_TM_RETURN)
-    msgbox("Mom: These items will help you out in\n"
-            "your adventure!\p"
+    speakername("Mom")
+    msgbox("These items will help you out in please\n"
+            "adventure!\p"
             "Please, take care, honey!\n"
             "If you're ever tired, you can always\l"
             "come home and take rest!\p"
@@ -89,8 +92,9 @@ script CastbelleTown_PlayersHouse_1F_EventScript_Mom {
     faceplayer
     if (var(VAR_CASTBELLE_TOWN_STATE) >= 1 && var(VAR_CASTBELLE_TOWN_STATE) <= 3) {
         checkplayergender
+        speakername("Mom")
         if (var(VAR_RESULT) == MALE) {
-            msgbox("Mom: sniff…\p"
+            msgbox("sniff…\p"
                     "My little boy going on his own\n"
                     "adventure.\p"
                     "I know you were waiting your whole life\n"
@@ -98,7 +102,7 @@ script CastbelleTown_PlayersHouse_1F_EventScript_Mom {
                     "Now go get your partner!", MSGBOX_AUTOCLOSE)
         }
         else {
-            msgbox("Mom: sniff…\p"
+            msgbox("sniff…\p"
                     "My little girl going on her own\n"
                     "adventure.\p"
                     "I know you were waiting your whole life\n"
@@ -108,10 +112,12 @@ script CastbelleTown_PlayersHouse_1F_EventScript_Mom {
         faceoriginaldir
     }
     else {
-        msgbox("Mom: Hello, honey!\p"
+        speakername("Mom")
+        msgbox("Hello, honey!\p"
                 "Feeling tired? Take some rest.", MSGBOX_AUTOCLOSE)
         call(Common_EventScript_OutOfCenterPartyHeal)
-        msgbox("Mom: There!\n"
+        speakername("Mom")
+        msgbox("There!\n"
                 "Feeling all refreshed, {PLAYER}?", MSGBOX_AUTOCLOSE)
     }
     release

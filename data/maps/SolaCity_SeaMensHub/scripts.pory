@@ -17,16 +17,19 @@ mapscripts SolaCity_SeaMensHub_MapScripts {
 script SolaCity_SeaMensHub_CaptainBruce {
     lock
     faceplayer
+    speakername("Captain Bruce")
     if (defeated(TRAINER_TERRY) &&
         defeated(TRAINER_CLARENCE) &&
         defeated(TRAINER_RAYAN) &&
         defeated(TRAINER_SHAUN)) {
-        trainerbattle_single(TRAINER_BRUCE, "Captain Bruce: Huh?\nYou beat all four of them?\pAlright, show me what you got!", "Captain Bruce: Hahaha!\nNo surprise you beat them all!", SolaCity_SeaMensHub_CaptainBruceDefeated)
+        trainerbattle_single(TRAINER_BRUCE, "Huh?\nYou beat all four of them?\pAlright, show me what you got!", "Hahaha!\nNo surprise you beat them all!", SolaCity_SeaMensHub_CaptainBruceDefeated)
         if (var(VAR_TEMP_1 == 0)) {    
-            msgbox("Captain Bruce: You want to sail to the\n"
+            speakername("Captain Bruce")
+            msgbox("You want to sail to the\n"
                      "mainland, now?", MSGBOX_YESNO)
-            if (var(VAR_RESULT) == YES) {
-                msgbox("Captain Bruce: Alright meet me at the\n"
+            if (var(VAR_RESULT) == YES) {   
+                speakername("Captain Bruce")
+                msgbox("Alright meet me at the\n"
                         "harbor!", MSGBOX_AUTOCLOSE)
                 getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
                 setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
@@ -40,13 +43,15 @@ script SolaCity_SeaMensHub_CaptainBruce {
                 removeobject(LOCALID_CAP_BRUCE)
                 clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE)
             }
-            else {
-            msgbox("Captain Bruce: Arr!\n"
+            else {   
+            speakername("Captain Bruce")
+            msgbox("Arr!\n"
                     "Talk to me when you wanna go!", MSGBOX_NPC)
             }
         }
     }
-    else {
+    else {   
+        speakername("Captain Bruce")
         msgbox("Hahaha!\p"
                 "You wanna challenge me?!\n"
                 "In your dreams, kid!", MSGBOX_AUTOCLOSE)
@@ -55,12 +60,14 @@ script SolaCity_SeaMensHub_CaptainBruce {
     end
 }
 
-script SolaCity_SeaMensHub_CaptainBruceDefeated {
-    msgbox("Captain Bruce: Hahaha!\p"
+script SolaCity_SeaMensHub_CaptainBruceDefeated {   
+    speakername("Captain Bruce")
+    msgbox("Hahaha!\p"
             "You got skill, young one.\n"
-            "What's your name?\p"
-            "… … … … … … … …\p"
-            "Captain Bruce: {PLAYER}!\n"
+            "What's your name?", MSGBOX_AUTOCLOSE)
+    msgbox("… … … … … … … …\p", MSGBOX_AUTOCLOSE) 
+    speakername("Captain Bruce")
+    msgbox("{PLAYER}!\n"
             "Since you beat me,\l"
             "I'll sail you to the mainland and back,\l"
             "whenever you want!", MSGBOX_AUTOCLOSE)

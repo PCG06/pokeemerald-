@@ -26,7 +26,8 @@ script CastbellePath_EventScript_TrainerTips {
 script CastbellePath_EventScript_Brian {
     lock
     faceplayer
-    msgbox("Brian: Hey, {PLAYER}!\p"
+    speakername("Brian")
+    msgbox("Hey, {PLAYER}!\p"
             "I caught some Pokémon here.\n"
             "Wanna battle me?", MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES) {  
@@ -35,26 +36,29 @@ script CastbellePath_EventScript_Brian {
         {
             default:
             case STARTER_GRASS:
-                trainerbattle_no_intro(TRAINER_BRIAN_2_GRASS, "Brian: You gotta be kidding me!\pNo way!")
+                trainerbattle_no_intro(TRAINER_BRIAN_2_GRASS, "You gotta be kidding me!\pNo way!")
 
             case STARTER_FIRE:
-                trainerbattle_no_intro(TRAINER_BRIAN_2_FIRE, "Brian: You gotta be kidding me!\pNo way!")
+                trainerbattle_no_intro(TRAINER_BRIAN_2_FIRE, "You gotta be kidding me!\pNo way!")
 
             case STARTER_WATER:
-                trainerbattle_no_intro(TRAINER_BRIAN_2_WATER, "Brian: You gotta be kidding me!\pNo way!")
+                trainerbattle_no_intro(TRAINER_BRIAN_2_WATER, "You gotta be kidding me!\pNo way!")
         }
         playbgm(MUS_DP_RIVAL, FALSE)
-        msgbox("Brian: Man! You're strong!\n"
-                "That was a fun battle!\p"
-                "… … … … … … …\p"
-                "Brian: Huh? My Pokédex?\n"
+        speakername("Brian")
+        msgbox("Man! You're strong!\n"
+                "That was a fun battle!", MSGBOX_AUTOCLOSE)
+        msgbox("… … … … … … …", MSGBOX_AUTOCLOSE)
+        speakername("Brian")
+        msgbox("Huh? My Pokédex?\n"
                 "Couldn't you have started with that?\p"
                 "Would have saved me some shame!", MSGBOX_AUTOCLOSE)
         playfanfare(MUS_HG_OBTAIN_TMHM)
         message("{PLAYER} handed over the Pokédex!")
         waitfanfare
         waitmessage
-        msgbox("Brian: Thank you, {PLAYER}!\n"
+        speakername("Brian")
+        msgbox("Thank you, {PLAYER}!\n"
                 "I am quite hasty, haha.\p"
                 "Now, I'm headed towards Sola City to\n"
                 "catch the next ferry!\p"
@@ -74,6 +78,7 @@ script CastbellePath_EventScript_Brian {
         setvar(VAR_CASTBELLE_TOWN_STATE, 6)
     }
     else {
+        speakername("Brian")
         msgbox("Weak.\p"
                 "I'll be here for another while.\n"
                 "I think I saw a rare Pokémon!", MSGBOX_AUTOCLOSE)
@@ -127,7 +132,7 @@ script CastbellePath_EventScript_YoungsterJoey {
 
 script CastbellePath_EventScript_TriggerMeetBrian {
     lock
-    msgbox("I should hand over Brian his Pokédex!", MSGBOX_AUTOCLOSE)
+    msgbox("I should give Brian his Pokédex!", MSGBOX_AUTOCLOSE)
 	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     applymoveplayer(Common_Movement_WalkDown)
     release

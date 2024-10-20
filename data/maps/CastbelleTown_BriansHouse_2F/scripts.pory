@@ -11,7 +11,8 @@ script CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady {
     delay(12)
     turnplayer(DIR_EAST)
     playbgm(MUS_DP_RIVAL, FALSE)
-    msgbox("Brian: …Aaaand, packed!\n"
+    speakername("Brian")
+    msgbox("…Aaaand, packed!\n"
             "I'm ready to get my starter Pokémon!\p"
             "Piney better let me pick the best one\n"
             "first!", MSGBOX_AUTOCLOSE)
@@ -19,6 +20,7 @@ script CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady {
     emote(LOCALID_BRIAN, EMOTE_EXCLAM)
     delay(6)
     applymove(LOCALID_BRIAN, MoveBrianToPlayer)
+    speakername("Brian")
     msgbox("Oh! Hi, {PLAYER}!\p"
             "Excited to get your first Pokémon?\p"
             "Honestly, I'm kind of nervous…\p"
@@ -30,6 +32,7 @@ script CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady {
             "Now, let's go!\p"
             "I can't wait to pick my starter!", MSGBOX_AUTOCLOSE)
     emote(LOCALID_BRIAN, EMOTE_EXCLAM)
+    speakername("Brian")
     msgbox("I forgot,\n"
             "I gotta buy some berries first!\p"
             "Looks like I won't be the first one\n"

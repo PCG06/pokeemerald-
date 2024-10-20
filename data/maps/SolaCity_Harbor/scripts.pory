@@ -3,6 +3,8 @@ const LOCALID_SHIP_SHADOW = 2
 const LOCALID_SAILOR = 3
 const LOCALID_CAP_BRUCE = 4
 
+// TODO: Add some traffic on Saturdays and Sundays
+
 mapscripts SolaCity_Harbor_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         if (var(VAR_BRUCE_SHIP) == 2) {
@@ -18,8 +20,8 @@ mapscripts SolaCity_Harbor_MapScripts {
         VAR_BRUCE_SHIP, 2 {
             lock
             setvar(VAR_BRUCE_SHIP, 0)
-            msgbox("Captain Bruce: We reached Sola\n"
-                    "City!\p"
+            speakername("Captain Bruce")
+            msgbox("We reached Sola City!\p"
                     "Let me know when we're sailing to\n"
                     "Mistfall.", MSGBOX_NPC)
             release
@@ -45,12 +47,13 @@ script SolaCity_Harbor_EventScript_Sailor {
 script SolaCity_Harbor_EventScript_CaptainBruce {
     lock
     faceplayer
-    msgbox("Captain Bruce: So, you wanna set sail\n"
-            "now, {PLAYER}?", MSGBOX_YESNO)
+    speakername("Captain Bruce")
+    msgbox("So, you wanna set sail now, {PLAYER}?", MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES)
     {
         applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceDown)
-        msgbox("Captain Bruce: Arr we go!", MSGBOX_AUTOCLOSE)
+        speakername("Captain Bruce")
+        msgbox("Arr we go!", MSGBOX_AUTOCLOSE)
         applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceUp)
         removeobject(LOCALID_CAP_BRUCE)
         clearflag(FLAG_HIDE_MISTFALL_CITY_HARBOR_CAPTAIN_BRUCE)
@@ -62,7 +65,8 @@ script SolaCity_Harbor_EventScript_CaptainBruce {
     }
     else {
         applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceDown)
-        msgbox("Captain Bruce: Arr! Okay then.", MSGBOX_AUTOCLOSE)
+        speakername("Captain Bruce")
+        msgbox("Arr! Okay then.", MSGBOX_AUTOCLOSE)
         release
         end
     }

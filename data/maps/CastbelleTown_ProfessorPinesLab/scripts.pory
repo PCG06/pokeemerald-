@@ -7,24 +7,25 @@ const LOCALID_BRIAN = 6
 mapscripts CastbelleTown_ProfessorPinesLab_MapScripts {}
 
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPine {
+    speakername("Prof. Pine")
     if (var(VAR_CASTBELLE_TOWN_STATE) == 3) {
-        msgbox("Prof. Pine: Go ahead, {PLAYER}!\p"
+        msgbox("Go ahead, {PLAYER}!\p"
         "Choose your first Pokémon.", MSGBOX_NPC)
     }
     elif (var(VAR_CASTBELLE_TOWN_STATE) == 4) {
-        msgbox("Prof. Pine: Safe travels, {PLAYER}.\n"
+        msgbox("Safe travels, {PLAYER}.\n"
                 "Don't forget to meet your mother\l"
                 "before you leave.\p"
                 "It's rude to leave without goodbyes.", MSGBOX_NPC)
     }
     elif (var(VAR_CASTBELLE_TOWN_STATE) == 5) {
-        msgbox("Prof. Pine: Please when you meet Brian,\n"
+        msgbox("Please when you meet Brian,\n"
                 "give him his Pokédex, {PLAYER}.\p"
                 "He must be wandering around Castbelle\n"
                 "Path!", MSGBOX_NPC)
     }
     else {
-        msgbox("Prof. Pine: Hey, {PLAYER}!\p"
+        msgbox("Hey, {PLAYER}!\p"
                 "I hope your adventure goes smoothly!", MSGBOX_NPC)
     }
 }
@@ -33,21 +34,24 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon {
     lock
     applymoveplayer(Common_Movement_WalkUp)
     delay(24)
-    msgbox("Prof. Pine: Hello, {PLAYER}!\p"
+    speakername("Prof. Pine")
+    msgbox("Hello, {PLAYER}!\p"
             "You're here to get your first Pokémon,\n"
             "huh?\p"
             "Where's Brian?\n"
-            "I thought he was along with you?\p"
-            "… … … … … … …\p"
-            "Oh I see. Anyway, since you're here,\n"
+            "I thought he was along with you?", MSGBOX_AUTOCLOSE)
+    msgbox("… … … … … … …", MSGBOX_AUTOCLOSE)
+    speakername("Prof. Pine")
+    msgbox("Oh I see. Anyway, since you're here,\n"
             "you'd want to meet your first Pokémon\l"
             "now, right?", MSGBOX_AUTOCLOSE)
     applymove(LOCALID_PROF_PINE, Common_Movement_WalkDown)
     setobjectxyperm(LOCALID_PROF_PINE, 6, 4)
-    msgbox("Prof. Pine: In these three Poké Balls\n"
-            "are three Pokémon I was gifted by an\l"
-            "older student of mine.\p"
-            "Prof. Pine: You can now go ahead and\n"
+    speakername("Prof. Pine")
+    msgbox("In these three Poké Balls are three\n"
+            "Pokémon I was gifted by an older\l"
+            "student of mine.\p"
+            "You can now go ahead and\n"
             "choose one, {PLAYER}!", MSGBOX_AUTOCLOSE)
     setvar(VAR_CASTBELLE_TOWN_STATE, 3)
     release
@@ -62,11 +66,13 @@ script CastbelleTown_ProfessorPinesLab_EventScript_GrassStarter {
     elif (var(VAR_CASTBELLE_TOWN_STATE) == 3) {
         playmoncry(SPECIES_CHIKORITA, CRY_MODE_NORMAL)
         showmonpic(SPECIES_CHIKORITA, 10, 3)
-        msgbox("Prof. Pine: Ah, the Grass-type\n"
+        speakername("Prof. Pine")
+        msgbox("Ah, the Grass-type\n"
                 "Chikorita, I see!\p"
                 "Chikorita is quite easy to raise!\p"
                 "It's the perfect Pokémon for beginners.", MSGBOX_AUTOCLOSE)
-        msgbox("Prof. Pine: So, do you choose the\n"
+        speakername("Prof. Pine")
+        msgbox("So, do you choose the\n"
                 "Grass-type Chikorita as your first\l"
                 "Pokémon?", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
@@ -79,6 +85,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_GrassStarter {
         }
         else {
             hidemonpic
+            speakername("Prof. Pine")
             msgbox("Okay, take your time.\p"
                     "This is an important decision.", MSGBOX_AUTOCLOSE)
         }
@@ -98,12 +105,14 @@ script CastbelleTown_ProfessorPinesLab_EventScript_FireStarter {
     elif (var(VAR_CASTBELLE_TOWN_STATE) == 3) {
         playmoncry(SPECIES_LITTEN, CRY_MODE_NORMAL)
         showmonpic(SPECIES_LITTEN, 10, 3)
-        msgbox("Prof. Pine: Ah, the Fire-type\n"
+        speakername("Prof. Pine")
+        msgbox("Ah, the Fire-type\n"
                 "Litten, I see!\p"
                 "Litten can be a challenge to raise!\p"
                 "Bonding with your Litten would be\n"
                 "your ultimate test as a Trainer! ", MSGBOX_AUTOCLOSE)
-        msgbox("Prof. Pine: So, do you choose the\n"
+        speakername("Prof. Pine")
+        msgbox("So, do you choose the\n"
                 "Fire-type Litten as your first\l"
                 "Pokémon?", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
@@ -116,6 +125,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_FireStarter {
         }
         else {
             hidemonpic
+            speakername("Prof. Pine")
             msgbox("Okay, take your time.\p"
                 "This is an important decision.", MSGBOX_AUTOCLOSE)
         }
@@ -135,13 +145,15 @@ script CastbelleTown_ProfessorPinesLab_EventScript_WaterStarter {
     elif (var(VAR_CASTBELLE_TOWN_STATE) == 3) {
         playmoncry(SPECIES_PIPLUP, CRY_MODE_NORMAL)
         showmonpic(SPECIES_PIPLUP, 10, 3)
-        msgbox("Prof. Pine: Ah, the Water-type\n"
+        speakername("Prof. Pine")
+        msgbox("Ah, the Water-type\n"
                 "Piplup, I see!\p"
                 "Piplup is the most balanced of the\n"
                 "three!\p"
                 "You need to take care of this one,\n"
                 "though! They are clumsy.", MSGBOX_AUTOCLOSE)
-        msgbox("Prof. Pine: So, do you choose the\n"
+        speakername("Prof. Pine")
+        msgbox("So, do you choose the\n"
                 "Water-type Piplup as your first\l"
                 "Pokémon?", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
@@ -154,6 +166,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_WaterStarter {
         }
         else {
             hidemonpic
+            speakername("Prof. Pine")
             msgbox("Okay, take your time.\p"
                     "This is an important decision.", MSGBOX_AUTOCLOSE)
         }
@@ -172,13 +185,15 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ReceivedMon {
 	waitmoncry
     removeobject(VAR_LAST_TALKED)
     playfanfare(MUS_DP_OBTAIN_ITEM)
+    speakername(NULL)
 	message("{PLAYER} received the {STR_VAR_1}\n"
             "from Prof. Pine!")
 	waitfanfare
     closemessage
     call(Common_EventScript_ShowPokemonNature)
-	msgbox("Prof Pine: Would you like to give a\n"
-            "nickname to your {STR_VAR_1}?", MSGBOX_YESNO)
+    speakername("Prof. Pine")
+	msgbox("Would you like to nickname your\n"
+            "{STR_VAR_1}?", MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES) {
 	    call(Common_EventScript_GetGiftMonPartySlot)
 	    call(Common_EventScript_NameReceivedPartyMon)
@@ -193,7 +208,8 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     lock
     playse(SE_EXIT)
     waitse
-    msgbox("???: I'M HERE!", MSGBOX_AUTOCLOSE)
+    speakername("???")
+    msgbox("I'M HERE!", MSGBOX_AUTOCLOSE)
     setflag(FLAG_HIDE_CASTBELLE_TOWN_BERRY_SHOP_BRIAN)
     emotenowait(LOCALID_PROF_PINE, EMOTE_QUESTION)
     emotenowait(OBJ_EVENT_ID_PLAYER, EMOTE_QUESTION)
@@ -203,33 +219,39 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     setobjectxy(LOCALID_BRIAN, 6, 11)
     applymove(LOCALID_BRIAN, BrianRushToProf)
     applymoveplayer(Common_Movement_FaceLeft)
-    msgbox("Brian: Sorry, I'm late, professor!\p"
+    speakername("Brian")
+    msgbox("Sorry, I'm late, professor!\p"
             "I was buying some berries and may have\n"
             "forgotten about this!\p"
             "That was a lie!\n"
             "I would never forget something as\l"
             "important as this!\p"
             "I'm really sorry, Prof. Pine!", MSGBOX_AUTOCLOSE)
-    msgbox("Prof. Pine: It's okay, Brian!\n"
+    speakername("Prof. Pine")
+    msgbox("It's okay, Brian!\n"
             "We all get caught up in our hobbies.\p"
             "Now wouldn't you want to choose your\n"
             "partner Pokémon?", MSGBOX_AUTOCLOSE)    
     applymove(LOCALID_BRIAN, Common_Movement_WalkInPlaceFasterUp)
-    msgbox("Brian: YES!\p"
+    speakername("Brian")
+    msgbox("YES!\p"
             "I choose you, {STR_VAR_1}!", MSGBOX_AUTOCLOSE)
     emotenowait(LOCALID_PROF_PINE, EMOTE_EXCLAIM)
     emote(OBJ_EVENT_ID_PLAYER, EMOTE_EXCLAIM)
-    msgbox("Prof. Pine: Uhh, sorry to be the\n"
-            "bearer of bad news, but {PLAYER}\l"
-            "has already chosen {STR_VAR_1}…", MSGBOX_AUTOCLOSE)
+    speakername("Prof. Pine")
+    msgbox("Uhh, sorry to be the bearer of bad news,\n"
+            "but {PLAYER} has already chosen\l"
+            "{STR_VAR_1}…", MSGBOX_AUTOCLOSE)
     emote(LOCALID_BRIAN, EMOTE_EXCLAIM)
-    msgbox("Brian: …\n"
+    speakername("Brian")
+    msgbox("…\n"
             "…\l"
             "Well, the Early Bird gets the Wurmple…\p"
             "Then in that case…", MSGBOX_AUTOCLOSE)
     if (flag(FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_GRASS_STARTER) == true) {
         applymove(LOCALID_BRIAN, BrianWalkToFireStarter)
         applymoveplayer(Common_Movement_FaceRight)
+        speakername("Brian")
         msgbox("I choose you, Litten!", MSGBOX_AUTOCLOSE)
         playmoncry(SPECIES_LITTEN, CRY_MODE_NORMAL)
 	    delay(40)
@@ -240,6 +262,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     elif (flag(FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_FIRE_STARTER) == true) {
         applymove(LOCALID_BRIAN, BrianWalkToWaterStarter)
         applymoveplayer(Common_Movement_FaceRight)
+        speakername("Brian")
         msgbox("I choose you, Piplup!", MSGBOX_AUTOCLOSE)
         playmoncry(SPECIES_PIPLUP, CRY_MODE_NORMAL)
 	    delay(40)
@@ -249,47 +272,53 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     }
     else {
         applymove(LOCALID_BRIAN, BrianWalkToGrassStarter)
+        speakername("Brian")
         msgbox("I choose you, Chikorita!", MSGBOX_AUTOCLOSE)
         playmoncry(SPECIES_CHIKORITA, CRY_MODE_NORMAL)
 	    delay(40)
 	    waitmoncry
         removeobject(GRASS_BALL)
         applymove(LOCALID_BRIAN, Common_Movement_FaceRight)
-    }    
-    msgbox("Brian: Okay, {PLAYER}!\n"
+    }
+    speakername("Brian")
+    msgbox("Okay, {PLAYER}!\n"
             "Now that we have our own Pokémon,\l"
             "let's battle em!", MSGBOX_DEFAULT)
     switch (var(VAR_STARTER_MON))
     {
         default:
         case STARTER_GRASS:
-            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_GRASS, "Brian: Ow man!\pYou got lucky!")
+            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_GRASS, "Ow man!\pYou got lucky!")
 
         case STARTER_FIRE:
-            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_FIRE, "Brian: Ow man!\pYou got lucky!")
+            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_FIRE, "Ow man!\pYou got lucky!")
 
         case STARTER_WATER:
-            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_WATER, "Brian: Ow man!\pYou got lucky!")
+            trainerbattle_no_intro_no_whiteout(TRAINER_BRIAN_1_WATER, "Ow man!\pYou got lucky!")
     }
     special(HealPlayerParty)
-    msgbox("Brian: That was fun!", MSGBOX_AUTOCLOSE)
+    speakername("Brian")
+    msgbox("That was fun!", MSGBOX_AUTOCLOSE)
     applymove(LOCALID_BRIAN, Common_Movement_FaceUp)
-    msgbox("Brian: Thank you, Prof. Pine for my new\n"
-            "best friend!")
+    speakername("Brian")
+    msgbox("Thank you, Prof. Pine for my new best\n"
+            "friend!")
     emote(OBJ_EVENT_ID_PLAYER, EMOTE_EXCLAIM)
     applymove(LOCALID_BRIAN, Common_Movement_FacePlayer)
-    msgbox("Brian: Hehe! I'm only joking,\n"
-            "{PLAYER}!\p"
+    speakername("Brian")
+    msgbox("Hehe! I'm only joking, {PLAYER}!\p"
             "Anyway, I'm off to Sola City!\n"
             "I wanna catch the ferry to the\l"
             "mainland and challenge the Gym Leader!", MSGBOX_AUTOCLOSE)
     applymove(LOCALID_BRIAN, BrianExitLab)
     removeobject(LOCALID_BRIAN)
     emote(LOCALID_PROF_PINE, EMOTE_EXCLAIM)
-    msgbox("Prof. Pine: Oh! Brian! Wait!", MSGBOX_DEFAULT)
+    speakername("Prof. Pine")
+    msgbox("Oh! Brian! Wait!", MSGBOX_DEFAULT)
     delay(6)
     playse(SE_EXIT)
     delay(24)
+    speakername("Prof. Pine")
     msgbox("sigh…\p"
             "Kids these days…", MSGBOX_AUTOCLOSE)
     playbgm(MUS_HG_ELM_LAB, TRUE) // Back to original music
@@ -333,20 +362,22 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfPineGivesPokedex {
             applymove(LOCALID_PROF_PINE, ProfPineWalkToPlayer_3)
     }
     turnplayer(DIR_WEST)
-    msgbox("Prof. Pine: {PLAYER}!\n"
+    speakername("Prof. Pine")
+    msgbox("{PLAYER}!\n"
             "Now, for the main reason why I need\l"
             "your help!\p"
             "This is the Pokédex!", MSGBOX_AUTOCLOSE)
 	playfanfare(MUS_OBTAIN_ITEM)
+    speakername(NULL)
     message("{PLAYER} received the Pokédex!")
 	waitfanfare
     closemessage
 	setflag(FLAG_SYS_POKEDEX_GET)
 	special(SetUnlockedPokedexFlags)
 	setflag(FLAG_RECEIVED_POKEDEX_FROM_PROF_PINE)
-    msgbox("Prof. Pine: The Pokédex is a high-tech\n"
-            "tool that records all Pokémon you see\l"
-            "or capture.\p"
+    speakername("Prof. Pine")
+    msgbox("The Pokédex is a high-tech tool that\n"
+            "records all Pokémon you see or capture.\p"
             "Whenever you catch a Pokémon,\n"
             "the Pokédex records its data and it\l"
             "gets sent to me!\p"
@@ -361,8 +392,9 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfPineGivesPokedex {
             "Of course, to catch Pokémon, you will\n"
             "need Poké Balls!", MSGBOX_AUTOCLOSE)
     giveitem(ITEM_POKE_BALL, 10)
-    msgbox("Prof. Pine: The Poké Ball is a capsule\n"
-            "that catches a Pokémon.\p"
+    speakername("Prof. Pine")
+    msgbox("The Poké Ball is a capsule that catches\n"
+            "a Pokémon.\p"
             "The Poké Ball becomes the home of the\n"
             "Pokémon.\p"
             "But it won't always work!\n"

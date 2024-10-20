@@ -15,8 +15,8 @@ mapscripts MistfallCity_Harbor_MapScripts {
         VAR_BRUCE_SHIP, 1 {
             lock
             setvar(VAR_BRUCE_SHIP, 0)
-            msgbox("Captain Bruce: We reached Mistfall\n"
-                    "City!\p"
+            speakername("Captain Bruce")
+            msgbox("We reached Mistfall City!\p"
                     "Let me know when we're sailing back to\n"
                     "Sola.", MSGBOX_NPC)
             release
@@ -28,12 +28,13 @@ mapscripts MistfallCity_Harbor_MapScripts {
 script MistfallCity_Harbor_EventScript_CaptainBruce {
     lock
     faceplayer
-    msgbox("Captain Bruce: Arr, sailing back to\n"
-            "Sola City, are we?", MSGBOX_YESNO)
+    speakername("Captain Bruce")
+    msgbox("Arr, sailing back to Sola City, are we?", MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES)
     {
         applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceDown)
-        msgbox("Captain Bruce: Arr we go!", MSGBOX_AUTOCLOSE)
+        speakername("Captain Bruce")
+        msgbox("Arr we go!", MSGBOX_AUTOCLOSE)
         applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceUp)
         removeobject(LOCALID_CAP_BRUCE)
         clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE)
@@ -45,7 +46,8 @@ script MistfallCity_Harbor_EventScript_CaptainBruce {
     }
     else {
         applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceDown)
-        msgbox("Captain Bruce: Arr! Okay then.", MSGBOX_AUTOCLOSE)
+        speakername("Captain Bruce")
+        msgbox("Arr! Okay then.", MSGBOX_AUTOCLOSE)
         release
         end
     }
