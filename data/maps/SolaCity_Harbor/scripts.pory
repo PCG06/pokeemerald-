@@ -3,12 +3,18 @@ const LOCALID_SHIP_SHADOW = 2
 const LOCALID_SAILOR = 3
 const LOCALID_CAP_BRUCE = 4
 
-// TODO: Add some traffic on Saturdays and Sundays
-
 mapscripts SolaCity_Harbor_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         if (var(VAR_BRUCE_SHIP) == 2) {
             clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE)
+        }
+
+        gettime
+        if (var(VAR_0x8002) == DAY_SATURDAY || var(VAR_0x8002) == DAY_SUNDAY) {
+            clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_WEEKEND_TRAFFIC)
+        }
+        else {
+            setflag(FLAG_HIDE_SOLA_CITY_HARBOR_WEEKEND_TRAFFIC)
         }
     }
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
@@ -31,17 +37,15 @@ mapscripts SolaCity_Harbor_MapScripts {
 }
 
 script SolaCity_Harbor_EventScript_Sailor {
-    if (var(VAR_BRUCE_SHIP) != 0) {
+    if (var(VAR_BRUCE_SHIP) == 2) {
         msgbox("I am sorry, but the ship won't set sail\n"
-                "til tomorrow.\p"
-                "The captain's has gone on a break.", MSGBOX_NPC)
+                "anytime soon.\p"
+                "The captain's not here yet.", MSGBOX_NPC)
     }
     else {
         msgbox("Captain's back!\n"
                 "We'll set sail soon!", MSGBOX_NPC)
     }
-    release
-    end
 }
 
 script SolaCity_Harbor_EventScript_CaptainBruce {
@@ -57,9 +61,16 @@ script SolaCity_Harbor_EventScript_CaptainBruce {
         applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceUp)
         removeobject(LOCALID_CAP_BRUCE)
         clearflag(FLAG_HIDE_MISTFALL_CITY_HARBOR_CAPTAIN_BRUCE)
-        applymoveplayer(Player_WalkUp)
+        applymoveplayer(Common_Movement_BoardShip)
         delay(30)
         setvar(VAR_BRUCE_SHIP, 1)
+        gettime
+        if (var(VAR_0x8002) == DAY_SATURDAY || var(VAR_0x8002) == DAY_SUNDAY) {
+            applymove(LOCALID_SHIP, ShipExit_Weekend)
+        }
+        else {
+            applymove(LOCALID_SHIP, ShipExit_Regular)
+        }
         warpsilent(MAP_MISTFALL_CITY_HARBOR, 8, 11)
         end
     }
@@ -72,15 +83,93 @@ script SolaCity_Harbor_EventScript_CaptainBruce {
     }
 }
 
-movement Player_WalkUp {
-    walk_up
-    walk_in_place_up
-    delay_8
-	set_invisible
+movement ShipExit_Weekend {
+    walk_right * 4
+    walk_up * 2
+    walk_right * 6
+}
+
+movement ShipExit_Regular {
+    walk_right * 10
+}
+
+movement ShipEnter_Weekend {
+    walk_left * 4
+    walk_down * 2
+    walk_left * 6
+}
+
+movement ShipEnter_Regular {
+    walk_left * 10
 }
 
 script SolaCity_Harbor_EventScript_Fisherman {
-    msgbox("This harbor is busiest on the weekends.\n"
-            "Loads of cargo gets dropped off and\l"
-            "picked up here.", MSGBOX_NPC)
+    gettime
+    if (var(VAR_0x8002) == DAY_SATURDAY || var(VAR_0x8002) == DAY_SUNDAY) {
+        msgbox("It's the weekend and the harbor is\n"
+                "packed with people.\p"
+                "Look around and talk to them.\n"
+                "Most of them are Trainers!", MSGBOX_NPC)
+    }
+    else {
+        msgbox("This harbor is busiest on the weekends.\n"
+                "Lot of people from Mistfall and else\l"
+                "where stop by here.", MSGBOX_NPC)
+    }
+}
+
+script SolaCity_Harbor_EventScript_CoolTrainerLarry {
+    trainerbattle_single(TRAINER_LARRY, "I came here to relax.\nWhat's more relaxing than a Trainer\lbattle?", "Hurting.", SolaCity_Harbor_EventScript_CoolTrainerLarryDefeated)
+    msgbox("Defeat hurts.\n"
+            "But it does tell you have a lot to\l"
+            "learn, as a Trainer.", MSGBOX_NPC)
+}
+
+script SolaCity_Harbor_EventScript_CoolTrainerLarryDefeated {
+    msgbox("Since you beat me,\n"
+            "here's a small gift from me.", MSGBOX_AUTOCLOSE)
+    giveitem(ITEM_MIRROR_HERB)
+    msgbox("A Mirror Herb copies the enemy's stat\n"
+            "buffs.\p"
+            "When timed right, you can use their\n"
+            "power agaisnst them!", MSGBOX_NPC)
+    end
+}
+
+script SolaCity_Harbor_EventScript_CoolTrainerLaura {
+    trainerbattle_single(TRAINER_LAURA, "Just leave me alone, kid!", "Ah, go away!", SolaCity_Harbor_EventScript_CoolTrainerLauraDefeated)
+    msgbox("You already defeated me, so just\n"
+            "leave me alone!", MSGBOX_NPC)
+}
+
+script SolaCity_Harbor_EventScript_CoolTrainerLauraDefeated {
+    msgbox("I'll give you this to leave me alone.", MSGBOX_AUTOCLOSE)
+    giveitem(ITEM_LEFTOVERS)
+    msgbox("Aughhh!", MSGBOX_NPC)
+}
+
+script SolaCity_Harbor_EventScript_SailorTim {
+    trainerbattle_single(TRAINER_TIM, "Ahoy, kiddo!", "You're good!", SolaCity_Harbor_EventScript_SailorTimDefeated)
+    msgbox("I'll battle you again next week.", MSGBOX_NPC)
+}
+
+script SolaCity_Harbor_EventScript_SailorTimDefeated {
+    msgbox("As a reward, have this!",MSGBOX_NPC)
+    giveitem(ITEM_EVIOLITE)
+    msgbox("If you give the Eviolite to an unevolved\n"
+            "Pokémon, it'll be tougher to take it\l"
+            "down."
+            "If you give it to a fully evolved\n"
+            "Pokémon, it's worthless.", MSGBOX_NPC)
+}
+
+script SolaCity_Harbor_EventScript_PokefanF {
+    msgbox("I came here to meet my husband,\n"
+            "but he his ship got delayed!\l"
+            "Again!", MSGBOX_NPC)
+}
+
+script SolaCity_Harbor_EventScript_LittleBoy {
+    msgbox("We're gonna meet Dad here!\n"
+            "It's been a week since we saw him!", MSGBOX_NPC)
 }

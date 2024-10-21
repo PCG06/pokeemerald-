@@ -126,3 +126,10 @@ Common_Movement_StopInPlaceWalkLeft::
 Common_Movement_SetInvisible::
 	set_invisible
 	step_end
+
+Common_Movement_BoardShip::
+    walk_up
+    walk_in_place_up
+    delay_8
+	set_invisible
+	step_end

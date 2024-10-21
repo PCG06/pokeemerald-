@@ -92,11 +92,11 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Geodude
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 12 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Poliwag
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 0 Atk / 0 Def / 12 SpA / 0 SpD / 0 Spe
 
 === TRAINER_CLARENCE ===
 Name: Clarence
@@ -109,11 +109,11 @@ AI: Check Bad Move
 
 Lechonk
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 12 Atk / 0 Def / 12 SpA / 0 SpD / 0 Spe
 
 Horsea
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 0 Atk / 0 Def / 12 SpA / 0 SpD / 0 Spe
 
 === TRAINER_RAYAN ===
 Name: Rayan
@@ -126,11 +126,11 @@ AI: Check Bad Move
 
 Zubat
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 12 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Tympole
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 12 Atk / 0 Def / 12 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SHAUN ===
 Name: Shaun
@@ -143,11 +143,11 @@ AI: Check Bad Move
 
 Zigzagoon-Galar
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 12 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Staryu
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 12 Atk / 0 Def / 12 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BRUCE ===
 Name: Bruce
@@ -161,6 +161,7 @@ AI: Check Bad Move / HP Aware / Prefer Strongest Move / Check Viability / Ace Po
 Machop (M) @ Leftovers
 Level: 0
 IVs: 0 HP / 8 Atk / 8 Def / 0 SpA / 0 SpD / 0 Spe
+Nature: Impish
 - Bulk Up
 - Reversal
 - Bullet Punch
@@ -169,6 +170,7 @@ IVs: 0 HP / 8 Atk / 8 Def / 0 SpA / 0 SpD / 0 Spe
 Cetoddle (F) @ Chesto Berry
 Level: 0
 IVs: 0 HP / 0 Atk / 0 Def / 12 SpA / 0 SpD / 0 Spe
+Nature: Timid
 - Icy Wind
 - Growl
 - Rest
@@ -176,8 +178,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 12 SpA / 0 SpD / 0 Spe
 
 Finizen (M)
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 20 SpA / 0 SpD / 17 Spe
+IVs: 0 HP / 0 Atk / 0 Def / 15 SpA / 0 SpD / 10 Spe
 EVs: 60 Spe
+Nature: Bashful
 - Aqua Jet
 - Tickle
 - Charm
@@ -187,6 +190,7 @@ Carvanha (M) @ Rindo Berry
 Level: 0
 IVs: 0 HP / 18 Atk / 0 Def / 0 SpA / 0 SpD / 12 Spe
 EVs: 60 Atk / 60 Spe
+Nature: Bashful
 - Aqua Jet
 - Leer
 - Poison Fang
@@ -231,69 +235,154 @@ Zubat
 Level: 0
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GABRIELLE_1 ===
-Name: GABRIELLE
-Class: Pkmn Breeder
-Pic: Pokemon Breeder F
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Skitty
-Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Poochyena
-Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Zigzagoon
-Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Lotad
-Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Seedot
-Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Taillow
-Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_GRUNT_PETALBURG_WOODS ===
-Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
-Gender: Male
-Music: Aqua
-Double Battle: No
-AI: Check Bad Move
-
-Poochyena
-Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_MARCEL ===
-Name: MARCEL
+=== TRAINER_LARRY ===
+Name: Larry
 Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
+Double Battle: No
+AI: Check Bad Move / Prefer Strongest Move / Smart Switching
+
+Simisage (M) @ Loaded Dice
+Level: 0
+Ability: Overgrow
+IVs: 0 HP / 24 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+EVs: 60 Atk / 60 Spe
+Nature: Adamant
+- Bullet Seed
+- Covet
+- Throat Chop
+- Spiky Shield
+
+Charmeleon (M) @ Berry Juice
+Level: 0
+Ability: Blaze
+IVs: 0 HP / 0 Atk / 0 Def / 24 SpA / 0 SpD / 31 Spe
+EVs: 60 SpA / 60 Spe
+Nature: Timid
+- Ember
+- Fire Spin
+- Dragon Breath
+- Smokescreen
+
+Swoobat (M) @ Mirror Herb
+Level: 0
+Ability: Simple
+IVs: 0 HP / 0 Atk / 0 Def / 31 SpA / 0 SpD / 31 Spe
+EVs: 60 SpA / 60 Spe
+Nature: Modest
+- Flatter
+- Psybeam
+- Air Cutter
+- Thunder Wave
+
+Luvdisc (F) @ Chesto Berry
+Level: 0
+Ability: Swift Swim
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 60 HP / 60 Def / 252 SpA / 60 SpD / 60 Spe
+Nature: Modest
+- Water Pulse
+- Draining Kiss
+- Rest
+- Sleep Talk
+
+=== TRAINER_LAURA ===
+Name: Laura
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Music: Cool
+Double Battle: No
+AI: Check Bad Move / Prefer Strongest Move / Smart Switching
+
+Mawile @ Expert Belt
+Level: 0
+Ability: Intimidate
+IVs: 20 HP / 24 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+EVs: 120 HP / 60 Atk
+Nature: Adamant
+- Sucker Punch
+- Iron Head
+- Power-Up Punch
+- Astonish
+
+Rhyhorn @ Leftovers
+Level: 0
+Ability: Rock Head
+IVs: 12 HP / 20 Atk / 31 Def / 0 SpA / 31 SpD / 0 Spe
+EVs: 60 Atk / 60 Def / 60 SpD
+Nature: Impish
+- Smack Down
+- Bulldoze
+- Take Down
+- Scary Face
+
+Drizzile @ Berry Juice
+Level: 0
+Ability: Sniper
+IVs: 12 HP / 0 Atk / 0 Def / 24 SpA / 0 SpD / 12 Spe
+EVs: 60 SpA / 60 Spe
+Nature: Modest
+- Air Cutter
+- Water Pulse
+- U-Turn
+- Double Team
+
+Simisear @ Flame Orb
+Level: 0
+Ability: Blaze
+IVs: 0 HP / 24 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+EVs: 60 Atk / 60 Spe
+Nature: Adamant
+- Flame Charge
+- Covet
+- Fling
+- Fire Punch
+
+=== TRAINER_TIM ===
+Name: Tim
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Music: Male
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Manectric
+Arrokuda @ Focus Sash
 Level: 0
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Swift Swim
+IVs: 0 HP / 24 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+EVs: 60 Atk / 60 Spe
+Nature: Adamant
+- Bite
+- Aqua Jet
+- Ice Fang
+- Brick Break
 
-Shiftry
+Lombre @ Eviolite
 Level: 0
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Own Tempo
+IVs: 0 HP / 14 Atk / 0 Def / 14 SpA / 0 SpD / 0 Spe
+EVs: 60 Atk / 60 SpA / 60 Spe
+Nature: Adamant
+- Fake Out
+- Knock Off
+- Trailblaze
+- Water Pulse
+
+Lumineon @ Mystic Water
+Level: 0
+Ability: Storm Drain
+IVs: 0 HP / 0 Atk / 0 Def / 24 SpA / 0 SpD / 0 Spe
+EVs: 60 SpA / 60 Spe
+Nature: Modest
+- Water Pulse
+- Psybeam
+- Icy Wind
+- Swift
 
 === TRAINER_ALBERTO ===
 Name: ALBERTO
@@ -3789,7 +3878,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Psybeam
 - Rock Tomb
 
-=== TRAINER_LARRY ===
+=== TRAINER_LARRY_1 ===
 Name: LARRY
 Class: Camper
 Pic: Camper
@@ -7897,7 +7986,7 @@ Meditite
 Level: 0
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
-=== TRAINER_LAURA ===
+=== TRAINER_LAURA_1 ===
 Name: LAURA
 Class: Battle Girl
 Pic: Battle Girl

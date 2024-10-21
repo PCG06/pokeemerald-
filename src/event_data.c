@@ -1,6 +1,9 @@
 #include "global.h"
+#include "battle_setup.h"
 #include "event_data.h"
 #include "pokedex.h"
+#include "rtc.h"
+#include "siirtc.h"
 
 #define SPECIAL_FLAGS_SIZE  (NUM_SPECIAL_FLAGS / 8)  // 8 flags per byte
 #define TEMP_FLAGS_SIZE     (NUM_TEMP_FLAGS / 8)
@@ -50,6 +53,23 @@ void ClearTempFieldEventData(void)
 void ClearDailyFlags(void)
 {
     memset(&gSaveBlock1Ptr->flags[DAILY_FLAGS_START / 8], 0, DAILY_FLAGS_SIZE);
+}
+
+void ClearOrSetFlags(void)
+{
+    RtcCalcLocalTime();
+
+    if (gLocalTime.dayOfWeek == DAY_SATURDAY || gLocalTime.dayOfWeek == DAY_SUNDAY)
+    {
+        FlagClear(FLAG_HIDE_SOLA_CITY_HARBOR_WEEKEND_TRAFFIC);
+        ClearTrainerFlag(TRAINER_LARRY);
+        ClearTrainerFlag(TRAINER_LAURA);
+        ClearTrainerFlag(TRAINER_TIM);
+    }
+    else
+    {
+        FlagSet(FLAG_HIDE_SOLA_CITY_HARBOR_WEEKEND_TRAFFIC);
+    }
 }
 
 void DisableNationalPokedex(void)

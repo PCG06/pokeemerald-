@@ -12,9 +12,10 @@
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_1       6
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_2       7
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_3       8
-#define TRAINER_GABRIELLE_1                   9
-#define TRAINER_GRUNT_PETALBURG_WOODS        10
-#define TRAINER_MARCEL                       11
+#define TRAINER_LARRY                         9
+#define TRAINER_LAURA                        10
+#define TRAINER_TIM                          11
+// done til here ^
 #define TRAINER_ALBERTO                      12
 #define TRAINER_ED                           13
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_4      14
@@ -216,7 +217,7 @@
 #define TRAINER_BERNIE_5                    210
 #define TRAINER_DREW                        211
 #define TRAINER_BEAU                        212
-#define TRAINER_LARRY                       213
+#define TRAINER_LARRY_1                       213
 #define TRAINER_SHANE                       214
 #define TRAINER_JUSTIN                      215
 #define TRAINER_ETHAN_1                     216
@@ -429,7 +430,7 @@
 #define TRAINER_LAO_4                       423
 #define TRAINER_LAO_5                       424
 #define TRAINER_JOCELYN                     425
-#define TRAINER_LAURA                       426
+#define TRAINER_LAURA_1                       426
 #define TRAINER_CYNDY_1                     427
 #define TRAINER_CORA                        428
 #define TRAINER_PAULA                       429

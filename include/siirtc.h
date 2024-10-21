@@ -13,36 +13,6 @@
 #define MINUTES_PER_HOUR    60
 #define SECONDS_PER_MINUTE  60
 
-enum
-{
-    MONTH_JAN = 1,
-    MONTH_FEB,
-    MONTH_MAR,
-    MONTH_APR,
-    MONTH_MAY,
-    MONTH_JUN,
-    MONTH_JUL,
-    MONTH_AUG,
-    MONTH_SEP,
-    MONTH_OCT,
-    MONTH_NOV,
-    MONTH_DEC,
-    MONTH_COUNT = MONTH_DEC
-};
-
-enum
-{
-    DAY_SUNDAY,   
-    DAY_MONDAY,   
-    DAY_TUESDAY,  
-    DAY_WEDNESDAY,
-    DAY_THURSDAY, 
-    DAY_FRIDAY,   
-    DAY_SATURDAY, 
-    DAYS_PER_WEEK,
-    DAY_CURRENT = DAYS_PER_WEEK
-};
-
 struct SiiRtcInfo
 {
     u8 year;

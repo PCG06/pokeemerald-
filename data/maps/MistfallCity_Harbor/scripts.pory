@@ -1,4 +1,5 @@
 const LOCALID_CAP_BRUCE = 1
+const LOCALID_SHIP = 3
 
 mapscripts MistfallCity_Harbor_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
@@ -25,6 +26,18 @@ mapscripts MistfallCity_Harbor_MapScripts {
     ]
 }
 
+script MistfallCity_Harbor_EventScript_Sailor {
+    if (var(VAR_BRUCE_SHIP) == 1) {
+        msgbox("I am sorry, but the ship won't set sail\n"
+                "anytime soon.\p"
+                "The captain's not here yet.", MSGBOX_NPC)
+    }
+    else {
+        msgbox("Captain's back!\n"
+                "We'll set sail soon!", MSGBOX_NPC)
+    }
+}
+
 script MistfallCity_Harbor_EventScript_CaptainBruce {
     lock
     faceplayer
@@ -38,9 +51,10 @@ script MistfallCity_Harbor_EventScript_CaptainBruce {
         applymove(LOCALID_CAP_BRUCE, Common_Movement_WalkInPlaceUp)
         removeobject(LOCALID_CAP_BRUCE)
         clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE)
-        applymoveplayer(Player_WalkUp)
+        applymoveplayer(Common_Movement_BoardShip)
         delay(30)
         setvar(VAR_BRUCE_SHIP, 2)
+        applymove(LOCALID_SHIP, ShipExit_Regular)
         warpsilent(MAP_SOLA_CITY_HARBOR, 8, 11)
         end
     }
