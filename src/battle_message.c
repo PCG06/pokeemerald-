@@ -4086,6 +4086,9 @@ struct TrainerSlide
     const u8 *msgDynamax;
 };
 
+static const u8 sText_Brian2LetsGoGetEmStarter[] = _("Let's go get em, {B_OPPONENT_MON1_NAME}!");
+static const u8 sText_Brian2WeWontGoDownSoEasily[] = _("We won't go down so easily,\n{B_PLAYER_NAME}!");
+
 static const struct TrainerSlide sTrainerSlides[] =
 {
     /* Put any trainer slide-in messages inside this array.
@@ -4107,6 +4110,24 @@ static const struct TrainerSlide sTrainerSlides[] =
         .msgDynamax = sText_TargetWokeUp,
     },
     */
+    {
+        .trainerId = TRAINER_BRIAN_2_GRASS,
+        .isFrontierTrainer = FALSE,
+        .msgLastSwitchIn = sText_Brian2LetsGoGetEmStarter,
+        .msgLastHalfHp = sText_Brian2WeWontGoDownSoEasily
+    },
+    {
+        .trainerId = TRAINER_BRIAN_2_FIRE,
+        .isFrontierTrainer = FALSE,
+        .msgLastSwitchIn = sText_Brian2LetsGoGetEmStarter,
+        .msgLastHalfHp = sText_Brian2WeWontGoDownSoEasily
+    },
+    {
+        .trainerId = TRAINER_BRIAN_2_WATER,
+        .isFrontierTrainer = FALSE,
+        .msgLastSwitchIn = sText_Brian2LetsGoGetEmStarter,
+        .msgLastHalfHp = sText_Brian2WeWontGoDownSoEasily
+    }
 };
 
 static u32 GetEnemyMonCount(u32 firstId, u32 lastId, bool32 onlyAlive)
@@ -4202,7 +4223,7 @@ u32 ShouldDoTrainerSlide(u32 battler, u32 which)
             case TRAINER_SLIDE_LAST_LOW_HP:
                 if (sTrainerSlides[i].msgLastLowHp != NULL
                     && GetEnemyMonCount(firstId, lastId, TRUE) == 1
-                    && BattlerHPPercentage(battler, LESS_THAN_OR_EQUAL, 4)
+                    && BattlerHPPercentage(battler, LESS_THAN_OR_EQUAL, 5)
                     && !gBattleStruct->trainerSlideLowHpMsgDone)
                 {
                     gBattleStruct->trainerSlideLowHpMsgDone = TRUE;
@@ -4220,7 +4241,7 @@ u32 ShouldDoTrainerSlide(u32 battler, u32 which)
             case TRAINER_SLIDE_LAST_HALF_HP:
                 if (sTrainerSlides[i].msgLastHalfHp != NULL
                  && GetEnemyMonCount(firstId, lastId, TRUE) == GetEnemyMonCount(firstId, lastId, FALSE) - 1
-                 && BattlerHPPercentage(battler, LESS_THAN_OR_EQUAL, 2) && BattlerHPPercentage(battler, GREATER_THAN, 4)
+                 && BattlerHPPercentage(battler, LESS_THAN_OR_EQUAL, 2) && BattlerHPPercentage(battler, GREATER_THAN, 5)
                  && !gBattleStruct->trainerSlideHalfHpMsgDone)
                 {
                     gBattleStruct->trainerSlideHalfHpMsgDone = TRUE;
