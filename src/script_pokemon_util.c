@@ -450,14 +450,14 @@ static u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u
             GetSetPokedexFlag(nationalDexNum, FLAG_SET_CAUGHT);
         }
     }
+
     // for scripting
     StringCopy(gStringVar2, gSpeciesInfo[species].speciesName);
     StringCopy(gStringVar3, gNaturesInfo[nature].name);
+    VarSet(VAR_TEMP_TRANSFERRED_SPECIES, species);
 
     if (GetMonData(&mon, MON_DATA_IS_SHINY))
-    {
         gSpecialVar_0x8014 = TRUE;
-    }
 
     return sentToPc;
 }

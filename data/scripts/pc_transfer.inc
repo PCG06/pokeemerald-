@@ -59,8 +59,9 @@ Common_EventScript_PlayerReceivedPokemon::
 	return
 
 Common_EventScript_ShowPokemonNature::
-	goto_if_eq VAR_0x8014, TRUE, PlayShinySoundShowShinyNature
-	goto_if_eq VAR_0x8014, FALSE, ShowNature
+	call_if_eq VAR_0x8014, TRUE, PlayShinySoundShowShinyNature
+	call_if_eq VAR_0x8014, FALSE, ShowNature
+	return
 
 PlayShinySoundShowShinyNature::
 	playse SE_SHINY
@@ -91,8 +92,8 @@ NicknamePartyMon::
 
 NicknameBoxMonYesNo::
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, NicknameBoxMon
-	goto Common_EventScript_TransferredToPC
+	call_if_eq VAR_RESULT, YES, NicknameBoxMon
+	call Common_EventScript_TransferredToPC
 	return
 
 NicknameBoxMon::

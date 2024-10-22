@@ -20,7 +20,6 @@ script SolaCity_PokemonCenter_EventScript_Fisherman {
     if (var(VAR_RESULT) == YES) {
         msgbox("Okay, here's the fish!", MSGBOX_AUTOCLOSE)
         givemon(SPECIES_MAGIKARP, 5, ITEM_LEFTOVERS, ITEM_DIVE_BALL, NATURE_ADAMANT, 2, MON_MALE, 4, 144, 0, 32, 0, 0, 31, 31, 0, 31, 0, 31, MOVE_SPLASH, MOVE_TACKLE, MOVE_FLAIL, MOVE_NONE)
-	    setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MAGIKARP)
         call(Common_EventScript_PlayerReceivedPokemon)
     }
     setflag(FLAG_SAFE_FOLLOWER_MOVEMENT) // follower returns to ball when fisherman walks away

@@ -4086,8 +4086,8 @@ struct TrainerSlide
     const u8 *msgDynamax;
 };
 
-static const u8 sText_Brian2LetsGoGetEmStarter[] = _("Let's go get em, {B_OPPONENT_MON1_NAME}!");
-static const u8 sText_Brian2WeWontGoDownSoEasily[] = _("We won't go down so easily,\n{B_PLAYER_NAME}!");
+static const u8 sText_Brian2LetsGoGetEmStarter[] = _("Let's go get em, {B_OPPONENT_MON1_NAME}!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Brian2WeWontGoDownSoEasily[] = _("We won't go down so easily,\n{B_PLAYER_NAME}!{PAUSE_UNTIL_PRESS}");
 
 static const struct TrainerSlide sTrainerSlides[] =
 {
