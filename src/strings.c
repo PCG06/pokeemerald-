@@ -1975,7 +1975,7 @@ const u8 gText_MainQuestMap_10[] = _(" ");
 
 //map
 const u8 gText_SideQuestMap1[] = _("Entire region");
-const u8 gText_SideQuestMap2[] = _("Sea Men's Hub");
+const u8 gText_SideQuestMap2[] = _("Sola City");
 const u8 gText_SideQuestMap3[] = _("Map 3");
 const u8 gText_SideQuestMap4[] = _("Map 4");
 const u8 gText_SideQuestMap5[] = _("Map 5");
