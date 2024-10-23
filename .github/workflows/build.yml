@@ -74,7 +74,7 @@ jobs:
         run: chmod -R 755 ./flips-linux && ls && ./flips-linux --create tools/pokeemerald/pokeemerald.gba pokeemerald.gba pokeemerald.bps
 
       - name: Upload patch
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: patch_file
           path: pokeemerald.bps
