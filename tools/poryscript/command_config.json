@@ -89,6 +89,9 @@
         },
         "checkmodernfatefulencounter": {
             "var_name": "VAR_RESULT"
+        },
+        "islevelcapactive": {
+            "var_name": "VAR_RESULT"
         }
     }
 }

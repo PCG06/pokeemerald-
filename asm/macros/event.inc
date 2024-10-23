@@ -2620,3 +2620,10 @@
 	stringvar \stringVarId
 	.byte \dayOfWeek
 	.endm
+
+	@ Checks if B_LEVEL_CAP_VARIABLE is active or not and returns TRUE or FALSE.
+	@ If B_LEVEL_CAP_VARIABLE is MAX_LEVEL (100), it will return FALSE.
+	@ If B_LEVEL_CAP_VARIABLE is less than MAX_LEVEL, it will return TRUE.
+	.macro islevelcapactive
+	.byte 0xc7
+	.endm

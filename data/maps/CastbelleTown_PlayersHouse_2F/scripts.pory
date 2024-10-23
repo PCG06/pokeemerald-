@@ -1,5 +1,65 @@
-mapscripts CastbelleTown_PlayersHouse_2F_MapScripts {}
+mapscripts CastbelleTown_PlayersHouse_2F_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_USED_FOR_DEV, 0: CastbelleTown_PlayerHouse_2F_EventScript_AskForAdditionalOptions
+    ]
+}
 
+script CastbelleTown_PlayerHouse_2F_EventScript_AskForAdditionalOptions {
+    lock
+    playse(SE_BIKE_BELL)
+    delay(24)
+    msgbox("Hello there, {PLAYER}!\p"
+            "Would you like to look at some\n"
+            "additional options to make your\l"
+            "playthrough more interesting?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        msgbox("Excellent!\n"
+                "You can disable them later in the\l"
+                "Options menu.", MSGBOX_AUTOCLOSE) // TODO: multi page option menu to include these.
+        call(OptionEnable_LevelCaps)
+        call(Redo_Options)
+    }
+    else {
+        setvar(VAR_USED_FOR_DEV, 1)
+        msgbox("Enjoy the game!\n"
+                "Explore at your pace!", MSGBOX_NPC)
+    }
+    end
+}
+
+script OptionEnable_LevelCaps {
+    msgbox("Would you like to enable level caps?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        playse(SE_PC_ON)
+        message("Level caps have been enabled!")
+        waitse
+        delay(10)
+        closemessage
+        msgbox("First level cap is 10.", MSGBOX_DEFAULT)
+    }
+    else {
+        playse(SE_PC_OFF)
+        setvar(B_LEVEL_CAP_VARIABLE, MAX_LEVEL)
+        message("Level caps are disabled!")
+        waitse
+        delay(10)
+        closemessage
+    }
+}
+
+script Redo_Options {
+    msgbox("Your selections have been saved!\p"
+            "Would you like to redo your selections?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        call(OptionEnable_LevelCaps)
+        call(Redo_Options)
+    }
+    else {
+        setvar(VAR_USED_FOR_DEV, 1)
+        msgbox("Enjoy the game!\n"
+                "Explore at your pace!", MSGBOX_NPC)
+    }
+}
 
 script CastbelleTown_PlayerHouse_2F_EventScript_TriggerGetQuestMenu {
     lock

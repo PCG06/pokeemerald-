@@ -24,6 +24,7 @@
 #include "field_weather.h"
 #include "fieldmap.h"
 #include "item.h"
+#include "level_caps.h"
 #include "lilycove_lady.h"
 #include "main.h"
 #include "menu.h"
@@ -54,6 +55,7 @@
 #include "list_menu.h"
 #include "malloc.h"
 #include "constants/event_objects.h"
+#include "constants/pokemon.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -1845,6 +1847,18 @@ bool8 ScrCmd_bufferboxname(struct ScriptContext *ctx)
     u16 boxId = VarGet(ScriptReadHalfword(ctx));
 
     StringCopy(sScriptStringVars[stringVarIndex], GetBoxNamePtr(boxId));
+    return FALSE;
+}
+
+bool8 ScrCmd_islevelcapactive(struct ScriptContext *ctx)
+{
+    u32 currentLevelCap = ((B_LEVEL_CAP_TYPE != 0) ? GetCurrentLevelCap() : MAX_LEVEL);
+
+    if (currentLevelCap != MAX_LEVEL)
+        gSpecialVar_Result = TRUE;
+    else
+        gSpecialVar_Result = FALSE;
+    
     return FALSE;
 }
 
