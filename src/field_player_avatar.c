@@ -1726,6 +1726,12 @@ static bool32 (*const sFishingStateFuncs[])(struct Task *) =
     [FISHING_END_NO_MON]            = Fishing_EndNoMon,
 };
 
+void DoFishing(void)
+{
+    StartFishing(SUPER_ROD);
+    return;
+}
+
 void StartFishing(u8 rod)
 {
     u8 taskId = CreateTask(Task_Fishing, 0xFF);

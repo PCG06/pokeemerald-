@@ -1,0 +1,42 @@
+script EventScript_FishOrSurf {
+	lockall
+	if (checkitem(ITEM_SUPER_ROD) && checkitem(ITEM_HM_SURF)) {
+		message("Would you like to fish or surf?")
+		delay(45)
+		dynmultichoice(20, 8, FALSE, 2, 0, DYN_MULTICHOICE_CB_NONE, "FISH", "SURF")
+		closemessage
+		switch (var(VAR_RESULT))
+		{
+			case 0:
+				goto(EventScript_Fishing)
+			case 1:
+				goto(EventScript_Surf)
+			default:
+				releaseall
+				end
+		}
+	}
+	elif (checkitem(ITEM_SUPER_ROD) && !(checkitem(ITEM_HM_SURF))) {
+		goto(EventScript_Fishing)
+	}
+	elif (checkitem(ITEM_HM_SURF) && !(checkitem(ITEM_SUPER_ROD))) {
+		goto(EventScript_Surf)
+	}
+	else {
+		releaseall
+		end
+	}
+}
+
+
+script EventScript_Fishing {
+	callnative(DoFishing)
+	releaseall
+	end
+}
+
+script EventScript_Surf {
+	dofieldeffect(FLDEFF_USE_SURF)
+	releaseall
+	end
+}
