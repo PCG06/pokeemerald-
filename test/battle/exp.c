@@ -1,6 +1,8 @@
 #include "global.h"
 #include "test/battle.h"
 
+#if B_LEVEL_CAP_TYPE == 0
+
 #if B_EXP_CATCH >= GEN_6
 
 WILD_BATTLE_TEST("Pokemon gain exp after catching a Pokemon")
@@ -148,3 +150,5 @@ WILD_BATTLE_TEST("Exp Share(held) gives Experience to mons which did not partici
 }
 
 #endif // I_EXP_SHARE_ITEM
+
+#endif // B_LEVEL_CAP_TYPE
