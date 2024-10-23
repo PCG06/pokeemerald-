@@ -35,19 +35,11 @@ jobs:
         # gcc-arm-none-eabi is only needed for the modern build
         # as an alternative to dkP
 
-      - name: Install agbcc
-        run: |
-          ./build.sh
-          ./install.sh ../
-        working-directory: agbcc
+      - name: Install GTK 3
+        run: sudo apt-get update && sudo apt-get install -y libgtk-3-dev
+        # used for building the patch
 
-      - name: Agbcc
-        env:
-          MODERN: 0
-          COMPARE: 0
-        run: make -j${nproc} -O all
-
-      - name: Modern
+      - name: ROM
         env:
           MODERN: 1
           COMPARE: 0
@@ -60,6 +52,12 @@ jobs:
         run: |
           make -j${nproc} check
 
+      - name: Install agbcc
+        run: |
+          ./build.sh
+          ./install.sh ../
+        working-directory: agbcc
+
       # Creating a patch file online
       - name: Download pokeemerald
         run: pwd && cd tools && git clone https://github.com/pret/pokeemerald
@@ -71,7 +69,9 @@ jobs:
         run: pwd && cd tools && cd pokeemerald && pwd && ls && make -j${nproc}
 
       - name: Build pokeemerald.bps
-        run: chmod -R 755 ./flips-linux && ls && ./flips-linux --create tools/pokeemerald/pokeemerald.gba pokeemerald.gba pokeemerald.bps
+        run: |
+          chmod -R 755 ./flips-linux
+          ./flips-linux --create tools/pokeemerald/pokeemerald.gba pokeemerald.gba pokeemerald.bps
 
       - name: Upload patch
         uses: actions/upload-artifact@v3
