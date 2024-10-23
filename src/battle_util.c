@@ -35,6 +35,7 @@
 #include "pokedex.h"
 #include "mail.h"
 #include "field_weather.h"
+#include "level_caps.h"
 #include "constants/abilities.h"
 #include "constants/battle_anim.h"
 #include "constants/battle_move_effects.h"
@@ -8359,7 +8360,8 @@ u8 GetAttackerObedienceForAction()
     s32 rnd;
     s32 calc;
     u8 obedienceLevel = 0;
-    u8 levelReferenced;
+    u8 levelReferenced, i;
+    u32 currentLevelCap = GetCurrentLevelCap();
 
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
         return OBEYS;
@@ -8374,25 +8376,16 @@ u8 GetAttackerObedienceForAction()
         return OBEYS;
     if (B_OBEDIENCE_MECHANICS < GEN_8 && !IsOtherTrainer(gBattleMons[gBattlerAttacker].otId, gBattleMons[gBattlerAttacker].otName))
         return OBEYS;
-    if (FlagGet(FLAG_BADGE08_GET)) // Rain Badge, ignore obedience altogether
+    if (currentLevelCap == MAX_LEVEL) // Level cap is disabled
         return OBEYS;
 
     obedienceLevel = 10;
 
-    if (FlagGet(FLAG_BADGE01_GET)) // Stone Badge
-        obedienceLevel = 20;
-    if (FlagGet(FLAG_BADGE02_GET)) // Knuckle Badge
-        obedienceLevel = 30;
-    if (FlagGet(FLAG_BADGE03_GET)) // Dynamo Badge
-        obedienceLevel = 40;
-    if (FlagGet(FLAG_BADGE04_GET)) // Heat Badge
-        obedienceLevel = 50;
-    if (FlagGet(FLAG_BADGE05_GET)) // Balance Badge
-        obedienceLevel = 60;
-    if (FlagGet(FLAG_BADGE06_GET)) // Feather Badge
-        obedienceLevel = 70;
-    if (FlagGet(FLAG_BADGE07_GET)) // Mind Badge
-        obedienceLevel = 80;
+    for (i = 10; i < MAX_LEVEL; i++)
+    {
+        if (currentLevelCap == i)
+            obedienceLevel = i;
+    }
 
     if (B_OBEDIENCE_MECHANICS >= GEN_8
      && !IsOtherTrainer(gBattleMons[gBattlerAttacker].otId, gBattleMons[gBattlerAttacker].otName))

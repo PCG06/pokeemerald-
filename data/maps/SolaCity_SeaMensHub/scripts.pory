@@ -74,6 +74,7 @@ script SolaCity_SeaMensHub_CaptainBruceDefeated {
     subquestmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_2_BEAT_THE_SEA_MEN, SUB_QUEST_2_CAPTAIN_BRUCE)
     questmenu(QUEST_MENU_SET_REWARD, QUEST_2_BEAT_THE_SEA_MEN)
     setvar(VAR_TEMP_1, 1) // Just to avoid a few workarounds with movements going over follower
+    setvar(B_LEVEL_CAP_VARIABLE, 24)
     return
 }
 

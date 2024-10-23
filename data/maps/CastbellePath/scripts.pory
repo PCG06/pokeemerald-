@@ -76,6 +76,7 @@ script CastbellePath_EventScript_Brian {
         removeobject(LOCALID_BRIAN)
         setvar(VAR_MAIN_STORY, 5)
         setvar(VAR_CASTBELLE_TOWN_STATE, 6)
+        setvar(B_LEVEL_CAP_VARIABLE, 17)
     }
     else {
         speakername("Brian")

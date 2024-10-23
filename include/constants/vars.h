@@ -94,7 +94,7 @@
 #define VAR_CRUISE_STEP_COUNT                            0x404A
 #define VAR_POKELOT_RND1                                 0x404B
 #define VAR_POKELOT_RND2                                 0x404C
-#define VAR_POKELOT_PRIZE_PLACE                          0x404D
+#define VAR_LEVEL_CAP_VARIABLE                           0x404D
 #define VAR_UNUSED_0x404E                                0x404E // Unused Var
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
 #define VAR_CASTBELLE_TOWN_STATE                         0x4050
