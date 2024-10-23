@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - upcoming
   pull_request:
 
 jobs:
@@ -60,6 +59,25 @@ jobs:
           TEST: 1
         run: |
           make -j${nproc} check
+
+      # Creating a patch file online
+      - name: Download pokeemerald
+        run: pwd && cd tools && git clone https://github.com/pret/pokeemerald
+  
+      - name: Install agbcc to pokeemerald
+        run: pwd && cd tools && ls && cp -r agbcc pokeemerald/tools/ && cd pokeemerald && pwd
+  
+      - name: Build pokeemerald
+        run: pwd && cd tools && cd pokeemerald && pwd && ls && make -j${nproc}
+
+      - name: Build pokeemerald.bps
+        run: chmod -R 755 ./flips-linux && ls && ./flips-linux --create tools/pokeemerald/pokeemerald.gba pokeemerald.gba pokeemerald.bps
+
+      - name: Upload patch
+        uses: actions/upload-artifact@v2
+        with:
+          name: patch_file
+          path: pokeemerald.bps
 
       - name: Send failure notification to Discord
         if: failure()   # Executes only if previous steps fail
