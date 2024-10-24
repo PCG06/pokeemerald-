@@ -64,6 +64,7 @@ EventScript_PkmnCenterNurse_TakeAndHealPkmn::
 	waitfieldeffect FLDEFF_POKECENTER_HEAL
 	applymove LOCALID_NURSE, Common_Movement_WalkInPlaceFasterDown
 	special HealPlayerParty
+	setvar VAR_POKEMON_BOX_LINK_HEAL, 6
 	callnative UpdateFollowingPokemon
 	return
 
