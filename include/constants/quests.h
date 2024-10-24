@@ -17,7 +17,7 @@
 // quest number defines
 #define QUEST_1_MAIN_STORY        0
 #define QUEST_2_BEAT_THE_SEA_MEN  1
-#define QUEST_3          2
+#define QUEST_3_KEEP_WALKING      2
 #define QUEST_4          3
 #define QUEST_5          4
 #define QUEST_6          5

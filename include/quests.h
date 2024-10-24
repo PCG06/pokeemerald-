@@ -77,4 +77,11 @@ void QuestMenu_CopyQuestName(u8 *dst, u8 questId);
 void QuestMenu_CopySubquestName(u8 *dst, u8 parentId, u8 childId);
 void QuestMenu_ResetMenuSaveData(void);
 
+bool8 IsQuestUnlocked(s32 questId);
+bool8 IsQuestActiveState(s32 questId);
+bool8 IsQuestInactiveState(s32 questId);
+bool8 IsQuestRewardState(s32 questId);
+bool8 IsQuestCompletedState(s32 questId);
+bool8 IsSubquestCompletedState(s32 questId);
+
 #endif // GUARD_QUESTS_H

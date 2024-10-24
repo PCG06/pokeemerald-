@@ -101,7 +101,7 @@ script SolaCity_EventScript_Sailor5_QuestReward {
     msgbox("What?! You beat them?\p"
             "Ahoy! You are good at this!\n"
             "Now for your reward.", MSGBOX_AUTOCLOSE)
-    giveitem(ITEM_TM_BULK_UP)
+    giveitem(ITEM_CUT_TOOL)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
     msgbox("You got skills, kid!\p"
             "Keep training like this and no doubt\n"
@@ -117,6 +117,63 @@ script SolaCity_EventScript_Sailor5_QuestComplete {
             "Keep training like this and no doubt\n"
             "one day you might just become the very\l"
             "best!", MSGBOX_NPC)
+}
+
+script SolaCity_EventScript_TriathleteM {
+    lock
+    faceplayer
+    if (getgamestat(GAME_STAT_STEPS) > 10000) {
+        questmenu(QUEST_MENU_SET_REWARD, QUEST_3_KEEP_WALKING)
+    }
+    goto_if_quest_complete(QUEST_3_KEEP_WALKING, SolaCity_EventScript_TriathleteM_QuestComplete)
+    goto_if_quest_reward(QUEST_3_KEEP_WALKING, SolaCity_EventScript_TriathleteM_QuestReward)
+    goto_if_quest_active(QUEST_3_KEEP_WALKING, SolaCity_EventScript_TriathleteM_QuestCheck)
+    msgbox("I love running!\n"
+            "It's my passion.\p"
+            "Do you like running?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        msgbox("Ay, nice!\p"
+                "Walk 10,000 steps and I'll give you a\n"
+                "reward!", MSGBOX_AUTOCLOSE)
+        startquest(QUEST_3_KEEP_WALKING)
+    }
+    else {
+        msgbox("Running is good for your body!", MSGBOX_NPC)
+    }
+    release
+    end
+}
+
+script SolaCity_EventScript_TriathleteM_QuestCheck {
+    getgamestat(GAME_STAT_STEPS)
+    copyvar(VAR_0x8000, VAR_RESULT)
+    setvar(VAR_0x8001, 10000)
+    subvar(VAR_0x8001, VAR_0x8000)
+    copyvar(VAR_0x8000, VAR_0x8001)
+    buffernumberstring(STR_VAR_1, VAR_0x8000)
+    msgbox("Huh?\n"
+            "You didn't walk 10,000 steps, yet!\p"
+            "You still have {STR_VAR_1} steps left!", MSGBOX_NPC)
+}
+
+script SolaCity_EventScript_TriathleteM_QuestReward {
+    msgbox("Yoo!\n"
+            "You walked 10,000 steps!\p"
+            "For that, I give you this.", MSGBOX_AUTOCLOSE)
+    giveitem(ITEM_TM_BULK_UP)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    msgbox("Keep walking and stay healthy, kid!", MSGBOX_AUTOCLOSE)
+    completequest(QUEST_3_KEEP_WALKING)
+    release
+    end
+}
+
+script SolaCity_EventScript_TriathleteM_QuestComplete {
+    getgamestat(GAME_STAT_STEPS)
+    copyvar(VAR_0x8000, VAR_RESULT)
+    buffernumberstring(STR_VAR_1, VAR_0x8000)
+    msgbox("Keep walking, {PLAYER}!\n"
+            "You have walked over {STR_VAR_1} steps!", MSGBOX_NPC)
 }
 
 script SolaCity_EventScript_LittleBoy {

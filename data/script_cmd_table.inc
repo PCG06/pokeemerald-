@@ -201,7 +201,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_bufferboxname                     @ 0xc6
 	.4byte ScrCmd_islevelcapactive                  @ 0xc7
     .4byte ScrCmd_checkpartylearnknowsfieldmove     @ 0xc8 // qol_field_moves
-	.4byte ScrCmd_nop1                              @ 0xc9
+	.4byte ScrCmd_getgamestat                       @ 0xc9
 	.4byte ScrCmd_nop1                              @ 0xca
 	.4byte ScrCmd_nop1                              @ 0xcb
 	.4byte ScrCmd_nop1                              @ 0xcc

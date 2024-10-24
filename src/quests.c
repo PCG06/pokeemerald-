@@ -150,13 +150,6 @@ static const u8 *GetQuestDesc(s32 questId);
 static const u8 *GetQuestDesc_MainStory(void);
 static const u8 *GetQuestLocation_MainStory(void);
 
-static bool8 IsQuestUnlocked(s32 questId);
-static bool8 IsQuestActiveState(s32 questId);
-static bool8 IsQuestInactiveState(s32 questId);
-static bool8 IsQuestRewardState(s32 questId);
-static bool8 IsQuestCompletedState(s32 questId);
-static bool8 IsSubquestCompletedState(s32 questId);
-
 static void DetermineSpriteType(s32 questId);
 static void QuestMenu_CreateSprite(u16 itemId, u8 idx, u8 spriteType);
 static void ResetSpriteState(void);
@@ -334,13 +327,13 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      sSubQuest_BeatTheSeaMen,
 	      QUEST_2_SUB_COUNT
 	),
-	side_quest(
+	side_quest( // QUEST_3_KEEP_WALKING
 	      gText_SideQuestName_3,
 	      gText_SideQuestDesc_3,
 	      gText_SideQuestDoneDesc_3,
 	      gText_SideQuestMap3,
-	      ITEM_NONE,
-	      ITEM,
+	      OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M,
+	      OBJECT,
 	      NULL,
 	      0
 	),

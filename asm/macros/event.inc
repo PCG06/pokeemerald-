@@ -1669,6 +1669,12 @@
 	.byte \stat
 	.endm
 
+	@ Increases the value of the specified game stat by 1. The maximum value of a stat is 0xFFFFFF. See include/constants/game_stat.h
+	.macro getgamestat stat:req
+	.byte 0xc9
+	.byte \stat
+	.endm
+
 	@ Sets the destination that using an Escape Rope or Dig will take the player to.
 	@ Warp commands can be given either the id of which warp location to go to on the destination map
 	@ or a pair of x/y coordinates to go to directly on the destination map.

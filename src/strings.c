@@ -1861,7 +1861,7 @@ const u8 gText_QuestActive[] =_("active");
 //names
 const u8 gText_SideQuestName_1[] = _("Main Story!");
 const u8 gText_SideQuestName_2[] = _("Beat the Sea Men!");
-const u8 gText_SideQuestName_3[] = _("Side Quest 3");
+const u8 gText_SideQuestName_3[] = _("Keep Walking!");
 const u8 gText_SideQuestName_4[] = _("Side Quest 4");
 const u8 gText_SideQuestName_5[] = _("Side Quest 5");
 const u8 gText_SideQuestName_6[] = _("Side Quest 6");
@@ -1893,7 +1893,7 @@ const u8 gText_SideQuestName_30[] = _("Side Quest 30");
 //descriptions
 const u8 gText_SideQuestDesc_1[] = _("Main story.");
 const u8 gText_SideQuestDesc_2[] = _("Beat all the sailors in Sea Men's\nHub and report back to the sailor\noutside.");
-const u8 gText_SideQuestDesc_3[] = _("Description 3");
+const u8 gText_SideQuestDesc_3[] = _("Travel and explore!\nWalk at least 10,000 steps.");
 const u8 gText_SideQuestDesc_4[] = _("Description 4");
 const u8 gText_SideQuestDesc_5[] = _("Description 5");
 const u8 gText_SideQuestDesc_6[] = _("Description 6");
@@ -1925,7 +1925,7 @@ const u8 gText_SideQuestDesc_30[] = _("Description 30");
 //completed quest description
 const u8 gText_SideQuestDoneDesc_1[] = _("You have completed the main story!\nExplore the postgame as you wish.");
 const u8 gText_SideQuestDoneDesc_2[] = _("Defeated the sailors in the\nSea Men's Hub.");
-const u8 gText_SideQuestDoneDesc_3[] = _("Completed Quest 3");
+const u8 gText_SideQuestDoneDesc_3[] = _("Completed walking 10,000 steps.");
 const u8 gText_SideQuestDoneDesc_4[] = _("Completed Quest 4");
 const u8 gText_SideQuestDoneDesc_5[] = _("Completed Quest 5");
 const u8 gText_SideQuestDoneDesc_6[] = _("Completed Quest 6");
@@ -1977,7 +1977,7 @@ const u8 gText_MainQuestMap_10[] = _(" ");
 //map
 const u8 gText_SideQuestMap1[] = _("Entire region");
 const u8 gText_SideQuestMap2[] = _("Sola City");
-const u8 gText_SideQuestMap3[] = _("Map 3");
+const u8 gText_SideQuestMap3[] = _("Sola City");
 const u8 gText_SideQuestMap4[] = _("Map 4");
 const u8 gText_SideQuestMap5[] = _("Map 5");
 const u8 gText_SideQuestMap6[] = _("Map 6");
