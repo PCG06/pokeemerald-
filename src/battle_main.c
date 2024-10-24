@@ -33,6 +33,7 @@
 #include "main.h"
 #include "malloc.h"
 #include "m4a.h"
+#include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
 #include "pokeball.h"
@@ -5745,6 +5746,7 @@ static void ReturnFromBattleToOverworld(void)
     }
 
     m4aSongNumStop(SE_LOW_HEALTH);
+    Overworld_ResetBattleFlagsAndVars();
     SetMainCallback2(gMain.savedCallback);
 }
 

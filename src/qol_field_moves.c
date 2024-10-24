@@ -1,6 +1,7 @@
 #include "global.h"
 #include "palette.h"
 #include "field_control_avatar.h"
+#include "event_data.h"
 #include "event_scripts.h"
 #include "field_screen_effect.h"
 #include "field_player_avatar.h"

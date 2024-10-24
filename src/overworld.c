@@ -403,7 +403,6 @@ void Overworld_ResetStateAfterDigEscRope(void)
     ClearFieldMoveFlags(); // qol_field_moves
 }
 
-#if B_RESET_FLAGS_VARS_AFTER_WHITEOUT  == TRUE
 void Overworld_ResetBattleFlagsAndVars(void)
 {
     #if B_VAR_STARTING_STATUS != 0
@@ -426,7 +425,6 @@ void Overworld_ResetBattleFlagsAndVars(void)
     FlagClear(B_FLAG_DYNAMAX_BATTLE);
     FlagClear(B_FLAG_SKY_BATTLE);
 }
-#endif
 
 static void Overworld_ResetStateAfterWhiteOut(void)
 {

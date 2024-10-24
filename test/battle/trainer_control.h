@@ -41,7 +41,7 @@
 #line 12
             .ability = ABILITY_TELEPATHY,
 #line 11
-            .lvl = 5,
+            .lvl = 100,
 #line 17
             .ball = ITEM_MASTER_BALL,
 #line 15
@@ -70,7 +70,7 @@
 #line 26
             .ability = ABILITY_SHADOW_TAG,
 #line 25
-            .lvl = 5,
+            .lvl = 100,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
@@ -81,7 +81,7 @@
 #line 31
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 30
-            .lvl = 5,
+            .lvl = 100,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },

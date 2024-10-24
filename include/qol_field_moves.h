@@ -57,4 +57,4 @@ enum FlyToolSource
 
 // https://github.com/PokemonSanFran/pokeemerald/wiki/QoL-Field-Moves#developer-options
 // When QOL_NO_MESSAGING is enabled, when the player uses a Field Move automatically for the first time on a map, a message or animation does not appear.
-//#define QOL_NO_MESSAGING
+#define QOL_NO_MESSAGING

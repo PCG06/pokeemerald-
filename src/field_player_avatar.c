@@ -697,11 +697,12 @@ static u8 CheckForPlayerAvatarStaticCollision(u8 direction)
 u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u8 direction, u8 metatileBehavior)
 {
     u8 collision = GetCollisionAtCoords(objectEvent, x, y, direction);
-    u32 fieldMoveStatus; // qol_field_moves
+    // u32 fieldMoveStatus; // qol_field_moves
 
     if (collision == COLLISION_ELEVATION_MISMATCH && CanStopSurfing(x, y, direction))
         return COLLISION_STOP_SURFING;
 
+    /*
     // Start qol_field_moves
     fieldMoveStatus = CanUseSurf(x,y,collision);
     if (fieldMoveStatus != FIELD_MOVE_FAIL)
@@ -714,18 +715,21 @@ u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u
     fieldMoveStatus = CanUseRockSmash(x,y);
     if (fieldMoveStatus != FIELD_MOVE_FAIL)
         return UseRockSmash(fieldMoveStatus);
-    // End qol_field_moves
+    // End qol_field_moves 
+    */
 
     if (ShouldJumpLedge(x, y, direction))
     {
         IncrementGameStat(GAME_STAT_JUMPED_DOWN_LEDGES);
         return COLLISION_LEDGE_JUMP;
     }
+    /*
     // Start qol_field_moves
     fieldMoveStatus = CanUseStrength(collision);
     if (fieldMoveStatus)
         return UseStrength(fieldMoveStatus,x,y,direction);
     // End qol_field_moves
+    */
 
     if (collision == COLLISION_OBJECT_EVENT && TryPushBoulder(x, y, direction))
         return COLLISION_PUSHED_BOULDER;

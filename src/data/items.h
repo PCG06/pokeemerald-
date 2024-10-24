@@ -14114,9 +14114,9 @@ const struct Item gItemsInfo[] =
         .price = 0,
         .importance = 1,
         .description = COMPOUND_STRING(
-            "This tool\n"
-            "is used for\n"
-            "cutting trees."),
+            "This tool is used\n"
+            "cut trees and\n"
+            "grass."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_CutTool,
@@ -14130,9 +14130,9 @@ const struct Item gItemsInfo[] =
         .price = 0,
         .importance = 1,
         .description = COMPOUND_STRING(
-            "This tool\n"
-            "is used for\n"
-            "going places."),
+            "This tool is used\n"
+            "to fly to towns\n"
+            "cities."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_FlyTool,
@@ -14146,9 +14146,9 @@ const struct Item gItemsInfo[] =
         .price = 0,
         .importance = 1,
         .description = COMPOUND_STRING(
-            "This tool\n"
-            "is used for\n"
-            "riding waves."),
+            "This tool is used\n"
+            "to ride calm\n"
+            "waters."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_SurfTool,
@@ -14162,9 +14162,9 @@ const struct Item gItemsInfo[] =
         .price = 0,
         .importance = 1,
         .description = COMPOUND_STRING(
-            "This tool\n"
-            "is used for\n"
-            "moving boulders."),
+            "This tool is used\n"
+            "to push big\n"
+            "boulders."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_StrengthTool,
@@ -14178,9 +14178,9 @@ const struct Item gItemsInfo[] =
         .price = 0,
         .importance = 1,
         .description = COMPOUND_STRING(
-            "This tool\n"
-            "is used for\n"
-            "lighting caves."),
+            "This tool is used\n"
+            "to light up dark\n"
+            "places."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_FlashTool,
@@ -14194,9 +14194,9 @@ const struct Item gItemsInfo[] =
         .price = 0,
         .importance = 1,
         .description = COMPOUND_STRING(
-            "This tool\n"
-            "is used for\n"
-            "smashing rocks."),
+            "This tool is used\n"
+            "to smash small\n"
+            "rocks."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_RockSmashTool,
@@ -14210,9 +14210,9 @@ const struct Item gItemsInfo[] =
         .price = 0,
         .importance = 1,
         .description = COMPOUND_STRING(
-            "This tool\n"
-            "is used for\n"
-            "climbing waterfalls."),
+            "This tool is used\n"
+            "to climb water-\n"
+            "falls."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_WaterfallTool,
@@ -14226,9 +14226,9 @@ const struct Item gItemsInfo[] =
         .price = 0,
         .importance = 1,
         .description = COMPOUND_STRING(
-            "This tool\n"
-            "is used for\n"
-            "diving underwater."),
+            "This tool is used\n"
+            "to dive under the\n"
+            "water."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_DiveTool,
@@ -14242,9 +14242,9 @@ const struct Item gItemsInfo[] =
         .price = 0,
         .importance = 1,
         .description = COMPOUND_STRING(
-            "This tool\n"
-            "is used for\n"
-            "getting to safety."),
+            "This tool is used\n"
+            "to teleport to the\n"
+            "last {PKMN} Center."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_TeleportTool,
@@ -14258,9 +14258,9 @@ const struct Item gItemsInfo[] =
         .price = 0,
         .importance = 1,
         .description = COMPOUND_STRING(
-            "This tool\n"
-            "is used for\n"
-            "luring pokemon."),
+            "This tool is used\n"
+            "to lure in\n"
+            "wild Pokémon."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_SweetScentTool,
