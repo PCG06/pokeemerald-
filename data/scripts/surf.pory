@@ -1,6 +1,6 @@
 script EventScript_FishOrSurf {
 	lockall
-	if (checkitem(ITEM_SUPER_ROD) && checkitem(ITEM_HM_SURF)) {
+	if (checkitem(ITEM_FISHING_ROD) && checkitem(ITEM_HM_SURF)) {
 		message("Would you like to fish or surf?")
 		delay(45)
 		dynmultichoice(20, 8, FALSE, 2, 0, DYN_MULTICHOICE_CB_NONE, "FISH", "SURF")
@@ -16,10 +16,10 @@ script EventScript_FishOrSurf {
 				end
 		}
 	}
-	elif (checkitem(ITEM_SUPER_ROD) && !(checkitem(ITEM_HM_SURF))) {
+	elif (checkitem(ITEM_FISHING_ROD) && !(checkitem(ITEM_HM_SURF))) {
 		goto(EventScript_Fishing)
 	}
-	elif (checkitem(ITEM_HM_SURF) && !(checkitem(ITEM_SUPER_ROD))) {
+	elif (checkitem(ITEM_HM_SURF) && !(checkitem(ITEM_FISHING_ROD))) {
 		goto(EventScript_Surf)
 	}
 	else {

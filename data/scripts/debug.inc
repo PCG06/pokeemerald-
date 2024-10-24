@@ -139,8 +139,7 @@ Debug_EventScript_Text_DefensiveIVs:
 
 Debug_EventScript_Script_1::
 	lock
-	givemon SPECIES_BULBASAUR, 0, ITEM_ORAN_BERRY, isShiny=TRUE
-	call Common_EventScript_PlayerReceivedPokemon
+	additem ITEM_FISHING_ROD
 	release
 	end
 

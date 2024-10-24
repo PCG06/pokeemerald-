@@ -1,12 +1,12 @@
 EventScript_FishOrSurf::
 # 2 "data/scripts/surf.pory"
 	lockall
-	checkitem ITEM_SUPER_ROD
+	checkitem ITEM_FISHING_ROD
 # 0 "data/scripts/surf.pory"
 	compare VAR_RESULT, 0
 	goto_if_ne EventScript_FishOrSurf_11
 EventScript_FishOrSurf_9:
-	checkitem ITEM_SUPER_ROD
+	checkitem ITEM_FISHING_ROD
 # 0 "data/scripts/surf.pory"
 	compare VAR_RESULT, 0
 	goto_if_ne EventScript_FishOrSurf_8
@@ -50,7 +50,7 @@ EventScript_FishOrSurf_3:
 	return
 
 EventScript_FishOrSurf_5:
-	checkitem ITEM_SUPER_ROD
+	checkitem ITEM_FISHING_ROD
 # 0 "data/scripts/surf.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq EventScript_FishOrSurf_3

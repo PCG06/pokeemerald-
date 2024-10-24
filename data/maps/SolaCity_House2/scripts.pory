@@ -9,13 +9,13 @@ script SolaCity_House2_EventScript_Man {
                 "Did you get one yet?", MSGBOX_NPC)
     }
     else {
-        if (flag(FLAG_RECEIVED_OLD_ROD) == false) {
+        if (flag(FLAG_RECEIVED_FISHING_ROD) == false) {
             msgbox("Do you like fishing?", MSGBOX_YESNO)
             if (var(VAR_RESULT) == YES) {
                 msgbox("Grand!\n"
                         "Here, I have an extra rod!", MSGBOX_DEFAULT)
-                giveitem(ITEM_OLD_ROD)
-                setflag(FLAG_RECEIVED_OLD_ROD)
+                giveitem(ITEM_FISHING_ROD)
+                setflag(FLAG_RECEIVED_FISHING_ROD)
                 msgbox("Go to edge of the river and enjoy your\n"
                         "new favorite hobby!", MSGBOX_NPC)
             }
