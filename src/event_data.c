@@ -2,6 +2,7 @@
 #include "battle_setup.h"
 #include "event_data.h"
 #include "pokedex.h"
+#include "qol_field_moves.h"
 #include "rtc.h"
 #include "siirtc.h"
 
@@ -46,6 +47,7 @@ void ClearTempFieldEventData(void)
     FlagClear(FLAG_SYS_ENC_UP_ITEM);
     FlagClear(FLAG_SYS_ENC_DOWN_ITEM);
     FlagClear(FLAG_SYS_USE_STRENGTH);
+    ClearFieldMoveFlags(); // qol_field_moves
     FlagClear(FLAG_SYS_CTRL_OBJ_DELETE);
     FlagClear(FLAG_NURSE_UNION_ROOM_REMINDER);
 }

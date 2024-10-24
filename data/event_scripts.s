@@ -1079,6 +1079,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+    .include "data/scripts/qol_field_move_scripts.inc" @ qol_field_moves 
 
 	.include "data/maps/CastbelleTown/scripts.inc"
 	.include "data/maps/CastbellePath/scripts.inc"

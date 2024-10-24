@@ -30,6 +30,7 @@ void PlayerSetAnimId(u8 movementActionId, u8 copyableMovement);
 bool8 IsPlayerCollidingWithFarawayIslandMew(u8 direction);
 void PlayerOnBikeCollideWithFarawayIslandMew(u8 direction);
 u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u8 direction, u8 metatileBehavior);
+bool8 TryPushBoulder(s16, s16, u8); //qol_field_moves
 u8 PlayerGetElevation(void);
 void SetPlayerAvatarTransitionFlags(u16 transitionFlags);
 void CancelPlayerForcedMovement(void);
@@ -64,5 +65,7 @@ bool32 IsPlayerSpinExitActive(void);
 void SetPlayerInvisibility(bool8 invisible);
 u8 player_get_pos_including_state_based_drift(s16 *x, s16 *y);
 void StartFishing(u8 rod);
+void PlayerAvatarTransition_Surfing(struct ObjectEvent *); // qol_field_moves
+void ForcePlayerToPerformMovementAction(void); // qol_field_moves
 
 #endif // GUARD_FIELD_PLAYER_AVATAR_H

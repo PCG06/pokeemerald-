@@ -35,6 +35,7 @@
 #include "pokemon_storage_system.h"
 #include "random.h"
 #include "overworld.h"
+#include "qol_field_moves.h"
 #include "quests.h"
 #include "rotating_tile_puzzle.h"
 #include "rtc.h"
@@ -2629,3 +2630,14 @@ bool8 ScrCmd_bufferdayofweekstring(struct ScriptContext *ctx)
         StringCopy(gStringVar3, gText_None);
     return FALSE;
 }
+
+// Start qol_field_moves
+bool8 ScrCmd_checkpartylearnknowsfieldmove(struct ScriptContext *ctx)
+{
+    u16 machine = ScriptReadHalfword(ctx);
+
+    PartyHasMonLearnsKnowsFieldMove(machine);
+
+    return FALSE;
+}
+// End qol_field_moves

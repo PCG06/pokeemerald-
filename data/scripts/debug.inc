@@ -139,7 +139,16 @@ Debug_EventScript_Text_DefensiveIVs:
 
 Debug_EventScript_Script_1::
 	lock
-	additem ITEM_FISHING_ROD
+	additem ITEM_CUT_TOOL, 1
+	additem ITEM_FLY_TOOL, 1
+	additem ITEM_SURF_TOOL, 1
+	additem ITEM_STRENGTH_TOOL, 1
+	additem ITEM_FLASH_TOOL, 1
+	additem ITEM_ROCKSMASH_TOOL, 1
+	additem ITEM_WATERFALL_TOOL, 1
+	additem ITEM_DIVE_TOOL, 1
+	additem ITEM_TELEPORT_TOOL, 1
+	additem ITEM_SWEETSCENT_TOOL, 1
 	release
 	end
 

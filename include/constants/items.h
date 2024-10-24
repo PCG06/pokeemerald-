@@ -998,10 +998,22 @@
 #define ITEM_TWICE_SPICED_RADISH 826
 #define ITEM_POKESHI_DOLL 827
 
+// QOL field moves items
+#define ITEM_CUT_TOOL 828
+#define ITEM_FLY_TOOL 829
+#define ITEM_SURF_TOOL 830
+#define ITEM_STRENGTH_TOOL 831
+#define ITEM_FLASH_TOOL 832
+#define ITEM_ROCKSMASH_TOOL 833
+#define ITEM_WATERFALL_TOOL 834
+#define ITEM_DIVE_TOOL 835
+#define ITEM_TELEPORT_TOOL 836
+#define ITEM_SWEETSCENT_TOOL 837
+
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 828
+#define ITEMS_COUNT 838
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
