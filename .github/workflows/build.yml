@@ -6,6 +6,9 @@ on:
       - master
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -39,6 +42,23 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y libgtk-3-dev
         # used for building the patch
 
+      - name: Install GitHub CLI and jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+          # Install GitHub CLI
+          type -p curl || sudo apt-get install -y curl
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /usr/share/keyrings/githubcli-archive-keyring.gpg >/dev/null
+          echo "deb [signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null
+          sudo apt-get update
+          sudo apt-get install -y gh
+
+      - name: Install agbcc
+        run: |
+          ./build.sh
+          ./install.sh ../
+        working-directory: agbcc
+
       - name: ROM
         env:
           MODERN: 1
@@ -51,34 +71,7 @@ jobs:
           TEST: 1
         run: |
           make -j${nproc} check
-
-      - name: Install agbcc
-        run: |
-          ./build.sh
-          ./install.sh ../
-        working-directory: agbcc
-
-      # Creating a patch file online
-      - name: Download pokeemerald
-        run: pwd && cd tools && git clone https://github.com/pret/pokeemerald
   
-      - name: Install agbcc to pokeemerald
-        run: pwd && cd tools && ls && cp -r agbcc pokeemerald/tools/ && cd pokeemerald && pwd
-  
-      - name: Build pokeemerald
-        run: pwd && cd tools && cd pokeemerald && pwd && ls && make -j${nproc}
-
-      - name: Build pokeemerald.bps
-        run: |
-          chmod -R 755 ./flips-linux
-          ./flips-linux --create tools/pokeemerald/pokeemerald.gba pokeemerald.gba pokeemerald.bps
-
-      - name: Upload patch
-        uses: actions/upload-artifact@v4
-        with:
-          name: patch_file
-          path: pokeemerald.bps
-
       - name: Send failure notification to Discord
         if: failure()   # Executes only if previous steps fail
         run: |
@@ -109,3 +102,60 @@ jobs:
                      }]
                    }" \
                    ${{ secrets.DISCORD_WEBHOOK }}
+
+      # Creating a patch file online
+      - name: Download pokeemerald
+        run: pwd && cd tools && git clone https://github.com/pret/pokeemerald
+  
+      - name: Install agbcc to pokeemerald
+        run: pwd && cd tools && ls && cp -r agbcc pokeemerald/tools/ && cd pokeemerald && pwd
+  
+      - name: Build pokeemerald
+        run: |
+          cd tools/pokeemerald
+          make -j$(nproc)
+
+      - name: Build pokeemerald.bps
+        run: |
+          chmod -R 755 ./flips-linux
+          ./flips-linux --create tools/pokeemerald/pokeemerald.gba pokeemerald.gba pokeemerald.bps
+
+      - name: Upload patch
+        uses: actions/upload-artifact@v4
+        with:
+          name: patch_file
+          path: pokeemerald.bps
+
+      - name: Get Artifact ID
+        id: artifact
+        run: |
+            artifact_id=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts | jq -r '.artifacts[0].id')
+            echo "artifact_id=$artifact_id" >> $GITHUB_ENV
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+      - name: Send patch creation notification to Discord
+        if: success()
+        run: |
+              curl -H "Content-Type: application/json" \
+              -X POST \
+              -d "{
+                \"embeds\": [{
+                  \"title\": \"Patch Created!\",
+                  \"description\": \"A new patch has been built.\",
+                  \"color\": 65280,
+                  \"fields\": [
+                    {
+                      \"name\": \"Download:\",
+                      \"value\": \"[Click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ env.artifact_id }})\",
+                      \"inline\": false
+                    },
+                    {
+                      \"name\": \"Commit:\",
+                      \"value\": \"[${{ github.event.head_commit.message }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }})\",
+                      \"inline\": false
+                    }
+                  ]
+                }]
+              }" \
+              ${{ secrets.DISCORD_WEBHOOK_2 }}
