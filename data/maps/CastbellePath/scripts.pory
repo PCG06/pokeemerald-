@@ -5,11 +5,13 @@ mapscripts CastbellePath_MapScripts {}
 script CastbellePath_EventScript_SignPost_North {
     msgbox("Castbelle Path\n"
             "{UP_ARROW} Sola City", MSGBOX_SIGN)
+    end
 }
 
 script CastbellePath_EventScript_SignPost_South {
     msgbox("Castbelle Path\n"
             "{DOWN_ARROW} Castbelle Town", MSGBOX_SIGN)
+    end
 }
 
 script CastbellePath_EventScript_TrainerTips {
@@ -21,6 +23,16 @@ script CastbellePath_EventScript_TrainerTips {
 	        "taken to a Pokémon Center.\p"
             "The closest Pokémon Center is in Sola\n"
             "City!", MSGBOX_SIGN)
+    end
+}
+
+script CastbellePath_EventScript_TriggerMeetBrian {
+    lock
+    msgbox("I should give Brian his Pokédex!", MSGBOX_AUTOCLOSE)
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+    applymoveplayer(Common_Movement_WalkDown)
+    release
+    end
 }
 
 script CastbellePath_EventScript_Brian {
@@ -105,12 +117,14 @@ script CastbellePath_EventScript_Boy {
     msgbox("I'm trying to catch a Pidgey here.\n"
             "Hmm…\l"
             "I can't seem to find one anywhere.", MSGBOX_NPC)
+    end
 }
 
 script CastbellePath_EventScript_Woman {
     msgbox("Oh, no! I'm not trapped here.\n"
             "Hmm…\l"
             "The ledges let us jump down from here.", MSGBOX_NPC)
+    end
 }
 
 script CastbellePath_EventScript_Girl {
@@ -120,24 +134,26 @@ script CastbellePath_EventScript_Girl {
             "grass patch!\p"
             "How?\n"
             "Use the ledges on the left side!", MSGBOX_NPC)
+    end
 }
 
 script CastbellePath_EventScript_OldLady {
     msgbox("Walking on this grass path heal my tired,\n"
             "old feet.", MSGBOX_NPC)
+    end
 }
 
 script CastbellePath_EventScript_YoungsterJoey {
     trainerbattle_single(TRAINER_JOEY, "I love wearing shorts!\nThey are comfy and easy to wear!", "You got no chill!")
     msgbox("You seem ill-tempered!\n"
             "Wearing shorts would fix that!", MSGBOX_NPC)
+    end
 }
 
-script CastbellePath_EventScript_TriggerMeetBrian {
-    lock
-    msgbox("I should give Brian his Pokédex!", MSGBOX_AUTOCLOSE)
-	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
-    applymoveplayer(Common_Movement_WalkDown)
-    release
+script CastbellePath_EventScript_LassAnnie {
+    trainerbattle_single(TRAINER_ANNIE, "Stop right there!\nWe battle first!", "Looks like I need more practice!")
+    msgbox("Fine, you earned the right to move on!\p"
+            "But don't get ahead of yourself,\n"
+            "this journey's just starting!", MSGBOX_NPC)
     end
 }

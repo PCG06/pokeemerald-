@@ -1,5 +1,6 @@
 const LOCALID_SAILOR = 5
 const LOCALID_SPHEAL = 11
+const LOCALID_TRIATHLETE = 13
 
 mapscripts SolaCity_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
@@ -10,38 +11,45 @@ mapscripts SolaCity_MapScripts {
 script SolaCity_EventScript_SolaCitySign {
     msgbox("Sola City\n"
             "“City of the blue sailors!”", MSGBOX_SIGN)
+    end
 }
 
 script SolaCity_EventScript_SeaMensHubSign {
     msgbox("Sea Men's Hub\n"
             "“Welcome the the sea!”", MSGBOX_SIGN)
+    end
 }
 
 script SolaCity_EventScript_HarborSign {
     msgbox("Sola Harbor\n"
             "“Cruising to the mainland!”", MSGBOX_SIGN)
+    end
 }
 
 script SolaCity_EventScript_InnsSign {
     msgbox("Sola Inns\n"
             "“Take a rest, forget the rest!”", MSGBOX_SIGN)
+    end
 }
 
 script SolaCity_EventScript_MarketSign {
     msgbox("Sola Market\n"
             "“Mainland goods for half the price!”", MSGBOX_SIGN)
+    end
 }
 
 script SolaCity_EventScript_Sailor1 {
     msgbox("Ahoy, matey!\n"
             "Welcome to Sola City!\p"
             "Enjoy the Sailors' City!", MSGBOX_NPC)
+    end
 }
 
 script SolaCity_EventScript_Sailor2 {
     msgbox("I need to get to work now.\n"
             "This places makes me forget how\l"
             "unforgiving the sea is!", MSGBOX_NPC)
+    end
 }
 
 script SolaCity_EventScript_Sailor3 {
@@ -50,6 +58,7 @@ script SolaCity_EventScript_Sailor3 {
             "everyone!\p"
             "Not just sailors, or sea men, but any\n"
             "traveller who wishes to take a rest.", MSGBOX_NPC)
+    end
 }
 
 script SolaCity_EventScript_Sailor4 {
@@ -58,6 +67,7 @@ script SolaCity_EventScript_Sailor4 {
             "able to see them everyday.\p"
             "Yeah!\n"
             "That's the dream!", MSGBOX_NPC)
+    end
 }
 
 script SolaCity_EventScript_Sailor5 {
@@ -121,6 +131,7 @@ script SolaCity_EventScript_Sailor5_QuestComplete {
             "Keep training like this and no doubt\n"
             "one day you might just become the very\l"
             "best!", MSGBOX_NPC)
+    end
 }
 
 script SolaCity_EventScript_TriathleteM {
@@ -158,9 +169,11 @@ script SolaCity_EventScript_TriathleteM_QuestCheck {
     msgbox("Huh?\n"
             "You didn't walk 10,000 steps, yet!\p"
             "You still have {STR_VAR_1} steps left!", MSGBOX_NPC)
+    end
 }
 
 script SolaCity_EventScript_TriathleteM_QuestReward {
+    emote(LOCALID_TRIATHLETE, EMOTE_EXCLAIM)
     msgbox("Yoo!\n"
             "You walked 10,000 steps!\p"
             "For that, I give you this.", MSGBOX_AUTOCLOSE)
@@ -178,6 +191,7 @@ script SolaCity_EventScript_TriathleteM_QuestComplete {
     buffernumberstring(STR_VAR_1, VAR_0x8000)
     msgbox("Keep walking, {PLAYER}!\n"
             "You have walked over {STR_VAR_1} steps!", MSGBOX_NPC)
+    end
 }
 
 script SolaCity_EventScript_LittleBoy {
@@ -200,11 +214,20 @@ script SolaCity_EventScript_Woman {
     end
 }
 
+script SolaCity_EventScript_Boy {
+    msgbox("The sea…\n"
+            "It's so pretty, no?\p"
+            "I wish I could just leap and swim…", MSGBOX_NPC)
+    faceoriginaldir
+    end
+}
+
 script SolaCity_EventScript_Spheal {
     emote(LOCALID_SPHEAL, EMOTE_QUESTION)
     moncryscript(SPECIES_SPHEAL, "Sphea?", CRY_MODE_FAINT)
     faceoriginaldir
     release
+    end
 }
 
 script SolaCity_EventScript_TMsSeller {

@@ -28,6 +28,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPine {
         msgbox("Hey, {PLAYER}!\p"
                 "I hope your adventure goes smoothly!", MSGBOX_NPC)
     }
+    end
 }
 
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon {
@@ -196,6 +197,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ReceivedMon {
     setflag(FLAG_SYS_POKEMON_GET)
     setvar(VAR_CASTBELLE_TOWN_STATE, 4)
     goto(CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian)
+    end
 }
 
 script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
@@ -318,6 +320,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     playbgm(MUS_HG_ELM_LAB, TRUE) // Back to original music
     delay(24)
     goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfPineGivesPokedex)
+    end
 }
 
 movement BrianRushToProf {
@@ -435,6 +438,7 @@ movement ProfPineWalkToPlayer_3  {
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger1 {
     applymoveplayer(PlayerToCenterx2_Left)
     goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
+    end
 }
 
 movement PlayerToCenterx2_Left {
@@ -444,6 +448,7 @@ movement PlayerToCenterx2_Left {
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger2 {
     applymoveplayer(PlayerToCenterx1_Left)
     goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
+    end
 }
 
 movement PlayerToCenterx1_Left {
@@ -453,6 +458,7 @@ movement PlayerToCenterx1_Left {
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger4 {
     applymoveplayer(PlayerToCenterx1_Right)
     goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
+    end
 }
 
 movement PlayerToCenterx1_Right {
@@ -462,6 +468,7 @@ movement PlayerToCenterx1_Right {
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger5 {
     applymoveplayer(PlayerToCenterx2_Right)
     goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
+    end
 }
 
 movement PlayerToCenterx2_Right {
@@ -471,6 +478,7 @@ movement PlayerToCenterx2_Right {
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger6 {
     applymoveplayer(PlayerToCenterx3_Right)
     goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
+    end
 }
 
 movement PlayerToCenterx3_Right {

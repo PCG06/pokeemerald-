@@ -21,6 +21,8 @@ script CastbelleTown_BerryShop_EventScript_Clerk {
                         "We sincerely apologize and hope such\n"
                         "disasters won't happen in the future.", MSGBOX_AUTOCLOSE)
             }
+            release
+            end
 
         // After meeting rival, before getting a Pokemon
         case 2:
@@ -47,6 +49,7 @@ script CastbelleTown_BerryShop_EventScript_Clerk {
                 end
             }
     }
+    end
 }
 
 mart BerryShop_Items {
@@ -92,4 +95,5 @@ script CastbelleTown_BerryShop_EventScript_Brian {
     msgbox("Umm, I'll take 3 Oran Berries and uhh,\n"
             "do you have Berry Juice?", MSGBOX_AUTOCLOSE)
     release
+    end
 }

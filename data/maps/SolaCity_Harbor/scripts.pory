@@ -5,10 +5,17 @@ const LOCALID_CAP_BRUCE = 4
 
 mapscripts SolaCity_Harbor_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
-        if (var(VAR_BRUCE_SHIP) == 2) {
+        if (var(VAR_BRUCE_SHIP) == 1 || var(VAR_BRUCE_SHIP) == 4 || var(VAR_BRUCE_SHIP) == 5) {
             clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE)
+            clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_BRUCE_SHIP)
         }
-
+        elif ((flag(FLAG_HIDE_SOLA_CITY_SEA_MENS_HUB_CAPTAIN_BRUCE) == false)) {
+            clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_BRUCE_SHIP)
+        }
+        else {
+            setflag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE)
+            setflag(FLAG_HIDE_SOLA_CITY_HARBOR_BRUCE_SHIP)
+        }
         gettime
         if (var(VAR_0x8002) == DAY_SATURDAY || var(VAR_0x8002) == DAY_SUNDAY) {
             clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_WEEKEND_TRAFFIC)
@@ -25,7 +32,7 @@ mapscripts SolaCity_Harbor_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_BRUCE_SHIP, 4 {
             lock
-            setvar(VAR_BRUCE_SHIP, 1)
+            setvar(VAR_BRUCE_SHIP, 5)
             speakername("Captain Bruce")
             msgbox("We reached Sola City!\p"
                     "Let me know when we're sailing to\n"
@@ -37,7 +44,7 @@ mapscripts SolaCity_Harbor_MapScripts {
 }
 
 script SolaCity_Harbor_EventScript_Sailor {
-    if (var(VAR_BRUCE_SHIP) == 2) {
+    if (flag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE) == true) {
         msgbox("I am sorry, but the ship won't set sail\n"
                 "anytime soon.\p"
                 "The captain's not here yet.", MSGBOX_NPC)
@@ -63,7 +70,7 @@ script SolaCity_Harbor_EventScript_CaptainBruce {
         clearflag(FLAG_HIDE_MISTFALL_CITY_HARBOR_CAPTAIN_BRUCE)
         applymoveplayer(Common_Movement_BoardShip)
         delay(30)
-        setvar(VAR_BRUCE_SHIP, 3)
+        setvar(VAR_BRUCE_SHIP, 2)
         gettime
         if (var(VAR_0x8002) == DAY_SATURDAY || var(VAR_0x8002) == DAY_SUNDAY) {
             applymove(LOCALID_SHIP, ShipExit_Weekend)

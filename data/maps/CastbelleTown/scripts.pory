@@ -38,27 +38,33 @@ script CastbelleTown_EventScript_TriggerTalkToMomBeforeLeaving {
 script CastbelleTown_EventScript_CastbelleTownSign {
     msgbox("Castbelle Town\n"
             "“New beginnings begin here!”", MSGBOX_SIGN)
+    end
 }
 
 script CastbelleTown_EventScript_PlayersHouseSign {
     msgbox("{PLAYER}'s House", MSGBOX_SIGN)
+    end
 }
 
 script CastbelleTown_EventScript_BrianHouseSign {
     msgbox("Brian's House", MSGBOX_SIGN)
+    end
 }
 
 script CastbelleTown_EventScript_ProfPinesLabSign {
     msgbox("Professor Pines's Laboratory", MSGBOX_SIGN)
+    end
 }
 
 script CastbelleTown_EventScript_ProofPinesHouseSign {
     msgbox("Professor Pines's House", MSGBOX_SIGN)
+    end
 }
 
 script CastbelleTown_EventScript_BerryShop {
     msgbox("Castbelle Berry Shop\n"
             "“Your one stop for all things berries!”", MSGBOX_SIGN)
+    end
 }
 
 script CastbelleTown_EventScript_Fatman {
@@ -88,4 +94,5 @@ script CastbelleTown_EventScript_Boy {
         msgbox("Woah!\n"
                 "That's a cool Pokémon, {PLAYER}!", MSGBOX_NPC)
     }
+    end
 }

@@ -196,31 +196,63 @@ Nature: Bashful
 - Charm
 - Chilling Water
 
-=== TRAINER_GRUNT_SEAFLOOR_CAVERN_1 ===
-Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
+=== TRAINER_JOEY ===
+Name: JOEY
+Class: Youngster
+Pic: Youngster
 Gender: Male
-Music: Aqua
+Music: Male
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability
 
-Poochyena
+Pidgey (M)
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 0 Atk / 0 Def / 12 SpA / 12 SpD / 12 Spe
+- Sonic Boom /*TODO: Add Sonic Boom to its learnset*/
+- Gust
+- Whirlwind
+- Sand Attack
 
-=== TRAINER_GRUNT_SEAFLOOR_CAVERN_2 ===
-Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
-Gender: Male
-Music: Aqua
+Sandshrew (M)
+Level: 0
+IVs: 0 HP / 12 Atk / 0 Def / 12 SpA / 0 SpD / 12 Spe
+- Tackle
+- Mud Slap
+- Sand Attack
+- Poison Sting
+
+=== TRAINER_ANNIE ===
+Name: Annie
+Class: Lass
+Pic: Lass
+Gender: Female
+Music: Female
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability
 
-Carvanha
+Gothita (F)
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 12 HP / 0 Atk / 0 Def / 12 SpA / 0 SpD / 12 Spe
+- Confusion
+- Play Nice
+- Mirror Coat
+- Swift
+
+Ponyta-Galar (F)
+Level: 0
+IVs: 12 HP / 0 Atk / 0 Def / 12 SpA / 0 SpD / 12 Spe
+- Tackle
+- Confusion
+- Fairy Wind
+- Attract
+
+Nidoran (F)
+Level: 0
+IVs: 12 HP / 12 Atk / 0 Def / 0 SpA / 0 SpD / 12 Spe
+- Poison Sting
+- Supersonic
+- Cut
+- Thief
 
 === TRAINER_GRUNT_SEAFLOOR_CAVERN_3 ===
 Name: GRUNT
@@ -242,7 +274,7 @@ Pic: Cooltrainer M
 Gender: Male
 Music: Cool
 Double Battle: No
-AI: Check Bad Move / Prefer Strongest Move / Smart Switching
+AI: Check Bad Move / Prefer Strongest Move  / Check Viability / Smart Switching
 
 Simisage (M) @ Loaded Dice
 Level: 0
@@ -295,7 +327,7 @@ Pic: Cooltrainer F
 Gender: Female
 Music: Cool
 Double Battle: No
-AI: Check Bad Move / Prefer Strongest Move / Smart Switching
+AI: Check Bad Move / Prefer Strongest Move  / Check Viability / Smart Switching
 
 Mawile @ Expert Belt
 Level: 0
@@ -349,7 +381,7 @@ Gender: Male
 Music: Male
 Items: Hyper Potion
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Try To Faint  / Check Viability / Check Viability
 
 Arrokuda @ Focus Sash
 Level: 0
@@ -6132,29 +6164,18 @@ Geodude
 Level: 0
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 
-=== TRAINER_JOEY ===
-Name: JOEY
-Class: Youngster
-Pic: Youngster
+=== TRAINER_GRUNT_SEAFLOOR_CAVERN_2 ===
+Name: GRUNT
+Class: Team Aqua
+Pic: Aqua Grunt M
 Gender: Male
-Music: Male
+Music: Aqua
 Double Battle: No
 AI: Check Bad Move
 
-Pidgey (F)
+Carvanha
 Level: 0
-IVs: 0 HP / 12 Atk / 0 Def / 12 SpA / 0 SpD / 0 Spe
-- Tackle
-- Gust
-- Sand Attack
-
-Sandshrew (M)
-Level: 0
-IVs: 0 HP / 12 Atk / 0 Def / 12 SpA / 0 SpD / 0 Spe
-- Tackle
-- Mud Slap
-- Sand Attack
-- Poison Sting
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BEN ===
 Name: BEN

@@ -85,4 +85,5 @@ script CastbelleTown_PlayerHouse_2F_EventScript_Notebook {
     else {
         msgbox(PlayersHouse_2F_Text_Notebook, MSGBOX_SIGN)
     }
+    end
 }

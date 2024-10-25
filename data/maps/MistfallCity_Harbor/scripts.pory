@@ -3,19 +3,22 @@ const LOCALID_SHIP = 3
 
 mapscripts MistfallCity_Harbor_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
-        if (var(VAR_BRUCE_SHIP) == 1) {
+        if (var(VAR_BRUCE_SHIP) == 2 || var(VAR_BRUCE_SHIP) == 3) {
             clearflag(FLAG_HIDE_MISTFALL_CITY_HARBOR_CAPTAIN_BRUCE)
+        }
+        else {
+            setflag(FLAG_HIDE_MISTFALL_CITY_HARBOR_CAPTAIN_BRUCE)
         }
     }
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
-        VAR_BRUCE_SHIP, 3 {
+        VAR_BRUCE_SHIP, 2 {
             turnplayer(DIR_NORTH)
         }
     ]
     MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_BRUCE_SHIP, 3 {
+        VAR_BRUCE_SHIP, 2 {
             lock
-            setvar(VAR_BRUCE_SHIP, 1)
+            setvar(VAR_BRUCE_SHIP, 3)
             speakername("Captain Bruce")
             msgbox("We reached Mistfall City!\p"
                     "Let me know when we're sailing back to\n"
@@ -27,7 +30,7 @@ mapscripts MistfallCity_Harbor_MapScripts {
 }
 
 script MistfallCity_Harbor_EventScript_Sailor {
-    if (var(VAR_BRUCE_SHIP) == 1) {
+    if (flag(FLAG_HIDE_MISTFALL_CITY_HARBOR_CAPTAIN_BRUCE) == true) {
         msgbox("I am sorry, but the ship won't set sail\n"
                 "anytime soon.\p"
                 "The captain's not here yet.", MSGBOX_NPC)

@@ -9,8 +9,8 @@
 #define TRAINER_RAYAN                         3
 #define TRAINER_SHAUN                         4
 #define TRAINER_BRUCE                         5
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_1       6
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_2       7
+#define TRAINER_JOEY                          6
+#define TRAINER_ANNIE                         7
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_3       8
 #define TRAINER_LARRY                         9
 #define TRAINER_LAURA                        10
@@ -326,7 +326,7 @@
 #define TRAINER_BILLY                       319
 #define TRAINER_JOSH                        320
 #define TRAINER_TOMMY                       321
-#define TRAINER_JOEY                        322
+#define TRAINER_GRUNT_SEAFLOOR_CAVERN_2     322
 #define TRAINER_BEN                         323
 #define TRAINER_QUINCY                      324
 #define TRAINER_KATELYNN                    325
