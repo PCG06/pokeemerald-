@@ -1749,10 +1749,10 @@ void GenerateAndPrintQuestDetails(s32 questId)
 }
 void GenerateQuestLocation(s32 questId)
 {
-
-	if (questId == QUEST_1_MAIN_STORY)
-	{	
+	if (!IsSubquestMode() && questId == QUEST_1_MAIN_STORY)
+	{
 	    StringCopy(gStringVar2, GetQuestLocation_MainStory());
+        DebugPrintf("Location: %S\n", gStringVar2);
 		
 	}
 	else
@@ -1952,7 +1952,7 @@ void DetermineSpriteType(s32 questId)
 	u16 spriteId;
 	u8 spriteType;
 
-	if (questId == QUEST_1_MAIN_STORY)
+	if (!IsSubquestMode() && questId == QUEST_1_MAIN_STORY)
 	{
 		QuestMenu_CreateSprite(GetSpriteType_MainStory(), sStateDataPtr->spriteIconSlot, OBJECT);
 	}
