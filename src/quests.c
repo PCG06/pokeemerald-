@@ -1783,6 +1783,8 @@ static const u8 *GetQuestLocation_MainStory(void)
 		    return gText_MainQuestMap_4;
 		case 5:
 		    return gText_MainQuestMap_5;
+		case 6:
+			return gText_MainQuestMap_6;
 	}
 
 }
@@ -1859,6 +1861,8 @@ static const u8 *GetQuestDesc_MainStory(void)
             return gText_MainQuestDesc_4;
 		case 5:
 		    return gText_MainQuestDesc_5;
+		case 6:
+			return gText_MainQuestDesc_6;
 		default:
 		    return gText_SideQuestDesc_1;
     }
@@ -2066,6 +2070,8 @@ static u8 GetSpriteType_MainStory(void)
 		    return OBJ_EVENT_GFX_WALLY;
 		case 5:
 		    return OBJ_EVENT_GFX_SAILOR;
+		case 6:
+		    return OBJ_EVENT_GFX_DRAKE;
 		default:
 		    return OBJ_EVENT_ID_PLAYER;
 	} 

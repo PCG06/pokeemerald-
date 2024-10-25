@@ -170,23 +170,13 @@ Nature: Impish
 Cetoddle (F) @ Chesto Berry
 Level: 0
 IVs: 0 HP / 0 Atk / 0 Def / 12 SpA / 0 SpD / 0 Spe
-Nature: Timid
+Nature: Impish
 - Icy Wind
 - Growl
 - Rest
 - Yawn
 
-Finizen (M)
-Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 15 SpA / 0 SpD / 10 Spe
-EVs: 60 Spe
-Nature: Bashful
-- Aqua Jet
-- Tickle
-- Charm
-- Chilling Water
-
-Carvanha (M) @ Rindo Berry
+Carvanha (M) @ Roseli Berry
 Level: 0
 IVs: 0 HP / 18 Atk / 0 Def / 0 SpA / 0 SpD / 12 Spe
 EVs: 60 Atk / 60 Spe
@@ -195,6 +185,16 @@ Nature: Bashful
 - Leer
 - Poison Fang
 - Thief
+
+Finizen (M) @ Berry Juice
+Level: 0
+IVs: 0 HP / 0 Atk / 0 Def / 15 SpA / 0 SpD / 10 Spe
+EVs: 60 Spe
+Nature: Bashful
+- Aqua Jet
+- Tickle
+- Charm
+- Chilling Water
 
 === TRAINER_GRUNT_SEAFLOOR_CAVERN_1 ===
 Name: GRUNT

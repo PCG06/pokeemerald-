@@ -8,14 +8,14 @@ mapscripts MistfallCity_Harbor_MapScripts {
         }
     }
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
-        VAR_BRUCE_SHIP, 1 {
+        VAR_BRUCE_SHIP, 3 {
             turnplayer(DIR_NORTH)
         }
     ]
     MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_BRUCE_SHIP, 1 {
+        VAR_BRUCE_SHIP, 3 {
             lock
-            setvar(VAR_BRUCE_SHIP, 0)
+            setvar(VAR_BRUCE_SHIP, 1)
             speakername("Captain Bruce")
             msgbox("We reached Mistfall City!\p"
                     "Let me know when we're sailing back to\n"
@@ -53,7 +53,7 @@ script MistfallCity_Harbor_EventScript_CaptainBruce {
         clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE)
         applymoveplayer(Common_Movement_BoardShip)
         delay(30)
-        setvar(VAR_BRUCE_SHIP, 2)
+        setvar(VAR_BRUCE_SHIP, 4)
         applymove(LOCALID_SHIP, ShipExit_Regular)
         warpsilent(MAP_SOLA_CITY_HARBOR, 8, 11)
         end

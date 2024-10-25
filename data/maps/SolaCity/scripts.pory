@@ -103,6 +103,10 @@ script SolaCity_EventScript_Sailor5_QuestReward {
             "Now for your reward.", MSGBOX_AUTOCLOSE)
     giveitem(ITEM_CUT_TOOL)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    msgbox("The Cut Tool is used to cut down small\n"
+            "trees that block your way.\p"
+            "Keep in mind that it cannot slice\n"
+            "through rocks or boulders.", MSGBOX_DEFAULT)
     msgbox("You got skills, kid!\p"
             "Keep training like this and no doubt\n"
             "one day you might just become the very\l"

@@ -70,9 +70,8 @@ script CastbelleTown_ProfessorPinesLab_EventScript_GrassStarter {
         msgbox("Ah, the Grass-type\n"
                 "Chikorita, I see!\p"
                 "Chikorita is quite easy to raise!\p"
-                "It's the perfect Pokémon for beginners.", MSGBOX_AUTOCLOSE)
-        speakername("Prof. Pine")
-        msgbox("So, do you choose the\n"
+                "It's the perfect Pokémon for beginners.\p"
+                "So, do you choose the\n"
                 "Grass-type Chikorita as your first\l"
                 "Pokémon?", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
@@ -109,9 +108,8 @@ script CastbelleTown_ProfessorPinesLab_EventScript_FireStarter {
                 "Litten, I see!\p"
                 "Litten can be a challenge to raise!\p"
                 "Bonding with your Litten would be\n"
-                "your ultimate test as a Trainer! ", MSGBOX_AUTOCLOSE)
-        speakername("Prof. Pine")
-        msgbox("So, do you choose the\n"
+                "your ultimate test as a Trainer!\p"
+                "So, do you choose the\n"
                 "Fire-type Litten as your first\l"
                 "Pokémon?", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
@@ -149,9 +147,8 @@ script CastbelleTown_ProfessorPinesLab_EventScript_WaterStarter {
                 "Piplup is the most balanced of the\n"
                 "three!\p"
                 "You need to take care of this one,\n"
-                "though! They are clumsy.", MSGBOX_AUTOCLOSE)
-        speakername("Prof. Pine")
-        msgbox("So, do you choose the\n"
+                "though! They are clumsy.\p"
+                "So, do you choose the\n"
                 "Water-type Piplup as your first\l"
                 "Pokémon?", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {

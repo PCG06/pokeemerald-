@@ -12,6 +12,11 @@ mapscripts SolaCity_SeaMensHub_MapScripts {
             }
         }
     ]
+    MAP_SCRIPT_ON_TRANSITION {
+        if (var(VAR_BRUCE_SHIP) == 1) {
+            setvar(VAR_BRUCE_SHIP, 0)
+        }
+    }
 }
 
 script SolaCity_SeaMensHub_CaptainBruce {
@@ -23,10 +28,15 @@ script SolaCity_SeaMensHub_CaptainBruce {
         defeated(TRAINER_RAYAN) &&
         defeated(TRAINER_SHAUN)) {
         trainerbattle_single(TRAINER_BRUCE, "Huh?\nYou beat all four of them?\pAlright, show me what you got!", "Hahaha!\nNo surprise you beat them all!", SolaCity_SeaMensHub_CaptainBruceDefeated)
-        if (var(VAR_TEMP_1 == 0)) {    
+        if (var(VAR_BRUCE_SHIP) == 1) {
+            speakername("Captain Bruce")
+            msgbox("We'll set soon in a moment.\n"
+                    "Come talk to me in a minute.", MSGBOX_NPC)
+        }
+        else {    
             speakername("Captain Bruce")
             msgbox("You want to sail to the\n"
-                     "mainland, now?", MSGBOX_YESNO)
+                     "Mistfall, now?", MSGBOX_YESNO)
             if (var(VAR_RESULT) == YES) {   
                 speakername("Captain Bruce")
                 msgbox("Alright meet me at the\n"
@@ -44,9 +54,9 @@ script SolaCity_SeaMensHub_CaptainBruce {
                 clearflag(FLAG_HIDE_SOLA_CITY_HARBOR_CAPTAIN_BRUCE)
             }
             else {   
-            speakername("Captain Bruce")
-            msgbox("Arr!\n"
-                    "Talk to me when you wanna go!", MSGBOX_NPC)
+                speakername("Captain Bruce")
+                msgbox("Arr!\n"
+                        "Talk to me when you wanna go!", MSGBOX_NPC)
             }
         }
     }
@@ -65,23 +75,24 @@ script SolaCity_SeaMensHub_CaptainBruceDefeated {
     msgbox("Hahaha!\p"
             "You got skill, young one.\n"
             "What's your name?", MSGBOX_AUTOCLOSE)
-    msgbox("… … … … … … … …\p", MSGBOX_AUTOCLOSE) 
+    msgbox("… … … … … … … …", MSGBOX_AUTOCLOSE) 
     speakername("Captain Bruce")
     msgbox("{PLAYER}!\n"
             "Since you beat me,\l"
             "I'll sail you to the mainland and back,\l"
             "whenever you want!", MSGBOX_AUTOCLOSE)
-    subquestmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_2_BEAT_THE_SEA_MEN, SUB_QUEST_2_CAPTAIN_BRUCE)
-    questmenu(QUEST_MENU_SET_REWARD, QUEST_2_BEAT_THE_SEA_MEN)
-    setvar(VAR_TEMP_1, 1) // Just to avoid a few workarounds with movements going over follower
     if(islevelcapactive) {
         setvar(B_LEVEL_CAP_VARIABLE, 24)
     }
+    setvar(VAR_MAIN_STORY, 6)
+    setvar(VAR_BRUCE_SHIP, 1) // Just to avoid a few workarounds with movements going over follower
+    subquestmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_2_BEAT_THE_SEA_MEN, SUB_QUEST_2_CAPTAIN_BRUCE)
+    questmenu(QUEST_MENU_SET_REWARD, QUEST_2_BEAT_THE_SEA_MEN)
     return
 }
 
 movement CapBruceLeaveToHarbor_1 {
-    walk_right
+    walk_right * 2
     walk_down * 7
 }
 

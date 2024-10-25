@@ -250,7 +250,7 @@
 #line 171
             .lvl = 0,
 #line 173
-            .nature = NATURE_TIMID,
+            .nature = NATURE_IMPISH,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 174
@@ -262,13 +262,15 @@
             },
             {
 #line 179
-            .species = SPECIES_FINIZEN,
+            .species = SPECIES_CARVANHA,
 #line 179
             .gender = TRAINER_MON_MALE,
+#line 179
+            .heldItem = ITEM_ROSELI_BERRY,
 #line 182
-            .ev = TRAINER_PARTY_EVS(0, 0, 0, 60, 0, 0),
+            .ev = TRAINER_PARTY_EVS(0, 60, 0, 60, 0, 0),
 #line 181
-            .iv = TRAINER_PARTY_IVS(0, 0, 0, 10, 15, 0),
+            .iv = TRAINER_PARTY_IVS(0, 18, 0, 12, 0, 0),
 #line 180
             .lvl = 0,
 #line 183
@@ -277,22 +279,22 @@
             .moves = {
 #line 184
                 MOVE_AQUA_JET,
-                MOVE_TICKLE,
-                MOVE_CHARM,
-                MOVE_CHILLING_WATER,
+                MOVE_LEER,
+                MOVE_POISON_FANG,
+                MOVE_THIEF,
             },
             },
             {
 #line 189
-            .species = SPECIES_CARVANHA,
+            .species = SPECIES_FINIZEN,
 #line 189
             .gender = TRAINER_MON_MALE,
 #line 189
-            .heldItem = ITEM_RINDO_BERRY,
+            .heldItem = ITEM_BERRY_JUICE,
 #line 192
-            .ev = TRAINER_PARTY_EVS(0, 60, 0, 60, 0, 0),
+            .ev = TRAINER_PARTY_EVS(0, 0, 0, 60, 0, 0),
 #line 191
-            .iv = TRAINER_PARTY_IVS(0, 18, 0, 12, 0, 0),
+            .iv = TRAINER_PARTY_IVS(0, 0, 0, 10, 15, 0),
 #line 190
             .lvl = 0,
 #line 193
@@ -301,9 +303,9 @@
             .moves = {
 #line 194
                 MOVE_AQUA_JET,
-                MOVE_LEER,
-                MOVE_POISON_FANG,
-                MOVE_THIEF,
+                MOVE_TICKLE,
+                MOVE_CHARM,
+                MOVE_CHILLING_WATER,
             },
             },
         },

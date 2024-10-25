@@ -1958,23 +1958,22 @@ const u8 gText_MainQuestDesc_1[] = _("Go downstairs and talk to Mom!");
 const u8 gText_MainQuestDesc_2[] = _("Go and meet Brian at his residence!");
 const u8 gText_MainQuestDesc_3[] = _("Go and meet Prof. Pine to claim your\nstarter!");
 const u8 gText_MainQuestDesc_4[] = _("Deliver the Pokédex to Brian.\nHe must be around Castbelle Path.");
-const u8 gText_MainQuestDesc_5[] = _("Go to Sola Port and catch the next\nferry to the mainland!");
-const u8 gText_MainQuestDesc_6[] = _(" ");
+const u8 gText_MainQuestDesc_5[] = _("Explore Sola City and talk to people!");
+const u8 gText_MainQuestDesc_6[] = _("Go to Sola Harbor and talk to Captain\nBruce");
 const u8 gText_MainQuestDesc_7[] = _(" ");
 const u8 gText_MainQuestDesc_8[] = _(" ");
 const u8 gText_MainQuestDesc_9[] = _(" ");
 const u8 gText_MainQuestDesc_10[] = _(" ");
 
+//map
 const u8 gText_MainQuestMap_1[] = _("Castbelle Town");
 const u8 gText_MainQuestMap_4[] = _("Castbelle Path");
 const u8 gText_MainQuestMap_5[] = _("Sola City");
-const u8 gText_MainQuestMap_6[] = _(" ");
+const u8 gText_MainQuestMap_6[] = _("Sola Harbor");
 const u8 gText_MainQuestMap_7[] = _(" ");
 const u8 gText_MainQuestMap_8[] = _(" ");
 const u8 gText_MainQuestMap_9[] = _(" ");
 const u8 gText_MainQuestMap_10[] = _(" ");
-
-//map
 const u8 gText_SideQuestMap1[] = _("Entire region");
 const u8 gText_SideQuestMap2[] = _("Sola City");
 const u8 gText_SideQuestMap3[] = _("Sola City");
