@@ -137,25 +137,25 @@ jobs:
       - name: Send patch creation notification to Discord
         if: success()
         run: |
-          curl -H "Content-Type: application/json" \
-          -X POST \
-          -d "{
-            \"embeds\": [{
-              \"title\": \"Patch Created!\",
-              \"description\": \"A new patch has been built.\",
-              \"color\": 65280,
-              \"fields\": [
-                {
-                  \"name\": \"Download:\",
-                  \"value\": \"[Click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ env.artifact_id }})\",
-                  \"inline\": false
-                },
-                {
-                  \"name\": \"Commit:\",
-                  \"value\": \"[${{ github.event.head_commit.message }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }})\",
-                  \"inline\": false
-                }
-              ]
-            }]
-          }" \
-          ${{ secrets.DISCORD_WEBHOOK_2 }}
+              curl -H "Content-Type: application/json" \
+              -X POST \
+              -d '{
+                "embeds": [{
+                  "title": "Patch Created!",
+                  "description": "A new patch has been built.",
+                  "color": 65280,
+                  "fields": [
+                    {
+                      "name": "Download:",
+                      "value": "[Click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ env.artifact_id }})",
+                      "inline": false
+                    },
+                    {
+                      "name": "Commit:",
+                      "value": "[${{ github.event.head_commit.message }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }})",
+                      "inline": false
+                    }
+                  ]
+                }]
+              }' \
+              ${{ secrets.DISCORD_WEBHOOK_2 }}
