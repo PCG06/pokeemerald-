@@ -28,7 +28,7 @@ LavaridgeTown_Gym_B1F_EventScript_SetJeffTempVar::
 	goto_if_defeated TRAINER_JEFF, LavaridgeTown_Gym_B1F_EventScript_SetEliTempVar
 	setvar VAR_TEMP_9, 1
 LavaridgeTown_Gym_B1F_EventScript_SetEliTempVar::
-	goto_if_defeated TRAINER_ELI, LavaridgeTown_Gym_B1F_EventScript_EndSetTrainerTempVars
+	goto_if_defeated TRAINER_ELI_1, LavaridgeTown_Gym_B1F_EventScript_EndSetTrainerTempVars
 	setvar VAR_TEMP_A, 1
 LavaridgeTown_Gym_B1F_EventScript_EndSetTrainerTempVars::
 	return
@@ -43,7 +43,7 @@ LavaridgeTown_Gym_B1F_EventScript_CheckBuryJeff::
 	goto_if_defeated TRAINER_JEFF, LavaridgeTown_Gym_B1F_EventScript_CheckBuryEli
 	setobjectmovementtype LOCALID_JEFF, MOVEMENT_TYPE_BURIED
 LavaridgeTown_Gym_B1F_EventScript_CheckBuryEli::
-	goto_if_defeated TRAINER_ELI, LavaridgeTown_Gym_B1F_EventScript_EndCheckBuryTrainers
+	goto_if_defeated TRAINER_ELI_1, LavaridgeTown_Gym_B1F_EventScript_EndCheckBuryTrainers
 	setobjectmovementtype LOCALID_ELI, MOVEMENT_TYPE_BURIED
 LavaridgeTown_Gym_B1F_EventScript_EndCheckBuryTrainers::
 	return

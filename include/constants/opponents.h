@@ -11,14 +11,13 @@
 #define TRAINER_BRUCE                         5
 #define TRAINER_JOEY                          6
 #define TRAINER_ANNIE                         7
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_3       8
+#define TRAINER_MITCH                         8
 #define TRAINER_LARRY                         9
 #define TRAINER_LAURA                        10
 #define TRAINER_TIM                          11
-// done til here ^
-#define TRAINER_ALBERTO                      12
+#define TRAINER_LOLA                         12
 #define TRAINER_ED                           13
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_4      14
+#define TRAINER_ELI                          14
 #define TRAINER_DECLAN                       15
 #define TRAINER_GRUNT_RUSTURF_TUNNEL         16
 #define TRAINER_GRUNT_WEATHER_INST_1         17
@@ -505,7 +504,7 @@
 #define TRAINER_ERNEST_3                    498
 #define TRAINER_ERNEST_4                    499
 #define TRAINER_ERNEST_5                    500
-#define TRAINER_ELI                         501
+#define TRAINER_ELI_1                       501
 #define TRAINER_ANNIKA                      502
 #define TRAINER_JAZMYN                      503
 #define TRAINER_JONAS                       504

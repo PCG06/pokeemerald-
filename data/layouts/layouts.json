@@ -4547,7 +4547,7 @@
       "width": 54,
       "height": 28,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fortree",
+      "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/WindshearRiver_1/border.bin",
       "blockdata_filepath": "data/layouts/WindshearRiver_1/map.bin"
     },
@@ -4557,7 +4557,7 @@
       "width": 34,
       "height": 48,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fortree",
+      "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/WindshearRiver_2/border.bin",
       "blockdata_filepath": "data/layouts/WindshearRiver_2/map.bin"
     },

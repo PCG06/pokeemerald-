@@ -254,18 +254,32 @@ IVs: 12 HP / 12 Atk / 0 Def / 0 SpA / 0 SpD / 12 Spe
 - Cut
 - Thief
 
-=== TRAINER_GRUNT_SEAFLOOR_CAVERN_3 ===
-Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
+=== TRAINER_MITCH ===
+Name: Mitch
+Class: Swimmer M
+Pic: Swimmer M
 Gender: Male
-Music: Aqua
+Music: Swimmer
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability
 
-Zubat
+Wingull
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 24 Atk / 0 Def / 12 SpA / 0 SpD / 24 Spe
+EVs: 60 Atk / 60 SpA / 100 Spe
+- Water Gun
+- Quick Attack
+- Supersonic
+- Wing Attack
+
+Shellder
+Level: 0
+IVs: 0 HP / 24 Atk / 0 Def / 0 SpA / 0 SpD / 24 Spe
+EVs: 100 Atk / 100 Spe
+- Twineedle
+- Rock Blast
+- Withdraw
+- Icicle Spear
 
 === TRAINER_LARRY ===
 Name: Larry
@@ -416,52 +430,95 @@ Nature: Modest
 - Icy Wind
 - Swift
 
-=== TRAINER_ALBERTO ===
-Name: ALBERTO
-Class: Bird Keeper
-Pic: Bird Keeper
-Gender: Male
-Music: Cool
+=== TRAINER_LOLA ===
+Name: Lola
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Music: Swimmer
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability
 
-Pelipper
+Basculin Red Striped
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 24 Atk / 0 Def / 0 SpA / 0 SpD / 24 Spe
+Nature: Adamant
+- Aqua Jet
+- Bite
+- Headbutt
+- Rage
 
-Xatu
+Tentacool
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 12 Atk / 0 Def / 24 SpA / 12 SpD / 24 Spe
+Nature: Hasty
+- Bubble Beam
+- Acid
+- Knock Off
+- Giga Drain
 
 === TRAINER_ED ===
 Name: ED
-Class: Collector
-Pic: Collector
+Class: Swimmer M
+Pic: Swimmer M
 Gender: Male
-Music: Suspicious
+Music: Swimmer
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability
 
-Zangoose
+Staryu @ Mystic Water
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 12 Atk / 0 Def / 24 SpA / 12 SpD / 24 Spe
+Nature: Hasty
+- Rapid Spin
+- Bubble Beam
+- Icy Wind
+- Water Pulse
 
-Seviper
+Bibarel
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 24 Atk / 0 Def / 0 SpA / 0 SpD / 24 Spe
+Nature: Adamant
+- Aqua Jet
+- Defense Curl
+- Rollout
+- Fury Swipes
 
-=== TRAINER_GRUNT_SEAFLOOR_CAVERN_4 ===
-Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt F
-Gender: Female
-Music: Aqua
+Goldeen
+Level: 0
+IVs: 0 HP / 24 Atk / 0 Def / 0 SpA / 0 SpD / 31 Spe
+Nature: Adamant
+- Peck
+- Supersonic
+- Horn Attack
+- Thunder Wave
+
+=== TRAINER_ELI ===
+Name: Eli
+Class: Tuber M
+Pic: Tuber M
+Gender: Male
+Music: Girl
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability
 
 Carvanha
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 0 HP / 24 Atk / 0 Def / 0 SpA / 0 SpD / 12 Spe
+Nature: Adamant
+- Aqua Jet
+- Poison Fang
+- Bite
+- Scary Face
+
+Poliwag
+Level: 0
+IVs: 0 HP / 0 Atk / 0 Def / 28 SpA / 0 SpD / 12 Spe
+Nature: Timid
+- Water Gun
+- Mud Shot
+- Hypnosis
+- Rain Dance
 
 === TRAINER_DECLAN ===
 Name: DECLAN
@@ -9306,7 +9363,7 @@ Tentacruel
 Level: 0
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_ELI ===
+=== TRAINER_ELI_1 ===
 Name: ELI
 Class: Hiker
 Pic: Hiker

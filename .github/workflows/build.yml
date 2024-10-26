@@ -141,8 +141,7 @@ jobs:
               -X POST \
               -d '{
                 "embeds": [{
-                  "title": "Patch Created!",
-                  "description": "A new patch has been built.",
+                  "title": "Patch created!",
                   "color": 65280,
                   "fields": [
                     {

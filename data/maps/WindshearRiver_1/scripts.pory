@@ -1,1 +1,33 @@
 mapscripts WindshearRiver_1_MapScripts {}
+
+script WindshearRiver_1_EventScript_SwimmerMitch {
+    trainerbattle_single(TRAINER_MITCH, "Hey, there!\nThe ocean is my playground!\lLet's see if you can keep up with my waves!", "I guess I need to hit the training area\nor maybe just the beach.")
+    msgbox("That was something!\n"
+            "I'll definitely work on my skills.", MSGBOX_NPC)
+    end
+}
+
+script WindshearRiver_1_EventScript_SwimmerLola {
+    trainerbattle_single(TRAINER_LOLA, "The calm waters are also very deep!", "Hey, that was not metaphorical!")
+    msgbox("With proper diving equipment, you can\n"
+            "actually dive in this river.\p"
+            "I tried diving myself,\n"
+            "but I can't hold my breath too long,\l"
+            "nor can I afford that costly diving\l"
+            "equipment.", MSGBOX_NPC)
+    end
+}
+
+script WindshearRiver_1_EventScript_SwimmerEd {
+    trainerbattle_single(TRAINER_ED, "You've got guts challenging a swimmer!\nLet's dive right in!", "Huh… didn't think I'd lose that one.")
+    msgbox("Whoa… you're tougher than the waves!\n"
+            "Nice job out there!", MSGBOX_NPC)
+    end
+}
+
+script WindshearRiver_1_EventScript_TuberEli {
+    trainerbattle_single(TRAINER_ELI, "Water scares me, but my Pokémon guard\nme!", "They couldn't guard me from this\ndefeat…")
+    msgbox("When I'm with my Pokémon,\n"
+            "I'm never alone!", MSGBOX_NPC)
+    end
+}
