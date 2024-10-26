@@ -165,7 +165,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (TryRunOnFrameMapScript() == TRUE)
         return TRUE;
 
-    if (input->pressedBButton && TrySetupDiveEmergeScript() == TRUE)
+    if (input->pressedAButton && TrySetupDiveEmergeScript() == TRUE)
         return TRUE;
     if (input->tookStep)
     {
