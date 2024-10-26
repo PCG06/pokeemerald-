@@ -207,6 +207,7 @@ void NewGameInitData(void)
     ResetContestLinkResults();
     QuestMenu_ResetMenuSaveData();
     gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+    gSaveBlock2Ptr->autoRun = FALSE;
 }
 
 static void ResetMiniGamesRecords(void)

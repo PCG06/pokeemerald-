@@ -667,6 +667,10 @@ extern const u8 EventScript_VsSeekerChargingDone[];
 extern const u8 Common_Movement_FollowerSafeStart[];
 extern const u8 Common_Movement_FollowerSafeEnd[];
 
+// Auto run
+extern const u8 EventScript_DisableAutoRun[];
+extern const u8 EventScript_EnableAutoRun[];
+
 // Castbelle Town
 extern const u8 CastbelleTown_BerryShop_EventScript_Clerk[];
 
