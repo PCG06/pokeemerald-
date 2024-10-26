@@ -1,11 +1,13 @@
 #include "global.h"
 #include "bike.h"
 #include "event_object_movement.h"
+#include "event_scripts.h"
 #include "field_player_avatar.h"
 #include "fieldmap.h"
 #include "field_specials.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
+#include "script.h"
 #include "sound.h"
 #include "constants/map_types.h"
 #include "constants/songs.h"
@@ -138,12 +140,14 @@ void MovePlayerOnBike(u8 direction, u16 newKeys, u16 heldKeys)
             gPlayerAvatar.flags -= PLAYER_AVATAR_FLAG_MACH_BIKE;
             gPlayerAvatar.flags += PLAYER_AVATAR_FLAG_ACRO_BIKE;
             SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE);
+            ScriptContext_SetupScript(EventScript_EnableAcroBike);
         }
         else
         {
             gPlayerAvatar.flags -= PLAYER_AVATAR_FLAG_ACRO_BIKE;
             gPlayerAvatar.flags += PLAYER_AVATAR_FLAG_MACH_BIKE;
             SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_MACH_BIKE);
+            ScriptContext_SetupScript(EventScript_EnableMachBike);
         }
         PlaySE(SE_BIKE_HOP);
     }

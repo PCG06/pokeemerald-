@@ -3,9 +3,9 @@ EventScript_CutTree::
 	lockall
 @ Start qol_field_moves
 	//checkpartymove MOVE_CUT
-    checkitem ITEM_CUT_TOOL, 1
-    goto_if_eq VAR_RESULT, TRUE, EventScript_UseCutTool
-    checkpartylearnknowsfieldmove ITEM_HM_CUT
+	checkitem ITEM_CUT_TOOL, 1
+	goto_if_eq VAR_RESULT, TRUE, EventScript_UseCutTool
+	checkpartylearnknowsfieldmove ITEM_HM_CUT
 	goto_if_unset FLAG_BADGE01_GET, EventScript_CheckTreeCantCut
 @ End qol_field_moves
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CheckTreeCantCut
@@ -72,9 +72,9 @@ EventScript_RockSmash::
 	lockall
 @ Start qol_field_moves
 	//checkpartymove MOVE_ROCK_SMASH
-    checkitem ITEM_ROCKSMASH_TOOL,1
-    goto_if_eq VAR_RESULT, TRUE, EventScript_UseRockSmashTool
-    checkpartylearnknowsfieldmove ITEM_HM_ROCK_SMASH
+	checkitem ITEM_ROCKSMASH_TOOL,1
+	goto_if_eq VAR_RESULT, TRUE, EventScript_UseRockSmashTool
+	checkpartylearnknowsfieldmove ITEM_HM_ROCK_SMASH
 	goto_if_unset FLAG_BADGE03_GET, EventScript_CantSmashRock
 @ End qol_field_moves
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSmashRock
@@ -245,9 +245,9 @@ EventScript_StrengthBoulder::
 	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_CheckActivatedBoulder
 @ Start qol_field_moves
 	//checkpartymove MOVE_STRENGTH
-    checkitem ITEM_STRENGTH_TOOL,1
-    goto_if_eq VAR_RESULT, TRUE, EventScript_UseStrengthTool
-    checkpartylearnknowsfieldmove ITEM_HM_STRENGTH
+	checkitem ITEM_STRENGTH_TOOL,1
+	goto_if_eq VAR_RESULT, TRUE, EventScript_UseStrengthTool
+	checkpartylearnknowsfieldmove ITEM_HM_STRENGTH
 @ End qol_field_moves
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantStrength
 	setfieldeffectargument 0, VAR_RESULT
@@ -263,7 +263,7 @@ EventScript_UseStrength::
 	lockall
 	dofieldeffect FLDEFF_USE_STRENGTH
 	waitstate
-    call_if_set FLAG_SYS_USE_STRENGTH, EventScript_PushBoulderScript @ qol_field_moves
+	call_if_set FLAG_SYS_USE_STRENGTH, EventScript_PushBoulderScript @ qol_field_moves
 	goto EventScript_ActivateStrength
 	end
 
@@ -279,7 +279,7 @@ EventScript_CantStrength::
 	end
 
 EventScript_CheckActivatedBoulder::
-    buffermovename STR_VAR_2, MOVE_STRENGTH @ qol_field_moves
+	buffermovename STR_VAR_2, MOVE_STRENGTH @ qol_field_moves
 	msgbox Text_StrengthActivated, MSGBOX_DEFAULT
 	releaseall
 	end
@@ -311,9 +311,9 @@ EventScript_UseWaterfall::
 	lockall
 @ Start qol_field_moves
 	//checkpartymove MOVE_WATERFALL
-    checkitem ITEM_WATERFALL_TOOL, 1
-    goto_if_eq VAR_RESULT, TRUE, EventScript_UseWaterfallTool
-    checkpartylearnknowsfieldmove ITEM_HM_WATERFALL
+	checkitem ITEM_WATERFALL_TOOL, 1
+	goto_if_eq VAR_RESULT, TRUE, EventScript_UseWaterfallTool
+	checkpartylearnknowsfieldmove ITEM_HM_WATERFALL
 @ End qol_field_moves
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantWaterfall
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
@@ -323,7 +323,7 @@ EventScript_UseWaterfall::
 	msgbox Text_MonUsedWaterfall, MSGBOX_DEFAULT
 @ Start qol_field_moves
 EventScript_UseWaterfallMon::
-    setflag FLAG_SYS_USE_WATERFALL
+	setflag FLAG_SYS_USE_WATERFALL
 @ End qol_field_moves
 	dofieldeffect FLDEFF_USE_WATERFALL
 	goto EventScript_EndWaterfall
@@ -353,7 +353,7 @@ EventScript_UseDive::
 	lockall
 @ Start qol_field_moves
 	//checkpartymove MOVE_DIVE
-    call EventScript_CheckDiveToolAndParty
+	call EventScript_CheckDiveToolAndParty
 @ End qol_field_moves
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantDive
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
@@ -379,7 +379,7 @@ EventScript_UseDiveUnderwater::
 	lockall
 @ Start qol_field_moves
 	//checkpartymove MOVE_DIVE
-    call EventScript_CheckDiveToolAndParty
+	call EventScript_CheckDiveToolAndParty
 @ End qol_field_moves
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSurface
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
@@ -443,17 +443,40 @@ EventScript_FailSweetScent::
 	end
 
 Text_FailSweetScent:
-	.string "Looks like there's nothing here…$"
-    
-    
+	.string "Looks like there's nothing here…$"	
+
 EventScript_DisableAutoRun::
-    msgbox AutoRunDisabled MSGBOX_SIGN
-    end
-AutoRunDisabled:
-    .string "Auto run {COLOR RED}disabled{COLOR DARK_GRAY}.$"
-    
+	msgbox Text_AutoRunDisabled, MSGBOX_SIGN
+	end
+
+Text_AutoRunDisabled:
+	.string "Auto run {COLOR RED}disabled{COLOR DARK_GRAY}.$"
+
 EventScript_EnableAutoRun::
-    msgbox AutoRunEnabled MSGBOX_SIGN
-    end
-AutoRunEnabled:
-    .string "Auto run {COLOR GREEN}enabled{COLOR DARK_GRAY}.$"
+	msgbox Text_AutoRunEnabled, MSGBOX_SIGN
+	end
+
+Text_AutoRunEnabled:
+	.string "Auto run {COLOR GREEN}enabled{COLOR DARK_GRAY}.$"
+
+EventScript_EnableAcroBike::
+	lock
+	setflag FLAG_HIDE_MAP_NAME_POPUP
+	msgbox Text_AcroBikeEnabled, MSGBOX_AUTOCLOSE
+	clearflag FLAG_HIDE_MAP_NAME_POPUP
+	release
+	end
+
+Text_AcroBikeEnabled:
+	.string "Acro mode {COLOR GREEN}enabled{COLOR DARK_GRAY}.$"
+
+EventScript_EnableMachBike::
+	lock
+	setflag FLAG_HIDE_MAP_NAME_POPUP
+	msgbox Text_MachBikeEnabled, MSGBOX_AUTOCLOSE
+	clearflag FLAG_HIDE_MAP_NAME_POPUP
+	release
+	end
+
+Text_MachBikeEnabled:
+	.string "Mach mode {COLOR GREEN}enabled{COLOR DARK_GRAY}.$"
