@@ -920,7 +920,7 @@ F_TRAINER_FEMALE |
     [TRAINER_ED] =
     {
 #line 461
-        .trainerName = _("ED"),
+        .trainerName = _("Ed"),
 #line 462
         .trainerClass = TRAINER_CLASS_SWIMMER_M,
 #line 463

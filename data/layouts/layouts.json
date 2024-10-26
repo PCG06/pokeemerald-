@@ -4700,6 +4700,16 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/MistfallCity_Harbor/border.bin",
       "blockdata_filepath": "data/layouts/MistfallCity_Harbor/map.bin"
+    },
+    {
+      "id": "LAYOUT_SILENT_DEPTHS",
+      "name": "SilentDepths_Layout",
+      "width": 34,
+      "height": 48,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/SilentDepths/border.bin",
+      "blockdata_filepath": "data/layouts/SilentDepths/map.bin"
     }
   ]
 }

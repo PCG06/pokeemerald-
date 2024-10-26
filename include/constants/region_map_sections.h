@@ -220,7 +220,8 @@
 #define MAPSEC_SOLA_CITY                    0xD7
 #define MAPSEC_WINDSHEAR_RIVER              0xD8
 #define MAPSEC_MISTFALL_CITY                0xD9
-#define MAPSEC_NONE                         0xDA
+#define MAPSEC_SILENT_DEPTHS                0xDA
+#define MAPSEC_NONE                         0xDB
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

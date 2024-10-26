@@ -22,13 +22,24 @@
       "map": "MAP_WINDSHEAR_RIVER_1",
       "offset": 20,
       "direction": "left"
+    },
+    {
+      "map": "MAP_SILENT_DEPTHS",
+      "offset": 0,
+      "direction": "dive"
     }
   ],
   "object_events": [
 
   ],
   "warp_events": [
-
+    {
+      "x": 21,
+      "y": 41,
+      "elevation": 0,
+      "dest_map": "MAP_WINDSHEAR_RIVER_2",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

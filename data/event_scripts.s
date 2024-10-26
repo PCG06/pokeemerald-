@@ -1112,3 +1112,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/MistfallCity_PokemonCenter/scripts.inc"
 
 	.include "data/maps/MistfallCity_Harbor/scripts.inc"
+
+	.include "data/maps/SilentDepths/scripts.inc"

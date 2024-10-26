@@ -1714,17 +1714,17 @@
     {
       "map_section": "MAPSEC_CASTBELLE_TOWN",
       "name": "Castbelle Town",
-      "x": 4,
-      "y": 11,
-      "width": 1,
+      "x": 18,
+      "y": 3,
+      "width": 2,
       "height": 1
     },
     {
       "map_section": "MAPSEC_CASTBELLE_PATH",
       "name": "Castbelle Path",
-      "x": 4,
-      "y": 10,
-      "width": 1,
+      "x": 18,
+      "y": 3,
+      "width": 2,
       "height": 1
     },
     {
@@ -1746,6 +1746,14 @@
     {
       "map_section": "MAPSEC_MISTFALL_CITY",
       "name": "Mistfall City",
+      "x": 18,
+      "y": 3,
+      "width": 2,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SILENT_DEPTHS",
+      "name": "Silent Depths",
       "x": 18,
       "y": 3,
       "width": 2,
