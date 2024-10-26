@@ -359,6 +359,8 @@ u32 FldEff_Shadow(void)
         gSprites[spriteId].sYOffset = (graphicsInfo->height >> 1) - gShadowVerticalOffsets[graphicsInfo->shadowSize];
         #endif
     }
+    SetGpuReg(REG_OFFSET_DISPCNT, 0x1F40);
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0,12)); // Right value from 0 - 16, where 0 is full black and 16 is no shadow
     return 0;
 }
 
