@@ -65,21 +65,21 @@ script CastbelleTown_ProfessorPinesLab_EventScript_GrassStarter {
         msgbox("It's Prof. Pine's starter Pokémon!", MSGBOX_AUTOCLOSE)
     }
     elif (var(VAR_CASTBELLE_TOWN_STATE) == 3) {
-        playmoncry(SPECIES_CHIKORITA, CRY_MODE_NORMAL)
-        showmonpic(SPECIES_CHIKORITA, 10, 3)
+        playmoncry(SPECIES_CHESPIN, CRY_MODE_NORMAL)
+        showmonpic(SPECIES_CHESPIN, 10, 3)
         speakername("Prof. Pine")
         msgbox("Ah, the Grass-type\n"
-                "Chikorita, I see!\p"
-                "Chikorita is quite easy to raise!\p"
+                "Chespin, I see!\p"
+                "Chespin is quite easy to raise!\p"
                 "It's the perfect Pokémon for beginners.\p"
                 "So, do you choose the\n"
-                "Grass-type Chikorita as your first\l"
+                "Grass-type Chespin as your first\l"
                 "Pokémon?", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
-	        bufferspeciesname(STR_VAR_1, SPECIES_CHIKORITA)
-            givemon(SPECIES_CHIKORITA, 5, ITEM_ORAN_BERRY)
+	        bufferspeciesname(STR_VAR_1, SPECIES_CHESPIN)
+            givemon(SPECIES_CHESPIN, 5, ITEM_ORAN_BERRY)
             setvar(VAR_STARTER_MON, STARTER_GRASS)
-            setvar(VAR_TEMP_0, SPECIES_CHIKORITA)
+            setvar(VAR_TEMP_0, SPECIES_CHESPIN)
             goto(CastbelleTown_ProfessorPinesLab_EventScript_ReceivedMon)
         }
         else {
@@ -269,8 +269,8 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     else {
         applymove(LOCALID_BRIAN, BrianWalkToGrassStarter)
         speakername("Brian")
-        msgbox("I choose you, Chikorita!", MSGBOX_AUTOCLOSE)
-        playmoncry(SPECIES_CHIKORITA, CRY_MODE_NORMAL)
+        msgbox("I choose you, Chespin!", MSGBOX_AUTOCLOSE)
+        playmoncry(SPECIES_CHESPIN, CRY_MODE_NORMAL)
 	    delay(40)
 	    waitmoncry
         removeobject(GRASS_BALL)

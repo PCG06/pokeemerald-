@@ -24226,9 +24226,9 @@ F_TRAINER_FEMALE |
         {
             {
 #line 9734
-            .species = SPECIES_CHIKORITA,
+            .species = SPECIES_CHESPIN,
 #line 9734
-            .gender = TRAINER_MON_FEMALE,
+            .gender = TRAINER_MON_MALE,
 #line 9734
             .heldItem = ITEM_ORAN_BERRY,
 #line 9736
@@ -24283,9 +24283,9 @@ F_TRAINER_FEMALE |
             },
             {
 #line 9756
-            .species = SPECIES_CHIKORITA,
+            .species = SPECIES_CHESPIN,
 #line 9756
-            .gender = TRAINER_MON_FEMALE,
+            .gender = TRAINER_MON_MALE,
 #line 9756
             .heldItem = ITEM_ORAN_BERRY,
 #line 9758
