@@ -458,25 +458,3 @@ EventScript_EnableAutoRun::
 
 Text_AutoRunEnabled:
 	.string "Auto run {COLOR GREEN}enabled{COLOR DARK_GRAY}.$"
-
-EventScript_EnableAcroBike::
-	lock
-	setflag FLAG_HIDE_MAP_NAME_POPUP
-	msgbox Text_AcroBikeEnabled, MSGBOX_AUTOCLOSE
-	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	release
-	end
-
-Text_AcroBikeEnabled:
-	.string "Acro mode {COLOR GREEN}enabled{COLOR DARK_GRAY}.$"
-
-EventScript_EnableMachBike::
-	lock
-	setflag FLAG_HIDE_MAP_NAME_POPUP
-	msgbox Text_MachBikeEnabled, MSGBOX_AUTOCLOSE
-	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	release
-	end
-
-Text_MachBikeEnabled:
-	.string "Mach mode {COLOR GREEN}enabled{COLOR DARK_GRAY}.$"

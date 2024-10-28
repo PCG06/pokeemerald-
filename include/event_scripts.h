@@ -671,10 +671,6 @@ extern const u8 Common_Movement_FollowerSafeEnd[];
 extern const u8 EventScript_DisableAutoRun[];
 extern const u8 EventScript_EnableAutoRun[];
 
-// DPPt bike
-extern const u8 EventScript_EnableAcroBike[];
-extern const u8 EventScript_EnableMachBike[];
-
 // Castbelle Town
 extern const u8 CastbelleTown_BerryShop_EventScript_Clerk[];
 

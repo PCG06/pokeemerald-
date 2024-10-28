@@ -133,21 +133,19 @@ void MovePlayerOnBike(u8 direction, u16 newKeys, u16 heldKeys)
     else
         MovePlayerOnAcroBike(direction, newKeys, heldKeys);
 
-    if (heldKeys & R_BUTTON)
+    if (heldKeys & L_BUTTON)
     {
         if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
         {
             gPlayerAvatar.flags -= PLAYER_AVATAR_FLAG_MACH_BIKE;
             gPlayerAvatar.flags += PLAYER_AVATAR_FLAG_ACRO_BIKE;
             SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE);
-            ScriptContext_SetupScript(EventScript_EnableAcroBike);
         }
         else
         {
             gPlayerAvatar.flags -= PLAYER_AVATAR_FLAG_ACRO_BIKE;
             gPlayerAvatar.flags += PLAYER_AVATAR_FLAG_MACH_BIKE;
             SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_MACH_BIKE);
-            ScriptContext_SetupScript(EventScript_EnableMachBike);
         }
         PlaySE(SE_BIKE_HOP);
     }
