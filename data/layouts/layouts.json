@@ -4547,7 +4547,7 @@
       "width": 54,
       "height": 28,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/WindshearRiver_1/border.bin",
       "blockdata_filepath": "data/layouts/WindshearRiver_1/map.bin"
     },
