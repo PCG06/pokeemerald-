@@ -7855,7 +7855,21 @@ static void CB2_ChooseMonForMoveRelearner(void)
     if (gSpecialVar_0x8004 >= PARTY_SIZE)
         gSpecialVar_0x8004 = PARTY_NOTHING_CHOSEN;
     else
-        gSpecialVar_0x8005 = GetNumberOfRelearnableMoves(&gPlayerParty[gSpecialVar_0x8004]);
+    switch(VarGet(VAR_PARTY_MENU_TUTOR_STATE))
+    {
+        case MOVE_TUTOR_EGG_MOVES:
+            gSpecialVar_0x8005 = GetNumberOfEggMoves(&gPlayerParty[gSpecialVar_0x8004]);
+            break;
+        case MOVE_TUTOR_TM_MOVES:
+            gSpecialVar_0x8005 = GetNumberOfTMMoves(&gPlayerParty[gSpecialVar_0x8004]);
+            break;
+        case MOVE_TUTOR_TUTOR_MOVES:
+            gSpecialVar_0x8005 = GetNumberOfTutorMoves(&gPlayerParty[gSpecialVar_0x8004]);
+            break;
+        default:
+            gSpecialVar_0x8005 = GetNumberOfRelearnableMoves(&gPlayerParty[gSpecialVar_0x8004]);
+            break;
+    }
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
 }
