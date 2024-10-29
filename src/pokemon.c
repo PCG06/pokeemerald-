@@ -93,6 +93,7 @@ EWRAM_DATA static u8 sTriedEvolving = 0;
 EWRAM_DATA u16 gFollowerSteps = 0;
 
 #include "data/moves_info.h"
+#include "data/tutor_moves.h"
 #include "data/abilities.h"
 
 // Used in an unreferenced function in RS.
@@ -5541,6 +5542,15 @@ u8 CanLearnTeachableMove(u16 species, u16 move)
         {
             if (sUniversalMoves[i] == move)
             {
+                for (j = 0; j < ARRAY_COUNT(gTutorMoves); j++)
+                {
+                    if (sUniversalMoves[i] == gTutorMoves[j].move)
+                    {
+                        if (!(FlagGet(gTutorMoves[j].flag)))
+                            return FALSE;
+                    }
+                }
+
                 if (!gSpeciesInfo[species].tmIlliterate)
                 {
                     if (move == MOVE_TERA_BLAST && GET_BASE_SPECIES_ID(species) == SPECIES_TERAPAGOS)
@@ -5565,6 +5575,18 @@ u8 CanLearnTeachableMove(u16 species, u16 move)
                 }
             }
         }
+        for (i = 0; i < ARRAY_COUNT(gTutorMoves); i++)
+        {
+            if (gTutorMoves[i].move == move)
+            {
+                for (j = 0; teachableLearnset[j] != MOVE_UNAVAILABLE; j++)
+                {
+                    if (teachableLearnset[j] == move)
+                        return TRUE;
+                    return FALSE;
+                }
+            }
+        }
         for (i = 0; teachableLearnset[i] != MOVE_UNAVAILABLE; i++)
         {
             if (teachableLearnset[i] == move)
@@ -5573,8 +5595,6 @@ u8 CanLearnTeachableMove(u16 species, u16 move)
         return FALSE;
     }
 }
-
-
 
 static bool8 IsMoveTM(u16 move)
 {
@@ -5692,6 +5712,9 @@ u8 GetTMMoves(struct Pokemon *mon, u16 *moves)
     u32 i, j, k;
     u32 totalMoveCount = 0;
 
+    if (species == SPECIES_MEW)
+        return 0;
+
     for (i = ITEM_TM01; i < ITEM_HM08; i++)
     {
         j = ItemIdToBattleMoveId(i);
@@ -5727,10 +5750,12 @@ u8 GetTutorMoves(struct Pokemon *mon, u16 *moves)
     u32 i, j;
     bool8 isTM;
 
+    if (species == SPECIES_MEW)
+        return 0;
+
     for (i = 0; i < MAX_MON_MOVES; i++)
         learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
 
-    // Iterate over all possible moves and check if they're tutor moves (teachable but not a TM)
     for (i = 1; i < MOVES_COUNT; i++)
     {
         if (CanLearnTeachableMove(species, i))
@@ -5739,7 +5764,6 @@ u8 GetTutorMoves(struct Pokemon *mon, u16 *moves)
 
             if (!isTM)
             {
-                // If move is learnt, don't add it on the list
                 bool8 alreadyLearned = FALSE;
 
                 for (j = 0; j < MAX_MON_MOVES; j++)
@@ -5765,13 +5789,15 @@ u8 GetTutorMoves(struct Pokemon *mon, u16 *moves)
                     }
 
                     if (!moveAlreadyInList)
+                    {
                         moves[numMoves++] = i;
+                    }
+
                 }
             }
         }
     }
 
-    // Sort the moves in ascending order because that's how they are listed in teachable learnsets.
     SortMovesAlphabetically(moves, numMoves);
 
     return numMoves;
@@ -5860,6 +5886,9 @@ u8 GetNumberOfTMMoves(struct Pokemon *mon)
     u16 moves[MAX_RELEARNER_MOVES];
     u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
 
+    if (species == SPECIES_MEW)
+        return 0;
+
     if (species == SPECIES_EGG)
         return 0;
 
@@ -5870,6 +5899,9 @@ u8 GetNumberOfTutorMoves(struct Pokemon *mon)
 {
     u16 moves[MAX_RELEARNER_MOVES];
     u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
+
+    if (species == SPECIES_MEW)
+        return 0;
 
     if (species == SPECIES_EGG)
         return 0;

@@ -17,26 +17,25 @@ def parse_mon_name(name):
 tm_moves = []
 tutor_moves = []
 
-# scan incs
-incs_to_check =  glob.glob('./data/scripts/*.inc') # all .incs in the script folder
-incs_to_check += glob.glob('./data/maps/*/scripts.inc') # all map scripts
-
-if len(incs_to_check) == 0: # disabled if no jsons present
-    quit()
-
-for file in incs_to_check:
-    with open(file, 'r') as f2:
-        raw = f2.read()
-    if 'special ChooseMonForMoveTutor' in raw:
-        for x in re.findall(r'setvar VAR_0x8005, (MOVE_.*)', raw):
-            if not x in tutor_moves:
-                tutor_moves.append(x)
-
 # scan TMs and HMs
 with open("./include/constants/tms_hms.h", 'r') as file:
     for x in re.findall(r'F\((.*)\)', file.read()):
         if not 'MOVE_' + x in tm_moves:
             tm_moves.append('MOVE_' + x)
+
+# New section to extract tutor moves from sTutorMoves
+def extract_tutor_moves_from_c(file_path):
+    tutor_moves = []
+    with open(file_path, 'r') as f:
+        raw = f.read()
+        matches = re.findall(r'\{(MOVE_[A-Z_]+),.*?\}', raw)
+        for match in matches:
+            if match not in tutor_moves:
+                tutor_moves.append(match)
+    return tutor_moves
+
+# Now call the function to get tutor moves
+tutor_moves = extract_tutor_moves_from_c('./src/data/tutor_moves.h')
 
 # look up universal moves to exclude them
 universal_moves = []
@@ -176,7 +175,7 @@ longest_move_name += 2 # + 2 for a hyphen and a space
 
 universal_title = "Near-universal moves found in sUniversalMoves:"
 tmhm_title = "TM/HM moves found in \"include/constants/tms_hms.h\":"
-tutor_title = "Tutor moves found in map scripts:"
+tutor_title = "Tutor moves found in \"src/data/tutor_moves.h\":"
 
 if longest_move_name < len(universal_title):
     longest_move_name = len(universal_title)

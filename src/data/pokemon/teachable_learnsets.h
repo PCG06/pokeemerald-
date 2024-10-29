@@ -63,7 +63,7 @@
 // - MOVE_WATERFALL                                    //
 // - MOVE_DIVE                                         //
 // *************************************************** //
-// Tutor moves found in map scripts:                   //
+// Tutor moves found in "src/data/tutor_moves.h":      //
 // - MOVE_BODY_SLAM                                    //
 // - MOVE_COUNTER                                      //
 // - MOVE_DEFENSE_CURL                                 //
@@ -92,6 +92,7 @@
 // - MOVE_SWAGGER                                      //
 // - MOVE_SWIFT                                        //
 // - MOVE_SWORDS_DANCE                                 //
+// - MOVE_TERA_BLAST                                   //
 // - MOVE_THUNDER_PUNCH                                //
 // - MOVE_THUNDER_WAVE                                 //
 // *************************************************** //
