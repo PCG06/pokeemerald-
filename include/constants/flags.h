@@ -1516,9 +1516,9 @@
 #define FLAG_SYS_SKY_BATTLE                         (SYSTEM_FLAGS + 0x8A)
 #define FLAG_FORCE_NO_SHINY                         (SYSTEM_FLAGS + 0x8B)
 #define FLAG_FORCE_POKERUS                          (SYSTEM_FLAGS + 0x8C)
-#define FLAG_UNUSED_0x8ED                           (SYSTEM_FLAGS + 0x8D) // Unused Flag
-#define FLAG_UNUSED_0x8EE                           (SYSTEM_FLAGS + 0x8E) // Unused Flag
-#define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F) // Unused Flag
+#define FLAG_SYS_RECEIVED_TM_MOVES                  (SYSTEM_FLAGS + 0x8D)
+#define FLAG_SYS_RECEIVED_EGG_MOVES                 (SYSTEM_FLAGS + 0x8E)
+#define FLAG_SYS_RECEIVED_TUTOR_MOVES               (SYSTEM_FLAGS + 0x8F)
 #define FLAG_UNUSED_0x8F0                           (SYSTEM_FLAGS + 0x90) // Unused Flag
 #define FLAG_UNUSED_0x8F1                           (SYSTEM_FLAGS + 0x91) // Unused Flag
 #define FLAG_UNUSED_0x8F2                           (SYSTEM_FLAGS + 0x92) // Unused Flag

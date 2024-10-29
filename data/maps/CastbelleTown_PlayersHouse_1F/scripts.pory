@@ -62,6 +62,7 @@ script CastbelleTown_PlayerHouse_1F_EventScript_AfterGettingPartnerPokemon {
             "adventure, you might need these!", MSGBOX_AUTOCLOSE)
     giveitem(ITEM_REPEL, 5)
     giveitem(ITEM_TM_RETURN)
+    setflag(FLAG_SYS_RECEIVED_TM_MOVES)
     speakername("Mom")
     msgbox("These items will help you out in please\n"
             "adventure!\p"
