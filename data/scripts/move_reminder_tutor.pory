@@ -1,0 +1,125 @@
+script Common_EventScript_MoveTutor {
+	lock
+	faceplayer
+	message("Hi, I'm the Move Tutor.\n"
+				"Would you like to learn new moves?")
+	waitmessage
+	goto(Common_EventScript_MoveTutorDynMultiChoice)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+	end
+}
+
+script Common_EventScript_MoveTutorDynMultiChoice {
+	showmoneybox(18, 0)
+	dynmultichoice(0, 0, FALSE, 5, 0, DYN_MULTICHOICE_CB_NONE, "Level Up Moves{CLEAR_TO 0x50}¥2000", "Egg Moves{CLEAR_TO 0x50}¥5000", "TM Moves{CLEAR_TO 0x50}¥200", "Tutor Moves{CLEAR_TO 0x50}¥5000", "See ya!")
+	closemessage
+    hidemoneybox
+	switch (var(VAR_RESULT))
+	{
+		case 0:
+			if (checkmoney(2000)) {
+				setvar(VAR_TEMP_1, 2000)
+				setvar(VAR_PARTY_MENU_TUTOR_STATE, MOVE_TUTOR_LEVEL_UP_MOVES)
+				call(TeachMove)
+			}
+			else {
+				call(Move_Tutor_CannotAfford)
+			}
+
+		case 1:
+			if (checkmoney(5000)) {
+				setvar(VAR_TEMP_1, 5000)
+				setvar(VAR_PARTY_MENU_TUTOR_STATE, MOVE_TUTOR_EGG_MOVES)
+				call(TeachMove)
+			}
+			else {
+				call(Move_Tutor_CannotAfford)
+			}
+
+		case 2:
+			if (checkmoney(200)) {
+				setvar(VAR_TEMP_1, 200)
+				setvar(VAR_PARTY_MENU_TUTOR_STATE, MOVE_TUTOR_TM_MOVES)
+				call(TeachMove)
+			}
+			else {
+				call(Move_Tutor_CannotAfford)
+			}
+
+		case 3:
+			if (checkmoney(5000)) {
+				setvar(VAR_TEMP_1, 5000)
+				setvar(VAR_PARTY_MENU_TUTOR_STATE, MOVE_TUTOR_TUTOR_MOVES)
+				call(TeachMove)
+			}
+			else {
+				call(Move_Tutor_CannotAfford)
+			}
+
+		case 4:
+			msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+			release
+			end
+	}
+	release
+	end
+}
+
+script MoveTutor_AnythingElse {
+	message("Is there anything else I may do for you?")
+	waitmessage
+	goto(Common_EventScript_MoveTutorDynMultiChoice)
+}
+
+script Move_Tutor_CannotAfford {
+	msgbox("I'm sorry…\n"
+			"You cannot afford that.", MSGBOX_AUTOCLOSE)
+    if (checkmoney(200)) {
+	    call(MoveTutor_AnythingElse)
+    }
+    else {
+        release
+        end
+    }
+}
+
+script TeachMove {
+	msgbox(FallarborTown_MoveRelearnersHouse_Text_TutorWhichMon, MSGBOX_DEFAULT)
+	special(ChooseMonForMoveRelearner)
+	waitstate
+	if (var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) {
+		call(MoveTutor_AnythingElse)
+	}
+	special(IsSelectedMonEgg)
+	if (var(VAR_RESULT) == YES) {
+		msgbox("I'm sorry…\n"
+				"But an Egg can't learn moves.", MSGBOX_AUTOCLOSE)
+		call(MoveTutor_AnythingElse)
+		
+	}
+	if (var(VAR_0x8005) == NO) {
+		msgbox("Sorry…\p"
+				"It doesn't appear as if I have any move\n"
+				"I can teach that Pokémon.", MSGBOX_AUTOCLOSE)
+		call(MoveTutor_AnythingElse)
+	}
+	msgbox("Which move should I teach?", MSGBOX_DEFAULT)
+	special(TeachMoveRelearnerMove)
+	waitstate
+	if (var(VAR_0x8004) == NO) {
+		goto(MoveTutor_AnythingElse)
+	}
+    else {
+	    showmoneybox(18, 0)
+	    removemoney(VAR_TEMP_1)
+	    updatemoneybox
+	    playse(SE_SHOP)
+	    msgbox("Thank you for using our services.\n"
+	    		"Please come again!", MSGBOX_DEFAULT)
+	    hidemoneybox
+    }
+	release
+	end
+}

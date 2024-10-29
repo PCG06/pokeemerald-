@@ -1110,10 +1110,41 @@ static void DisplayPartyPokemonDataForContest(u8 slot)
 
 static void DisplayPartyPokemonDataForRelearner(u8 slot)
 {
-    if (GetNumberOfRelearnableMoves(&gPlayerParty[slot]) == 0)
-        DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
-    else
-        DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+    switch(VarGet(VAR_PARTY_MENU_TUTOR_STATE))
+    {
+        case MOVE_TUTOR_EGG_MOVES:
+        {
+            if (GetNumberOfEggMoves(&gPlayerParty[slot]) == 0)
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+            else
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+        }
+        break;
+        case MOVE_TUTOR_TM_MOVES:
+        {
+            if (GetNumberOfTMMoves(&gPlayerParty[slot]) == 0)
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+            else
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+        }
+        break;
+        case MOVE_TUTOR_TUTOR_MOVES:
+        {
+            if (GetNumberOfTutorMoves(&gPlayerParty[slot]) == 0)
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+            else
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+        }
+        break;
+        default:
+        {
+            if (GetNumberOfRelearnableMoves(&gPlayerParty[slot]) == 0)
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+            else
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+        }
+        break;
+    }
 }
 
 static void DisplayPartyPokemonDataForWirelessMinigame(u8 slot)

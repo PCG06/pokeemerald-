@@ -1919,7 +1919,7 @@ bool8 ScrCmd_addmoney(struct ScriptContext *ctx)
 
 bool8 ScrCmd_removemoney(struct ScriptContext *ctx)
 {
-    u32 amount = ScriptReadWord(ctx);
+    u32 amount = VarGet(ScriptReadWord(ctx));
     u8 ignore = ScriptReadByte(ctx);
 
     if (!ignore)

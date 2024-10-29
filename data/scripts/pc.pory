@@ -71,7 +71,7 @@ script EventScript_AccessPokemonBoxLink {
 	playse(SE_PC_ON)
 	message("{PKMN} Box Link opened.\n")
 	waitse
-	call (EventScript_AccessPokemonBoxLinkDynMultiChoice)
+	call(EventScript_AccessPokemonBoxLinkDynMultiChoice)
 	goto(LogOff_PC)
 	end
 }

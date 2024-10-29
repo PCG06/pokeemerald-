@@ -196,6 +196,11 @@
 #define DAYS_PER_WEEK 7
 #define DAY_CURRENT DAYS_PER_WEEK
 
+#define MOVE_TUTOR_LEVEL_UP_MOVES 0
+#define MOVE_TUTOR_EGG_MOVES      1
+#define MOVE_TUTOR_TM_MOVES       2
+#define MOVE_TUTOR_TUTOR_MOVES    3
+
 #if TESTING
 #include "config/test.h"
 #endif
