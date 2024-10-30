@@ -138,12 +138,6 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
-	setflag FLAG_MOVE_TUTOR_BODY_SLAM
-	setflag FLAG_MOVE_TUTOR_COUNTER
-	setflag FLAG_MOVE_TUTOR_DEFENSE_CURL
-	setflag FLAG_MOVE_TUTOR_DOUBLE_EDGE
-	setflag FLAG_MOVE_TUTOR_DREAM_EATER
-	setflag FLAG_MOVE_TUTOR_DYNAMIC_PUNCH
 	setflag FLAG_MOVE_TUTOR_TERA_BLAST
 	release
 	end

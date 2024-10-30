@@ -146,6 +146,7 @@
 #define MENU_STATE_PRINT_TEXT_THEN_FANFARE 31
 #define MENU_STATE_WAIT_FOR_FANFARE 32
 #define MENU_STATE_WAIT_FOR_A_BUTTON 33
+#define MENU_STATE_WAIT_FOR_TEXT 34
 
 // The different versions of hearts are selected using animation
 // commands.
@@ -470,6 +471,7 @@ static void CB2_MoveRelearnerMain(void)
 
 static void PrintMessageWithPlaceholders(const u8 *src)
 {
+    DebugPrintf("PrintMessageWithPlaceholders is working!");
     StringExpandPlaceholders(gStringVar4, src);
     MoveRelearnerPrintMessage(gStringVar4);
 }
@@ -577,16 +579,16 @@ static void DoMoveRelearnerMain(void)
         }
         break;
     case MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT:
-        if (VarGet(VAR_PARTY_MENU_TUTOR_STATE) == MOVE_TUTOR_TUTOR_MOVES)
+        if (VarGet(VAR_TEMP_1) > VarGet(VAR_TEMP_2))
         {
-            if (VarGet(VAR_TEMP_1) > VarGet(VAR_TEMP_2))
-            {
-                PrintMessageWithPlaceholders(gText_MoveRelearnerCantAffordThatMove);
-                sMoveRelearnerStruct->state = MENU_STATE_IDLE_BATTLE_MODE;
-            }
+            PrintMessageWithPlaceholders(gText_MoveRelearnerCantAffordThatMove);
+            sMoveRelearnerStruct->state = MENU_STATE_WAIT_FOR_TEXT;
         }
-        PrintMessageWithPlaceholders(gText_MoveRelearnerPkmnTryingToLearnMove);
-        sMoveRelearnerStruct->state++;
+        else
+        {
+            PrintMessageWithPlaceholders(gText_MoveRelearnerPkmnTryingToLearnMove);
+            sMoveRelearnerStruct->state++;
+        }
         break;
     case MENU_STATE_WAIT_FOR_TRYING_TO_LEARN:
         if (!MoveRelearnerRunTextPrinters())
@@ -759,6 +761,11 @@ static void DoMoveRelearnerMain(void)
             PlaySE(SE_SELECT);
             sMoveRelearnerStruct->state = MENU_STATE_FADE_AND_RETURN;
         }
+        break;
+    case MENU_STATE_WAIT_FOR_TEXT:
+        if (!MoveRelearnerRunTextPrinters())
+          sMoveRelearnerStruct->state = MENU_STATE_SETUP_BATTLE_MODE;
+
         break;
     }
 }

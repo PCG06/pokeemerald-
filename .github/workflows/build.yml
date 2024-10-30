@@ -155,7 +155,7 @@ jobs:
                     },
                     {
                       "name": "Commit:",
-                      "value": "$trimmed_commit_message",
+                      "value": "[\"$trimmed_commit_message\"](${{ github.event.head_commit.url }})",
                       "inline": false
                     }
                   ]
