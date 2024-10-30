@@ -7,10 +7,10 @@
 #include "event_data.h"
 #include "gpu_regs.h"
 #include "graphics.h"
-#include "menu.h"
 #include "international_string_util.h"
 #include "menu.h"
 #include "menu_specialized.h"
+#include "money.h"
 #include "move_relearner.h"
 #include "palette.h"
 #include "player_pc.h"
@@ -821,14 +821,16 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
             break;
 
             case MOVE_TUTOR_TM_MOVES:
-                ConvertIntToDecimalStringN(buffer, 200, STR_CONV_MODE_LEFT_ALIGN, 3);
+                ConvertIntToDecimalStringN(buffer, 100, STR_CONV_MODE_LEFT_ALIGN, 3);
             break;
 
             case MOVE_TUTOR_TUTOR_MOVES:
                 ConvertIntToDecimalStringN(buffer, gTutorMoves[chosenMove].price, STR_CONV_MODE_LEFT_ALIGN, 5);
                 DebugPrintf("Selected Move Index: %d", chosenMove);
-                DebugPrintf("Price: %S", buffer);
                 VarSet(VAR_TEMP_1, gTutorMoves[chosenMove].price);
+                VarSet(VAR_TEMP_2, GetMoney(&gSaveBlock1Ptr->money));
+                DebugPrintf("Price: %S", buffer);
+                DebugPrintf("Money: %u", VarGet(VAR_TEMP_2));
             break;
 
             default:

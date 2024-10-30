@@ -96,7 +96,7 @@ Common_EventScript_MoveTutorDynMultiChoice_13:
 	goto Common_EventScript_MoveTutorDynMultiChoice_10
 
 Common_EventScript_MoveTutorDynMultiChoice_14:
-	checkmoney 200
+	checkmoney 100
 # 0 "data/scripts/move_reminder_tutor.pory"
 	compare VAR_RESULT, 0
 	goto_if_ne Common_EventScript_MoveTutorDynMultiChoice_23
@@ -105,7 +105,7 @@ Common_EventScript_MoveTutorDynMultiChoice_14:
 	goto Common_EventScript_MoveTutorDynMultiChoice_10
 
 Common_EventScript_MoveTutorDynMultiChoice_15:
-	checkmoney 5000
+	checkmoney 500
 # 0 "data/scripts/move_reminder_tutor.pory"
 	compare VAR_RESULT, 0
 	goto_if_ne Common_EventScript_MoveTutorDynMultiChoice_26
@@ -131,7 +131,7 @@ Common_EventScript_MoveTutorDynMultiChoice_20:
 
 Common_EventScript_MoveTutorDynMultiChoice_23:
 # 52 "data/scripts/move_reminder_tutor.pory"
-	setvar VAR_TEMP_1, 200
+	setvar VAR_TEMP_1, 100
 # 53 "data/scripts/move_reminder_tutor.pory"
 	setvar VAR_PARTY_MENU_TUTOR_STATE, MOVE_TUTOR_TM_MOVES
 # 54 "data/scripts/move_reminder_tutor.pory"
@@ -140,7 +140,7 @@ Common_EventScript_MoveTutorDynMultiChoice_23:
 
 Common_EventScript_MoveTutorDynMultiChoice_26:
 # 62 "data/scripts/move_reminder_tutor.pory"
-	setvar VAR_TEMP_1, 5000
+	setvar VAR_TEMP_1, 500
 # 63 "data/scripts/move_reminder_tutor.pory"
 	setvar VAR_PARTY_MENU_TUTOR_STATE, MOVE_TUTOR_TUTOR_MOVES
 # 64 "data/scripts/move_reminder_tutor.pory"
@@ -249,7 +249,7 @@ MoveTutor_TeachMove_11:
 
 EventScript_MoveTutorDynMultiChoice::
 # 139 "data/scripts/move_reminder_tutor.pory"
-	dynmultichoice 0, 0, FALSE, 5, 0, DYN_MULTICHOICE_CB_NONE, EventScript_MoveTutorDynMultiChoice_Text_0, EventScript_MoveTutorDynMultiChoice_Text_1, EventScript_MoveTutorDynMultiChoice_Text_2, EventScript_MoveTutorDynMultiChoice_Text_3, Common_EventScript_MoveTutorDynMultiChoice_Text_4
+	dynmultichoice 0, 0, FALSE, 5, 0, DYN_MULTICHOICE_CB_NONE, Common_EventScript_MoveTutorDynMultiChoice_Text_0, Common_EventScript_MoveTutorDynMultiChoice_Text_1, Common_EventScript_MoveTutorDynMultiChoice_Text_2, Common_EventScript_MoveTutorDynMultiChoice_Text_3, Common_EventScript_MoveTutorDynMultiChoice_Text_4
 # 140 "data/scripts/move_reminder_tutor.pory"
 	closemessage
 # 141 "data/scripts/move_reminder_tutor.pory"
@@ -351,7 +351,7 @@ MoveTutor_TeachMoveDebug_2:
 
 MoveTutor_TeachMoveDebug_5:
 # 178 "data/scripts/move_reminder_tutor.pory"
-	msgbox MoveTutor_TeachMove_Text_0, MSGBOX_AUTOCLOSE
+	msgbox MoveTutor_TeachMoveDebug_Text_0, MSGBOX_AUTOCLOSE
 # 180 "data/scripts/move_reminder_tutor.pory"
 	call MoveTutor_AnythingElse
 	goto MoveTutor_TeachMoveDebug_4
@@ -376,19 +376,19 @@ Common_EventScript_MoveTutor_Text_0:
 
 Common_EventScript_MoveTutorDynMultiChoice_Text_0:
 # 15 "data/scripts/move_reminder_tutor.pory"
-	.string "Level Up Moves{CLEAR_TO 0x50}¥2000$"
+	.string "Level Up Moves$"
 
 Common_EventScript_MoveTutorDynMultiChoice_Text_1:
 # 17 "data/scripts/move_reminder_tutor.pory"
-	.string "Egg Moves{CLEAR_TO 0x50}¥5000$"
+	.string "Egg Moves$"
 
 Common_EventScript_MoveTutorDynMultiChoice_Text_2:
 # 20 "data/scripts/move_reminder_tutor.pory"
-	.string "TM Moves{CLEAR_TO 0x50}¥200$"
+	.string "TM Moves$"
 
 Common_EventScript_MoveTutorDynMultiChoice_Text_3:
 # 23 "data/scripts/move_reminder_tutor.pory"
-	.string "Tutor Moves{CLEAR_TO 0x50}¥5000$"
+	.string "Tutor Moves$"
 
 Common_EventScript_MoveTutorDynMultiChoice_Text_4:
 # 25 "data/scripts/move_reminder_tutor.pory"
@@ -405,7 +405,7 @@ MoveTutor_CannotAfford_Text_0:
 
 MoveTutor_TeachMove_Text_0:
 # 107 "data/scripts/move_reminder_tutor.pory"
-	.string "I'm sorry…\n"
+	.string "Ssorry…\n"
 	.string "But an Egg can't learn moves.$"
 
 MoveTutor_TeachMove_Text_1:
@@ -423,18 +423,7 @@ MoveTutor_TeachMove_Text_3:
 	.string "Thank you for using our services.\n"
 	.string "Please come again!$"
 
-EventScript_MoveTutorDynMultiChoice_Text_0:
-# 139 "data/scripts/move_reminder_tutor.pory"
-	.string "Level Up Moves$"
-
-EventScript_MoveTutorDynMultiChoice_Text_1:
-# 139 "data/scripts/move_reminder_tutor.pory"
-	.string "Egg Moves$"
-
-EventScript_MoveTutorDynMultiChoice_Text_2:
-# 139 "data/scripts/move_reminder_tutor.pory"
-	.string "TM Moves$"
-
-EventScript_MoveTutorDynMultiChoice_Text_3:
-# 139 "data/scripts/move_reminder_tutor.pory"
-	.string "Tutor Moves$"
+MoveTutor_TeachMoveDebug_Text_0:
+# 178 "data/scripts/move_reminder_tutor.pory"
+	.string "I'm sorry…\n"
+	.string "But an Egg can't learn moves.$"

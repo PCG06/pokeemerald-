@@ -904,6 +904,7 @@ extern const u8 gText_Phoebe[];
 extern const u8 gText_Glacia[];
 
 extern const u8 gText_MoveRelearnerPkmnLearnedMove[];
+extern const u8 gText_MoveRelearnerCantAffordThatMove[];
 extern const u8 gText_MoveRelearnerPkmnTryingToLearnMove[];
 extern const u8 gText_MoveRelearnerWhichMoveToForget[];
 extern const u8 gText_MoveRelearnerStopTryingToTeachMove[];

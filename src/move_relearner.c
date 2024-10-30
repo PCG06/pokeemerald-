@@ -514,11 +514,6 @@ static void DoMoveRelearnerMain(void)
         if (!MoveRelearnerRunTextPrinters())
         {
             MoveRelearnerCreateYesNoMenu();
-            if (VarGet(VAR_PARTY_MENU_TUTOR_STATE) == MOVE_TUTOR_TUTOR_MOVES)
-            {
-                if (!IsEnoughMoney(&gSaveBlock1Ptr->money, VAR_TEMP_1))
-                    sMoveRelearnerStruct->state = MENU_STATE_GIVE_UP_CONFIRM;
-            }
             sMoveRelearnerStruct->state++;
         }
         break;
@@ -582,6 +577,14 @@ static void DoMoveRelearnerMain(void)
         }
         break;
     case MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT:
+        if (VarGet(VAR_PARTY_MENU_TUTOR_STATE) == MOVE_TUTOR_TUTOR_MOVES)
+        {
+            if (VarGet(VAR_TEMP_1) > VarGet(VAR_TEMP_2))
+            {
+                PrintMessageWithPlaceholders(gText_MoveRelearnerCantAffordThatMove);
+                sMoveRelearnerStruct->state = MENU_STATE_IDLE_BATTLE_MODE;
+            }
+        }
         PrintMessageWithPlaceholders(gText_MoveRelearnerPkmnTryingToLearnMove);
         sMoveRelearnerStruct->state++;
         break;
