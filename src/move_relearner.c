@@ -471,7 +471,6 @@ static void CB2_MoveRelearnerMain(void)
 
 static void PrintMessageWithPlaceholders(const u8 *src)
 {
-    DebugPrintf("PrintMessageWithPlaceholders is working!");
     StringExpandPlaceholders(gStringVar4, src);
     MoveRelearnerPrintMessage(gStringVar4);
 }

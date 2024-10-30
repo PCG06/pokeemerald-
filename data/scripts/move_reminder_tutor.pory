@@ -171,32 +171,21 @@ script MoveTutor_TeachMoveDebug {
 	special(ChooseMonForMoveRelearner)
 	waitstate
 	if (var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) {
-		call(MoveTutor_AnythingElse)
+		end
 	}
 	special(IsSelectedMonEgg)
 	if (var(VAR_RESULT) == YES) {
 		msgbox("I'm sorry…\n"
 				"But an Egg can't learn moves.", MSGBOX_AUTOCLOSE)
-		call(MoveTutor_AnythingElse)
 		
 	}
 	if (var(VAR_0x8005) == NO) {
 		msgbox("Sorry…\p"
 				"It doesn't appear as if I have any move\n"
 				"I can teach that Pokémon.", MSGBOX_AUTOCLOSE)
-		call(MoveTutor_AnythingElse)
 	}
-	msgbox("Which move should I teach?", MSGBOX_DEFAULT)
 	special(TeachMoveRelearnerMove)
 	waitstate
-	if (var(VAR_0x8004) == NO) {
-		goto(MoveTutor_AnythingElse)
-	}
-	else {
-		playse(SE_SHOP)
-		msgbox("Thank you for using our services.\n"
-				"Please come again!", MSGBOX_DEFAULT)
-	}
 	release
 	end
 }

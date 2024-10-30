@@ -819,37 +819,25 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
             case MOVE_TUTOR_EGG_MOVES:
                 ConvertIntToDecimalStringN(buffer, 5000, STR_CONV_MODE_LEFT_ALIGN, 4);
                 VarSet(VAR_TEMP_1, 5000);
-                DebugPrintf("Selected Move Index: %d", chosenMove);
                 VarSet(VAR_TEMP_2, GetMoney(&gSaveBlock1Ptr->money));
-                DebugPrintf("Price: %S", buffer);
-                DebugPrintf("Money: %u", VarGet(VAR_TEMP_2));
             break;
 
             case MOVE_TUTOR_TM_MOVES:
                 ConvertIntToDecimalStringN(buffer, 100, STR_CONV_MODE_LEFT_ALIGN, 3);
                 VarSet(VAR_TEMP_1, 100);
-                DebugPrintf("Selected Move Index: %d", chosenMove);
                 VarSet(VAR_TEMP_2, GetMoney(&gSaveBlock1Ptr->money));
-                DebugPrintf("Price: %S", buffer);
-                DebugPrintf("Money: %u", VarGet(VAR_TEMP_2));
             break;
 
             case MOVE_TUTOR_TUTOR_MOVES:
                 ConvertIntToDecimalStringN(buffer, gTutorMoves[chosenMove].price, STR_CONV_MODE_LEFT_ALIGN, 5);
                 VarSet(VAR_TEMP_1, gTutorMoves[chosenMove].price);
-                DebugPrintf("Selected Move Index: %d", chosenMove);
                 VarSet(VAR_TEMP_2, GetMoney(&gSaveBlock1Ptr->money));
-                DebugPrintf("Price: %S", buffer);
-                DebugPrintf("Money: %u", VarGet(VAR_TEMP_2));
             break;
 
             default:
                 ConvertIntToDecimalStringN(buffer, 2000, STR_CONV_MODE_LEFT_ALIGN, 4);
                 VarSet(VAR_TEMP_1, 2000);
-                DebugPrintf("Selected Move Index: %d", chosenMove);
                 VarSet(VAR_TEMP_2, GetMoney(&gSaveBlock1Ptr->money));
-                DebugPrintf("Price: %S", buffer);
-                DebugPrintf("Money: %u", VarGet(VAR_TEMP_2));
             break;
         }
     str = buffer;

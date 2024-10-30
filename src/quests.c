@@ -1752,7 +1752,6 @@ void GenerateQuestLocation(s32 questId)
 	if (!IsSubquestMode() && questId == QUEST_1_MAIN_STORY)
 	{
 	    StringCopy(gStringVar2, GetQuestLocation_MainStory());
-        DebugPrintf("Location: %S\n", gStringVar2);
 		
 	}
 	else

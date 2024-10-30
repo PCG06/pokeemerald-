@@ -315,58 +315,36 @@ MoveTutor_TeachMoveDebug::
 # 173 "data/scripts/move_reminder_tutor.pory"
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq MoveTutor_TeachMoveDebug_2
-MoveTutor_TeachMoveDebug_1:
 # 176 "data/scripts/move_reminder_tutor.pory"
 	special IsSelectedMonEgg
 # 177 "data/scripts/move_reminder_tutor.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq MoveTutor_TeachMoveDebug_5
 MoveTutor_TeachMoveDebug_4:
-# 183 "data/scripts/move_reminder_tutor.pory"
+# 182 "data/scripts/move_reminder_tutor.pory"
 	compare VAR_0x8005, NO
 	goto_if_eq MoveTutor_TeachMoveDebug_8
 MoveTutor_TeachMoveDebug_7:
-# 189 "data/scripts/move_reminder_tutor.pory"
-	msgbox MoveTutor_TeachMove_Text_2, MSGBOX_DEFAULT
-# 190 "data/scripts/move_reminder_tutor.pory"
+# 187 "data/scripts/move_reminder_tutor.pory"
 	special TeachMoveRelearnerMove
-# 191 "data/scripts/move_reminder_tutor.pory"
+# 188 "data/scripts/move_reminder_tutor.pory"
 	waitstate
-# 192 "data/scripts/move_reminder_tutor.pory"
-	compare VAR_0x8004, NO
-	goto_if_eq MoveTutor_TeachMoveDebug_11
-# 196 "data/scripts/move_reminder_tutor.pory"
-	playse SE_SHOP
-# 197 "data/scripts/move_reminder_tutor.pory"
-	msgbox MoveTutor_TeachMove_Text_3, MSGBOX_DEFAULT
-MoveTutor_TeachMoveDebug_10:
-# 200 "data/scripts/move_reminder_tutor.pory"
+# 189 "data/scripts/move_reminder_tutor.pory"
 	release
 	end
 
 MoveTutor_TeachMoveDebug_2:
-# 174 "data/scripts/move_reminder_tutor.pory"
-	call MoveTutor_AnythingElse
-	goto MoveTutor_TeachMoveDebug_1
+	end
 
 MoveTutor_TeachMoveDebug_5:
 # 178 "data/scripts/move_reminder_tutor.pory"
 	msgbox MoveTutor_TeachMoveDebug_Text_0, MSGBOX_AUTOCLOSE
-# 180 "data/scripts/move_reminder_tutor.pory"
-	call MoveTutor_AnythingElse
 	goto MoveTutor_TeachMoveDebug_4
 
 MoveTutor_TeachMoveDebug_8:
-# 184 "data/scripts/move_reminder_tutor.pory"
+# 183 "data/scripts/move_reminder_tutor.pory"
 	msgbox MoveTutor_TeachMove_Text_1, MSGBOX_AUTOCLOSE
-# 187 "data/scripts/move_reminder_tutor.pory"
-	call MoveTutor_AnythingElse
 	goto MoveTutor_TeachMoveDebug_7
-
-MoveTutor_TeachMoveDebug_11:
-# 193 "data/scripts/move_reminder_tutor.pory"
-	goto MoveTutor_AnythingElse
-	goto MoveTutor_TeachMoveDebug_10
 
 
 Common_EventScript_MoveTutor_Text_0:
