@@ -4,6 +4,7 @@
 #include "contest_effect.h"
 #include "data.h"
 #include "decompress.h"
+#include "event_data.h"
 #include "gpu_regs.h"
 #include "graphics.h"
 #include "menu.h"
@@ -810,12 +811,33 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
     }
     AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 106, 41, TEXT_SKIP_DRAW, NULL);
 
-    if (move->effect != EFFECT_PLACEHOLDER)
-        str = gMovesInfo[chosenMove].description;
-    else
-        str = gNotDoneYetDescription;
+    str = gText_MoveRelearnerPrice;
+    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 0, 65, 0, NULL);
 
-    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NARROW, str, 0, 65, 0, NULL);
+    switch (VarGet(VAR_PARTY_MENU_TUTOR_STATE))
+        {
+            case MOVE_TUTOR_EGG_MOVES:
+                ConvertIntToDecimalStringN(buffer, 5000, STR_CONV_MODE_LEFT_ALIGN, 4);
+            break;
+
+            case MOVE_TUTOR_TM_MOVES:
+                ConvertIntToDecimalStringN(buffer, 200, STR_CONV_MODE_LEFT_ALIGN, 3);
+            break;
+
+            case MOVE_TUTOR_TUTOR_MOVES:
+                ConvertIntToDecimalStringN(buffer, gTutorMoves[chosenMove].price, STR_CONV_MODE_LEFT_ALIGN, 5);
+                DebugPrintf("Selected Move Index: %d", chosenMove);
+                DebugPrintf("Price: %S", buffer);
+                VarSet(VAR_TEMP_1, gTutorMoves[chosenMove].price);
+            break;
+
+            default:
+                ConvertIntToDecimalStringN(buffer, 2000, STR_CONV_MODE_LEFT_ALIGN, 4);
+            break;
+        }
+    str = buffer;
+    x = 4 + GetStringWidth(FONT_NORMAL, gText_MoveRelearnerPrice, 0);
+    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, x, 65, 0, NULL);
 }
 
 static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)

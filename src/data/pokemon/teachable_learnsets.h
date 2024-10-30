@@ -64,6 +64,7 @@
 // - MOVE_DIVE                                         //
 // *************************************************** //
 // Tutor moves found in "src/data/tutor_moves.h":      //
+// - MOVE_BIDE                                         //
 // - MOVE_BODY_SLAM                                    //
 // - MOVE_COUNTER                                      //
 // - MOVE_DEFENSE_CURL                                 //
@@ -81,7 +82,9 @@
 // - MOVE_METRONOME                                    //
 // - MOVE_MIMIC                                        //
 // - MOVE_MUD_SLAP                                     //
+// - MOVE_NATURAL_GIFT                                 //
 // - MOVE_PSYCH_UP                                     //
+// - MOVE_RAGE                                         //
 // - MOVE_ROCK_SLIDE                                   //
 // - MOVE_ROLLOUT                                      //
 // - MOVE_SEISMIC_TOSS                                 //

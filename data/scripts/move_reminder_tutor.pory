@@ -39,8 +39,7 @@ script Common_EventScript_MoveTutorDynMultiChoice {
 			}
 
 		case 1:
-			if (checkmoney(5000)) {
-				setvar(VAR_TEMP_1, 5000)
+			if (checkmoney(1000)) {
 				setvar(VAR_PARTY_MENU_TUTOR_STATE, MOVE_TUTOR_EGG_MOVES)
 				goto(MoveTutor_TeachMove)
 			}

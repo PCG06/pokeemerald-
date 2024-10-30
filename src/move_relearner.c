@@ -16,6 +16,7 @@
 #include "menu.h"
 #include "menu_helpers.h"
 #include "menu_specialized.h"
+#include "money.h"
 #include "overworld.h"
 #include "palette.h"
 #include "pokemon_summary_screen.h"
@@ -513,6 +514,11 @@ static void DoMoveRelearnerMain(void)
         if (!MoveRelearnerRunTextPrinters())
         {
             MoveRelearnerCreateYesNoMenu();
+            if (VarGet(VAR_PARTY_MENU_TUTOR_STATE) == MOVE_TUTOR_TUTOR_MOVES)
+            {
+                if (!IsEnoughMoney(&gSaveBlock1Ptr->money, VAR_TEMP_1))
+                    sMoveRelearnerStruct->state = MENU_STATE_GIVE_UP_CONFIRM;
+            }
             sMoveRelearnerStruct->state++;
         }
         break;

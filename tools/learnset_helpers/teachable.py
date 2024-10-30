@@ -28,13 +28,12 @@ def extract_tutor_moves_from_c(file_path):
     tutor_moves = []
     with open(file_path, 'r') as f:
         raw = f.read()
-        matches = re.findall(r'\{(MOVE_[A-Z_]+),.*?\}', raw)
+        matches = re.findall(r'\[(MOVE_[A-Z_]+)\]', raw)
         for match in matches:
             if match not in tutor_moves:
                 tutor_moves.append(match)
     return tutor_moves
 
-# Now call the function to get tutor moves
 tutor_moves = extract_tutor_moves_from_c('./src/data/tutor_moves.h')
 
 # look up universal moves to exclude them

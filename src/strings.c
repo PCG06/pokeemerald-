@@ -1774,6 +1774,7 @@ const u8 gText_MoveRelearnerType[] = _("TYPE/"); // Unused
 const u8 gText_MoveRelearnerPP[] = _("PP/");
 const u8 gText_MoveRelearnerPower[] = _("POWER/");
 const u8 gText_MoveRelearnerAccuracy[] = _("ACCURACY/");
+const u8 gText_MoveRelearnerPrice[] = _("PRICE/ ¥");
 const u8 gText_MoveRelearnerAppeal[] = _("APPEAL");
 const u8 gText_MoveRelearnerJam[] = _("JAM");
 const u8 gText_Kira[] = _("KIRA");

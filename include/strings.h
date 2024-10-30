@@ -916,6 +916,7 @@ extern const u8 gText_MoveRelearnerBattleMoves[];
 extern const u8 gText_MoveRelearnerPP[];
 extern const u8 gText_MoveRelearnerPower[];
 extern const u8 gText_MoveRelearnerAccuracy[];
+extern const u8 gText_MoveRelearnerPrice[];
 extern const u8 gText_MoveRelearnerContestMovesTitle[];
 extern const u8 gText_MoveRelearnerAppeal[];
 extern const u8 gText_MoveRelearnerJam[];
