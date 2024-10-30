@@ -75,6 +75,8 @@ jobs:
       - name: Send failure notification to Discord
         if: failure()   # Executes only if previous steps fail
         run: |
+              commit_message="${{ github.event.head_commit.message }}"
+              trimmed_commit_message=$(echo "$commit_message" | awk 'NR==1{print $0}')
               curl -H "Content-Type: application/json" \
                    -X POST \
                    -d "{
@@ -137,6 +139,8 @@ jobs:
       - name: Send patch creation notification to Discord
         if: success()
         run: |
+              commit_message="${{ github.event.head_commit.message }}"
+              trimmed_commit_message=$(echo "$commit_message" | awk 'NR==1{print $0}')
               curl -H "Content-Type: application/json" \
               -X POST \
               -d '{
