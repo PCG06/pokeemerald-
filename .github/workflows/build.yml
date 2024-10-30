@@ -87,7 +87,7 @@ jobs:
                        \"fields\": [
                          {
                            \"name\": \"Commit name:\",
-                           \"value\": \"${{ github.event.head_commit.message }}\",
+                            \"value\": \"$trimmed_commit_message\",
                            \"inline\": false
                          },
                          {
@@ -155,7 +155,7 @@ jobs:
                     },
                     {
                       "name": "Commit:",
-                      "value": "[${{ github.event.head_commit.message }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }})",
+                      "value": "$trimmed_commit_message",
                       "inline": false
                     }
                   ]
