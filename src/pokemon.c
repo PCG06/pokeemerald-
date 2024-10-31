@@ -5633,7 +5633,7 @@ static void SortMovesAlphabetically(u16 *moves, u8 numMoves)
     }
 }
 
-u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
+u8 GetRelearnerLevelUpMoves(struct Pokemon *mon, u16 *moves)
 {
     u16 learnedMoves[4];
     u8 numMoves = 0;
@@ -5673,7 +5673,7 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     return numMoves;
 }
 
-u8 GetEggMoveMoves(struct Pokemon *mon, u16 *moves)
+u8 GetRelearnerEggMoves(struct Pokemon *mon, u16 *moves)
 {
     u16 learnedMoves[4];
     u8 numMoves = 0;
@@ -5704,7 +5704,7 @@ u8 GetEggMoveMoves(struct Pokemon *mon, u16 *moves)
     return numMoves;
 }
 
-u8 GetTMMoves(struct Pokemon *mon, u16 *moves)
+u8 GetRelearnerTMMoves(struct Pokemon *mon, u16 *moves)
 {
     u16 learnedMoves[MAX_MON_MOVES];
     u8 numMoves = 0;
@@ -5743,7 +5743,7 @@ u8 GetTMMoves(struct Pokemon *mon, u16 *moves)
     return numMoves;
 }
 
-u8 GetTutorMoves(struct Pokemon *mon, u16 *moves)
+u8 GetRelearnerTutorMoves(struct Pokemon *mon, u16 *moves)
 {
     u16 learnedMoves[MAX_MON_MOVES] = {0};
     u8 numMoves = 0;
@@ -5804,7 +5804,7 @@ u8 GetTutorMoves(struct Pokemon *mon, u16 *moves)
     return numMoves;
 }
 
-u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
+u8 GetNumberOfLevelUpMoves(struct Pokemon *mon)
 {
     u16 learnedMoves[MAX_MON_MOVES];
     u16 moves[MAX_LEVEL_UP_MOVES];
@@ -5893,7 +5893,7 @@ u8 GetNumberOfTMMoves(struct Pokemon *mon)
     if (species == SPECIES_EGG)
         return 0;
 
-    return GetTMMoves(mon, moves);
+    return GetRelearnerTMMoves(mon, moves);
 }
 
 u8 GetNumberOfTutorMoves(struct Pokemon *mon)
@@ -5907,7 +5907,7 @@ u8 GetNumberOfTutorMoves(struct Pokemon *mon)
     if (species == SPECIES_EGG)
         return 0;
 
-    return GetTutorMoves(mon, moves);
+    return GetRelearnerTutorMoves(mon, moves);
 }
 
 u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)

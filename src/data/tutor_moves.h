@@ -1,3 +1,6 @@
+#include "constants/flags.h"
+#include "constants/moves.h"
+
 // ADD NEW TUTOR MOVES HERE!!!
 
 const struct TutorMoves gTutorMoves[MOVES_COUNT] =
@@ -204,6 +207,6 @@ const struct TutorMoves gTutorMoves[MOVES_COUNT] =
     {
         .move = MOVE_TERA_BLAST,
         .flag = FLAG_MOVE_TUTOR_TERA_BLAST,
-        .price = 20000,
+        .price = 10000,
     }
 };

@@ -1,7 +1,7 @@
 mapscripts WindshearRiver_1_MapScripts {}
 
 script WindshearRiver_1_EventScript_SwimmerMitch {
-    trainerbattle_single(TRAINER_MITCH, "Hey, there!\nThe ocean is my playground!\lLet's see if you can keep up with my waves!", "I guess I need to hit the training area\nor maybe just the beach.")
+    trainerbattle_single(TRAINER_MITCH, "Hey, there!\nThe ocean is my playground!\lLet's see if you can keep up with\lmy waves!", "I guess I need to hit the training area\nor maybe just the beach.")
     msgbox("That was something!\n"
             "I'll definitely work on my skills.", MSGBOX_NPC)
     end

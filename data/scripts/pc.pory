@@ -72,7 +72,7 @@ script EventScript_AccessPokemonBoxLink {
 	message("{PKMN} Box Link opened.\n")
 	waitse
 	call(EventScript_AccessPokemonBoxLinkDynMultiChoice)
-	goto(LogOff_PC)
+	goto(BoxLink_LogOffPC)
 	end
 }
 
@@ -96,7 +96,7 @@ script EventScript_AccessPokemonBoxLinkDynMultiChoice {
 			special(ShowPokemonStorageSystemPC)
 			waitstate
 			playse(SE_PC_OFF)
-			goto(EventScript_ContinueUsingPC)
+			goto(BoxLink_ContinueUsingPC)
 		
 		case 1:
 			if (var(VAR_POKEMON_BOX_LINK_HEAL) > 0) {
@@ -114,32 +114,32 @@ script EventScript_AccessPokemonBoxLinkDynMultiChoice {
 				else {
 					msgbox("No heals left!", MSGBOX_AUTOCLOSE)
 				}
-				goto(EventScript_ContinueUsingPC)
+				goto(BoxLink_ContinueUsingPC)
 			}
 			else {
 				playse(SE_FAILURE)
 				waitse
 				msgbox("No heals left!", MSGBOX_AUTOCLOSE)
-				goto(EventScript_ContinueUsingPC)
+				goto(BoxLink_ContinueUsingPC)
 			}
 
 		case 2:
-			goto(LogOff_PC)
+			goto(BoxLink_LogOffPC)
 			end
 	}
-	goto(LogOff_PC)
+	goto(BoxLink_LogOffPC)
 	end
 }
 
-script EventScript_ContinueUsingPC {
+script BoxLink_ContinueUsingPC {
 	lockall
 	message("What will you like to do?")
 	call(EventScript_AccessPokemonBoxLinkDynMultiChoice)
-	goto(LogOff_PC)
+	goto(BoxLink_LogOffPC)
 	end
 }
 
-script LogOff_PC {
+script BoxLink_LogOffPC {
 	playse(SE_PC_OFF)
 	releaseall
 	end

@@ -814,9 +814,9 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
     str = gText_MoveRelearnerPrice;
     AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 0, 65, 0, NULL);
 
-    switch (VarGet(VAR_PARTY_MENU_TUTOR_STATE))
+    switch (VarGet(VAR_MOVE_RELEARNER_STATE))
         {
-            case MOVE_TUTOR_EGG_MOVES:
+            case MOVE_RELEARNER_EGG_MOVES:
                 ConvertIntToDecimalStringN(buffer, 5000, STR_CONV_MODE_LEFT_ALIGN, 4);
                 VarSet(VAR_TEMP_1, 5000);
                 VarSet(VAR_TEMP_2, GetMoney(&gSaveBlock1Ptr->money));
@@ -826,7 +826,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
                 DebugPrintf("Money: %d", VarGet(VAR_TEMP_2));
             break;
 
-            case MOVE_TUTOR_TM_MOVES:
+            case MOVE_RELEARNER_TM_MOVES:
                 ConvertIntToDecimalStringN(buffer, 100, STR_CONV_MODE_LEFT_ALIGN, 3);
                 VarSet(VAR_TEMP_1, 100);
                 VarSet(VAR_TEMP_2, GetMoney(&gSaveBlock1Ptr->money));
@@ -836,7 +836,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
                 DebugPrintf("Money: %d", VarGet(VAR_TEMP_2));
             break;
 
-            case MOVE_TUTOR_TUTOR_MOVES:
+            case MOVE_RELEARNER_TUTOR_MOVES:
                 ConvertIntToDecimalStringN(buffer, GetTutorMovePrice(chosenMove), STR_CONV_MODE_LEFT_ALIGN, 5);
                 VarSet(VAR_TEMP_1, GetTutorMovePrice(chosenMove));
                 VarSet(VAR_TEMP_2, GetMoney(&gSaveBlock1Ptr->money));

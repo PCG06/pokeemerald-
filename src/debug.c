@@ -5448,7 +5448,7 @@ static void DebugAction_BerryFunctions_Weeds(u8 taskId)
 
 static void DebugAction_Party_MoveReminder(u8 taskId)
 {
-    Debug_DestroyMenu_Full_Script(taskId, EventScript_MoveTutorDynMultiChoice);
+    Debug_DestroyMenu_Full_Script(taskId, EventScript_MoveRelearnerDynMultiChoice);
 }
 
 static void DebugAction_Party_HatchAnEgg(u8 taskId)

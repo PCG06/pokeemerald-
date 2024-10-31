@@ -145,7 +145,7 @@ EventScript_AccessPokemonBoxLink::
 # 74 "data/scripts/pc.pory"
 	call EventScript_AccessPokemonBoxLinkDynMultiChoice
 # 75 "data/scripts/pc.pory"
-	goto LogOff_PC
+	goto BoxLink_LogOffPC
 	end
 
 
@@ -171,7 +171,7 @@ EventScript_AccessPokemonBoxLinkDynMultiChoice_1:
 	case 2, EventScript_AccessPokemonBoxLinkDynMultiChoice_9
 EventScript_AccessPokemonBoxLinkDynMultiChoice_5:
 # 130 "data/scripts/pc.pory"
-	goto LogOff_PC
+	goto BoxLink_LogOffPC
 	end
 
 EventScript_AccessPokemonBoxLinkDynMultiChoice_2:
@@ -195,7 +195,7 @@ EventScript_AccessPokemonBoxLinkDynMultiChoice_7:
 # 98 "data/scripts/pc.pory"
 	playse SE_PC_OFF
 # 99 "data/scripts/pc.pory"
-	goto EventScript_ContinueUsingPC
+	goto BoxLink_ContinueUsingPC
 	goto EventScript_AccessPokemonBoxLinkDynMultiChoice_5
 
 EventScript_AccessPokemonBoxLinkDynMultiChoice_8:
@@ -209,12 +209,12 @@ EventScript_AccessPokemonBoxLinkDynMultiChoice_8:
 # 122 "data/scripts/pc.pory"
 	msgbox EventScript_AccessPokemonBoxLinkDynMultiChoice_Text_8, MSGBOX_AUTOCLOSE
 # 123 "data/scripts/pc.pory"
-	goto EventScript_ContinueUsingPC
+	goto BoxLink_ContinueUsingPC
 	goto EventScript_AccessPokemonBoxLinkDynMultiChoice_5
 
 EventScript_AccessPokemonBoxLinkDynMultiChoice_9:
 # 127 "data/scripts/pc.pory"
-	goto LogOff_PC
+	goto BoxLink_LogOffPC
 	end
 
 EventScript_AccessPokemonBoxLinkDynMultiChoice_10:
@@ -239,7 +239,7 @@ EventScript_AccessPokemonBoxLinkDynMultiChoice_10:
 	msgbox EventScript_AccessPokemonBoxLinkDynMultiChoice_Text_8, MSGBOX_AUTOCLOSE
 EventScript_AccessPokemonBoxLinkDynMultiChoice_13:
 # 117 "data/scripts/pc.pory"
-	goto EventScript_ContinueUsingPC
+	goto BoxLink_ContinueUsingPC
 	goto EventScript_AccessPokemonBoxLinkDynMultiChoice_5
 
 EventScript_AccessPokemonBoxLinkDynMultiChoice_14:
@@ -250,7 +250,7 @@ EventScript_AccessPokemonBoxLinkDynMultiChoice_14:
 	goto EventScript_AccessPokemonBoxLinkDynMultiChoice_13
 
 
-EventScript_ContinueUsingPC::
+BoxLink_ContinueUsingPC::
 # 135 "data/scripts/pc.pory"
 	lockall
 # 136 "data/scripts/pc.pory"
@@ -258,11 +258,11 @@ EventScript_ContinueUsingPC::
 # 137 "data/scripts/pc.pory"
 	call EventScript_AccessPokemonBoxLinkDynMultiChoice
 # 138 "data/scripts/pc.pory"
-	goto LogOff_PC
+	goto BoxLink_LogOffPC
 	end
 
 
-LogOff_PC::
+BoxLink_LogOffPC::
 # 143 "data/scripts/pc.pory"
 	playse SE_PC_OFF
 # 144 "data/scripts/pc.pory"

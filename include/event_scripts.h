@@ -672,7 +672,7 @@ extern const u8 EventScript_DisableAutoRun[];
 extern const u8 EventScript_EnableAutoRun[];
 
 // Move tutor
-extern const u8 EventScript_MoveTutorDynMultiChoice[];
+extern const u8 EventScript_MoveRelearnerDynMultiChoice[];
 
 // Castbelle Town
 extern const u8 CastbelleTown_BerryShop_EventScript_Clerk[];

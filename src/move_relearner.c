@@ -928,23 +928,23 @@ static void CreateLearnableMovesList(void)
     s32 i;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
 
-    switch(VarGet(VAR_PARTY_MENU_TUTOR_STATE))
+    switch(VarGet(VAR_MOVE_RELEARNER_STATE))
     {
     
-        case MOVE_TUTOR_EGG_MOVES:
-            sMoveRelearnerStruct->numMenuChoices = GetEggMoveMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
+        case MOVE_RELEARNER_EGG_MOVES:
+            sMoveRelearnerStruct->numMenuChoices = GetRelearnerEggMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
         break;
 
-        case MOVE_TUTOR_TM_MOVES:
-            sMoveRelearnerStruct->numMenuChoices = GetTMMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
+        case MOVE_RELEARNER_TM_MOVES:
+            sMoveRelearnerStruct->numMenuChoices = GetRelearnerTMMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
         break;
 
-        case MOVE_TUTOR_TUTOR_MOVES:
-            sMoveRelearnerStruct->numMenuChoices = GetTutorMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
+        case MOVE_RELEARNER_TUTOR_MOVES:
+            sMoveRelearnerStruct->numMenuChoices = GetRelearnerTutorMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
         break;
 
         default:
-            sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
+            sMoveRelearnerStruct->numMenuChoices = GetRelearnerLevelUpMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
         break;
 	}
 
