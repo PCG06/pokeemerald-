@@ -80,6 +80,7 @@ static void DecryptBoxMon(struct BoxPokemon *boxMon);
 static void Task_PlayMapChosenOrBattleBGM(u8 taskId);
 static bool8 ShouldSkipFriendshipChange(void);
 static void RemoveIVIndexFromList(u8 *ivs, u8 selectedIv);
+static bool8 IsMoveTM(u16 move);
 void TrySpecialOverworldEvo();
 
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
@@ -5544,9 +5545,9 @@ u8 CanLearnTeachableMove(u16 species, u16 move)
             {
                 for (j = 0; j < ARRAY_COUNT(gTutorMoves); j++)
                 {
-                    if (sUniversalMoves[i] == gTutorMoves[j].move)
+                    if (sUniversalMoves[i] == GetTutorMove(j))
                     {
-                        if (!(FlagGet(gTutorMoves[j].flag)))
+                        if (!(GetTutorMoveFlag(j)))
                             return FALSE;
                     }
                 }
@@ -5577,7 +5578,7 @@ u8 CanLearnTeachableMove(u16 species, u16 move)
         }
         for (i = 0; i < ARRAY_COUNT(gTutorMoves); i++)
         {
-            if (gTutorMoves[i].move == move)
+            if (GetTutorMove(i) == move)
             {
                 for (j = 0; teachableLearnset[j] != MOVE_UNAVAILABLE; j++)
                 {
@@ -5600,7 +5601,7 @@ static bool8 IsMoveTM(u16 move)
 {
     u32 i;
 
-    for (i = ITEM_TM01; i < ITEM_HM08; i++)
+    for (i = ITEM_TM01; i <= ITEM_HM08; i++)
     {
         if (ItemIdToBattleMoveId(i) == move)
             return TRUE;
@@ -7267,6 +7268,21 @@ const u8 *GetMoveAnimationScript(u16 moveId)
         return Move_TACKLE;
     }
     return gMovesInfo[moveId].battleAnimScript;
+}
+
+u32 GetTutorMove(u16 moveId)
+{
+    return gTutorMoves[moveId].move;
+}
+
+u32 GetTutorMoveFlag(u16 moveId)
+{
+    return FlagGet(gTutorMoves[moveId].flag);
+}
+
+u32 GetTutorMovePrice(u16 moveId)
+{
+    return gTutorMoves[moveId].price;
 }
 
 void UpdateDaysPassedSinceFormChange(u16 days)

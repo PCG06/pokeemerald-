@@ -45,3 +45,4 @@ tools/trainerproc/trainerproc
 porymap/
 data/maps/*/scripts.inc
 *:Zone.Identifier
+debug_log.txt

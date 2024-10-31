@@ -5,7 +5,6 @@ void TeachMoveRelearnerMove(void);
 void MoveRelearnerShowHideHearts(s32);
 void MoveRelearnerShowHideCategoryIcon(s32);
 
-
-#define MAX_RELEARNER_MOVES max(MAX_LEVEL_UP_MOVES, 25)
+#define MAX_RELEARNER_MOVES max(MAX_LEVEL_UP_MOVES, 100)
 
 #endif //GUARD_MOVE_RELEARNER_H
