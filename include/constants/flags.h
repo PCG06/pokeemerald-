@@ -1523,6 +1523,9 @@
 #define FLAG_SYS_RECEIVED_TUTOR_MOVES               (SYSTEM_FLAGS + 0x90)
 
 // Move Tutor Flags
+
+#define TUTOR_FLAGS_BEGIN                           FLAG_MOVE_TUTOR_BODY_SLAM
+
 #define FLAG_MOVE_TUTOR_BODY_SLAM                   (SYSTEM_FLAGS + 0x91)
 #define FLAG_MOVE_TUTOR_COUNTER                     (SYSTEM_FLAGS + 0x92)
 #define FLAG_MOVE_TUTOR_DEFENSE_CURL                (SYSTEM_FLAGS + 0x93)
@@ -1570,6 +1573,8 @@
 #define FLAG_UNUSED_0x91D                           (SYSTEM_FLAGS + 0xBD)
 #define FLAG_UNUSED_0x91E                           (SYSTEM_FLAGS + 0xBE)
 #define FLAG_UNUSED_0x91F                           (SYSTEM_FLAGS + 0xBF)
+
+#define TUTOR_FLAGS_END                             FLAG_MOVE_TUTOR_TERA_BLAST
 
 // Daily Flags
 // These flags are cleared once per day

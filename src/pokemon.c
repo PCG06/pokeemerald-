@@ -7280,9 +7280,22 @@ u32 GetTutorMoveFlag(u16 moveId)
     return FlagGet(gTutorMoves[moveId].flag);
 }
 
+#include <math.h>
+
 u32 GetTutorMovePrice(u16 moveId)
 {
-    return gTutorMoves[moveId].price;
+    s32 price;
+
+    if (gMovesInfo[GetTutorMove(moveId)].category == DAMAGE_CATEGORY_STATUS)
+        price = 1000;
+    else
+        price = 500;
+
+    u32 roundedPrice = (1.5 * (gMovesInfo[GetTutorMove(moveId)].power * gMovesInfo[GetTutorMove(moveId)].accuracy)) / 2;
+    
+    roundedPrice = round(roundedPrice / 100) * 100;
+
+    return (roundedPrice > price) ? roundedPrice : price;
 }
 
 void UpdateDaysPassedSinceFormChange(u16 days)
