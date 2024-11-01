@@ -1076,9 +1076,6 @@ int SetCableClubWarp(void)
 
 static bool8 EnableAutoRun(void)
 {
-    if (!FlagGet(FLAG_SYS_B_DASH))
-        return FALSE;   //auto run unusable until you get running shoes
-
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE))
         return FALSE;
 

@@ -189,10 +189,10 @@
 #define B_SMART_WILD_AI_FLAG        FLAG_SYS_SMART_WILD_AI     // If not 0, you can set this flag in a script to enable smart wild pokemon
 #define B_FLAG_NO_BAG_USE           FLAG_SYS_NO_BAG_USE        // If this flag is set, the ability to use the bag in battle is disabled.
 #define B_FLAG_NO_CATCHING          FLAG_SYS_NO_CATCHING       // If this flag is set, the ability to catch wild Pokémon is disabled.
-#define B_FLAG_AI_VS_AI_BATTLE      0     // If this flag is set, the player's mons will be controlled by the ai next battles.
-#define B_FLAG_DYNAMAX_BATTLE       0     // If this flag is set, the ability to Dynamax in battle is enabled for all trainers.
-#define B_FLAG_TERA_ORB_CHARGED     0     // If this flag is set, the Tera Orb is charged. It is automatically set upon healing and cleared upon Terastallizing once configured.
-#define B_FLAG_TERA_ORB_NO_COST     0     // If this flag is set, the Tera Orb does not use up its charge upon Terastallization. In S/V, this occurs after an event with Terapagos.
+#define B_FLAG_AI_VS_AI_BATTLE      0                          // If this flag is set, the player's mons will be controlled by the ai next battles.
+#define B_FLAG_DYNAMAX_BATTLE       0                          // If this flag is set, the ability to Dynamax in battle is enabled for all trainers.
+#define B_FLAG_TERA_ORB_CHARGED     FLAG_SYS_TERA_ORB_CHARGED  // If this flag is set, the Tera Orb is charged. It is automatically set upon healing and cleared upon Terastallizing once configured.
+#define B_FLAG_TERA_ORB_NO_COST     FLAG_SYS_TERA_ORB_NO_COST  // If this flag is set, the Tera Orb does not use up its charge upon Terastallization. In S/V, this occurs after an event with Terapagos.
 
 // Var Settings
 // To use the following features in scripting, replace the 0s with the var ID you're assigning it to.

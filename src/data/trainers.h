@@ -42646,65 +42646,93 @@ F_TRAINER_FEMALE |
             },
         },
     },
-#line 17091
+#line 17093
     [TRAINER_BRENDAN_PLACEHOLDER] =
     {
-#line 17092
-        .trainerName = _("BRENDAN"),
-#line 17093
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
 #line 17094
+        .trainerName = _("BRENDAN"),
+#line 17095
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+#line 17096
         .trainerPic = TRAINER_PIC_RS_BRENDAN,
         .encounterMusic_gender = 
-#line 17096
+#line 17098
             TRAINER_ENCOUNTER_MUSIC_MALE,
-#line 17097
+#line 17099
         .doubleBattle = FALSE,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
             {
-#line 17099
-            .species = SPECIES_GROUDON,
+#line 17101
+            .species = SPECIES_SCEPTILE,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 17101
-            .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-#line 17100
+            .heldItem = ITEM_SCEPTILITE,
+#line 17105
+            .ev = TRAINER_PARTY_EVS(4, 252, 0, 252, 0, 0),
+#line 17104
+            .iv = TRAINER_PARTY_IVS(0, 31, 0, 31, 0, 0),
+#line 17103
+            .ability = ABILITY_OVERGROW,
+#line 17102
             .lvl = 0,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 17106
+                MOVE_BULLET_SEED,
+                MOVE_SCALE_SHOT,
+                MOVE_ROCK_BLAST,
+                MOVE_ARM_THRUST,
+            },
             },
         },
     },
-#line 17103
+#line 17111
     [TRAINER_MAY_PLACEHOLDER] =
     {
-#line 17104
+#line 17112
         .trainerName = _("MAY"),
-#line 17105
+#line 17113
         .trainerClass = TRAINER_CLASS_RS_PROTAG,
-#line 17106
+#line 17114
         .trainerPic = TRAINER_PIC_RS_MAY,
         .encounterMusic_gender = 
-#line 17107
+#line 17115
 F_TRAINER_FEMALE | 
-#line 17108
+#line 17116
             TRAINER_ENCOUNTER_MUSIC_MALE,
-#line 17109
+#line 17117
         .doubleBattle = FALSE,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
             {
-#line 17111
-            .species = SPECIES_KYOGRE,
+#line 17119
+            .species = SPECIES_SCEPTILE,
             .gender = TRAINER_MON_RANDOM_GENDER,
-#line 17113
-            .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-#line 17112
+#line 17119
+            .heldItem = ITEM_LOADED_DICE,
+#line 17124
+            .ev = TRAINER_PARTY_EVS(4, 252, 0, 252, 0, 0),
+#line 17123
+            .iv = TRAINER_PARTY_IVS(0, 31, 0, 31, 0, 0),
+#line 17121
+            .ability = ABILITY_OVERGROW,
+#line 17120
             .lvl = 0,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+#line 17122
+            .teraType = TYPE_DRAGON,
+            .moves = {
+#line 17125
+                MOVE_BULLET_SEED,
+                MOVE_SCALE_SHOT,
+                MOVE_ROCK_BLAST,
+                MOVE_ARM_THRUST,
+            },
             },
         },
     },

@@ -17088,6 +17088,8 @@ Bulbasaur
 Level: 0
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+/* Debug test dummies */
+
 === TRAINER_BRENDAN_PLACEHOLDER ===
 Name: BRENDAN
 Class: RS Protag
@@ -17096,9 +17098,15 @@ Gender: Male
 Music: Male
 Double Battle: No
 
-Groudon
+Sceptile @ Sceptilite
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Ability: Overgrow
+IVs: 0 HP / 31 Atk / 0 Def / 0 SpA / 0 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+- Bullet Seed
+- Scale Shot
+- Rock Blast
+- Arm Thrust
 
 === TRAINER_MAY_PLACEHOLDER ===
 Name: MAY
@@ -17108,6 +17116,13 @@ Gender: Female
 Music: Male
 Double Battle: No
 
-Kyogre
+Sceptile @ Loaded Dice
 Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Ability: Overgrow
+Tera Type: Dragon
+IVs: 0 HP / 31 Atk / 0 Def / 0 SpA / 0 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+- Bullet Seed
+- Scale Shot
+- Rock Blast
+- Arm Thrust

@@ -28,7 +28,6 @@ Debug_CheatStart::
 	setflag FLAG_SYS_NATIONAL_DEX
 	special EnableNationalPokedex
 	setflag FLAG_RECEIVED_RUNNING_SHOES
-	setflag FLAG_SYS_B_DASH
 	setvar VAR_CASTBELLE_TOWN_STATE, 4 @ 4: Received Running Shoes
 	setvar VAR_LITTLEROOT_INTRO_STATE, 7 @ 7: Told to go meet rival
 	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 2 @ 2: Met Rival's Mom (and is corresponding gender)
@@ -137,12 +136,18 @@ Debug_EventScript_Text_OffensiveIVs:
 Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
+Text_ImBad:
+	.string "I'm bad!$"
+
 Debug_EventScript_Script_1::
-	setvar VAR_TEMP_1, 1
+	trainerbattle_no_intro_no_whiteout TRAINER_BRENDAN_PLACEHOLDER, Text_ImBad
+	special HealPlayerParty
 	release
 	end
 
 Debug_EventScript_Script_2::
+	trainerbattle_no_intro_no_whiteout TRAINER_MAY_PLACEHOLDER, Text_ImBad
+	special HealPlayerParty
 	release
 	end
 
