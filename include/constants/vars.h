@@ -265,9 +265,9 @@
 #define VAR_SCOTT_BF_CALL_STEP_COUNTER                   0x40F5
 #define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER             0x40F6
 #define VAR_BRUCE_SHIP                                   0x40F7
-#define VAR_STARTING_STATUS                              0x40F8
+#define VAR_LAST_REPEL_LURE_USED                         0x40F8
 #define VAR_POKEMON_BOX_LINK_HEAL                        0x40F9
-#define VAR_MOVE_RELEARNER_STATE                       0x40FA
+#define VAR_MOVE_RELEARNER_STATE                         0x40FA
 #define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
 #define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
 #define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
@@ -324,10 +324,11 @@
 
 #define VAR_TEMP_TRANSFERRED_SPECIES  VAR_TEMP_1
 
-#define VAR_SKY_BATTLE VAR_TEMP_F
+#define VAR_TEMP_SKY_BATTLE       VAR_TEMP_A
+#define VAR_TEMP_STARTING_STATUS  VAR_TEMP_B
 
-#define STARTER_GRASS 0
-#define STARTER_FIRE 1
-#define STARTER_WATER 2
+#define STARTER_GRASS  0
+#define STARTER_FIRE   1
+#define STARTER_WATER  2
 
 #endif // GUARD_CONSTANTS_VARS_H

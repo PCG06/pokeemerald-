@@ -4230,7 +4230,7 @@ static void Cmd_jumpbasedontype(void)
     }
 }
 
-FEATURE_FLAG_ASSERT(I_EXP_SHARE_FLAG, YouNeedToSetTheExpShareFlagToAnUnusedFlag);
+FEATURE_FLAG_ASSERT(I_FLAG_EXP_SHARE, YouNeedToSetTheExpShareFlagToAnUnusedFlag);
 
 static bool32 BattleTypeAllowsExp(void)
 {

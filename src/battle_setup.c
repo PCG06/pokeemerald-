@@ -1748,7 +1748,7 @@ static bool32 UpdateRandomTrainerRematches(const struct RematchTrainer *table, u
 {
     s32 i;
 
-    if (CheckBagHasItem(ITEM_VS_SEEKER, 1) && I_VS_SEEKER_CHARGING != 0)
+    if (CheckBagHasItem(ITEM_VS_SEEKER, 1) && I_FLAG_VS_SEEKER_CHARGING != 0)
         return FALSE;
 
     for (i = 0; i <= REMATCH_SPECIAL_TRAINER_START; i++)
@@ -1991,7 +1991,7 @@ bool32 IsRematchTrainerIn(u16 mapGroup, u16 mapNum)
 #if FREE_MATCH_CALL == FALSE
 static u16 GetRematchTrainerId(u16 trainerId)
 {
-    if (FlagGet(I_VS_SEEKER_CHARGING) && (I_VS_SEEKER_CHARGING != 0))
+    if (FlagGet(I_FLAG_VS_SEEKER_CHARGING) && (I_FLAG_VS_SEEKER_CHARGING != 0))
         return GetRematchTrainerIdVSSeeker(trainerId);
     else
         return GetRematchTrainerIdFromTable(gRematchTable, trainerId);
@@ -2018,7 +2018,7 @@ bool8 IsTrainerReadyForRematch(void)
 
 static void HandleRematchVarsOnBattleEnd(void)
 {
-    if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && (I_VS_SEEKER_CHARGING != 0))
+    if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && (I_FLAG_VS_SEEKER_CHARGING != 0))
         ClearRematchMovementByTrainerId();
 
     ClearTrainerWantRematchState(gRematchTable, gTrainerBattleOpponent_A);

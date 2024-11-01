@@ -1387,9 +1387,10 @@
 #define FLAG_IS_CHAMPION                            (SYSTEM_FLAGS + 0x1F) // Seems to be related to linking.
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
-#define FLAG_SUPPRESS_SPEAKER_NAME                  (SYSTEM_FLAGS + 0x21) // Unused Flag
-#define FLAG_UNUSED_0x882                           (SYSTEM_FLAGS + 0x22) // Unused Flag
-#define FLAG_UNUSED_0x883                           (SYSTEM_FLAGS + 0x23) // Unused Flag
+#define FLAG_SUPPRESS_SPEAKER_NAME                  (SYSTEM_FLAGS + 0x21)
+#define FLAG_SYS_VS_SEEKER_CHARGING                 (SYSTEM_FLAGS + 0x22)
+#define FLAG_SYS_EXP_SHARE                          (SYSTEM_FLAGS + 0x23)
+
 // Start qol_field_moves
 #define FLAG_SYS_USE_CUT                            (SYSTEM_FLAGS + 0x24)
 #define FLAG_SYS_USE_SURF                           (SYSTEM_FLAGS + 0x25)
