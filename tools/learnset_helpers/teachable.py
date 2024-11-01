@@ -34,7 +34,7 @@ def extract_tutor_moves_from_c(file_path):
                 tutor_moves.append(match)
     return tutor_moves
 
-tutor_moves = extract_tutor_moves_from_c('./src/data/tutor_moves.h')
+tutor_moves = extract_tutor_moves_from_c('./src/data/pokemon/tutor_moves.h')
 
 # look up universal moves to exclude them
 universal_moves = []
@@ -174,7 +174,7 @@ longest_move_name += 2 # + 2 for a hyphen and a space
 
 universal_title = "Near-universal moves found in sUniversalMoves:"
 tmhm_title = "TM/HM moves found in \"include/constants/tms_hms.h\":"
-tutor_title = "Tutor moves found in \"src/data/tutor_moves.h\":"
+tutor_title = "Tutor moves found in \"src/data/pokemon/tutor_moves.h\":"
 
 if longest_move_name < len(universal_title):
     longest_move_name = len(universal_title)

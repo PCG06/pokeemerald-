@@ -473,7 +473,7 @@ $(OBJ_DIR)/sym_common.ld: sym_common.txt $(C_OBJS) $(wildcard common_syms/*.txt)
 $(OBJ_DIR)/sym_ewram.ld: sym_ewram.txt
 	$(RAMSCRGEN) ewram_data $< ENGLISH > $@
 
-$(DATA_SRC_SUBDIR)/pokemon/teachable_learnsets.h: $(DATA_SRC_SUBDIR)/tutor_moves.h
+$(DATA_SRC_SUBDIR)/pokemon/teachable_learnsets.h: $(DATA_SRC_SUBDIR)/pokemon/tutor_moves.h
 	python3 $(TOOLS_DIR)/learnset_helpers/teachable.py
 
 # Linker script
