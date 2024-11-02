@@ -59,11 +59,11 @@ Common_EventScript_PlayerReceivedPokemon::
 	return
 
 Common_EventScript_ShowPokemonNature::
-	call_if_eq VAR_0x8014, TRUE, PlayShinySoundShowShinyNature
+	call_if_eq VAR_0x8014, TRUE, PlayShinySoundAndShowNature
 	call_if_eq VAR_0x8014, FALSE, ShowNature
 	return
 
-PlayShinySoundShowShinyNature::
+PlayShinySoundAndShowNature::
 	playse SE_SHINY
 	message gText_ItHasTheXNature
 	waitse
@@ -74,6 +74,7 @@ PlayShinySoundShowShinyNature::
 
 ShowNature::
 	message gText_ItHasTheXNature
+	waitmessage
 	waitbuttonpress
 	closemessage
 	return
