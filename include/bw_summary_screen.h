@@ -31,6 +31,7 @@
 #define BW_SUMMARY_MON_IDLE_ANIMS                   TRUE                // loops the mon animations regularly as an "idle" anim
 #define BW_SUMMARY_MON_SHADOWS                      TRUE                // displays a shadow for the mon sprite
 #define BW_FLAG_SUMMARY_SHOW_TERA_TYPE              FLAG_SYS_SUMMARY_SHOW_TERA_TYPE  // show tera type icons
+#define BW_SUMMARY_SHOW_CONTEST_MOVES               FALSE               // show the contest moves page
 
 /* Info for users
 
