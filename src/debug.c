@@ -1336,6 +1336,39 @@ static u8 Debug_CheckToggleFlags(u8 id)
             result = FlagGet(B_FLAG_TERA_ORB_NO_COST);
             break;
     #endif
+        case DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_TUTOR_FLAGS:
+            result = FlagGet(FLAG_MOVE_TUTOR_BODY_SLAM) &&
+                FlagGet(FLAG_MOVE_TUTOR_COUNTER) &&
+                FlagGet(FLAG_MOVE_TUTOR_DEFENSE_CURL) &&
+                FlagGet(FLAG_MOVE_TUTOR_DOUBLE_EDGE) &&
+                FlagGet(FLAG_MOVE_TUTOR_DREAM_EATER) &&
+                FlagGet(FLAG_MOVE_TUTOR_DYNAMIC_PUNCH) &&
+                FlagGet(FLAG_MOVE_TUTOR_ENDURE) &&
+                FlagGet(FLAG_MOVE_TUTOR_EXPLOSION) &&
+                FlagGet(FLAG_MOVE_TUTOR_FIRE_PUNCH) &&
+                FlagGet(FLAG_MOVE_TUTOR_FURY_CUTTER) &&
+                FlagGet(FLAG_MOVE_TUTOR_ICE_PUNCH) &&
+                FlagGet(FLAG_MOVE_TUTOR_ICY_WIND) &&
+                FlagGet(FLAG_MOVE_TUTOR_MEGA_KICK) &&
+                FlagGet(FLAG_MOVE_TUTOR_MEGA_PUNCH) &&
+                FlagGet(FLAG_MOVE_TUTOR_METRONOME) &&
+                FlagGet(FLAG_MOVE_TUTOR_MIMIC) &&
+                FlagGet(FLAG_MOVE_TUTOR_MUD_SLAP) &&
+                FlagGet(FLAG_MOVE_TUTOR_PSYCH_UP) &&
+                FlagGet(FLAG_MOVE_TUTOR_ROCK_SLIDE) &&
+                FlagGet(FLAG_MOVE_TUTOR_ROLLOUT) &&
+                FlagGet(FLAG_MOVE_TUTOR_SEISMIC_TOSS) &&
+                FlagGet(FLAG_MOVE_TUTOR_SLEEP_TALK) &&
+                FlagGet(FLAG_MOVE_TUTOR_SNORE) &&
+                FlagGet(FLAG_MOVE_TUTOR_SOFT_BOILED) &&
+                FlagGet(FLAG_MOVE_TUTOR_SUBSTITUTE) &&
+                FlagGet(FLAG_MOVE_TUTOR_SWAGGER) &&
+                FlagGet(FLAG_MOVE_TUTOR_SWIFT) &&
+                FlagGet(FLAG_MOVE_TUTOR_SWORDS_DANCE) &&
+                FlagGet(FLAG_MOVE_TUTOR_THUNDER_PUNCH) &&
+                FlagGet(FLAG_MOVE_TUTOR_THUNDER_WAVE) &&
+                FlagGet(FLAG_MOVE_TUTOR_TERA_BLAST);
+            break;
         default:
             result = 0xFF;
             break;

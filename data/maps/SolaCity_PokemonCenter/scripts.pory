@@ -38,7 +38,8 @@ script SolaCity_PokemonCenter_EventScript_Fisherman {
 }
 
 movement FishermanLeaveSolaPokeCenter_1 {
-    walk_down * 2
+    walk_left
+    walk_down * 3
     walk_right * 4
     walk_down * 7
 }

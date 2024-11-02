@@ -67,12 +67,15 @@ PlayShinySoundShowShinyNature::
 	playse SE_SHINY
 	message gText_ItHasTheXNature
 	waitse
+	waitmessage
 	waitbuttonpress
+	closemessage
 	return
 
 ShowNature::
 	message gText_ItHasTheXNature
 	waitbuttonpress
+	closemessage
 	return
 
 Common_EventScript_NicknameGiftPokemon::

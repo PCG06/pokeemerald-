@@ -80,7 +80,6 @@ static void DecryptBoxMon(struct BoxPokemon *boxMon);
 static void Task_PlayMapChosenOrBattleBGM(u8 taskId);
 static bool8 ShouldSkipFriendshipChange(void);
 static void RemoveIVIndexFromList(u8 *ivs, u8 selectedIv);
-static bool8 IsMoveTM(u16 move);
 void TrySpecialOverworldEvo();
 
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
@@ -5543,15 +5542,6 @@ u8 CanLearnTeachableMove(u16 species, u16 move)
         {
             if (sUniversalMoves[i] == move)
             {
-                for (j = 0; j < ARRAY_COUNT(gTutorMoves); j++)
-                {
-                    if (sUniversalMoves[i] == GetTutorMove(j))
-                    {
-                        if (!(GetTutorMoveFlag(j)))
-                            return FALSE;
-                    }
-                }
-
                 if (!gSpeciesInfo[species].tmIlliterate)
                 {
                     if (move == MOVE_TERA_BLAST && GET_BASE_SPECIES_ID(species) == SPECIES_TERAPAGOS)
@@ -5584,8 +5574,8 @@ u8 CanLearnTeachableMove(u16 species, u16 move)
                 {
                     if (teachableLearnset[j] == move)
                         return TRUE;
-                    return FALSE;
                 }
+                return FALSE;
             }
         }
         for (i = 0; teachableLearnset[i] != MOVE_UNAVAILABLE; i++)
@@ -5595,18 +5585,6 @@ u8 CanLearnTeachableMove(u16 species, u16 move)
         }
         return FALSE;
     }
-}
-
-static bool8 IsMoveTM(u16 move)
-{
-    u32 i;
-
-    for (i = ITEM_TM01; i <= ITEM_HM08; i++)
-    {
-        if (ItemIdToBattleMoveId(i) == move)
-            return TRUE;
-    }
-    return FALSE;
 }
 
 static void SortMovesAlphabetically(u16 *moves, u8 numMoves)
@@ -5745,64 +5723,45 @@ u8 GetRelearnerTMMoves(struct Pokemon *mon, u16 *moves)
 
 u8 GetRelearnerTutorMoves(struct Pokemon *mon, u16 *moves)
 {
-    u16 learnedMoves[MAX_MON_MOVES] = {0};
+    u16 learnedMoves[MAX_MON_MOVES];
     u8 numMoves = 0;
-    u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
-    u32 i, j;
-    bool8 isTM;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u16 allMoves[MOVES_COUNT];
+    u32 i, j, k;
+    u32 totalMoveCount = 0;
 
     if (species == SPECIES_MEW)
         return 0;
 
+    for (i = 0; i < MOVES_COUNT; i++)
+    {
+        u16 tutorMoveId = GetTutorMove(i);
+        if (GetTutorMoveFlag(i) && CanLearnTeachableMove(species, tutorMoveId))
+            allMoves[totalMoveCount++] = tutorMoveId;
+    }
+
     for (i = 0; i < MAX_MON_MOVES; i++)
         learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
 
-    for (i = 1; i < MOVES_COUNT; i++)
+    for (i = 0; i < totalMoveCount; i++)
     {
-        if (CanLearnTeachableMove(species, i))
+        for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != allMoves[i]; j++)
+            ;
+
+        if (j == MAX_MON_MOVES)
         {
-            isTM = IsMoveTM(i);
+            for (k = 0; k < numMoves && moves[k] != allMoves[i]; k++)
+                ;
 
-            if (!isTM)
-            {
-                bool8 alreadyLearned = FALSE;
-
-                for (j = 0; j < MAX_MON_MOVES; j++)
-                {
-                    if (learnedMoves[j] == i)
-                    {
-                        alreadyLearned = TRUE;
-                        break;
-                    }
-                }
-
-                if (!alreadyLearned)
-                {
-                    bool8 moveAlreadyInList = FALSE;
-
-                    for (j = 0; j < numMoves; j++)
-                    {
-                        if (moves[j] == i)
-                        {
-                            moveAlreadyInList = TRUE;
-                            break;
-                        }
-                    }
-
-                    if (!moveAlreadyInList)
-                    {
-                        moves[numMoves++] = i;
-                    }
-
-                }
-            }
+            if (k == numMoves)
+                moves[numMoves++] = allMoves[i];
         }
     }
 
     SortMovesAlphabetically(moves, numMoves);
-
     return numMoves;
 }
+
 
 u8 GetNumberOfLevelUpMoves(struct Pokemon *mon)
 {
@@ -7279,8 +7238,6 @@ u32 GetTutorMoveFlag(u16 moveId)
 {
     return FlagGet(gTutorMoves[moveId].flag);
 }
-
-#include <math.h>
 
 u32 GetTutorMovePrice(u16 moveId)
 {
