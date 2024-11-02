@@ -140,12 +140,14 @@ void MovePlayerOnBike(u8 direction, u16 newKeys, u16 heldKeys)
             gPlayerAvatar.flags -= PLAYER_AVATAR_FLAG_MACH_BIKE;
             gPlayerAvatar.flags += PLAYER_AVATAR_FLAG_ACRO_BIKE;
             SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE);
+            IncrementGameStat(GAME_STAT_TRADED_BIKES);
         }
         else
         {
             gPlayerAvatar.flags -= PLAYER_AVATAR_FLAG_ACRO_BIKE;
             gPlayerAvatar.flags += PLAYER_AVATAR_FLAG_MACH_BIKE;
             SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_MACH_BIKE);
+            IncrementGameStat(GAME_STAT_TRADED_BIKES);
         }
         PlaySE(SE_BIKE_HOP);
     }

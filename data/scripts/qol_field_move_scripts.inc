@@ -6,14 +6,14 @@ EventScript_UseCutTool::
     bufferitemname STR_VAR_2, ITEM_CUT_TOOL
     msgbox Text_PlayerUsedFieldTool, MSGBOX_DEFAULT
     closemessage
-    goto EventScript_CutTreeDown
+    goto EventScript_CutTreeCommon
 
 EventScript_UseRockSmashTool::
     lockall
     bufferitemname STR_VAR_2, ITEM_ROCKSMASH_TOOL
     msgbox Text_PlayerUsedFieldTool, MSGBOX_DEFAULT
     closemessage
-    goto EventScript_SmashRock
+    goto EventScript_RockSmashCommon
 
 EventScript_UseStrengthTool::
     lockall
