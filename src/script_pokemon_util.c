@@ -458,7 +458,7 @@ static u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u
     }
 
     // for scripting
-    StringCopy(gStringVar2, gSpeciesInfo[species].speciesName);
+    StringCopy(gStringVar2, GetSpeciesName(species));
     StringCopy(gStringVar3, gNaturesInfo[nature].name);
     VarSet(VAR_TEMP_TRANSFERRED_SPECIES, species);
 

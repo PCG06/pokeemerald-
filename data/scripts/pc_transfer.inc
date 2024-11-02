@@ -51,28 +51,17 @@ Common_EventScript_NoMoreRoomForPokemon::
 
 Common_EventScript_PlayerReceivedPokemon::
 	playfanfare MUS_DP_OBTAIN_ITEM
+	showmonpic VAR_TEMP_TRANSFERRED_SPECIES, VAR_0x8014, 10, 3
 	message gText_PlayerReceivedPokemon
 	waitfanfare
+	waitbuttonpress
+	hidemonpic
 	closemessage
 	call Common_EventScript_ShowPokemonNature
 	call Common_EventScript_NicknameGiftPokemon
 	return
 
 Common_EventScript_ShowPokemonNature::
-	call_if_eq VAR_0x8014, TRUE, PlayShinySoundAndShowNature
-	call_if_eq VAR_0x8014, FALSE, ShowNature
-	return
-
-PlayShinySoundAndShowNature::
-	playse SE_SHINY
-	message gText_ItHasTheXNature
-	waitse
-	waitmessage
-	waitbuttonpress
-	closemessage
-	return
-
-ShowNature::
 	message gText_ItHasTheXNature
 	waitmessage
 	waitbuttonpress

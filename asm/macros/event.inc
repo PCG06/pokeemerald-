@@ -980,9 +980,10 @@
 	.endm
 
 	@ Displays a box containing the front sprite for the specified Pokemon species.
-	.macro showmonpic species:req, x:req, y:req
+	.macro showmonpic species:req, isShiny:req, x:req, y:req
 	.byte 0x75
 	.2byte \species
+	.2byte \isShiny
 	.byte \x
 	.byte \y
 	.endm
