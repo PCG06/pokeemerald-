@@ -4268,6 +4268,19 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect = 1;
                 }
                 break;
+            case STARTING_STATUS_GRAVITY:
+                if (!(gFieldStatuses & STATUS_FIELD_GRAVITY))
+                {
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_GRAVITY;
+                    gFieldStatuses |= STATUS_FIELD_GRAVITY;
+                    gBattleScripting.animArg1 = B_ANIM_GRAVITY;
+                    if (timerVal == 0)
+                        gFieldTimers.gravityTimer = 0;    // infinite
+                    else
+                        gFieldTimers.gravityTimer = 5;
+                    effect = 1;
+                }
+                break;
             }
 
             if (effect == 1)

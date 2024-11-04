@@ -152,8 +152,8 @@ Debug_EventScript_Script_2::
 	end
 
 Debug_EventScript_Script_3::
-	setvar B_VAR_STARTING_STATUS, STARTING_STATUS_WEIGHTED_TRICK_ROOM
-	createmon 1, 0, SPECIES_SCIZOR, 25, abilityNum=2, move1=MOVE_AUTOTOMIZE
+	setvar B_VAR_STARTING_STATUS, STARTING_STATUS_GRAVITY
+	createmon 1, 0, SPECIES_FLYGON, 25, move1=MOVE_EARTHQUAKE
 	dowildbattle
 	release
 	end

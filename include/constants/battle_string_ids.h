@@ -990,17 +990,18 @@
 #define B_MSG_TERRAIN_COUNT         8
 
 // gStartingStatusStringIds
-#define B_MSG_TERRAIN_SET_MISTY     0
-#define B_MSG_TERRAIN_SET_ELECTRIC  1
-#define B_MSG_TERRAIN_SET_PSYCHIC   2
-#define B_MSG_TERRAIN_SET_GRASSY    3
-#define B_MSG_SET_TRICK_ROOM        4
-#define B_MSG_SET_MAGIC_ROOM        5
-#define B_MSG_SET_WONDER_ROOM       6
-#define B_MSG_SET_TAILWIND_PLAYER   7
-#define B_MSG_SET_TAILWIND_OPPONENT 8
+#define B_MSG_TERRAIN_SET_MISTY       0
+#define B_MSG_TERRAIN_SET_ELECTRIC    1
+#define B_MSG_TERRAIN_SET_PSYCHIC     2
+#define B_MSG_TERRAIN_SET_GRASSY      3
+#define B_MSG_SET_TRICK_ROOM          4
+#define B_MSG_SET_MAGIC_ROOM          5
+#define B_MSG_SET_WONDER_ROOM         6
+#define B_MSG_SET_TAILWIND_PLAYER     7
+#define B_MSG_SET_TAILWIND_OPPONENT   8
 #define B_MSG_SET_WEIGHTED_TRICK_ROOM 9
-#define B_MSG_STARTING_STATUS_COUNT 10
+#define B_MSG_SET_GRAVITY             10
+#define B_MSG_STARTING_STATUS_COUNT   11
 
 
 // gWrappedStringIds

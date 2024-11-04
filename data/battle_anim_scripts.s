@@ -86,6 +86,7 @@ gBattleAnims_General::
 	.4byte General_TeraCharge               @ B_ANIM_TERA_CHARGE
 	.4byte General_TeraActivate             @ B_ANIM_TERA_ACTIVATE
 	.4byte General_SimpleHeal               @ B_ANIM_SIMPLE_HEAL
+	.4byte General_Gravity                  @ B_ANIM_GRAVITY
 
 	.align 2
 gBattleAnims_Special::
@@ -124,6 +125,7 @@ Move_ROOST::
 	waitforvisualfinish
 	end
 
+General_Gravity::
 Move_GRAVITY::
 	fadetobg BG_COSMIC
 	waitbgfadein
