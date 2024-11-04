@@ -152,7 +152,9 @@ Debug_EventScript_Script_2::
 	end
 
 Debug_EventScript_Script_3::
-	setflag FLAG_SYS_RECEIVED_EGG_MOVES
+	setvar B_VAR_STARTING_STATUS, STARTING_STATUS_WEIGHTED_TRICK_ROOM
+	createmon 1, 0, SPECIES_SCIZOR, 25, abilityNum=2, move1=MOVE_AUTOTOMIZE
+	dowildbattle
 	release
 	end
 

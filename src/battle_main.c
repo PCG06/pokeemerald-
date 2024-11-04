@@ -4895,7 +4895,8 @@ s8 GetMovePriority(u32 battler, u16 move)
 
 // Function for AI with variables provided as arguments to speed the computation time
 s32 GetWhichBattlerFasterArgs(u32 battler1, u32 battler2, bool32 ignoreChosenMoves, u32 ability1, u32 ability2,
-                              u32 holdEffectBattler1, u32 holdEffectBattler2, u32 speedBattler1, u32 speedBattler2, s32 priority1, s32 priority2)
+                              u32 holdEffectBattler1, u32 holdEffectBattler2, u32 speedBattler1, u32 speedBattler2,
+                              s32 priority1, s32 priority2, s32 weightBattler1, s32 weightBattler2)
 {
     u32 strikesFirst = 0;
 
@@ -4944,6 +4945,22 @@ s32 GetWhichBattlerFasterArgs(u32 battler1, u32 battler2, bool32 ignoreChosenMov
                 else
                     strikesFirst = 1;
             }
+
+            if (weightBattler1 == weightBattler2)
+            {
+                // same weights, same priorities
+                strikesFirst = 0;  // both strike simultaneously
+            }
+            else if (weightBattler1 < weightBattler2)
+            {
+                // battler2 has more weight
+                strikesFirst = -1;  // battler 2 (enemy) strikes first
+            }
+            else
+            {
+                // battler1 has more weight
+                strikesFirst = 1;   // battler 1 (user) strikes first
+            }
         }
     }
     else if (priority1 < priority2)
@@ -4962,8 +4979,10 @@ s32 GetWhichBattlerFasterOrTies(u32 battler1, u32 battler2, bool32 ignoreChosenM
     s32 priority1 = 0, priority2 = 0;
     u32 ability1 = GetBattlerAbility(battler1);
     u32 speedBattler1 = GetBattlerTotalSpeedStat(battler1);
+    u32 weightBattler1 = GetBattlerWeight(battler1);
     u32 holdEffectBattler1 = GetBattlerHoldEffect(battler1, TRUE);
     u32 speedBattler2 = GetBattlerTotalSpeedStat(battler2);
+    u32 weightBattler2 = GetBattlerWeight(battler2);
     u32 holdEffectBattler2 = GetBattlerHoldEffect(battler2, TRUE);
     u32 ability2 = GetBattlerAbility(battler2);
 
@@ -4981,7 +5000,8 @@ s32 GetWhichBattlerFasterOrTies(u32 battler1, u32 battler2, bool32 ignoreChosenM
         ability1, ability2,
         holdEffectBattler1, holdEffectBattler2,
         speedBattler1, speedBattler2,
-        priority1, priority2
+        priority1, priority2,
+        weightBattler1, weightBattler2
     );
 }
 

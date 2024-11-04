@@ -1659,6 +1659,7 @@ enum
     ENDTURN_RAINBOW,
     ENDTURN_SEA_OF_FIRE,
     ENDTURN_SWAMP,
+    ENDTURN_WEIGHTED_TRICK_ROOM,
     ENDTURN_FIELD_COUNT,
 };
 
@@ -2250,6 +2251,15 @@ u8 DoFieldEndTurnEffects(void)
                 gBattleStruct->turnCountersTracker++;
                 gBattleStruct->turnSideTracker = 0;
             }
+            break;
+        case ENDTURN_WEIGHTED_TRICK_ROOM:
+            if (gFieldStatuses & STATUS_FIELD_WEIGHTED_TRICK_ROOM && gFieldTimers.weightedTrickRoomTimer > 0 && --gFieldTimers.weightedTrickRoomTimer == 0)
+            {
+                gFieldStatuses &= ~STATUS_FIELD_WEIGHTED_TRICK_ROOM;
+                BattleScriptExecute(BattleScript_TrickRoomEnds);
+                effect++;
+            }
+            gBattleStruct->turnCountersTracker++;
             break;
         case ENDTURN_FIELD_COUNT:
             effect++;
@@ -4242,6 +4252,19 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                         gSideTimers[B_SIDE_OPPONENT].tailwindTimer = 0; // infinite
                     else
                         gSideTimers[B_SIDE_OPPONENT].tailwindTimer = 5;
+                    effect = 1;
+                }
+                break;
+            case STARTING_STATUS_WEIGHTED_TRICK_ROOM:
+                if (!(gFieldStatuses & STATUS_FIELD_WEIGHTED_TRICK_ROOM))
+                {
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_WEIGHTED_TRICK_ROOM;
+                    gFieldStatuses |= STATUS_FIELD_WEIGHTED_TRICK_ROOM;
+                    gBattleScripting.animArg1 = B_ANIM_TRICK_ROOM;
+                    if (timerVal == 0)
+                        gFieldTimers.weightedTrickRoomTimer = 0;    // infinite
+                    else
+                        gFieldTimers.weightedTrickRoomTimer = 5;
                     effect = 1;
                 }
                 break;

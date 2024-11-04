@@ -564,6 +564,7 @@ static const u8 sText_PkmnSurroundedWithVeilOfWater[] = _("{B_ATK_NAME_WITH_PREF
 static const u8 sText_PkmnLevitatedOnElectromagnetism[] = _("{B_ATK_NAME_WITH_PREFIX} levitated on\nelectromagnetism!");
 static const u8 sText_PkmnTwistedDimensions[] = _("{B_ATK_NAME_WITH_PREFIX} twisted\nthe dimensions!");
 static const u8 sText_DimensionsWereTwisted[] = _("The dimensions were\ntwisted!");
+static const u8 sText_DimensionsWereTwisted2[] = _("The dimensions were\ntwisted!\pHeavy Pokémon will\nattack first!");
 static const u8 sText_PointedStonesFloat[] =_("Pointed stones float in the air\naround {B_DEF_TEAM2} team!");
 static const u8 sText_CloakedInMysticalMoonlight[] =_("It became cloaked in mystical\nmoonlight!");
 static const u8 sText_TrappedBySwirlingMagma[] =_("{B_DEF_NAME_WITH_PREFIX} became\ntrapped by swirling magma!");
@@ -853,6 +854,7 @@ static const u8 sText_FickleBeamDoubled[] = _("{B_ATK_NAME_WITH_PREFIX} is going
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
+    [STRINGID_DIMENSIONSWERETWISTED2 - BATTLESTRINGS_TABLE_START] = sText_DimensionsWereTwisted2,
     [STRINGID_FICKLEBEAMDOUBLED - BATTLESTRINGS_TABLE_START] = sText_FickleBeamDoubled,
     [STRINGID_PKMNTERASTALLIZEDINTO - BATTLESTRINGS_TABLE_START] = sText_PkmnTerastallizedInto,
     [STRINGID_TIDYINGUPCOMPLETE - BATTLESTRINGS_TABLE_START] = sText_TidyingUpComplete,
@@ -1594,6 +1596,7 @@ const u16 gStartingStatusStringIds[B_MSG_STARTING_STATUS_COUNT] =
     [B_MSG_SET_WONDER_ROOM]         = STRINGID_BIZARREAREACREATED,
     [B_MSG_SET_TAILWIND_PLAYER]     = STRINGID_TAILWINDBLEW,
     [B_MSG_SET_TAILWIND_OPPONENT]   = STRINGID_TAILWINDBLEW,
+    [B_MSG_SET_WEIGHTED_TRICK_ROOM] = STRINGID_DIMENSIONSWERETWISTED2,
 };
 
 const u16 gTerrainStringIds[B_MSG_TERRAIN_COUNT] =
