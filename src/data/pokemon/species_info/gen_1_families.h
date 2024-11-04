@@ -15123,6 +15123,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .tmIlliterate = TRUE,
         .levelUpLearnset = sMagikarpLevelUpLearnset,
+        .eggMoveLearnset = sMagikarpEggMoveLearnset,
         .teachableLearnset = sMagikarpTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_GYARADOS}),
     },
@@ -15189,6 +15190,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sGyaradosLevelUpLearnset,
         .teachableLearnset = sGyaradosTeachableLearnset,
+        .eggMoveLearnset = sGyaradosEggMoveLearnset,
         .formSpeciesIdTable = sGyaradosFormSpeciesIdTable,
         .formChangeTable = sGyaradosFormChangeTable,
     },
@@ -15246,6 +15248,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .isMegaEvolution = TRUE,
         .levelUpLearnset = sGyaradosLevelUpLearnset,
         .teachableLearnset = sGyaradosTeachableLearnset,
+        .eggMoveLearnset = sGyaradosEggMoveLearnset,
         .formSpeciesIdTable = sGyaradosFormSpeciesIdTable,
         .formChangeTable = sGyaradosFormChangeTable,
     },

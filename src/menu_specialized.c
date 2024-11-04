@@ -812,7 +812,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
     AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 106, 41, TEXT_SKIP_DRAW, NULL);
 
     str = gText_MoveRelearnerPrice;
-    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 0, 65, 0, NULL);
+    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 56, 0, NULL);
 
     switch (VarGet(VAR_MOVE_RELEARNER_STATE))
         {
@@ -858,7 +858,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
         }
     str = buffer;
     x = 4 + GetStringWidth(FONT_NORMAL, gText_MoveRelearnerPrice, 0);
-    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, x, 65, 0, NULL);
+    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, x, 56, 0, NULL);
 }
 
 static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)

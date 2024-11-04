@@ -1559,8 +1559,8 @@ static void ShowCurrentTimeWindow(void)
     StringCopy(gStringVar4, gDayNameStringsTable[gLocalTime.dayOfWeek]);    
     AddTextPrinterParameterized(sCurrentTimeWindowId, 1, gStringVar4, 0, 16, 0xFF, NULL);
     StringCopy(gStringVar1, gMonthNameStringsTable[gLocalTime.month]);
-    ConvertIntToDecimalStringN(gStringVar2, GetDate(), STR_CONV_MODE_RIGHT_ALIGN, 2);
-    ConvertIntToDecimalStringN(gStringVar3, GetYear(), STR_CONV_MODE_RIGHT_ALIGN, 4);
+    ConvertIntToDecimalStringN(gStringVar2, GetDate(), STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar3, GetYear(), STR_CONV_MODE_LEFT_ALIGN, 4);
     StringExpandPlaceholders(gStringVar4, gText_Date);
     AddTextPrinterParameterized(sCurrentTimeWindowId, 1, gStringVar4, 0, 32, 0xFF, NULL);
 
@@ -1615,8 +1615,8 @@ void UpdateClockDisplay(void)
     StringCopy(gStringVar4, gDayNameStringsTable[gLocalTime.dayOfWeek]);    
     AddTextPrinterParameterized(sCurrentTimeWindowId, 1, gStringVar4, 0, 16, 0xFF, NULL);
     StringCopy(gStringVar1, gMonthNameStringsTable[gLocalTime.month]);
-    ConvertIntToDecimalStringN(gStringVar2, GetDate(), STR_CONV_MODE_RIGHT_ALIGN, 2);
-    ConvertIntToDecimalStringN(gStringVar3, GetYear(), STR_CONV_MODE_RIGHT_ALIGN, 4);
+    ConvertIntToDecimalStringN(gStringVar2, GetDate(), STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar3, GetYear(), STR_CONV_MODE_LEFT_ALIGN, 4);
     StringExpandPlaceholders(gStringVar4, gText_Date);
     AddTextPrinterParameterized(sCurrentTimeWindowId, 1, gStringVar4, 0, 32, 0xFF, NULL);
 

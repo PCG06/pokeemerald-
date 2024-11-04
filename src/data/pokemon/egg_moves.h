@@ -1322,6 +1322,24 @@ static const u16 sTaurosPaldeanAquaBreedEggMoveLearnset[] = {
 #endif //P_PALDEAN_FORMS
 #endif //P_FAMILY_TAUROS
 
+#if P_FAMILY_MAGIKARP
+static const u16 sMagikarpEggMoveLearnset[] = {
+    MOVE_BOUNCE,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sGyaradosEggMoveLearnset[] = {
+    MOVE_AQUA_TAIL,
+    MOVE_BOUNCE,
+    MOVE_DRAGON_BREATH,
+    MOVE_DRAGON_DANCE,
+    MOVE_DRAGON_RUSH,
+    MOVE_DRAGON_PULSE,
+    MOVE_IRON_TAIL,
+    MOVE_UNAVAILABLE,
+};
+#endif // P_FAMILY_MAGIKARP
+
 #if P_FAMILY_LAPRAS
 static const u16 sLaprasEggMoveLearnset[] = {
     MOVE_FORESIGHT,
@@ -2444,6 +2462,7 @@ static const u16 sZigzagoonGalarianEggMoveLearnset[] = {
     MOVE_PARTING_SHOT,
     MOVE_QUICK_GUARD,
     MOVE_KNOCK_OFF,
+    MOVE_PURSUIT,
     MOVE_UNAVAILABLE,
 };
 #endif //P_GALARIAN_FORMS
@@ -5661,6 +5680,7 @@ static const u16 sBlipbugEggMoveLearnset[] = {
 
 #if P_FAMILY_NICKIT
 static const u16 sNickitEggMoveLearnset[] = {
+    MOVE_PURSUIT,
     MOVE_QUICK_GUARD,
     MOVE_KNOCK_OFF,
     MOVE_HOWL,
@@ -5920,6 +5940,7 @@ static const u16 sSprigatitoEggMoveLearnset[] = {
     MOVE_COPYCAT,
     MOVE_LEECH_SEED,
     MOVE_PETAL_BLIZZARD,
+    MOVE_PURSUIT,
     MOVE_SUCKER_PUNCH,
     MOVE_UNAVAILABLE,
 };
@@ -5969,6 +5990,7 @@ static const u16 sTarountulaEggMoveLearnset[] = {
 #if P_FAMILY_NYMBLE
 static const u16 sNymbleEggMoveLearnset[] = {
     MOVE_COUNTER,
+    MOVE_PURSUIT,
     MOVE_SKITTER_SMACK,
     MOVE_UNAVAILABLE,
 };
@@ -6072,6 +6094,7 @@ static const u16 sMaschiffEggMoveLearnset[] = {
     MOVE_DESTINY_BOND,
     MOVE_ENDEAVOR,
     MOVE_PLAY_ROUGH,
+    MOVE_PURSUIT,
     MOVE_RETALIATE,
     MOVE_UNAVAILABLE,
 };
@@ -6094,6 +6117,7 @@ static const u16 sBramblinEggMoveLearnset[] = {
     MOVE_BEAT_UP,
     MOVE_BLOCK,
     MOVE_LEECH_SEED,
+    MOVE_PURSUIT,
     MOVE_SHADOW_SNEAK,
     MOVE_STRENGTH_SAP,
     MOVE_UNAVAILABLE,

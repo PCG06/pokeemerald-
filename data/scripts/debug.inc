@@ -152,8 +152,7 @@ Debug_EventScript_Script_2::
 	end
 
 Debug_EventScript_Script_3::
-	givemon SPECIES_MAGIKARP, 0, ITEM_NONE, isShiny=TRUE
-	call Common_EventScript_PlayerReceivedPokemon
+	setflag FLAG_SYS_RECEIVED_EGG_MOVES
 	release
 	end
 
