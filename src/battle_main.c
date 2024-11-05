@@ -4946,20 +4946,23 @@ s32 GetWhichBattlerFasterArgs(u32 battler1, u32 battler2, bool32 ignoreChosenMov
                     strikesFirst = 1;
             }
 
-            if (weightBattler1 == weightBattler2)
+            if (gFieldStatuses & STATUS_FIELD_WEIGHTED_TRICK_ROOM)
             {
-                // same weights, same priorities
-                strikesFirst = 0;  // both strike simultaneously
-            }
-            else if (weightBattler1 < weightBattler2)
-            {
-                // battler2 has more weight
-                strikesFirst = -1;  // battler 2 (enemy) strikes first
-            }
-            else
-            {
-                // battler1 has more weight
-                strikesFirst = 1;   // battler 1 (user) strikes first
+                if (weightBattler1 == weightBattler2)
+                {
+                    // same weights, same priorities
+                    strikesFirst = 0;  // both strike simultaneously
+                }
+                else if (weightBattler1 < weightBattler2)
+                {
+                    // battler2 has more weight
+                    strikesFirst = -1;  // battler 2 (enemy) strikes first
+                }
+                else
+                {
+                    // battler1 has more weight
+                    strikesFirst = 1;   // battler 1 (user) strikes first
+                }
             }
         }
     }
