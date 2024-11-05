@@ -63,14 +63,14 @@ jobs:
         env:
           MODERN: 1
           COMPARE: 0
-        run: make -j${nproc} -O all
+        run: make -j8 -O all
 
       - name: Test
         env:
           MODERN: 1
           TEST: 1
         run: |
-          make -j${nproc} check
+          make -j8 check
   
       - name: Send failure notification to Discord
         if: failure()   # Executes only if previous steps fail
@@ -113,7 +113,7 @@ jobs:
       - name: Build pokeemerald
         run: |
           cd tools/pokeemerald
-          make -j$(nproc)
+          make -j8
 
       - name: Build pokeemerald.bps
         run: |

@@ -1,8 +1,6 @@
 #include "global.h"
 #include "test/battle.h"
 
-#if B_VAR_STARTING_STATUS == 0
-
 SINGLE_BATTLE_TEST("Accuracy controls the proportion of misses")
 {
     u32 move;
@@ -22,8 +20,6 @@ SINGLE_BATTLE_TEST("Accuracy controls the proportion of misses")
         ANIMATION(ANIM_TYPE_MOVE, move, player);
     }
 }
-
-#endif // B_VAR_STARTING_STATUS
 
 SINGLE_BATTLE_TEST("AdditionalEffect.chance controls the proportion of secondary effects")
 {

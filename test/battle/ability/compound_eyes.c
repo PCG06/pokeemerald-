@@ -1,8 +1,6 @@
 #include "global.h"
 #include "test/battle.h"
 
-#if B_VAR_STARTING_STATUS == 0
-
 SINGLE_BATTLE_TEST("Compound Eyes raises accuracy")
 {
     PASSES_RANDOMLY(91, 100, RNG_ACCURACY);
@@ -17,8 +15,6 @@ SINGLE_BATTLE_TEST("Compound Eyes raises accuracy")
         HP_BAR(opponent);
     }
 }
-
-#endif // B_VAR_STARTING_STATUS
 
 SINGLE_BATTLE_TEST("Compound Eyes does not affect OHKO moves")
 {
