@@ -5587,6 +5587,26 @@ u8 CanLearnTeachableMove(u16 species, u16 move)
     }
 }
 
+bool32 UNUSED CanMonLearnMove(u32 species, u32 move)
+{
+    u32 learnsetIndex;
+
+    const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
+
+    for (learnsetIndex = 0; learnset[learnsetIndex].move != LEVEL_UP_MOVE_END; learnsetIndex++)
+    {
+        if (learnset[learnsetIndex].move == move)
+            return TRUE;
+    }
+
+    if (SpeciesCanLearnEggMove(species, move))
+        return TRUE;
+    else if (CanLearnTeachableMove(species, move))
+        return TRUE;
+    else
+        return FALSE;
+}
+
 static void SortMovesAlphabetically(u16 *moves, u8 numMoves)
 {
     int i, j;
