@@ -10053,3 +10053,19 @@ BattleScript_EffectSnow::
 	call BattleScript_CheckPrimalWeather
 	setfieldweather ENUM_WEATHER_SNOW
 	goto BattleScript_MoveWeatherChange
+
+BattleScript_WeightedTrickRoomEnds::
+	printstring STRINGID_WEIGHTEDTRICKROOMENDS
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_GrimAuraTurnDmg::
+	printstring STRINGID_HURTBYGRIMAURA
+	playanimation BS_ATTACKER, B_ANIM_GRIM_AURA_HURT
+	waitmessage B_WAIT_TIME_MED
+	goto BattleScript_DoTurnDmg
+
+BattleScript_GrimAuraEnds::
+	printstring STRINGID_THEDARKNESSLIFTED
+	waitmessage B_WAIT_TIME_LONG
+	end2

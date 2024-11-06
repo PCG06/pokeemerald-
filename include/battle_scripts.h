@@ -549,6 +549,9 @@ extern const u8 BattleScript_EffectHealOneSixthAllies[];
 extern const u8 BattleScript_EffectCureStatusAllies[];
 extern const u8 BattleScript_EffectRecycleBerriesAllies[];
 extern const u8 BattleScript_RemoveGenericType[];
+extern const u8 BattleScript_WeightedTrickRoomEnds[];
+extern const u8 BattleScript_GrimAuraTurnDmg[];
+extern const u8 BattleScript_GrimAuraEnds[];
 
 // dynamax and max raids
 extern const u8 BattleScript_DynamaxBegins[];

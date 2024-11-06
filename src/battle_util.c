@@ -1660,6 +1660,7 @@ enum
     ENDTURN_SEA_OF_FIRE,
     ENDTURN_SWAMP,
     ENDTURN_WEIGHTED_TRICK_ROOM,
+    ENDTURN_GRIM_AURA,
     ENDTURN_FIELD_COUNT,
 };
 
@@ -1681,6 +1682,35 @@ static bool32 EndTurnTerrain(u32 terrainFlag, u32 stringTableId)
             return TRUE;
         }
     }
+    return FALSE;
+}
+
+static inline bool32 IsImmuneToGrimAura(u32 battler, u32 ability)
+{
+    if (IS_BATTLER_OF_TYPE(battler, TYPE_GHOST))
+        return TRUE;
+    
+    if (IS_BATTLER_OF_TYPE(battler, TYPE_DARK))
+        return TRUE;
+
+    if (ability == ABILITY_OBLIVIOUS)
+    {
+        RecordAbilityBattle(battler, ability);
+        return TRUE;
+    }
+
+    if (ability == ABILITY_MAGIC_GUARD)
+    {
+        RecordAbilityBattle(battler, ability);
+        return TRUE;
+    }
+
+    if (ability == ABILITY_PURIFYING_SALT)
+    {
+        RecordAbilityBattle(battler, ability);
+        return TRUE;
+    }
+
     return FALSE;
 }
 
@@ -2256,7 +2286,16 @@ u8 DoFieldEndTurnEffects(void)
             if (gFieldStatuses & STATUS_FIELD_WEIGHTED_TRICK_ROOM && gFieldTimers.weightedTrickRoomTimer > 0 && --gFieldTimers.weightedTrickRoomTimer == 0)
             {
                 gFieldStatuses &= ~STATUS_FIELD_WEIGHTED_TRICK_ROOM;
-                BattleScriptExecute(BattleScript_TrickRoomEnds);
+                BattleScriptExecute(BattleScript_WeightedTrickRoomEnds);
+                effect++;
+            }
+            gBattleStruct->turnCountersTracker++;
+            break;
+        case ENDTURN_GRIM_AURA:
+            if (gFieldStatuses & STATUS_FIELD_GRIM_AURA && gFieldTimers.grimAuraTimer > 0 && --gFieldTimers.grimAuraTimer == 0)
+            {
+                gFieldStatuses &= ~STATUS_FIELD_GRIM_AURA;
+                BattleScriptExecute(BattleScript_GrimAuraEnds);
                 effect++;
             }
             gBattleStruct->turnCountersTracker++;
@@ -2278,6 +2317,7 @@ enum
     ENDTURN_ABILITIES,
     ENDTURN_ITEMS1,
     ENDTURN_LEECH_SEED,
+    ENDTURN_GRIM_AURA_DAMAGE,
     ENDTURN_POISON,
     ENDTURN_BAD_POISON,
     ENDTURN_BURN,
@@ -2474,6 +2514,17 @@ u8 DoBattlerEndTurnEffects(void)
                 gBattleScripting.animArg1 = gBattlerTarget;
                 gBattleScripting.animArg2 = gBattlerAttacker;
                 BattleScriptExecute(BattleScript_LeechSeedTurnDrain);
+                effect++;
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
+        case ENDTURN_GRIM_AURA_DAMAGE:
+            if ((gFieldStatuses & STATUS_FIELD_GRIM_AURA)
+            && IsBattlerAlive(battler)
+            && !IsImmuneToGrimAura(battler, ability))
+            {
+                gBattleMoveDamage = GetNonDynamaxMaxHP(battler) / 8;
+                BattleScriptExecute(BattleScript_GrimAuraTurnDmg);
                 effect++;
             }
             gBattleStruct->turnEffectsTracker++;
@@ -4260,7 +4311,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 {
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_WEIGHTED_TRICK_ROOM;
                     gFieldStatuses |= STATUS_FIELD_WEIGHTED_TRICK_ROOM;
-                    gBattleScripting.animArg1 = B_ANIM_TRICK_ROOM;
+                    gBattleScripting.animArg1 = B_ANIM_WEIGHTED_TRICK_ROOM;
                     if (timerVal == 0)
                         gFieldTimers.weightedTrickRoomTimer = 0;    // infinite
                     else
@@ -4278,6 +4329,19 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                         gFieldTimers.gravityTimer = 0;    // infinite
                     else
                         gFieldTimers.gravityTimer = 5;
+                    effect = 1;
+                }
+                break;
+            case STARTING_STATUS_GRIM_AURA:
+                if (!(gFieldStatuses & STATUS_FIELD_GRIM_AURA))
+                {
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_GRIM_AURA;
+                    gFieldStatuses |= STATUS_FIELD_GRIM_AURA;
+                    gBattleScripting.animArg1 = B_ANIM_GRIM_AURA;
+                    if (timerVal == 0)
+                        gFieldTimers.grimAuraTimer = 0;    // infinite
+                    else
+                        gFieldTimers.grimAuraTimer = 5;
                     effect = 1;
                 }
                 break;
