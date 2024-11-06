@@ -564,7 +564,6 @@ static const u8 sText_PkmnSurroundedWithVeilOfWater[] = _("{B_ATK_NAME_WITH_PREF
 static const u8 sText_PkmnLevitatedOnElectromagnetism[] = _("{B_ATK_NAME_WITH_PREFIX} levitated on\nelectromagnetism!");
 static const u8 sText_PkmnTwistedDimensions[] = _("{B_ATK_NAME_WITH_PREFIX} twisted\nthe dimensions!");
 static const u8 sText_DimensionsWereTwisted[] = _("The dimensions were\ntwisted!");
-static const u8 sText_DimensionsWereTwisted2[] = _("The dimensions were\ntwisted!\pHeavy Pokémon will\nattack first!");
 static const u8 sText_PointedStonesFloat[] =_("Pointed stones float in the air\naround {B_DEF_TEAM2} team!");
 static const u8 sText_CloakedInMysticalMoonlight[] =_("It became cloaked in mystical\nmoonlight!");
 static const u8 sText_TrappedBySwirlingMagma[] =_("{B_DEF_NAME_WITH_PREFIX} became\ntrapped by swirling magma!");
@@ -851,10 +850,19 @@ static const u8 sText_PkmnTerastallizedInto[] = _("{B_ATK_NAME_WITH_PREFIX} tera
 static const u8 sText_SupersweetAromaWafts[] = _("A supersweet aroma is wafting from\nthe syrup covering {B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_TidyingUpComplete[] = _("Tidying up complete!");
 static const u8 sText_FickleBeamDoubled[] = _("{B_ATK_NAME_WITH_PREFIX} is going all\nout for this attack!");
+static const u8 sText_TheSpaceGrewDense[] = _("The space grew\ndense!\pHeavy Pokémon will\nstrike first!");
+static const u8 sText_TheSpaceReturnedToNormal[] = _("The space returned to\nnormal!");
+static const u8 sText_FieldWasDarkened[] = _("The field was darkened!");
+static const u8 sText_PkmnHurtByGrimAura[] = _("{B_ATK_NAME_WITH_PREFIX} was hurt\nby the grim aura!");
+static const u8 sText_DarknessLifted[] = _("The darkness has been lifted!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
-    [STRINGID_DIMENSIONSWERETWISTED2 - BATTLESTRINGS_TABLE_START] = sText_DimensionsWereTwisted2,
+    [STRINGID_THEDARKNESSLIFTED - BATTLESTRINGS_TABLE_START] = sText_DarknessLifted,
+    [STRINGID_HURTBYGRIMAURA - BATTLESTRINGS_TABLE_START] = sText_PkmnHurtByGrimAura,
+    [STRINGID_THEFIELDWASDARKENED - BATTLESTRINGS_TABLE_START] = sText_FieldWasDarkened,
+    [STRINGID_WEIGHTEDTRICKROOMENDS - BATTLESTRINGS_TABLE_START] = sText_TheSpaceReturnedToNormal,
+    [STRINGID_SPACEGREWDENSE - BATTLESTRINGS_TABLE_START] = sText_TheSpaceGrewDense,
     [STRINGID_FICKLEBEAMDOUBLED - BATTLESTRINGS_TABLE_START] = sText_FickleBeamDoubled,
     [STRINGID_PKMNTERASTALLIZEDINTO - BATTLESTRINGS_TABLE_START] = sText_PkmnTerastallizedInto,
     [STRINGID_TIDYINGUPCOMPLETE - BATTLESTRINGS_TABLE_START] = sText_TidyingUpComplete,
@@ -1596,8 +1604,9 @@ const u16 gStartingStatusStringIds[B_MSG_STARTING_STATUS_COUNT] =
     [B_MSG_SET_WONDER_ROOM]         = STRINGID_BIZARREAREACREATED,
     [B_MSG_SET_TAILWIND_PLAYER]     = STRINGID_TAILWINDBLEW,
     [B_MSG_SET_TAILWIND_OPPONENT]   = STRINGID_TAILWINDBLEW,
-    [B_MSG_SET_WEIGHTED_TRICK_ROOM] = STRINGID_DIMENSIONSWERETWISTED2,
+    [B_MSG_SET_WEIGHTED_TRICK_ROOM] = STRINGID_SPACEGREWDENSE,
     [B_MSG_SET_GRAVITY]             = STRINGID_GRAVITYINTENSIFIED,
+    [B_MSG_SET_GRIM_AURA]           = STRINGID_THEFIELDWASDARKENED,
 };
 
 const u16 gTerrainStringIds[B_MSG_TERRAIN_COUNT] =

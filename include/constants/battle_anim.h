@@ -583,6 +583,9 @@
 #define B_ANIM_TERA_ACTIVATE            51
 #define B_ANIM_SIMPLE_HEAL              52
 #define B_ANIM_GRAVITY                  53
+#define B_ANIM_WEIGHTED_TRICK_ROOM      54
+#define B_ANIM_GRIM_AURA                55
+#define B_ANIM_GRIM_AURA_HURT           56
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

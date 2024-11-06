@@ -87,6 +87,9 @@ gBattleAnims_General::
 	.4byte General_TeraActivate             @ B_ANIM_TERA_ACTIVATE
 	.4byte General_SimpleHeal               @ B_ANIM_SIMPLE_HEAL
 	.4byte General_Gravity                  @ B_ANIM_GRAVITY
+	.4byte General_TrickRoom                @ B_ANIM_WEIGHTED_TRICK_ROOM @ Placeholder for now
+	.4byte General_GrimAura                 @ B_ANIM_GRIM_AURA
+	.4byte General_GrimAuraHurt             @ B_ANIM_GRIM_AURA_HURT
 
 	.align 2
 gBattleAnims_Special::
@@ -34322,5 +34325,35 @@ General_DynamaxGrowth:: @ PORTED FROM CFRU
 	createvisualtask SoundTask_PlayCryWithEcho, 2, ANIM_ATTACKER, 2
 	delay 8
 	createvisualtask AnimTask_DynamaxGrowth, 0x5, 0x1, 0x0
+	waitforvisualfinish
+	end
+
+General_GrimAura::
+	fadetobg BG_GHOST
+	waitbgfadein
+	createvisualtask AnimTask_SetAnimTargetToAttackerOpposite, 1
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ShakeAndSinkMon, 5, ANIM_ATTACKER, 2, 0, 96, 30
+	createvisualtask AnimTask_ShakeAndSinkMon, 5, ANIM_DEF_PARTNER, 2, 0, 96, 30
+	createvisualtask AnimTask_ShakeAndSinkMon, 5, ANIM_ATK_PARTNER, 2, 0, 96, 30
+	createvisualtask AnimTask_ShakeAndSinkMon, 5, ANIM_TARGET, 2, 0, 96, 30
+	waitforvisualfinish
+	restorebg
+	waitbgfadeout
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 3, 0, 1, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATK_PARTNER, 3, 0, 1, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_DEF_PARTNER, 3, 0, 1, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 1, 1
+	setarg 0x7, 0xffff
+	waitbgfadein
+	waitforvisualfinish
+	end
+
+General_GrimAuraHurt::
+	createvisualtask AnimTask_SetAnimTargetToAttackerOpposite, 1
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ShakeAndSinkMon, 5, ANIM_ATTACKER, 2, 0, 96, 30
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 3, 0, 1, 1
 	waitforvisualfinish
 	end
