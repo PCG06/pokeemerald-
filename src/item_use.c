@@ -1711,7 +1711,6 @@ void ItemUseOnFieldCB_SweetScentTool(u8 taskId)
     DestroyTask(taskId);
 }
 // End qol_field_moves
-#undef tUsingRegisteredKeyItem
 
 void ItemUseOutOfBattle_PokeBall(u8 taskId)
 {
@@ -1719,3 +1718,5 @@ void ItemUseOutOfBattle_PokeBall(u8 taskId)
     gBagMenu->newScreenCallback = CB2_ShowPartyMenuForItemUse;
     Task_FadeAndCloseBagMenu(taskId);
 }
+
+#undef tUsingRegisteredKeyItem
