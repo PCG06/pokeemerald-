@@ -515,6 +515,8 @@ extern const u8 BattleScript_Terastallization[];
 extern const u8 BattleScript_BoosterEnergyEnd2[];
 extern const u8 BattleScript_TeraShellDistortingTypeMatchups[];
 extern const u8 BattleScript_TeraFormChange[];
+extern const u8 BattleScript_BlockedByPermanentWeatherEnd3[];
+extern const u8 BattleScript_BlockedByPermanentWeatherRet[];
 
 // zmoves
 extern const u8 BattleScript_ZMoveActivateDamaging[];

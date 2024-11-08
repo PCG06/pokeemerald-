@@ -855,9 +855,31 @@ static const u8 sText_TheSpaceReturnedToNormal[] = _("The space returned to\nnor
 static const u8 sText_FieldWasDarkened[] = _("The field was darkened!");
 static const u8 sText_PkmnHurtByGrimAura[] = _("{B_ATK_NAME_WITH_PREFIX} was hurt\nby the grim aura!");
 static const u8 sText_DarknessLifted[] = _("The darkness has been lifted!");
+static const u8 sText_HeavyDownpour[] = _("A heavy downpour\nstarted!");
+static const u8 sText_NoReliefFromHeavyDownpour[] = _("There is no relieffrom\nthis heavy downpour");
+static const u8 sText_ExtremelyBrightSunlight[] = _("The sunlight turned\nextremely bright!");
+static const u8 sText_ExtremelyBrightSunlightWasNotLessened[] = _("The extremely bright sunlight\nwas not lessened at all!");
+static const u8 sText_ExtremelyBrightSunlightContinues[] = _("The extremely bright sunlight\ncontinues to shine!");
+static const u8 sText_SevereSandstormIsRaging[] = _("A severe sandstorm\nis raging!");
+static const u8 sText_SevereSandstormShowedNoSigns[] = _("The severe sandstorm\nshowed no signs of easing!");
+static const u8 sText_SevereSandstormRages[] = _("The severe sandstorm\ncontinues to whip fiercely!");
+static const u8 sText_BlindingSnowstormBegins[] = _("A blinding snowstorm\nhas begun!");
+static const u8 sText_BlidningSnowstorContinuesUnabated[] = _("The blinding snowstorm\ncontinues unabated!");
+static const u8 sText_BlindingSnowstormContinues[] = _("The blinding snowstorm\ncontinues to chill!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
+    [STRINGID_BLINDINGSNOWSTORMCONTINUES - BATTLESTRINGS_TABLE_START] = sText_BlindingSnowstormContinues,
+    [STRINGID_BLINDINGSNOWSTORMCONTINUESUNABATED - BATTLESTRINGS_TABLE_START] = sText_BlidningSnowstorContinuesUnabated,
+    [STRINGID_BLINDINGSNOWSTORM - BATTLESTRINGS_TABLE_START] = sText_BlindingSnowstormBegins,
+    [STRINGID_SEVERESANDSTORMRAGES - BATTLESTRINGS_TABLE_START] = sText_SevereSandstormRages,
+    [STRINGID_SEVERESANDSTORMNOSIGNOFEASING - BATTLESTRINGS_TABLE_START] = sText_SevereSandstormShowedNoSigns,
+    [STRINGID_SEVERESANDSTORM - BATTLESTRINGS_TABLE_START] = sText_SevereSandstormIsRaging,
+    [STRINGID_EXTREMELYBRIGHTSUNLIGHTCONTINUES - BATTLESTRINGS_TABLE_START] = sText_ExtremelyBrightSunlightContinues,
+    [STRINGID_EXTREMELYBRIGHTSUNLIGHTWASNOTLESSENED - BATTLESTRINGS_TABLE_START] = sText_ExtremelyBrightSunlightWasNotLessened,
+    [STRINGID_EXTREMELYBRIGHTSUNLIGHT - BATTLESTRINGS_TABLE_START] = sText_ExtremelyBrightSunlight,
+    [STRINGID_NORELIEFROMHEAVYDOWNPOUR - BATTLESTRINGS_TABLE_START] = sText_NoReliefFromHeavyDownpour,
+    [STRINGID_HEAVYDOWNPOUR - BATTLESTRINGS_TABLE_START] = sText_HeavyDownpour,
     [STRINGID_THEDARKNESSLIFTED - BATTLESTRINGS_TABLE_START] = sText_DarknessLifted,
     [STRINGID_HURTBYGRIMAURA - BATTLESTRINGS_TABLE_START] = sText_PkmnHurtByGrimAura,
     [STRINGID_THEFIELDWASDARKENED - BATTLESTRINGS_TABLE_START] = sText_FieldWasDarkened,
@@ -1697,6 +1719,10 @@ const u16 gMoveWeatherChangeStringIds[] =
     [B_MSG_STARTED_HAIL]      = STRINGID_STARTEDHAIL,
     [B_MSG_STARTED_SNOW]      = STRINGID_STARTEDSNOW,
     [B_MSG_STARTED_FOG]       = STRINGID_FOGCREPTUP, // Unused, can use for custom moves that set fog
+    [B_MSG_STARTED_HEAVY_DOWNPOUR]     = STRINGID_HEAVYDOWNPOUR,
+    [B_MSG_STARTED_BRIGHT_SUNLIGHT]    = STRINGID_EXTREMELYBRIGHTSUNLIGHT,
+    [B_MSG_STARTED_SEVERE_SANDSTORM]   = STRINGID_SEVERESANDSTORM,
+    [B_MSG_STARTED_BLINDING_SNOWSTORM] = STRINGID_BLINDINGSNOWSTORM,
 };
 
 const u16 gWeatherEndsStringIds[B_MSG_WEATHER_END_COUNT] =
@@ -1715,12 +1741,15 @@ const u16 gSandStormHailSnowContinuesStringIds[] =
     [B_MSG_SANDSTORM] = STRINGID_SANDSTORMRAGES,
     [B_MSG_HAIL]      = STRINGID_HAILCONTINUES,
     [B_MSG_SNOW]      = STRINGID_SNOWCONTINUES,
+    [B_MSG_SEVERE_SANDSTORM]   = STRINGID_SEVERESANDSTORMRAGES,
+    [B_MSG_BLINDING_SNOWSTORM] = STRINGID_BLINDINGSNOWSTORMCONTINUES,
 };
 
 const u16 gSandStormHailDmgStringIds[] =
 {
     [B_MSG_SANDSTORM] = STRINGID_PKMNBUFFETEDBYSANDSTORM,
-    [B_MSG_HAIL]      = STRINGID_PKMNPELTEDBYHAIL
+    [B_MSG_HAIL]      = STRINGID_PKMNPELTEDBYHAIL,
+    [B_MSG_SEVERE_SANDSTORM]   = STRINGID_PKMNBUFFETEDBYSANDSTORM,
 };
 
 const u16 gSandStormHailSnowEndStringIds[] =
@@ -1735,6 +1764,13 @@ const u16 gRainContinuesStringIds[] =
     [B_MSG_RAIN_CONTINUES]     = STRINGID_RAINCONTINUES,
     [B_MSG_DOWNPOUR_CONTINUES] = STRINGID_DOWNPOURCONTINUES,
     [B_MSG_RAIN_STOPPED]       = STRINGID_RAINSTOPPED
+};
+
+const u16 gSunContinuesStringIds[] =
+{
+    [B_MSG_SUNLIGHT_CONTINUES]        = STRINGID_SUNLIGHTSTRONG,
+    [B_MSG_BRIGHT_SUNLIGHT_CONTINUES] = STRINGID_EXTREMELYBRIGHTSUNLIGHTCONTINUES,
+    [B_MSG_SUNLIGHT_STOPPED]          = STRINGID_SUNLIGHTFADED
 };
 
 const u16 gProtectLikeUsedStringIds[] =
@@ -1967,7 +2003,10 @@ const u16 gWeatherStartsStringIds[] =
     [WEATHER_UNDERWATER]         = STRINGID_ITISRAINING,
     [WEATHER_SHADE]              = STRINGID_ITISRAINING,
     [WEATHER_DROUGHT]            = STRINGID_SUNLIGHTSTRONG,
-    [WEATHER_DOWNPOUR]           = STRINGID_ITISRAINING,
+    [WEATHER_BRIGHT_SUN]         = STRINGID_EXTREMELYBRIGHTSUNLIGHT,
+    [WEATHER_DOWNPOUR]           = STRINGID_HEAVYDOWNPOUR,
+    [WEATHER_SEVERE_SANDSTORM]   = STRINGID_SEVERESANDSTORM,
+    [WEATHER_BLINDING_SNOW]      = STRINGID_BLINDINGSNOWSTORM,
     [WEATHER_UNDERWATER_BUBBLES] = STRINGID_ITISRAINING,
     [WEATHER_ABNORMAL]           = STRINGID_ITISRAINING
 };

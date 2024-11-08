@@ -2583,7 +2583,10 @@ static u8 TranslateWeatherNum(u8 weather)
     case WEATHER_UNDERWATER:         return WEATHER_UNDERWATER;
     case WEATHER_SHADE:              return WEATHER_SHADE;
     case WEATHER_DROUGHT:            return WEATHER_DROUGHT;
+    case WEATHER_BRIGHT_SUN:         return WEATHER_BRIGHT_SUN;
     case WEATHER_DOWNPOUR:           return WEATHER_DOWNPOUR;
+    case WEATHER_SEVERE_SANDSTORM:   return WEATHER_SEVERE_SANDSTORM;
+    case WEATHER_BLINDING_SNOW:      return WEATHER_BLINDING_SNOW;
     case WEATHER_UNDERWATER_BUBBLES: return WEATHER_UNDERWATER_BUBBLES;
     case WEATHER_ABNORMAL:           return WEATHER_ABNORMAL;
     case WEATHER_ROUTE119_CYCLE:     return sWeatherCycleRoute119[gSaveBlock1Ptr->weatherCycleStage];
