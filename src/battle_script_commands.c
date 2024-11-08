@@ -11265,17 +11265,29 @@ static void Cmd_setfieldweather(void)
     case ENUM_WEATHER_RAIN:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_RAIN;
         break;
+    case ENUM_WEATHER_RAIN_PERMANENT:
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_HEAVY_DOWNPOUR;
+        break;
     case ENUM_WEATHER_SUN:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_SUNLIGHT;
         break;
+    case ENUM_WEATHER_SUN_PERMANENT:
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_BRIGHT_SUNLIGHT;
+        break;
     case ENUM_WEATHER_SANDSTORM:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_SANDSTORM;
+        break;
+    case ENUM_WEATHER_SANDSTORM_PERMANENT:
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_SEVERE_SANDSTORM;
         break;
     case ENUM_WEATHER_HAIL:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_HAIL;
         break;
     case ENUM_WEATHER_SNOW:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_SNOW;
+        break;
+    case ENUM_WEATHER_SNOW_PERMANENT:
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_BLINDING_SNOWSTORM;
         break;
     }
 

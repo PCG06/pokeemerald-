@@ -718,8 +718,19 @@
 #define STRINGID_THEFIELDWASDARKENED                  716
 #define STRINGID_HURTBYGRIMAURA                       717
 #define STRINGID_THEDARKNESSLIFTED                    718
+#define STRINGID_HEAVYDOWNPOUR                        719
+#define STRINGID_NORELIEFROMHEAVYDOWNPOUR             720
+#define STRINGID_EXTREMELYBRIGHTSUNLIGHT              721
+#define STRINGID_EXTREMELYBRIGHTSUNLIGHTWASNOTLESSENED 722
+#define STRINGID_EXTREMELYBRIGHTSUNLIGHTCONTINUES     723
+#define STRINGID_SEVERESANDSTORM                      724
+#define STRINGID_SEVERESANDSTORMNOSIGNOFEASING        725
+#define STRINGID_SEVERESANDSTORMRAGES                 726
+#define STRINGID_BLINDINGSNOWSTORM                    727
+#define STRINGID_BLINDINGSNOWSTORMCONTINUESUNABATED   728
+#define STRINGID_BLINDINGSNOWSTORMCONTINUES           729
 
-#define BATTLESTRINGS_COUNT                           719
+#define BATTLESTRINGS_COUNT                           730
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -772,6 +783,10 @@
 #define B_MSG_STARTED_HAIL      5
 #define B_MSG_STARTED_SNOW      6
 #define B_MSG_STARTED_FOG       7
+#define B_MSG_STARTED_HEAVY_DOWNPOUR     8
+#define B_MSG_STARTED_BRIGHT_SUNLIGHT    9
+#define B_MSG_STARTED_SEVERE_SANDSTORM   10
+#define B_MSG_STARTED_BLINDING_SNOWSTORM 11
 
 // gWeatherEndsStringIds
 #define B_MSG_WEATHER_END_RAIN         0
@@ -788,10 +803,17 @@
 #define B_MSG_DOWNPOUR_CONTINUES 1
 #define B_MSG_RAIN_STOPPED       2
 
+// gSunContinuesStringIds
+#define B_MSG_SUNLIGHT_CONTINUES        0
+#define B_MSG_BRIGHT_SUNLIGHT_CONTINUES 1
+#define B_MSG_SUNLIGHT_STOPPED          3
+
 // gSandStormHailSnowContinuesStringIds / gSandStormHailDmgStringIds/ gSandStormHailSnowEndStringIds
-#define B_MSG_SANDSTORM  0
-#define B_MSG_HAIL       1
-#define B_MSG_SNOW       2
+#define B_MSG_SANDSTORM          0
+#define B_MSG_HAIL               1
+#define B_MSG_SNOW               2
+#define B_MSG_SEVERE_SANDSTORM   3
+#define B_MSG_BLINDING_SNOWSTORM 4
 
 // gReflectLightScreenSafeguardStringIds
 #define B_MSG_SIDE_STATUS_FAILED     0

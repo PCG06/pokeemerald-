@@ -263,9 +263,15 @@ BattleScript_EffectChillyReception::
 	waitmessage B_WAIT_TIME_LONG
 	attackcanceler
 	ppreduce
+	@ Primal weathers
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_EffectChillyReceptionBlockedByPrimalSun
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_EffectChillyReceptionBlockedByPrimalRain
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_EffectChillyReceptionBlockedByStrongWinds
+	@ Permanent weathers
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PERMANENT, BattleScript_EffectChillyReceptionBlockedByPermanentRain
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PERMANENT, BattleScript_EffectChillyReceptionBlockedByPermanentSun
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SANDSTORM_PERMANENT, BattleScript_EffectChillyReceptionBlockedByPermanentSandstorm
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SNOW_PERMANENT, BattleScript_EffectChillyReceptionBlockedByPermanentSnow
 	call BattleScript_EffectChillyReceptionPlayAnimation
 	setfieldweather ENUM_WEATHER_SNOW
 	call BattleScript_MoveWeatherChangeRet
@@ -286,6 +292,22 @@ BattleScript_EffectChillyReceptionBlockedByPrimalRain:
 BattleScript_EffectChillyReceptionBlockedByStrongWinds:
 	call BattleScript_EffectChillyReceptionTrySwitchWeatherFailed
 	call BattleScript_MysteriousAirCurrentBlowsOnRet
+	goto BattleScript_MoveSwitch
+BattleScript_EffectChillyReceptionBlockedByPermanentRain:
+	call BattleScript_EffectChillyReceptionTrySwitchWeatherFailed
+	call BattleScript_NoReliefFromPermanentRainRet
+	goto BattleScript_MoveSwitch
+BattleScript_EffectChillyReceptionBlockedByPermanentSun:
+	call BattleScript_EffectChillyReceptionTrySwitchWeatherFailed
+	call BattleScript_ExtremelyPermanentSunlightWasNotLessenedRet
+	goto BattleScript_MoveSwitch
+BattleScript_EffectChillyReceptionBlockedByPermanentSandstorm:
+	call BattleScript_EffectChillyReceptionTrySwitchWeatherFailed
+	call BattleScript_SevereSandstormShowsNoSignOfEasingRet
+	goto BattleScript_MoveSwitch
+BattleScript_EffectChillyReceptionBlockedByPermanentSnow:
+	call BattleScript_EffectChillyReceptionTrySwitchWeatherFailed
+	call BattleScript_BlidningSnowstormContinuesUnabatedRet
 	goto BattleScript_MoveSwitch
 BattleScript_EffectChillyReceptionTrySwitchWeatherFailed:
 	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_FailedFromAtkString
@@ -4283,6 +4305,7 @@ BattleScript_EffectSandstorm::
 	attackstring
 	ppreduce
 	call BattleScript_CheckPrimalWeather
+	call BattleScript_CheckPermanentWeather
 	setfieldweather ENUM_WEATHER_SANDSTORM
 	goto BattleScript_MoveWeatherChange
 
@@ -4449,6 +4472,7 @@ BattleScript_EffectRainDance::
 	attackstring
 	ppreduce
 	call BattleScript_CheckPrimalWeather
+	call BattleScript_CheckPermanentWeather
 	setfieldweather ENUM_WEATHER_RAIN
 BattleScript_MoveWeatherChange::
 	attackanimation
@@ -4467,6 +4491,7 @@ BattleScript_EffectSunnyDay::
 	attackstring
 	ppreduce
 	call BattleScript_CheckPrimalWeather
+	call BattleScript_CheckPermanentWeather
 	setfieldweather ENUM_WEATHER_SUN
 	goto BattleScript_MoveWeatherChange
 
@@ -4536,6 +4561,100 @@ BattleScript_BlockedByPrimalWeatherRet::
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_ExtremelyHarshSunlightWasNotLessenedRet
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_NoReliefFromHeavyRainRet
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOnRet
+	return
+
+BattleScript_NoReliefFromPermanentRain:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_NORELIEFROMHEAVYDOWNPOUR
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_NoReliefFromPermanentRainEnd3:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_NORELIEFROMHEAVYDOWNPOUR
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_NoReliefFromPermanentRainRet:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_NORELIEFROMHEAVYDOWNPOUR
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_ExtremelyPermanentSunlightWasNotLessened:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_EXTREMELYBRIGHTSUNLIGHTWASNOTLESSENED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_ExtremelyPermanentSunlightWasNotLessenedEnd3:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_EXTREMELYBRIGHTSUNLIGHTWASNOTLESSENED
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_ExtremelyPermanentSunlightWasNotLessenedRet:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_EXTREMELYBRIGHTSUNLIGHTWASNOTLESSENED
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_SevereSandstormShowsNoSignOfEasing:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_SEVERESANDSTORMNOSIGNOFEASING
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_SevereSandstormShowsNoSignOfEasingEnd3:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_SEVERESANDSTORMNOSIGNOFEASING
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_SevereSandstormShowsNoSignOfEasingRet:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_SEVERESANDSTORMNOSIGNOFEASING
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_BlidningSnowstormContinuesUnabated:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_BLINDINGSNOWSTORMCONTINUESUNABATED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_BlidningSnowstormContinuesUnabatedEnd3:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_BLINDINGSNOWSTORMCONTINUESUNABATED
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_BlidningSnowstormContinuesUnabatedRet:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_BLINDINGSNOWSTORMCONTINUESUNABATED
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_CheckPermanentWeather::
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PERMANENT, BattleScript_NoReliefFromPermanentRain
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PERMANENT, BattleScript_ExtremelyPermanentSunlightWasNotLessened
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SANDSTORM_PERMANENT, BattleScript_SevereSandstormShowsNoSignOfEasing
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SNOW_PERMANENT, BattleScript_BlidningSnowstormContinuesUnabated
+	return
+
+BattleScript_BlockedByPermanentWeatherEnd3::
+	call BattleScript_AbilityPopUp
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PERMANENT, BattleScript_NoReliefFromPermanentRainEnd3
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PERMANENT, BattleScript_ExtremelyPermanentSunlightWasNotLessenedEnd3
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SANDSTORM_PERMANENT, BattleScript_SevereSandstormShowsNoSignOfEasingEnd3
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SNOW_PERMANENT, BattleScript_BlidningSnowstormContinuesUnabatedEnd3
+	end3
+
+BattleScript_BlockedByPermanentWeatherRet::
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PERMANENT, BattleScript_NoReliefFromPermanentRainRet
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PERMANENT, BattleScript_ExtremelyPermanentSunlightWasNotLessenedRet
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SANDSTORM_PERMANENT, BattleScript_SevereSandstormShowsNoSignOfEasingRet
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SNOW_PERMANENT, BattleScript_BlidningSnowstormContinuesUnabatedRet
 	return
 
 BattleScript_EffectBellyDrum::
@@ -4824,6 +4943,7 @@ BattleScript_EffectHail::
 	attackstring
 	ppreduce
 	call BattleScript_CheckPrimalWeather
+	call BattleScript_CheckPermanentWeather
 	setfieldweather ENUM_WEATHER_HAIL
 	goto BattleScript_MoveWeatherChange
 
@@ -5915,7 +6035,7 @@ BattleScript_SandStormHailSnowEnds::
 	end2
 
 BattleScript_SunlightContinues::
-	printstring STRINGID_SUNLIGHTSTRONG
+	printfromtable gSunContinuesStringIds
 	waitmessage B_WAIT_TIME_LONG
 	playanimation BS_ATTACKER, B_ANIM_SUN_CONTINUES
 	call BattleScript_ActivateWeatherAbilities
@@ -10051,6 +10171,7 @@ BattleScript_EffectSnow::
 	attackstring
 	ppreduce
 	call BattleScript_CheckPrimalWeather
+	call BattleScript_CheckPermanentWeather
 	setfieldweather ENUM_WEATHER_SNOW
 	goto BattleScript_MoveWeatherChange
 

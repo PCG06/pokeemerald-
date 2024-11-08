@@ -2243,7 +2243,10 @@ static const u8 sWeatherNames[22][24] = {
     [WEATHER_UNDERWATER]         = _("UNDERWATER"),
     [WEATHER_SHADE]              = _("SHADE"),
     [WEATHER_DROUGHT]            = _("DROUGHT"),
+    [WEATHER_BRIGHT_SUN]         = _("BRIGHT SUN"),
     [WEATHER_DOWNPOUR]           = _("DOWNPOUR"),
+    [WEATHER_SEVERE_SANDSTORM]   = _("SEVERE SANDSTORM"),
+    [WEATHER_BLINDING_SNOW]      = _("BLINDING SNOW"),
     [WEATHER_UNDERWATER_BUBBLES] = _("UNDERWATER BUBBLES"),
     [WEATHER_ABNORMAL]           = _("ABNORMAL(NOT WORKING)"),
     [WEATHER_ROUTE119_CYCLE]     = _("ROUTE119 CYCLE"),
@@ -2309,7 +2312,7 @@ static void DebugAction_Util_Weather_SelectId(u8 taskId)
         StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
         ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 2);
 
-        if (gTasks[taskId].tInput <= 15 || gTasks[taskId].tInput >= 20)
+        if (gTasks[taskId].tInput <= 18 || gTasks[taskId].tInput >= 20)
             StringCopyPadded(gStringVar1, sWeatherNames[gTasks[taskId].tInput], CHAR_SPACE, 30);
         else
             StringCopyPadded(gStringVar1, sDebugText_WeatherNotDefined, CHAR_SPACE, 30);
@@ -2320,10 +2323,13 @@ static void DebugAction_Util_Weather_SelectId(u8 taskId)
 
     if (JOY_NEW(A_BUTTON))
     {
-        if (gTasks[taskId].tInput <= 14 || gTasks[taskId].tInput >= 20)
+        if (gTasks[taskId].tInput <= 18 || gTasks[taskId].tInput >= 20)
         {
-            gTasks[taskId].data[5] = gTasks[taskId].tInput;
-            SetWeather(gTasks[taskId].data[5]);
+            if (gTasks[taskId].tInput != 15)
+            {
+                gTasks[taskId].data[5] = gTasks[taskId].tInput;
+                SetWeather(gTasks[taskId].data[5]);
+            }
         }
     }
     else if (JOY_NEW(B_BUTTON))

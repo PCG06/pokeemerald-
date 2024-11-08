@@ -98,7 +98,10 @@ static const struct WeatherCallbacks sWeatherFuncs[] =
     [WEATHER_UNDERWATER]         = {FogHorizontal_InitVars, FogHorizontal_Main, FogHorizontal_InitAll, FogHorizontal_Finish},
     [WEATHER_SHADE]              = {Shade_InitVars,         Shade_Main,         Shade_InitAll,         Shade_Finish},
     [WEATHER_DROUGHT]            = {Drought_InitVars,       Drought_Main,       Drought_InitAll,       Drought_Finish},
+    [WEATHER_BRIGHT_SUN]         = {Drought_InitVars,       Drought_Main,       Drought_InitAll,       Drought_Finish},
     [WEATHER_DOWNPOUR]           = {Downpour_InitVars,      Thunderstorm_Main,  Downpour_InitAll,      Thunderstorm_Finish},
+    [WEATHER_SEVERE_SANDSTORM]   = {Sandstorm_InitVars,     Sandstorm_Main,     Sandstorm_InitAll,     Sandstorm_Finish},
+    [WEATHER_BLINDING_SNOW]      = {Snow_InitVars,          Snow_Main,          Snow_InitAll,          Snow_Finish},
     [WEATHER_UNDERWATER_BUBBLES] = {Bubbles_InitVars,       Bubbles_Main,       Bubbles_InitAll,       Bubbles_Finish},
 };
 
@@ -396,6 +399,7 @@ static void FadeInScreenWithWeather(void)
         }
         break;
     case WEATHER_DROUGHT:
+    case WEATHER_BRIGHT_SUN:
         if (FadeInScreen_Drought() == FALSE)
         {
             gWeatherPtr->colorMapIndex = -6;
@@ -414,6 +418,8 @@ static void FadeInScreenWithWeather(void)
     case WEATHER_SANDSTORM:
     case WEATHER_FOG_DIAGONAL:
     case WEATHER_UNDERWATER:
+    case WEATHER_SEVERE_SANDSTORM:
+    case WEATHER_BLINDING_SNOW:
     default:
         if (!gPaletteFade.active)
         {
@@ -783,6 +789,7 @@ void FadeScreen(u8 mode, s8 delay)
     case WEATHER_FOG_HORIZONTAL:
     case WEATHER_SHADE:
     case WEATHER_DROUGHT:
+    case WEATHER_BRIGHT_SUN:
         useWeatherPal = TRUE;
         break;
     default:

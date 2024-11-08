@@ -2108,12 +2108,14 @@ static u16 GetOverworldCastformSpecies(void)
     {
     case WEATHER_SUNNY_CLOUDS:
     case WEATHER_DROUGHT:
+    case WEATHER_BRIGHT_SUN:
         return SPECIES_CASTFORM_SUNNY;
     case WEATHER_RAIN:
     case WEATHER_RAIN_THUNDERSTORM:
     case WEATHER_DOWNPOUR:
         return SPECIES_CASTFORM_RAINY;
     case WEATHER_SNOW:
+    case WEATHER_BLINDING_SNOW:
         return SPECIES_CASTFORM_SNOWY;
     }
     return SPECIES_CASTFORM_NORMAL;
