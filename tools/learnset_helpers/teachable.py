@@ -152,7 +152,6 @@ for mon in list_of_mons:
         if move in compatibility_dict[mon_parsed]:
             tutor_learnset.append(move)
             continue
-    tm_learnset.sort()
     tutor_learnset.sort()
     tm_learnset += tutor_learnset
     repl = "static const u16 s%sTeachableLearnset[] = {\n    " % mon
@@ -198,7 +197,6 @@ for move in tutor_moves:
     header_print("- " + move)
 header += "// " + longest_move_name * "*" + " //\n"
 header_print(universal_title)
-universal_moves.sort() # alphabetically sort near-universal moves for easier referencing
 for move in universal_moves:
     header_print("- " + move)
 header += "// " + longest_move_name * "*" + " //\n\n"
