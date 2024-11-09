@@ -152,11 +152,10 @@ Debug_EventScript_Script_2::
 	end
 
 Debug_EventScript_Script_3::
-	setweather WEATHER_SEVERE_SANDSTORM
+	setvar B_VAR_STARTING_STATUS, STARTING_STATUS_LIGHTSCREEN_OPPONENT
 	doweather
 	delay 4
-	givemon SPECIES_POLITOED, 10, ITEM_NONE, abilityNum=2
-	createmon 1, 0, SPECIES_TORKOAL, 10, abilityNum=1, move1=MOVE_RAIN_DANCE
+	createmon 1, 0, SPECIES_TORKOAL, 10, abilityNum=0, move1=MOVE_LIGHT_SCREEN
 	dowildbattle
 	release
 	end

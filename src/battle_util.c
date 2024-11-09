@@ -4355,8 +4355,52 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect = 1;
                 }
                 break;
+            case STARTING_STATUS_REFLECT_OPPONENT:
+                if (!(gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_REFLECT))
+                {
+                    gBattlerAttacker = B_POSITION_OPPONENT_LEFT;
+                    gSideTimers[B_SIDE_OPPONENT].reflectBattlerId = gBattlerAttacker;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_REFLECT_OPPONENT;
+                    gSideStatuses[B_SIDE_OPPONENT] |= SIDE_STATUS_REFLECT;
+                    gBattleScripting.animArg1 = B_ANIM_AQUA_RING_HEAL;
+                    if (timerVal == 0)
+                        gSideTimers[B_SIDE_OPPONENT].reflectTimer = 255; // infinite
+                    else
+                        gSideTimers[B_SIDE_OPPONENT].reflectTimer = 5;
+                    effect = 1;
+                }
+                break;
+            case STARTING_STATUS_LIGHTSCREEN_OPPONENT:
+                if (!(gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_LIGHTSCREEN))
+                {
+                    gBattlerAttacker = B_POSITION_OPPONENT_LEFT;
+                    gSideTimers[B_SIDE_OPPONENT].lightscreenBattlerId = gBattlerAttacker;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_LIGHTSCREEN_OPPONENT;
+                    gSideStatuses[B_SIDE_OPPONENT] |= SIDE_STATUS_LIGHTSCREEN;
+                    gBattleScripting.animArg1 = B_ANIM_AQUA_RING_HEAL;
+                    if (timerVal == 0)
+                        gSideTimers[B_SIDE_OPPONENT].lightscreenTimer = 255; // infinite
+                    else
+                        gSideTimers[B_SIDE_OPPONENT].lightscreenTimer = 5;
+                    effect = 1;
+                }
+                break;
+            case STARTING_STATUS_AURORA_VEIL_OPPONENT:
+                if (!(gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_AURORA_VEIL))
+                {
+                    gBattlerAttacker = B_POSITION_OPPONENT_LEFT;
+                    gSideTimers[B_SIDE_OPPONENT].auroraVeilBattlerId = gBattlerAttacker;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_AURORA_VEIL_OPPONENT;
+                    gSideStatuses[B_SIDE_OPPONENT] |= SIDE_STATUS_AURORA_VEIL;
+                    gBattleScripting.animArg1 = B_ANIM_AQUA_RING_HEAL;
+                    if (timerVal == 0)
+                        gSideTimers[B_SIDE_OPPONENT].auroraVeilTimer = 255; // infinite
+                    else
+                        gSideTimers[B_SIDE_OPPONENT].auroraVeilTimer = 5;
+                    effect = 1;
+                }
+                break;
             }
-
             if (effect == 1)
                 BattleScriptPushCursorAndCallback(BattleScript_OverworldStatusStarts);
             else if (effect == 2)

@@ -866,9 +866,15 @@ static const u8 sText_SevereSandstormRages[] = _("The severe sandstorm\ncontinue
 static const u8 sText_BlindingSnowstormBegins[] = _("A blinding snowstorm\nhas begun!");
 static const u8 sText_BlidningSnowstorContinuesUnabated[] = _("The blinding snowstorm\ncontinues unabated!");
 static const u8 sText_BlindingSnowstormContinues[] = _("The blinding snowstorm\ncontinues to chill!");
+static const u8 sText_UsedReflect[] = _("{B_ATK_TEAM1} team was\nguarded by a wall!\pPhysical attacks will\nbe halved!");
+static const u8 sText_UsedLightScreen[] = _("{B_ATK_TEAM1} team was\nguarded by a wall!\pSpecial attacks will\nbe halved!");
+static const u8 sText_UsedAuroraVeil[] = _("{B_ATK_TEAM1} team was\nguarded by a wall!\pDamaging attacks will\nbe halved!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
+    [STRINGID_USEDAURORAVEIL - BATTLESTRINGS_TABLE_START] = sText_UsedAuroraVeil,
+    [STRINGID_USEDLIGHTSCREEN - BATTLESTRINGS_TABLE_START] = sText_UsedLightScreen,
+    [STRINGID_USEDREFLECT - BATTLESTRINGS_TABLE_START] = sText_UsedReflect,
     [STRINGID_BLINDINGSNOWSTORMCONTINUES - BATTLESTRINGS_TABLE_START] = sText_BlindingSnowstormContinues,
     [STRINGID_BLINDINGSNOWSTORMCONTINUESUNABATED - BATTLESTRINGS_TABLE_START] = sText_BlidningSnowstorContinuesUnabated,
     [STRINGID_BLINDINGSNOWSTORM - BATTLESTRINGS_TABLE_START] = sText_BlindingSnowstormBegins,
@@ -1617,18 +1623,21 @@ const u16 gMentalHerbCureStringIds[] =
 
 const u16 gStartingStatusStringIds[B_MSG_STARTING_STATUS_COUNT] =
 {
-    [B_MSG_TERRAIN_SET_MISTY]       = STRINGID_TERRAINBECOMESMISTY,
-    [B_MSG_TERRAIN_SET_ELECTRIC]    = STRINGID_TERRAINBECOMESELECTRIC,
-    [B_MSG_TERRAIN_SET_PSYCHIC]     = STRINGID_TERRAINBECOMESPSYCHIC,
-    [B_MSG_TERRAIN_SET_GRASSY]      = STRINGID_TERRAINBECOMESGRASSY,
-    [B_MSG_SET_TRICK_ROOM]          = STRINGID_DIMENSIONSWERETWISTED,
-    [B_MSG_SET_MAGIC_ROOM]          = STRINGID_BIZARREARENACREATED,
-    [B_MSG_SET_WONDER_ROOM]         = STRINGID_BIZARREAREACREATED,
-    [B_MSG_SET_TAILWIND_PLAYER]     = STRINGID_TAILWINDBLEW,
-    [B_MSG_SET_TAILWIND_OPPONENT]   = STRINGID_TAILWINDBLEW,
-    [B_MSG_SET_WEIGHTED_TRICK_ROOM] = STRINGID_SPACEGREWDENSE,
-    [B_MSG_SET_GRAVITY]             = STRINGID_GRAVITYINTENSIFIED,
-    [B_MSG_SET_GRIM_AURA]           = STRINGID_THEFIELDWASDARKENED,
+    [B_MSG_TERRAIN_SET_MISTY]        = STRINGID_TERRAINBECOMESMISTY,
+    [B_MSG_TERRAIN_SET_ELECTRIC]     = STRINGID_TERRAINBECOMESELECTRIC,
+    [B_MSG_TERRAIN_SET_PSYCHIC]      = STRINGID_TERRAINBECOMESPSYCHIC,
+    [B_MSG_TERRAIN_SET_GRASSY]       = STRINGID_TERRAINBECOMESGRASSY,
+    [B_MSG_SET_TRICK_ROOM]           = STRINGID_DIMENSIONSWERETWISTED,
+    [B_MSG_SET_MAGIC_ROOM]           = STRINGID_BIZARREARENACREATED,
+    [B_MSG_SET_WONDER_ROOM]          = STRINGID_BIZARREAREACREATED,
+    [B_MSG_SET_TAILWIND_PLAYER]      = STRINGID_TAILWINDBLEW,
+    [B_MSG_SET_TAILWIND_OPPONENT]    = STRINGID_TAILWINDBLEW,
+    [B_MSG_SET_WEIGHTED_TRICK_ROOM]  = STRINGID_SPACEGREWDENSE,
+    [B_MSG_SET_GRAVITY]              = STRINGID_GRAVITYINTENSIFIED,
+    [B_MSG_SET_GRIM_AURA]            = STRINGID_THEFIELDWASDARKENED,
+    [B_MSG_SET_REFLECT_OPPONENT]     = STRINGID_USEDREFLECT,
+    [B_MSG_SET_LIGHTSCREEN_OPPONENT] = STRINGID_USEDLIGHTSCREEN,
+    [B_MSG_SET_AURORA_VEIL_OPPONENT] = STRINGID_USEDAURORAVEIL,
 };
 
 const u16 gTerrainStringIds[B_MSG_TERRAIN_COUNT] =
