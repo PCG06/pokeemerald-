@@ -9,18 +9,12 @@ script CastbelleTown_BerryShop_EventScript_Clerk {
 	        playse(SE_SELECT)
             lock
             faceplayer
-            dotimebasedevents
-            if(flag(FLAG_DAILY_CASTBELLE_TOWN_BERRY_SHOP_RECEIVED_BERRY) != true) {
-                goto(CastbelleTown_BerryShop_EventScript_DailyFreeBerry)
-            }
-            else {
-                msgbox("Hello, {PLAYER}!\n"
-                        "We're currently all out of berries.\p"
-                        "Our goods will be supplied in a short\n"
-                        "while.\p"
-                        "We sincerely apologize and hope such\n"
-                        "disasters won't happen in the future.", MSGBOX_AUTOCLOSE)
-            }
+            msgbox("Hello, {PLAYER}!\n"
+                    "We're currently all out of berries.\p"
+                    "Our goods will be supplied in a short\n"
+                    "while.\p"
+                    "We sincerely apologize and hope such\n"
+                    "disasters won't happen in the future.", MSGBOX_AUTOCLOSE)
             release
             end
 
@@ -36,7 +30,10 @@ script CastbelleTown_BerryShop_EventScript_Clerk {
             faceplayer
             dotimebasedevents
             if(flag(FLAG_DAILY_CASTBELLE_TOWN_BERRY_SHOP_RECEIVED_BERRY) != true) {
-                goto(CastbelleTown_BerryShop_EventScript_DailyFreeBerry)
+                msgbox("Hello, {PLAYER}.\n"
+                        "Here's a free berry as a gift from me.", MSGBOX_AUTOCLOSE)
+                giveitem(ITEM_ORAN_BERRY)
+                setflag(FLAG_DAILY_CASTBELLE_TOWN_BERRY_SHOP_RECEIVED_BERRY)
             }
             else {
                 message("Hello. {PLAYER}!\n"
@@ -78,15 +75,6 @@ mart BerryShop_Items_Expanded { # For future
     ITEM_HONDEW_BERRY
     ITEM_GREPA_BERRY
     ITEM_TAMATO_BERRY
-}
-
-script CastbelleTown_BerryShop_EventScript_DailyFreeBerry {
-    dotimebasedevents
-    msgbox("Hello, {PLAYER}.\n"
-            "Here's a free berry as a gift from me.", MSGBOX_AUTOCLOSE)
-    giveitem(ITEM_ORAN_BERRY)
-    setflag(FLAG_DAILY_CASTBELLE_TOWN_BERRY_SHOP_RECEIVED_BERRY)
-    end
 }
 
 script CastbelleTown_BerryShop_EventScript_Brian {

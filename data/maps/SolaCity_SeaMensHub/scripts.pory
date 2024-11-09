@@ -1,19 +1,8 @@
 const LOCALID_CAP_BRUCE = 1
 
 mapscripts SolaCity_SeaMensHub_MapScripts {
-    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
-        VAR_TEMP_0, 0 {
-            if(!(defeated(TRAINER_BRUCE))) {
-                cleartrainerflag(TRAINER_TERRY)
-                cleartrainerflag(TRAINER_CLARENCE)
-                cleartrainerflag(TRAINER_RAYAN)
-                cleartrainerflag(TRAINER_SHAUN)
-                setvar(VAR_TEMP_0, 1)
-            }
-        }
-    ]
     MAP_SCRIPT_ON_TRANSITION {
-        if (var(VAR_TEMP_1) == 1) {
+        if (var(VAR_TEMP_0) == 1) {
             setvar(VAR_BRUCE_SHIP, 0)
         }
     }
@@ -27,8 +16,9 @@ script SolaCity_SeaMensHub_CaptainBruce {
         defeated(TRAINER_CLARENCE) &&
         defeated(TRAINER_RAYAN) &&
         defeated(TRAINER_SHAUN)) {
+        speakername("Captain Bruce")
         trainerbattle_single(TRAINER_BRUCE, "Huh?\nYou beat all four of them?\pAlright, show me what you got!", "Hahaha!\nNo surprise you beat them all!", SolaCity_SeaMensHub_CaptainBruceDefeated)
-        if (var(VAR_TEMP_1) == 1) {
+        if (var(VAR_TEMP_0) == 1) {
             speakername("Captain Bruce")
             msgbox("We'll set soon in a moment.\n"
                     "Come talk to me in a minute.", MSGBOX_NPC)
@@ -41,9 +31,9 @@ script SolaCity_SeaMensHub_CaptainBruce {
                 speakername("Captain Bruce")
                 msgbox("Alright meet me at the\n"
                         "harbor!", MSGBOX_AUTOCLOSE)
-                getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+                getplayerxy(VAR_TEMP_0, VAR_TEMP_2)
                 setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
-                if (var(VAR_TEMP_1) == 6 && var(VAR_TEMP_2) == 3) {
+                if (var(VAR_TEMP_0) == 6 && var(VAR_TEMP_2) == 3) {
                 applymove(LOCALID_CAP_BRUCE, CapBruceLeaveToHarbor_1)
                 }
                 else {
@@ -86,7 +76,7 @@ script SolaCity_SeaMensHub_CaptainBruceDefeated {
         setvar(B_LEVEL_CAP_VARIABLE, 24)
     }
     setvar(VAR_MAIN_STORY, 6)
-    setvar(VAR_TEMP_1, 1) // Just to avoid a few workarounds with movements going over follower
+    setvar(VAR_TEMP_0, 1) // Just to avoid a few workarounds with movements going over follower
     subquestmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_2_BEAT_THE_SEA_MEN, SUB_QUEST_2_CAPTAIN_BRUCE)
     questmenu(QUEST_MENU_SET_REWARD, QUEST_2_BEAT_THE_SEA_MEN)
     return

@@ -16,15 +16,15 @@ script CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon {
     speakername("Mom")
     msgbox("{PLAYER}!\n"
             "Did you hear?\p"
-            "Prof. Pine is giving out Pokémon to new\n"
+            "Prof. Pine is giving Pokémon to new\n"
             "Trainers!\p"
             "You just got your Trainer Card,\n"
             "why not get yourself a new companion?\p"
-            "Prof. Pine would be glad to give you\n"
+            "Prof. Pine would be happy to give you\n"
             "one!\p"
-            "Oh! Brian came earlier to meet you.\n"
-            "It would be better if you go and meet\l"
-            "him before going to Prof. Pine's lab.", MSGBOX_AUTOCLOSE)
+            "Oh, and Brian stopped by earlier.\n"
+            "It might be a good idea to see him first\l"
+            "before heading to Prof. Pine's lab.", MSGBOX_AUTOCLOSE)
     delay(24)
     applymove(LOCALID_MOM, MomWalkToChair)
     applymove(LOCALID_MOM, Common_Movement_FaceLeft)
@@ -96,20 +96,28 @@ script CastbelleTown_PlayersHouse_1F_EventScript_Mom {
         checkplayergender
         speakername("Mom")
         if (var(VAR_RESULT) == MALE) {
-            msgbox("sniff…\p"
+            msgbox("{FONT_SMALL}sniff…{FONT_NORMAL}\p"
                     "My little boy going on his own\n"
                     "adventure.\p"
                     "I know you were waiting your whole life\n"
                     "for this moment.\p"
-                    "Now go get your partner!", MSGBOX_AUTOCLOSE)
+                    "Before you head to Professor Pine's lab,\n"
+                    "why don't you go meet Brian?\p"
+                    "He's been waiting to catch up with you.\p"
+                    "Now go on, {PLAYER}!", MSGBOX_AUTOCLOSE)
+
         }
         else {
-            msgbox("sniff…\p"
+            msgbox("{FONT_SMALL}sniff…{FONT_NORMAL}\p"
                     "My little girl going on her own\n"
                     "adventure.\p"
                     "I know you were waiting your whole life\n"
                     "for this moment.\p"
-                    "Now go get your partner!", MSGBOX_AUTOCLOSE)
+                    "Before you head to Professor Pine's lab,\n"
+                    "why don't you go meet Brian?\p"
+                    "He's been waiting to catch up with you.\p"
+                    "Now go on, {PLAYER}!", MSGBOX_AUTOCLOSE)
+
         }
         faceoriginaldir
     }

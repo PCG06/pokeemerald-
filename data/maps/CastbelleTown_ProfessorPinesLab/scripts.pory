@@ -315,7 +315,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     playse(SE_EXIT)
     delay(24)
     speakername("Prof. Pine")
-    msgbox("sigh…\p"
+    msgbox("{FONT_SMALL}sigh…{FONT_NORMAL}\p"
             "Kids these days…", MSGBOX_AUTOCLOSE)
     playbgm(MUS_HG_ELM_LAB, TRUE) // Back to original music
     delay(24)
