@@ -4946,7 +4946,7 @@ s32 GetWhichBattlerFasterArgs(u32 battler1, u32 battler2, bool32 ignoreChosenMov
                     strikesFirst = 1;
             }
 
-            if (gFieldStatuses & STATUS_FIELD_WEIGHTED_TRICK_ROOM)
+            if (gFieldStatuses & STATUS_FIELD_WEIGHT_ROOM)
             {
                 if (weightBattler1 == weightBattler2)
                 {

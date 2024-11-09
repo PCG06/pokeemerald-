@@ -1028,7 +1028,7 @@
 #define B_MSG_SET_WONDER_ROOM          6
 #define B_MSG_SET_TAILWIND_PLAYER      7
 #define B_MSG_SET_TAILWIND_OPPONENT    8
-#define B_MSG_SET_WEIGHTED_TRICK_ROOM  9
+#define B_MSG_SET_WEIGHT_ROOM  9
 #define B_MSG_SET_GRAVITY              10
 #define B_MSG_SET_GRIM_AURA            11
 #define B_MSG_SET_REFLECT_OPPONENT     12

@@ -87,7 +87,7 @@ gBattleAnims_General::
 	.4byte General_TeraActivate             @ B_ANIM_TERA_ACTIVATE
 	.4byte General_SimpleHeal               @ B_ANIM_SIMPLE_HEAL
 	.4byte General_Gravity                  @ B_ANIM_GRAVITY
-	.4byte General_TrickRoom                @ B_ANIM_WEIGHTED_TRICK_ROOM @ Placeholder for now
+	.4byte General_WeightRoom               @ B_ANIM_WEIGHT_ROOM
 	.4byte General_GrimAura                 @ B_ANIM_GRIM_AURA
 	.4byte General_GrimAuraHurt             @ B_ANIM_GRIM_AURA_HURT
 
@@ -2408,6 +2408,16 @@ InitRoomAnimation:
 	setalpha 8, 8
 	createvisualtask AnimTask_ScaleMonAndRestore, 5, -6, -6, 15, ANIM_TARGET, 1
 	return
+
+General_WeightRoom:
+	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET
+	fadetobg BG_WEIGHT_ROOM
+	waitbgfadein
+	delay 0x40
+	restorebg
+	waitbgfadein
+	blendoff
+	end
 
 @ Credits to Skeli
 Move_DRACO_METEOR::

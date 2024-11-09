@@ -1659,7 +1659,7 @@ enum
     ENDTURN_RAINBOW,
     ENDTURN_SEA_OF_FIRE,
     ENDTURN_SWAMP,
-    ENDTURN_WEIGHTED_TRICK_ROOM,
+    ENDTURN_WEIGHT_ROOM,
     ENDTURN_GRIM_AURA,
     ENDTURN_FIELD_COUNT,
 };
@@ -2287,10 +2287,10 @@ u8 DoFieldEndTurnEffects(void)
                 gBattleStruct->turnSideTracker = 0;
             }
             break;
-        case ENDTURN_WEIGHTED_TRICK_ROOM:
-            if (gFieldStatuses & STATUS_FIELD_WEIGHTED_TRICK_ROOM && gFieldTimers.weightedTrickRoomTimer > 0 && --gFieldTimers.weightedTrickRoomTimer == 0)
+        case ENDTURN_WEIGHT_ROOM:
+            if (gFieldStatuses & STATUS_FIELD_WEIGHT_ROOM && gFieldTimers.weightRoomTimer > 0 && --gFieldTimers.weightRoomTimer == 0)
             {
-                gFieldStatuses &= ~STATUS_FIELD_WEIGHTED_TRICK_ROOM;
+                gFieldStatuses &= ~STATUS_FIELD_WEIGHT_ROOM;
                 BattleScriptExecute(BattleScript_WeightedTrickRoomEnds);
                 effect++;
             }
@@ -4316,16 +4316,16 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect = 1;
                 }
                 break;
-            case STARTING_STATUS_WEIGHTED_TRICK_ROOM:
-                if (!(gFieldStatuses & STATUS_FIELD_WEIGHTED_TRICK_ROOM))
+            case STARTING_STATUS_WEIGHT_ROOM:
+                if (!(gFieldStatuses & STATUS_FIELD_WEIGHT_ROOM))
                 {
-                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_WEIGHTED_TRICK_ROOM;
-                    gFieldStatuses |= STATUS_FIELD_WEIGHTED_TRICK_ROOM;
-                    gBattleScripting.animArg1 = B_ANIM_WEIGHTED_TRICK_ROOM;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_WEIGHT_ROOM;
+                    gFieldStatuses |= STATUS_FIELD_WEIGHT_ROOM;
+                    gBattleScripting.animArg1 = B_ANIM_WEIGHT_ROOM;
                     if (timerVal == 0)
-                        gFieldTimers.weightedTrickRoomTimer = 0;    // infinite
+                        gFieldTimers.weightRoomTimer = 0;    // infinite
                     else
-                        gFieldTimers.weightedTrickRoomTimer = 5;
+                        gFieldTimers.weightRoomTimer = 5;
                     effect = 1;
                 }
                 break;

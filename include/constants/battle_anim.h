@@ -527,6 +527,7 @@
 #define BG_STEEL_BEAM_PLAYER 79
 #define BG_CHLOROBLAST 80
 #define BG_RAINBOW 81
+#define BG_WEIGHT_ROOM 82
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_STATS_CHANGE             0
@@ -583,7 +584,7 @@
 #define B_ANIM_TERA_ACTIVATE            51
 #define B_ANIM_SIMPLE_HEAL              52
 #define B_ANIM_GRAVITY                  53
-#define B_ANIM_WEIGHTED_TRICK_ROOM      54
+#define B_ANIM_WEIGHT_ROOM              54
 #define B_ANIM_GRIM_AURA                55
 #define B_ANIM_GRIM_AURA_HURT           56
 
