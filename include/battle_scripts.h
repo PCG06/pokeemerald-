@@ -421,6 +421,8 @@ extern const u8 BattleScript_EjectPackActivates[];
 extern const u8 BattleScript_MentalHerbCureRet[];
 extern const u8 BattleScript_MentalHerbCureEnd2[];
 extern const u8 BattleScript_TerrainPreventsEnd2[];
+extern const u8 BattleScript_MetalTerrainPreventsAtk[];
+extern const u8 BattleScript_MetalTerrainPreventsDef[];
 extern const u8 BattleScript_MistyTerrainPrevents[];
 extern const u8 BattleScript_ElectricTerrainPrevents[];
 extern const u8 BattleScript_DarkTypePreventsPrankster[];

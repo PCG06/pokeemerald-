@@ -406,7 +406,7 @@ static void Cmd_return(void);
 static void Cmd_end(void);
 static void Cmd_end2(void);
 static void Cmd_end3(void);
-static void Cmd_unused5(void);
+static void Cmd_jumpifabilitynotcontrary(void);
 static void Cmd_call(void);
 static void Cmd_setroost(void);
 static void Cmd_jumpifabilitypresent(void);
@@ -665,7 +665,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_end,                                     //0x3D
     Cmd_end2,                                    //0x3E
     Cmd_end3,                                    //0x3F
-    Cmd_unused5,                                 //0x40
+    Cmd_jumpifabilitynotcontrary,                //0x40
     Cmd_call,                                    //0x41
     Cmd_setroost,                                //0x42
     Cmd_jumpifabilitypresent,                    //0x43
@@ -1476,22 +1476,6 @@ static bool32 JumpIfMoveFailed(u8 adder, u16 move)
     }
     gBattlescriptCurrInstr += adder;
     return FALSE;
-}
-
-static void Cmd_unused5(void)
-{
-    CMD_ARGS(const u8 *failInstr);
-
-    if (IsBattlerProtected(gBattlerAttacker, gBattlerTarget, gCurrentMove))
-    {
-        gMoveResultFlags |= MOVE_RESULT_MISSED;
-        JumpIfMoveFailed(sizeof(*cmd), MOVE_NONE);
-        gBattleCommunication[MISS_TYPE] = B_MSG_PROTECTED;
-    }
-    else
-    {
-        gBattlescriptCurrInstr = cmd->nextInstr;
-    }
 }
 
 static bool8 JumpIfMoveAffectedByProtect(u16 move)
@@ -4109,6 +4093,52 @@ static void Cmd_jumpifstatus2(void)
 }
 
 static void Cmd_jumpifability(void)
+{
+    CMD_ARGS(u8 battler, u16 ability, const u8 *jumpInstr);
+
+    u32 battler;
+    bool32 hasAbility = FALSE;
+    u32 ability = cmd->ability;
+
+    switch (cmd->battler)
+    {
+    default:
+        battler = GetBattlerForBattleScript(cmd->battler);
+        if (GetBattlerAbility(battler) == ability)
+            hasAbility = TRUE;
+        break;
+    case BS_ATTACKER_SIDE:
+        battler = IsAbilityOnSide(gBattlerAttacker, ability);
+        if (battler)
+        {
+            battler--;
+            hasAbility = TRUE;
+        }
+        break;
+    case BS_TARGET_SIDE:
+        battler = IsAbilityOnOpposingSide(gBattlerAttacker, ability);
+        if (battler)
+        {
+            battler--;
+            hasAbility = TRUE;
+        }
+        break;
+    }
+
+    if (hasAbility)
+    {
+        gLastUsedAbility = ability;
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+        RecordAbilityBattle(battler, gLastUsedAbility);
+        gBattlerAbility = battler;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
+static void Cmd_jumpifabilitynotcontrary(void)
 {
     CMD_ARGS(u8 battler, u16 ability, const u8 *jumpInstr);
 
@@ -11698,18 +11728,41 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
 
     if (battlerAbility == ABILITY_CONTRARY)
     {
+        // Invert the stat change direction due to Contrary
         statValue ^= STAT_BUFF_NEGATIVE;
         gBattleScripting.statChanger ^= STAT_BUFF_NEGATIVE;
         RecordAbilityBattle(battler, battlerAbility);
+
+        // Update move effect flags if needed
         if (flags & STAT_CHANGE_UPDATE_MOVE_EFFECT)
         {
             flags &= ~STAT_CHANGE_UPDATE_MOVE_EFFECT;
             gBattleScripting.moveEffect = ReverseStatChangeMoveEffect(gBattleScripting.moveEffect);
         }
+
+        // Check if the inverted stat change is blocked by Metal Terrain
+        if (IsBattlerTerrainAffected(battler, STATUS_FIELD_METAL_TERRAIN) && (statValue & STAT_BUFF_NEGATIVE))
+        {
+            if (gMovesInfo[gCurrentMove].target == MOVE_TARGET_USER)
+                BattleScriptExecute(BattleScript_MetalTerrainPreventsAtk);
+            else
+                BattleScriptExecute(BattleScript_MetalTerrainPreventsDef);
+            return STAT_CHANGE_DIDNT_WORK;
+        }
     }
     else if (battlerAbility == ABILITY_SIMPLE)
     {
         statValue = (SET_STAT_BUFF_VALUE(GET_STAT_BUFF_VALUE(statValue) * 2)) | ((statValue <= -1) ? STAT_BUFF_NEGATIVE : 0);
+    }
+
+    // Check if the battler is affected by Metal Terrain and stat change is a decrease
+    if (IsBattlerTerrainAffected(battler, STATUS_FIELD_METAL_TERRAIN) && statValue < 0)
+    {
+        if (gMovesInfo[gCurrentMove].target == MOVE_TARGET_USER)
+            BattleScriptExecute(BattleScript_MetalTerrainPreventsAtk);
+        else
+            BattleScriptExecute(BattleScript_MetalTerrainPreventsDef);
+        return STAT_CHANGE_DIDNT_WORK;
     }
 
     PREPARE_STAT_BUFFER(gBattleTextBuff1, statId);
@@ -16650,6 +16703,30 @@ void BS_JumpIfTerrainAffected(void)
     u32 battler = GetBattlerForBattleScript(cmd->battler);
 
     if (IsBattlerTerrainAffected(battler, cmd->flags))
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfMetalTerrainAffected(void)
+{
+    NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    u32 ability = GetBattlerAbility(battler);
+
+    if (IsBattlerTerrainAffected(battler, STATUS_FIELD_METAL_TERRAIN)&& ability != ABILITY_CONTRARY )
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfMetalTerrainAffectedContrary(void)
+{
+    NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    u32 ability = GetBattlerAbility(battler);
+
+    if (IsBattlerTerrainAffected(battler, STATUS_FIELD_METAL_TERRAIN) && ability == ABILITY_CONTRARY)
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;
