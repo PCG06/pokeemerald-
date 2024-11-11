@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 Nothing, yet.
 
+## [3.5.0] - 2024-11-10
+### Added
+- Movement can now be inlined within commands using a special `moves()` operator, similar to text. For example:
+  ```
+  applymovement(OBJ_EVENT_ID_PLAYER, moves(
+      walk_left * 4
+      face_down
+  ))
+  ```
+- Print a warning message when `numLines` is missing from a font's config. Defaults to `numLines=2` in that case, rather than `0`.
+- Added `msgbox` to the default `command_config.json`, since `msgbox(.., MSGBOX_YESNO)` would be a very common use case.
+
+### Changed
+- Multi-line string literals will now remove newline characters, and separate each line by a space character instead.
+    - This should rarely, if ever, be used. But the previous behavior resulted in invalid compiled scripts.
+
 ## [3.4.0] - 2024-08-15
 - Add support for AutoVar commands.
     - AutoVar commands can be used in place of the `var` operator to streamline comparisons.
@@ -163,7 +179,8 @@ Nothing, yet.
 ## [1.0.0] - 2019-08-27
 Initial Release
 
-[Unreleased]: https://github.com/huderlem/poryscript/compare/3.4.0...HEAD
+[Unreleased]: https://github.com/huderlem/poryscript/compare/3.5.0...HEAD
+[3.5.0]: https://github.com/huderlem/poryscript/compare/3.4.0...3.5.0
 [3.4.0]: https://github.com/huderlem/poryscript/compare/3.3.0...3.4.0
 [3.3.0]: https://github.com/huderlem/poryscript/compare/3.2.0...3.3.0
 [3.2.0]: https://github.com/huderlem/poryscript/compare/3.1.0...3.2.0
