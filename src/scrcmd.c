@@ -2647,3 +2647,22 @@ bool8 ScrCmd_checkpartylearnknowsfieldmove(struct ScriptContext *ctx)
     return FALSE;
 }
 // End qol_field_moves
+
+bool8 ScrCmd_debugprint(struct ScriptContext *ctx)
+{
+    const u8 *str = (const u8*)ScriptReadWord(ctx);
+    u16 numOrVar = ScriptReadHalfword(ctx);
+
+    if (str != NULL)
+    {
+        if (numOrVar != 65535)
+        {
+            DebugPrintfLevel(MGBA_LOG_INFO, "%S, %u", str, VarGet(numOrVar));
+        }
+        else
+        {
+            DebugPrintfLevel(MGBA_LOG_INFO, "%S", str);
+        }
+    }
+    return FALSE;
+}
