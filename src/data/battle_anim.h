@@ -2019,4 +2019,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_CHLOROBLAST]               = {gBattleAnimBgImage_HydroCannon,             gBattleAnimBgPalette_Chloroblast,             gBattleAnimBgTilemap_HydroCannon},
     [BG_RAINBOW]                   = {gBattleAnimBgImage_Rainbow,                 gBattleAnimBGPalette_Rainbow,                 gBattleAnimBgTilemap_Rainbow},
     [BG_WEIGHT_ROOM]               = {gBattleAnimBgImage_TrickRoom,               gBattleAnimBgPalette_WeightRoom,              gBattleAnimBgTilemap_TrickRoom},
+    [BG_METAL_TERRAIN]            = {gBattleAnimBgImage_MetalTerrain,            gBattleAnimBgPalette_MetalTerrain,            gBattleAnimBgTilemap_MetalTerrain},
 };

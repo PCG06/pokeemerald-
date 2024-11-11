@@ -1405,6 +1405,29 @@ const struct SpriteTemplate gMistyTerrainStarTemplate =
     .callback = AnimOrbitScatter
 };
 
+//metal terrain
+const struct SpriteTemplate gMetalTerrainOrbsTemplate =
+{
+    .tileTag = ANIM_TAG_ORBS,
+    .paletteTag = ANIM_TAG_ORBS,
+    .oam = &gOamData_AffineNormal_ObjBlend_16x16,
+    .anims = gPowerAbsorptionOrbAnimTable,
+    .images = NULL,
+    .affineAnims = gPowerAbsorptionOrbAffineAnimTable,
+    .callback = AnimOrbitFast
+};
+
+const struct SpriteTemplate gMetalTerrainStarTemplate =
+{
+    .tileTag = ANIM_TAG_METAL_BALL,
+    .paletteTag = ANIM_TAG_METAL_BALL,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gMoonlightSparkleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimOrbitScatter
+};
+
 //electrify
 const struct SpriteTemplate gElectrifyRingTemplate =
 {
