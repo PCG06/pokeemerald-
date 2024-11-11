@@ -9707,9 +9707,11 @@ BattleScript_RemoveTerrain_Cont:
 	waitmessage B_WAIT_TIME_LONG
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
+	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_TerrainNotRemoved
 	removeterrain
 	playanimation BS_ATTACKER, B_ANIM_RESTORE_BG
 	printfromtable gTerrainStringIds
+BattleScript_TerrainNotRemoved:
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
