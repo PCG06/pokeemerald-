@@ -3749,6 +3749,9 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                     case STATUS_FIELD_PSYCHIC_TERRAIN:
                         gBattleScripting.moveEffect = MOVE_EFFECT_SPD_MINUS_1;
                         break;
+                    case STATUS_FIELD_METAL_TERRAIN:
+                        gBattleScripting.moveEffect = MOVE_EFFECT_ATK_MINUS_1;
+                        break;
                     default:
                         gBattleScripting.moveEffect = MOVE_EFFECT_PARALYSIS;
                         break;
@@ -8640,6 +8643,9 @@ static void RemoveAllTerrains(void)
         break;
     case STATUS_FIELD_PSYCHIC_TERRAIN:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_END_PSYCHIC;
+        break;
+    case STATUS_FIELD_METAL_TERRAIN:
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_END_METAL;
         break;
     default:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_COUNT;  // failsafe
@@ -14126,6 +14132,8 @@ u32 GetNaturePowerMove(u32 battler)
         move = MOVE_ENERGY_BALL;
     else if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN)
         move = MOVE_PSYCHIC;
+    else if (gFieldStatuses & STATUS_FIELD_METAL_TERRAIN)
+        move = MOVE_FLASH_CANNON;
     else if (sNaturePowerMoves[gBattleTerrain] == MOVE_NONE)
         move = MOVE_TRI_ATTACK;
 
@@ -15027,6 +15035,9 @@ static void Cmd_settypetoterrain(void)
         break;
     case STATUS_FIELD_PSYCHIC_TERRAIN:
         terrainType = TYPE_PSYCHIC;
+        break;
+    case STATUS_FIELD_METAL_TERRAIN:
+        terrainType = TYPE_STEEL;
         break;
     default:
         terrainType = sTerrainToType[gBattleTerrain];
@@ -16586,6 +16597,10 @@ void BS_SetRemoveTerrain(void)
     case EFFECT_PSYCHIC_TERRAIN:
         statusFlag = STATUS_FIELD_PSYCHIC_TERRAIN;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_PSYCHIC;
+        break;
+    case EFFECT_METAL_TERRAIN:
+        statusFlag = STATUS_FIELD_METAL_TERRAIN;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_METAL;
         break;
     case EFFECT_HIT_SET_REMOVE_TERRAIN:
         switch (gMovesInfo[gCurrentMove].argument)

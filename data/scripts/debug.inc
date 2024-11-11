@@ -152,10 +152,10 @@ Debug_EventScript_Script_2::
 	end
 
 Debug_EventScript_Script_3::
-	setvar B_VAR_STARTING_STATUS, STARTING_STATUS_LIGHTSCREEN_OPPONENT
+	setvar B_VAR_STARTING_STATUS, STARTING_STATUS_METAL_TERRAIN
 	doweather
 	delay 4
-	createmon 1, 0, SPECIES_TORKOAL, 10, abilityNum=0, move1=MOVE_LIGHT_SCREEN
+	createmon 1, 0, SPECIES_TORKOAL, 10, abilityNum=0, move1=MOVE_OVERHEAT
 	dowildbattle
 	release
 	end

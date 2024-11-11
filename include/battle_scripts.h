@@ -754,6 +754,7 @@ extern const u8 BattleScript_EffectMistyTerrain[];
 extern const u8 BattleScript_EffectGrassyTerrain[];
 extern const u8 BattleScript_EffectElectricTerrain[];
 extern const u8 BattleScript_EffectPsychicTerrain[];
+extern const u8 BattleScript_EffectMetalTerrain[];
 extern const u8 BattleScript_EffectAttackAccUp[];
 extern const u8 BattleScript_EffectAttackSpAttackUp[];
 extern const u8 BattleScript_EffectMeFirst[];

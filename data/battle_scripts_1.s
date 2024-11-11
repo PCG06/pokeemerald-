@@ -2276,6 +2276,7 @@ BattleScript_EffectMistyTerrain::
 BattleScript_EffectGrassyTerrain::
 BattleScript_EffectElectricTerrain::
 BattleScript_EffectPsychicTerrain::
+BattleScript_EffectMetalTerrain::
 	attackcanceler
 	attackstring
 	ppreduce

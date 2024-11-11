@@ -10661,6 +10661,7 @@ Move_ANCHOR_SHOT::
 	clearmonbg ANIM_TARGET
 	end
 
+Move_METAL_TERRAIN::
 Move_PSYCHIC_TERRAIN::
 	loadspritegfx ANIM_TAG_ORBS @Recover Ball
 	loadspritegfx ANIM_TAG_GREEN_SPARKLE @Green Star
