@@ -2940,8 +2940,7 @@ BattleScript_MetalTerrainPreventsAtk::
 	printstring STRINGID_METALTERRAINPREVENTSATK
 	waitmessage B_WAIT_TIME_LONG
 	jumpifability BS_ATTACKER, ABILITY_CONTRARY, BattleScript_MetalTerrainPreventsStatDropsContrary
-	jumpifabilitynotcontrary BS_ATTACKER, BattleScript_MetalTerrainPreventsStatDrops
-	goto BattleScript_MoveEnd
+	goto BattleScript_MetalTerrainPreventsStatDrops
 
 BattleScript_MetalTerrainPreventsDef::
 	pause B_WAIT_TIME_SHORT
@@ -6968,6 +6967,7 @@ BattleScript_PrintMonIsRooted::
 	goto BattleScript_MoveEnd
 
 BattleScript_AtkDefDown::
+	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MetalTerrainPreventsAtk
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_ATK, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
 	playstatchangeanimation BS_ATTACKER, BIT_ATK, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE
@@ -6987,6 +6987,7 @@ BattleScript_AtkDefDownRet:
 	return
 
 BattleScript_DefSpDefDown::
+	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MetalTerrainPreventsAtk
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
 	playstatchangeanimation BS_ATTACKER, BIT_DEF, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE

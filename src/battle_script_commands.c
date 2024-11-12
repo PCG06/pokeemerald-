@@ -3340,6 +3340,12 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                 else
                     flags |= STAT_CHANGE_UPDATE_MOVE_EFFECT;
 
+                if (IsBattlerTerrainAffected(gBattlerAttacker, STATUS_FIELD_METAL_TERRAIN))
+                    gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsAtk;
+
+                if (IsBattlerTerrainAffected(gBattlerTarget, STATUS_FIELD_METAL_TERRAIN) && (flags & MOVE_EFFECT_CERTAIN))
+                    gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsDef;
+
                 if (ChangeStatBuffs(SET_STAT_BUFF_VALUE(1) | STAT_BUFF_NEGATIVE,
                                     gBattleScripting.moveEffect - MOVE_EFFECT_ATK_MINUS_1 + 1,
                                     flags, gBattlescriptCurrInstr + 1) == STAT_CHANGE_DIDNT_WORK)
@@ -3390,6 +3396,13 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                     flags = 0;
                 if (mirrorArmorReflected && !affectsUser)
                     flags |= STAT_CHANGE_ALLOW_PTR;
+
+                if (IsBattlerTerrainAffected(gBattlerAttacker, STATUS_FIELD_METAL_TERRAIN))
+                    gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsAtk;
+
+                if (IsBattlerTerrainAffected(gBattlerTarget, STATUS_FIELD_METAL_TERRAIN) && (flags & MOVE_EFFECT_CERTAIN))
+                    gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsDef;
+
                 if (ChangeStatBuffs(SET_STAT_BUFF_VALUE(2) | STAT_BUFF_NEGATIVE,
                                     gBattleScripting.moveEffect - MOVE_EFFECT_ATK_MINUS_2 + 1,
                                     flags | STAT_CHANGE_UPDATE_MOVE_EFFECT, gBattlescriptCurrInstr + 1) == STAT_CHANGE_DIDNT_WORK)
