@@ -1,6 +1,8 @@
 #include "global.h"
 #include "test/battle.h"
 
+#if B_PROTEAN_LIBERO == GEN_9
+
 ASSUMPTIONS
 {
     ASSUME(B_PROTEAN_LIBERO == GEN_9);
@@ -32,3 +34,5 @@ SINGLE_BATTLE_TEST("Protean changes the type of the user only once per switch in
         ANIMATION(ANIM_TYPE_MOVE, MOVE_WATER_GUN, opponent);
     }
 }
+
+#endif // B_PROTEAN_LIBERO

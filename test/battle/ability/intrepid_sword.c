@@ -1,6 +1,8 @@
 #include "global.h"
 #include "test/battle.h"
 
+#if B_INTREPID_SWORD == GEN_9
+
 ASSUMPTIONS
 {
     ASSUME(B_INTREPID_SWORD == GEN_9);
@@ -94,3 +96,5 @@ SINGLE_BATTLE_TEST("Intrepid Sword and Dauntless Shield both can be Skill Swappe
         MESSAGE("Wobbuffet's Dauntless Shield raised its Defense!");
     }
 }
+
+#endif // B_INTREPID_SWORD
