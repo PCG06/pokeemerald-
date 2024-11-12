@@ -3219,6 +3219,8 @@ BattleScript_StatUpEnd::
 	goto BattleScript_MoveEnd
 
 BattleScript_StatUp::
+	jumpifmetalterrainaffectedcontrary BS_ATTACKER, BattleScript_MetalTerrainPreventsAtk
+	jumpifmetalterrainaffectedcontrary BS_TARGET, BattleScript_MetalTerrainPreventsDef
 	playanimation BS_EFFECT_BATTLER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 BattleScript_StatUpMsg::
 	printfromtable gStatUpStringIds
@@ -3306,6 +3308,8 @@ BattleScript_MirrorArmorReflectStickyWeb:
 	goto BattleScript_StickyWebOnSwitchInEnd
 
 BattleScript_StatDown::
+	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MetalTerrainPreventsAtk
+	jumpifmetalterrainaffected BS_TARGET, BattleScript_MetalTerrainPreventsDef
 	playanimation BS_EFFECT_BATTLER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG

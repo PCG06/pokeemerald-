@@ -3341,10 +3341,16 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                     flags |= STAT_CHANGE_UPDATE_MOVE_EFFECT;
 
                 if (IsBattlerTerrainAffected(gBattlerAttacker, STATUS_FIELD_METAL_TERRAIN))
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsAtk;
+                }
 
                 if (IsBattlerTerrainAffected(gBattlerTarget, STATUS_FIELD_METAL_TERRAIN) && (flags & MOVE_EFFECT_CERTAIN))
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsDef;
+                }
 
                 if (ChangeStatBuffs(SET_STAT_BUFF_VALUE(1) | STAT_BUFF_NEGATIVE,
                                     gBattleScripting.moveEffect - MOVE_EFFECT_ATK_MINUS_1 + 1,
@@ -3398,10 +3404,16 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                     flags |= STAT_CHANGE_ALLOW_PTR;
 
                 if (IsBattlerTerrainAffected(gBattlerAttacker, STATUS_FIELD_METAL_TERRAIN))
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsAtk;
+                }
 
                 if (IsBattlerTerrainAffected(gBattlerTarget, STATUS_FIELD_METAL_TERRAIN) && (flags & MOVE_EFFECT_CERTAIN))
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsDef;
+                }
 
                 if (ChangeStatBuffs(SET_STAT_BUFF_VALUE(2) | STAT_BUFF_NEGATIVE,
                                     gBattleScripting.moveEffect - MOVE_EFFECT_ATK_MINUS_2 + 1,
@@ -11788,8 +11800,6 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
     {
         if (gMovesInfo[gCurrentMove].target == MOVE_TARGET_USER)
             BattleScriptExecute(BattleScript_MetalTerrainPreventsAtk);
-        else
-            BattleScriptExecute(BattleScript_MetalTerrainPreventsDef);
         return STAT_CHANGE_DIDNT_WORK;
     }
 
