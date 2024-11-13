@@ -112,8 +112,8 @@ jobs:
 
       - name: Build pokeemerald.bps
         run: |
-          chmod -R 755 ./flips-linux
-          ./flips-linux --create tools/pokeemerald/pokeemerald.gba pokeemerald.gba pokeemerald.bps
+          chmod -R 755 ./tools/flips-linux
+          ./tools/flips-linux --create tools/pokeemerald/pokeemerald.gba pokeemerald.gba pokeemerald.bps
 
       - name: Upload patch
         uses: actions/upload-artifact@v4
