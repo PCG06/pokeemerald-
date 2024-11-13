@@ -155,7 +155,7 @@ Debug_EventScript_Script_3::
 	setvar B_VAR_STARTING_STATUS, STARTING_STATUS_METAL_TERRAIN
 	doweather
 	delay 4
-	createmon 1, 0, SPECIES_LITTEN, 10, abilityNum=2, move1=MOVE_CLOSE_COMBAT
+	createmon 1, 0, SPECIES_LITTEN, 10, abilityNum=2, move1=MOVE_FILLET_AWAY
 	dowildbattle
 	release
 	end
