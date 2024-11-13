@@ -3308,8 +3308,8 @@ BattleScript_MirrorArmorReflectStickyWeb:
 	goto BattleScript_StickyWebOnSwitchInEnd
 
 BattleScript_StatDown::
-	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MetalTerrainPreventsAtk
 	jumpifmetalterrainaffected BS_TARGET, BattleScript_MetalTerrainPreventsDef
+	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MetalTerrainPreventsAtk
 	playanimation BS_EFFECT_BATTLER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
@@ -6972,7 +6972,7 @@ BattleScript_PrintMonIsRooted::
 	goto BattleScript_MoveEnd
 
 BattleScript_AtkDefDown::
-	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MetalTerrainPreventsAtk
+	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MoveEnd
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_ATK, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
 	playstatchangeanimation BS_ATTACKER, BIT_ATK, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE
@@ -6992,7 +6992,7 @@ BattleScript_AtkDefDownRet:
 	return
 
 BattleScript_DefSpDefDown::
-	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MetalTerrainPreventsAtk
+	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MoveEnd
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
 	playstatchangeanimation BS_ATTACKER, BIT_DEF, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE

@@ -16757,7 +16757,7 @@ void BS_JumpIfMetalTerrainAffected(void)
     u32 battler = GetBattlerForBattleScript(cmd->battler);
     u32 ability = GetBattlerAbility(battler);
 
-    if (IsBattlerTerrainAffected(battler, STATUS_FIELD_METAL_TERRAIN)&& ability != ABILITY_CONTRARY )
+    if (IsBattlerTerrainAffected(battler, STATUS_FIELD_METAL_TERRAIN) && ability != ABILITY_CONTRARY)
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;
