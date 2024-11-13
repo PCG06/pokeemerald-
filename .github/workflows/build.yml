@@ -118,7 +118,7 @@ jobs:
       - name: Upload patch
         uses: actions/upload-artifact@v4
         with:
-          name: patch_file
+          name: pokeemerald
           path: pokeemerald.bps
 
       - name: Get Artifact ID
