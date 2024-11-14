@@ -2628,11 +2628,23 @@
 	.byte \dayOfWeek
 	.endm
 
-	@ Checks if B_LEVEL_CAP_VARIABLE is active or not and returns TRUE or FALSE.
-	@ If B_LEVEL_CAP_VARIABLE is MAX_LEVEL (100), it will return FALSE.
-	@ If B_LEVEL_CAP_VARIABLE is less than MAX_LEVEL, it will return TRUE.
-	.macro islevelcapactive
-	.byte 0xc7
+	@ Sets or resets level cap.
+	@ If value equals FALSE, level cap will be set to MAX_LEVEL, meaning it's been disabled.
+	@ If value equals TRUE, level cap is increased.
+	@ Calling the macro in a script increases the game stat, which in turn increases the level cap in a switch case.
+	.macro increaselevelcap value=TRUE, specific=FALSE
+	.if \value == TRUE
+		incrementgamestat GAME_STAT_INCREASE_LEVEL_CAP
+	.endif
+	callnative ScrCmd_IncreaseLevelCap
+	.byte \value
+	.byte \specific
+	.endm
+
+	@ Returns the value of the level cap to VAR_RESULT.
+	@ 100 means disabled.
+	.macro getlevelcap
+	callnative ScrCmd_GetLevelCap
 	.endm
 
     @ Start qol_field_moves

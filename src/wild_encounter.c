@@ -322,32 +322,13 @@ static u8 ChooseWildMonLevel(void)
 
 u8 ChooseNonEncounterMonLevel(void)
 {
-    u8 level = 15;
+    u8 level = GetCurrentLevelCap();
     u8 partyHighest = GetHighestLevelInPlayerParty();
-
-    if (FlagGet(FLAG_SYS_GAME_CLEAR))
-        level = 70;
-    else if (FlagGet(FLAG_BADGE08_GET))
-        level = 65;
-    else if (FlagGet(FLAG_BADGE07_GET))
-        level = 60;
-    else if (FlagGet(FLAG_BADGE06_GET))
-        level = 55;
-    else if (FlagGet(FLAG_BADGE05_GET))
-        level = 50;
-    else if (FlagGet(FLAG_BADGE04_GET))
-        level = 45;
-    else if (FlagGet(FLAG_BADGE03_GET))
-        level = 40;
-    else if (FlagGet(FLAG_BADGE02_GET))
-        level = 35;
-    else if (FlagGet(FLAG_BADGE01_GET))
-        level = 20;
 
     if (level > partyHighest)
         return partyHighest;
-    
-    return level;
+    else
+        return level;
 }
 
 static bool32 IsExactTimeOfDayMatchForWildEncounters(u32 currentTimeOfDay, u32 encounterTimeOfDay)

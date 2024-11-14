@@ -72,9 +72,7 @@ script SolaCity_SeaMensHub_CaptainBruceDefeated {
             "Since you beat me,\l"
             "I'll sail you to the mainland and back,\l"
             "whenever you want!", MSGBOX_AUTOCLOSE)
-    if(islevelcapactive) {
-        setvar(B_LEVEL_CAP_VARIABLE, 24)
-    }
+    increaselevelcap
     setvar(VAR_MAIN_STORY, 6)
     setvar(VAR_TEMP_0, 1) // Just to avoid a few workarounds with movements going over follower
     subquestmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_2_BEAT_THE_SEA_MEN, SUB_QUEST_2_CAPTAIN_BRUCE)
