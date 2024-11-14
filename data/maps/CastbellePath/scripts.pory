@@ -79,10 +79,13 @@ script CastbellePath_EventScript_Brian {
         setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
         getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
         if (var(VAR_TEMP_1) == 4 && var(VAR_TEMP_2) == 13) {
-            applymove(LOCALID_BRIAN, BrianExitsCastbellePath_1)
+            applymove(LOCALID_BRIAN, moves(walk_up * 2
+                                        walk_right * 2
+                                        walk_up * 5))
         }
         else {
-            applymove(LOCALID_BRIAN, BrianExitsCastbellePath_2)
+            applymove(LOCALID_BRIAN, moves(walk_right * 2
+                                        walk_up * 7))
         }
         fadedefaultbgm
         removeobject(LOCALID_BRIAN)
@@ -98,17 +101,6 @@ script CastbellePath_EventScript_Brian {
     }
     release
     end
-}
-
-movement BrianExitsCastbellePath_1 {
-    walk_up * 2
-    walk_right * 2
-    walk_up * 5
-}
-
-movement BrianExitsCastbellePath_2 {
-    walk_right * 2
-    walk_up * 7
 }
 
 script CastbellePath_EventScript_Boy {

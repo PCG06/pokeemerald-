@@ -19,7 +19,7 @@ script CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady {
     applymove(LOCALID_BRIAN, Common_Movement_FaceLeft)
     emote(LOCALID_BRIAN, EMOTE_EXCLAM)
     delay(6)
-    applymove(LOCALID_BRIAN, MoveBrianToPlayer)
+    applymove(LOCALID_BRIAN, moves(walk_left * 6))
     speakername("Brian")
     msgbox("Oh! Hi, {PLAYER}!\p"
             "Excited to get your first Pokémon?\p"
@@ -37,9 +37,10 @@ script CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady {
             "I gotta buy some berries first!\p"
             "Looks like I won't be the first one\n"
             "there, haha…", MSGBOX_AUTOCLOSE)
-    applymovement(LOCALID_BRIAN, BrianWalkInPlaceLeft) // applymovement over applymove because these two should happen at the same time
+    applymovement(LOCALID_BRIAN, moves(walk_in_place_fast_left)) // applymovement over applymove because these two should happen at the same time
     applymoveplayer(Common_Movement_StopInPlaceWalkLeft)
-    applymove(LOCALID_BRIAN, BrianExit)
+    applymove(LOCALID_BRIAN, moves(walk_left
+                                face_up))
     delay(6)
     removeobject(LOCALID_BRIAN)
     playse(SE_EXIT)
@@ -50,19 +51,6 @@ script CastbelleTown_BriansHouse_2F_EventScript_BrianGettingReady {
     clearflag(FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_PROF_PINE)
     release
     end
-}
-
-movement MoveBrianToPlayer {
-    walk_left * 6
-}
-
-movement BrianWalkInPlaceLeft {
-    walk_in_place_fast_left
-}
-
-movement BrianExit {
-    walk_left
-    face_up
 }
 
 script CastbelleTown_BriansHouse_2F_BriansPC {
