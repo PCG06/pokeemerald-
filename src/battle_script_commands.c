@@ -3343,8 +3343,19 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                 if (IsBattlerTerrainAffected(gBattlerAttacker, STATUS_FIELD_METAL_TERRAIN)
                   && GetBattlerAbility(gBattlerAttacker) != ABILITY_CONTRARY)
                 {
-                    BattleScriptPush(gBattlescriptCurrInstr + 1);
-                    gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsAtk;
+                    for (i = 0; i < gMovesInfo[gCurrentMove].numAdditionalEffects; i++)
+                    {
+                        if (gMovesInfo[gCurrentMove].additionalEffects[i].self != TRUE)
+                        {
+                            BattleScriptPush(gBattlescriptCurrInstr + 1);
+                            gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsDef;
+                        }
+                        else
+                        {
+                            BattleScriptPush(gBattlescriptCurrInstr + 1);
+                            gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsAtk;
+                        }
+                    }
                 }
                 else if (ChangeStatBuffs(SET_STAT_BUFF_VALUE(1) | STAT_BUFF_NEGATIVE,
                                     gBattleScripting.moveEffect - MOVE_EFFECT_ATK_MINUS_1 + 1,
@@ -3400,8 +3411,19 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                 if (IsBattlerTerrainAffected(gBattlerAttacker, STATUS_FIELD_METAL_TERRAIN)
                   && GetBattlerAbility(gBattlerAttacker) != ABILITY_CONTRARY)
                 {
-                    BattleScriptPush(gBattlescriptCurrInstr + 1);
-                    gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsAtk;
+                    for (i = 0; i < gMovesInfo[gCurrentMove].numAdditionalEffects; i++)
+                    {
+                        if (gMovesInfo[gCurrentMove].additionalEffects[i].self != TRUE)
+                        {
+                            BattleScriptPush(gBattlescriptCurrInstr + 1);
+                            gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsDef;
+                        }
+                        else
+                        {
+                            BattleScriptPush(gBattlescriptCurrInstr + 1);
+                            gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsAtk;
+                        }
+                    }
                 }
                 else if (ChangeStatBuffs(SET_STAT_BUFF_VALUE(2) | STAT_BUFF_NEGATIVE,
                                     gBattleScripting.moveEffect - MOVE_EFFECT_ATK_MINUS_2 + 1,
