@@ -139,7 +139,7 @@ SECTIONS {
 
     __rom_end = .;
 
-    dacs 0x9FFC000 :
+    dacs 0x9FFD000 :
     ALIGN(4)
     {
         test/*.o(.dacs);
