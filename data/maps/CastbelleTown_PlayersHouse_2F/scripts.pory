@@ -35,11 +35,12 @@ script OptionEnable_LevelCaps {
         waitse
         delay(10)
         closemessage
+        increaselevelcap
         msgbox("First level cap is 10.", MSGBOX_DEFAULT)
     }
     else {
         playse(SE_PC_OFF)
-        setvar(B_LEVEL_CAP_VARIABLE, MAX_LEVEL)
+        increaselevelcap(FALSE)
         message("Level caps are disabled!")
         waitse
         delay(10)

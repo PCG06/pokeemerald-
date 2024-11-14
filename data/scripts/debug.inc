@@ -155,14 +155,20 @@ Debug_EventScript_Script_3::
 	setvar B_VAR_STARTING_STATUS, STARTING_STATUS_METAL_TERRAIN
 	doweather
 	delay 4
-	createmon 1, 0, SPECIES_LITTEN, 0, abilityNum=2, move1=MOVE_FILLET_AWAY, hpEv=252, spDefEv=252, hpIv=31, spDefIv=31
+	createmon 1, 0, SPECIES_LITTEN, 0, abilityNum=2, move1=MOVE_OVERHEAT, hpEv=252, spDefEv=252, hpIv=31, spDefIv=31
 	dowildbattle
 	release
 	end
 
 Debug_EventScript_Script_4::
+	getlevelcap
+	buffernumberstring STR_VAR_1, VAR_RESULT
+	msgbox Text_LevelCap, MSGBOX_NPC
 	release
 	end
+
+Text_LevelCap:
+	.string "Level cap: {STR_VAR_1}.$"
 
 Debug_EventScript_Script_5::
 	release

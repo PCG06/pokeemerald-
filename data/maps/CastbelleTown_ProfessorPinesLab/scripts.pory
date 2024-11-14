@@ -213,7 +213,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     applymoveplayer(Common_Movement_FaceDown)
     addobject(LOCALID_BRIAN)
     setobjectxy(LOCALID_BRIAN, 6, 11)
-    applymove(LOCALID_BRIAN, BrianRushToProf)
+    applymove(LOCALID_BRIAN, moves(walk_up * 6))
     applymoveplayer(Common_Movement_FaceLeft)
     speakername("Brian")
     msgbox("Sorry, I'm late, professor!\p"
@@ -245,7 +245,9 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
             "Well, the Early Bird gets the Wurmple…\p"
             "Then in that case…", MSGBOX_AUTOCLOSE)
     if (flag(FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_GRASS_STARTER) == true) {
-        applymove(LOCALID_BRIAN, BrianWalkToFireStarter)
+        applymove(LOCALID_BRIAN, moves(walk_down
+                                    walk_right * 2
+                                    walk_up))
         applymoveplayer(Common_Movement_FaceRight)
         speakername("Brian")
         msgbox("I choose you, Litten!", MSGBOX_AUTOCLOSE)
@@ -256,7 +258,9 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
         applymove(LOCALID_BRIAN, Common_Movement_FaceLeft)
     }
     elif (flag(FLAG_HIDE_CASTBELLE_TOWN_PROF_PINES_LAB_FIRE_STARTER) == true) {
-        applymove(LOCALID_BRIAN, BrianWalkToWaterStarter)
+        applymove(LOCALID_BRIAN, moves(walk_down
+                                    walk_right * 3
+                                    walk_up))
         applymoveplayer(Common_Movement_FaceRight)
         speakername("Brian")
         msgbox("I choose you, Piplup!", MSGBOX_AUTOCLOSE)
@@ -267,7 +271,8 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
         applymove(LOCALID_BRIAN, Common_Movement_FaceLeft)
     }
     else {
-        applymove(LOCALID_BRIAN, BrianWalkToGrassStarter)
+        applymove(LOCALID_BRIAN, moves(walk_right
+                                    face_up))
         speakername("Brian")
         msgbox("I choose you, Chespin!", MSGBOX_AUTOCLOSE)
         playmoncry(SPECIES_CHESPIN, CRY_MODE_NORMAL)
@@ -306,7 +311,7 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
             "Anyway, I'm off to Sola City!\n"
             "I wanna catch the ferry to the\l"
             "mainland and challenge the Gym Leader!", MSGBOX_AUTOCLOSE)
-    applymove(LOCALID_BRIAN, BrianExitLab)
+    applymove(LOCALID_BRIAN, moves(walk_down * 6))
     removeobject(LOCALID_BRIAN)
     emote(LOCALID_PROF_PINE, EMOTE_EXCLAIM)
     speakername("Prof. Pine")
@@ -323,40 +328,21 @@ script CastbelleTown_ProfessorPinesLab_EventScript_EnterBrian {
     end
 }
 
-movement BrianRushToProf {
-    walk_up * 6
-}
-
-movement BrianExitLab {
-    walk_down * 6
-}
-
-movement BrianWalkToFireStarter {
-    walk_down
-    walk_right * 2
-    walk_up
-}
-
-movement BrianWalkToWaterStarter {
-    walk_down
-    walk_right * 3
-    walk_up
-}
-
-movement BrianWalkToGrassStarter {
-    walk_right
-    face_up
-}
-
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfPineGivesPokedex {
     getplayerxy(VAR_0x8000, VAR_0x8001)
     switch (var(VAR_0x8000)) {
         case 7:
-            applymove(LOCALID_PROF_PINE, ProfPineWalkToPlayer_1)
+            applymove(LOCALID_PROF_PINE, (moves
+                                        (walk_down
+                                        face_right)))
         case 8:
-            applymove(LOCALID_PROF_PINE, ProfPineWalkToPlayer_2)
+            applymove(LOCALID_PROF_PINE, (moves
+                                        (walk_down
+                                        walk_right)))
         case 9:
-            applymove(LOCALID_PROF_PINE, ProfPineWalkToPlayer_3)
+            applymove(LOCALID_PROF_PINE, (moves
+                                        (walk_down
+                                        walk_right * 2)))
     }
     turnplayer(DIR_WEST)
     speakername("Prof. Pine")
@@ -420,69 +406,39 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfPineGivesPokedex {
     end
 }
 
-movement ProfPineWalkToPlayer_1 {
-    walk_down
-    face_right
-}
-
-movement ProfPineWalkToPlayer_2 {
-    walk_down
-    walk_right
-}
-
-movement ProfPineWalkToPlayer_3  {
-    walk_down
-    walk_right * 2
-}
-
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger1 {
-    applymoveplayer(PlayerToCenterx2_Left)
+    applymoveplayer(moves
+                    (walk_right * 2))
     goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
     end
-}
-
-movement PlayerToCenterx2_Left {
-    walk_right * 2
 }
 
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger2 {
-    applymoveplayer(PlayerToCenterx1_Left)
+    applymoveplayer(moves
+                    (walk_right))
     goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
     end
-}
-
-movement PlayerToCenterx1_Left {
-    walk_right
 }
 
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger4 {
-    applymoveplayer(PlayerToCenterx1_Right)
+    applymoveplayer(moves
+                    (walk_left))
     goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
     end
-}
-
-movement PlayerToCenterx1_Right {
-    walk_left
 }
 
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger5 {
-    applymoveplayer(PlayerToCenterx2_Right)
+    applymoveplayer(moves
+                    (walk_left * 2))
     goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
     end
-}
-
-movement PlayerToCenterx2_Right {
-    walk_left * 2
 }
 
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon_Trigger6 {
-    applymoveplayer(PlayerToCenterx3_Right)
+    applymoveplayer(moves
+                    (walk_left * 3))
     goto(CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineGivesPokemon)
     end
-}
-
-movement PlayerToCenterx3_Right {
-    walk_left * 3
 }
 
 script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBeforeLeaving {
@@ -493,38 +449,26 @@ script CastbelleTown_ProfessorPinesLab_EventScript_ProfessorPineTakePokemonBefor
     getplayerxy(VAR_0x8000, VAR_0x8001)
     switch (var(VAR_0x8000)) {
         case 5:
-            applymoveplayer(PlayerBackToCenter_1)
+            applymoveplayer(moves
+                            (walk_up
+                            walk_right
+                            walk_up * 5))
         case 6:
-            applymoveplayer(PlayerBackToCenter_2)
+            applymoveplayer(moves
+                            (walk_up * 5))
         case 7:
-            applymoveplayer(PlayerBackToCenter_3)
+            applymoveplayer(moves
+                            (walk_left
+                            walk_up * 5))
         case 8:
-            applymoveplayer(PlayerBackToCenter_4)
+            applymoveplayer(moves
+                            (walk_up
+                            walk_left * 2
+                            walk_up * 5))
     }
     turnplayer(DIR_NORTH)
     release
     end
-}
-
-movement PlayerBackToCenter_1 {
-    walk_up
-    walk_right
-    walk_up * 5
-}
-
-movement PlayerBackToCenter_2 {
-    walk_up * 5
-}
-
-movement PlayerBackToCenter_3 {
-    walk_left
-    walk_up * 5
-}
-
-movement PlayerBackToCenter_4 {
-    walk_up
-    walk_left * 2
-    walk_up * 5
 }
 
 script CastbelleTown_ProfessorPinesLab_EventScript_Aide1 {

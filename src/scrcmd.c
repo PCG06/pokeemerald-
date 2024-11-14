@@ -1857,15 +1857,69 @@ bool8 ScrCmd_bufferboxname(struct ScriptContext *ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_islevelcapactive(struct ScriptContext *ctx)
+bool8 ScrCmd_IncreaseLevelCap(struct ScriptContext *ctx)
 {
-    u32 currentLevelCap = ((B_LEVEL_CAP_TYPE != 0) ? GetCurrentLevelCap() : MAX_LEVEL);
+    u8 value = ScriptReadByte(ctx);
+    u8 specific = ScriptReadByte(ctx);
 
-    if (currentLevelCap != MAX_LEVEL)
-        gSpecialVar_Result = TRUE;
-    else
+    if (specific != FALSE)
+    {
+        VarSet(B_LEVEL_CAP_VARIABLE, specific);
+        return FALSE;
+    }
+    else if (value == FALSE)
+    {
+        VarSet(B_LEVEL_CAP_VARIABLE, MAX_LEVEL);
         gSpecialVar_Result = FALSE;
-    
+        return FALSE;
+    }
+    else
+    {
+        switch (GetGameStat(GAME_STAT_INCREASE_LEVEL_CAP))
+        {
+            case 0:
+                VarSet(B_LEVEL_CAP_VARIABLE, MAX_LEVEL);
+                break;
+
+            case 1:
+                VarSet(B_LEVEL_CAP_VARIABLE, 10);
+                break;
+
+            case 2:
+                VarSet(B_LEVEL_CAP_VARIABLE, 17);
+                break;
+
+            case 3:
+                VarSet(B_LEVEL_CAP_VARIABLE, 25);
+                break;
+
+            case 4:
+                VarSet(B_LEVEL_CAP_VARIABLE, 30);
+                break;
+
+            case 5:
+                VarSet(B_LEVEL_CAP_VARIABLE, 35);
+                break;
+
+            case 6:
+                VarSet(B_LEVEL_CAP_VARIABLE, 40);
+                break;
+
+            case 7:
+                VarSet(B_LEVEL_CAP_VARIABLE, 45);
+                break;
+
+            case 8:
+                VarSet(B_LEVEL_CAP_VARIABLE, 50);
+                break;
+        }
+    }
+    return FALSE;
+}
+
+bool8 ScrCmd_GetLevelCap(struct ScriptContext *ctx)
+{
+    gSpecialVar_Result = GetCurrentLevelCap();
     return FALSE;
 }
 

@@ -70,9 +70,10 @@ jobs:
           TEST: 1
         run: |
           make -j8 check
-  
+
+      # Executes only if previous steps fail
       - name: Send failure notification to Discord
-        if: failure()   # Executes only if previous steps fail
+        if: failure()
         run: |
               curl -H "Content-Type: application/json" \
                    -X POST \
@@ -83,13 +84,8 @@ jobs:
                        \"color\": 16711680,
                        \"fields\": [
                          {
-                           \"name\": \"Commit name:\",
-                           \"value\": \"${{ github.event.head_commit.message }}\",
-                           \"inline\": false
-                         },
-                         {
                            \"name\": \"Commit hash:\",
-                           \"value\": \"[${{ github.event.head_commit.id }}](${{ github.event.head_commit.url }})\",
+                           \"value\": \"${{ github.event.head_commit.id }}\",
                            \"inline\": false
                          },
                          {
@@ -116,13 +112,13 @@ jobs:
 
       - name: Build pokeemerald.bps
         run: |
-          chmod -R 755 ./flips-linux
-          ./flips-linux --create tools/pokeemerald/pokeemerald.gba pokeemerald.gba pokeemerald.bps
+          chmod -R 755 ./tools/flips-linux
+          ./tools/flips-linux --create tools/pokeemerald/pokeemerald.gba pokeemerald.gba pokeemerald.bps
 
       - name: Upload patch
         uses: actions/upload-artifact@v4
         with:
-          name: patch_file
+          name: pokeemerald
           path: pokeemerald.bps
 
       - name: Get Artifact ID
@@ -149,8 +145,8 @@ jobs:
                       "inline": false
                     },
                     {
-                      "name": "Commit:",
-                      "value": "[${{ github.event.head_commit.message }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }})",
+                      "name": "Commit hash:",
+                      "value": "[${{ github.sha }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }})",
                       "inline": false
                     }
                   ]

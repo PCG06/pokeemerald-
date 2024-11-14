@@ -79,18 +79,19 @@ script CastbellePath_EventScript_Brian {
         setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
         getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
         if (var(VAR_TEMP_1) == 4 && var(VAR_TEMP_2) == 13) {
-            applymove(LOCALID_BRIAN, BrianExitsCastbellePath_1)
+            applymove(LOCALID_BRIAN, moves(walk_up * 2
+                                        walk_right * 2
+                                        walk_up * 5))
         }
         else {
-            applymove(LOCALID_BRIAN, BrianExitsCastbellePath_2)
+            applymove(LOCALID_BRIAN, moves(walk_right * 2
+                                        walk_up * 7))
         }
         fadedefaultbgm
         removeobject(LOCALID_BRIAN)
         setvar(VAR_MAIN_STORY, 5)
         setvar(VAR_CASTBELLE_TOWN_STATE, 6)
-        if(islevelcapactive) {
-            setvar(B_LEVEL_CAP_VARIABLE, 17)
-        }
+        increaselevelcap
     }
     else {
         speakername("Brian")
@@ -100,17 +101,6 @@ script CastbellePath_EventScript_Brian {
     }
     release
     end
-}
-
-movement BrianExitsCastbellePath_1 {
-    walk_up * 2
-    walk_right * 2
-    walk_up * 5
-}
-
-movement BrianExitsCastbellePath_2 {
-    walk_right * 2
-    walk_up * 7
 }
 
 script CastbellePath_EventScript_Boy {

@@ -12,7 +12,9 @@ script CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon {
     delay(6)
     applymove(LOCALID_MOM, Common_Movement_FaceUp)
     emote(LOCALID_MOM, EMOTE_EXCLAIM)
-    applymove(LOCALID_MOM, MomWalkToPlayer)
+    applymove(LOCALID_MOM, moves(walk_up
+                            walk_right * 3
+                            walk_up))
     speakername("Mom")
     msgbox("{PLAYER}!\n"
             "Did you hear?\p"
@@ -26,7 +28,9 @@ script CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon {
             "It might be a good idea to see him first\l"
             "before heading to Prof. Pine's lab.", MSGBOX_AUTOCLOSE)
     delay(24)
-    applymove(LOCALID_MOM, MomWalkToChair)
+    applymove(LOCALID_MOM, moves(walk_down
+                            walk_left * 3
+                            walk_down))
     applymove(LOCALID_MOM, Common_Movement_FaceLeft)
     setvar(VAR_CASTBELLE_TOWN_STATE, 1)
     setvar(VAR_MAIN_STORY, 2)
@@ -34,23 +38,12 @@ script CastbelleTown_PlayerHouse_1F_EventScript_GetPartnerPokemon {
     end
 }
 
-movement MomWalkToPlayer {
-    walk_up
-    walk_right * 3
-    walk_up
-}
-
-movement MomWalkToChair {
-    walk_down
-    walk_left * 3
-    walk_down
-}
-
 script CastbelleTown_PlayerHouse_1F_EventScript_AfterGettingPartnerPokemon {
     lock
     turnobject(LOCALID_MOM, DIR_SOUTH)
     emote(LOCALID_MOM, EMOTE_EXCLAIM)
-    applymove(LOCALID_MOM, MomWalkToPlayer_2)
+    applymove(LOCALID_MOM, moves(walk_right * 3
+                                walk_down))
     speakername("Mom")
     msgbox("Hello, honey!\p"
             "Oh, you got your first Pokémon,\n"
@@ -72,21 +65,12 @@ script CastbelleTown_PlayerHouse_1F_EventScript_AfterGettingPartnerPokemon {
             "come home and take rest!\p"
 	        "… … … … … … … …\n"
 	        "… … … … … … … …", MSGBOX_AUTOCLOSE)
-    applymove(LOCALID_MOM, MomWalkToChair_2)
+    applymove(LOCALID_MOM, moves(walk_left * 3
+                                walk_up
+                                face_left))
     delay(24)
     setvar(VAR_CASTBELLE_TOWN_STATE, 5)
     end
-}
-
-movement MomWalkToPlayer_2 {
-    walk_right * 3
-    walk_down
-}
-
-movement MomWalkToChair_2 {
-    walk_left * 3
-    walk_up
-    face_left
 }
 
 script CastbelleTown_PlayersHouse_1F_EventScript_Mom {

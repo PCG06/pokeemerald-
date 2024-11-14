@@ -4,13 +4,13 @@
 #include "constants/battle_partner.h"
 
 #define TRAINER_NONE                          0
-#define TRAINER_TERRY                         1
-#define TRAINER_CLARENCE                      2
-#define TRAINER_RAYAN                         3
-#define TRAINER_SHAUN                         4
-#define TRAINER_BRUCE                         5
-#define TRAINER_JOEY                          6
-#define TRAINER_ANNIE                         7
+#define TRAINER_JOEY                          1
+#define TRAINER_ANNIE                         2
+#define TRAINER_TERRY                         3
+#define TRAINER_CLARENCE                      4
+#define TRAINER_RAYAN                         5
+#define TRAINER_SHAUN                         6
+#define TRAINER_BRUCE                         7
 #define TRAINER_MITCH                         8
 #define TRAINER_LARRY                         9
 #define TRAINER_LAURA                        10
