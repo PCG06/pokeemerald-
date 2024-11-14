@@ -81,6 +81,46 @@ Gender: Male
 Music: Male
 Double Battle: No
 
+=== TRAINER_JOEY ===
+Name: JOEY
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Check Viability
+
+Rattata (M)
+Level: 0
+IVs: 0 HP / 12 Atk / 0 Def / 0 SpA / 0 SpD / 6 Spe
+
+Rattata-Alola (M)
+Level: 0
+IVs: 0 HP / 12 Atk / 0 Def / 0 SpA / 0 SpD / 6 Spe
+
+=== TRAINER_ANNIE ===
+Name: Annie
+Class: Lass
+Pic: Lass
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Check Viability
+
+Gothita (F)
+Level: 0
+IVs: 12 HP / 0 Atk / 0 Def / 12 SpA / 0 SpD / 6 Spe
+- Confusion
+- Play Nice
+- Tickle
+
+Nidoran (F)
+Level: 0
+IVs: 12 HP / 8 Atk / 0 Def / 0 SpA / 0 SpD / 6 Spe
+- Poison Sting
+- Supersonic
+- Thief
+
 === TRAINER_TERRY ===
 Name: Terry
 Class: Sailor
@@ -195,64 +235,6 @@ Nature: Bashful
 - Tickle
 - Charm
 - Chilling Water
-
-=== TRAINER_JOEY ===
-Name: JOEY
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move / Check Viability
-
-Pidgey (M)
-Level: 0
-IVs: 0 HP / 0 Atk / 0 Def / 12 SpA / 12 SpD / 12 Spe
-- Sonic Boom /*TODO: Add Sonic Boom to its learnset*/
-- Gust
-- Whirlwind
-- Sand Attack
-
-Sandshrew (M)
-Level: 0
-IVs: 0 HP / 12 Atk / 0 Def / 12 SpA / 0 SpD / 12 Spe
-- Tackle
-- Mud Slap
-- Sand Attack
-- Poison Sting
-
-=== TRAINER_ANNIE ===
-Name: Annie
-Class: Lass
-Pic: Lass
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move / Check Viability
-
-Gothita (F)
-Level: 0
-IVs: 12 HP / 0 Atk / 0 Def / 12 SpA / 0 SpD / 12 Spe
-- Confusion
-- Play Nice
-- Mirror Coat
-- Swift
-
-Ponyta-Galar (F)
-Level: 0
-IVs: 12 HP / 0 Atk / 0 Def / 12 SpA / 0 SpD / 12 Spe
-- Tackle
-- Confusion
-- Fairy Wind
-- Attract
-
-Nidoran (F)
-Level: 0
-IVs: 12 HP / 12 Atk / 0 Def / 0 SpA / 0 SpD / 12 Spe
-- Poison Sting
-- Supersonic
-- Cut
-- Thief
 
 === TRAINER_MITCH ===
 Name: Mitch
