@@ -1545,6 +1545,12 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifterrainactive terrainFlags:req, jumpInstr:req
+	callnative BS_JumpIfTerrainActive
+	.4byte \terrainFlags
+	.4byte \jumpInstr
+	.endm
+
 	.macro tryreflecttype failInstr:req
 	callnative BS_TryReflectType
 	.4byte \failInstr

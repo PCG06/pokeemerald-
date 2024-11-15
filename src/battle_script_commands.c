@@ -16764,6 +16764,16 @@ void BS_JumpIfTerrainAffected(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+void BS_JumpIfTerrainActive(void)
+{
+    NATIVE_ARGS(u32 flags, const u8 *jumpInstr);
+
+    if (gFieldStatuses & cmd->flags)
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 void BS_JumpIfMetalTerrainAffected(void)
 {
     NATIVE_ARGS(u8 battler, const u8 *jumpInstr);

@@ -155,7 +155,7 @@ Debug_EventScript_Script_3::
 	setvar B_VAR_STARTING_STATUS, STARTING_STATUS_METAL_TERRAIN
 	doweather
 	delay 4
-	createmon 1, 0, SPECIES_LITTEN, 0, ITEM_METAL_SEED, abilityNum=2, move1=MOVE_OVERHEAT, hpEv=252, spDefEv=252, hpIv=31, spDefIv=31
+	createmon 1, 0, SPECIES_LITTEN, 0, ITEM_METAL_SEED, abilityNum=2, move1=MOVE_STEEL_ROLLER, hpEv=252, spDefEv=252, hpIv=31, spDefIv=31
 	dowildbattle
 	release
 	end

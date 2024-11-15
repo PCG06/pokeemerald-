@@ -9753,7 +9753,7 @@ BattleScript_TryFaint:
 	goto BattleScript_MoveEnd
 
 BattleScript_RemoveTerrain:
-	jumpifterrainaffected BS_TARGET, STATUS_FIELD_TERRAIN_ANY, BattleScript_RemoveTerrain_Cont
+	jumpifterrainactive STATUS_FIELD_TERRAIN_ANY, BattleScript_RemoveTerrain_Cont
 	goto BattleScript_ButItFailed
 BattleScript_RemoveTerrain_Cont:
 	critcalc
@@ -9770,7 +9770,7 @@ BattleScript_RemoveTerrain_Cont:
 	waitmessage B_WAIT_TIME_LONG
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
-	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_TerrainNotRemoved
+	jumpifterrainactive STATUS_FIELD_METAL_TERRAIN, BattleScript_TerrainNotRemoved
 	removeterrain
 	playanimation BS_ATTACKER, B_ANIM_RESTORE_BG
 	printfromtable gTerrainStringIds
