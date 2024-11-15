@@ -3528,6 +3528,9 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     {
         .name = _("Metal Surge"),
         .description = COMPOUND_STRING("Field becomes metallic."),
+        .descriptionTwoLines = COMPOUND_STRING(
+            "Turns the field into Metal Terrain\n"
+            "when the Pokémon enters battle."),
         .aiRating = 8,
     },
 };
