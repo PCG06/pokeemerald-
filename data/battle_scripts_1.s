@@ -2949,6 +2949,22 @@ BattleScript_MetalTerrainPreventsAtk::
 	jumpifability BS_ATTACKER, ABILITY_CONTRARY, BattleScript_MetalTerrainPreventsStatDropsAtkContrary
 	goto BattleScript_MetalTerrainPreventsStatDropsAtk
 
+BattleScript_MetalTerrainPreventsAtkEnd2::
+	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	removeitem BS_ATTACKER
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSATK
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_MetalTerrainPreventsAtkRet::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	removeitem BS_SCRIPTING
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSATK
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_BerryStatRaiseRet_End
+
 BattleScript_MetalTerrainPreventsAtkMoveEnd::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_METALTERRAINPREVENTSATK
@@ -9283,6 +9299,7 @@ BattleScript_BerryConfuseHealRet_Anim:
 	return
 
 BattleScript_BerryStatRaiseEnd2::
+	jumpifmetalterrainaffectedcontrary BS_ATTACKER, BattleScript_MetalTerrainPreventsAtkEnd2
 	jumpifability BS_ATTACKER, ABILITY_RIPEN, BattleScript_BerryStatRaiseEnd2_AbilityPopup
 	goto BattleScript_BerryStatRaiseEnd2_Anim
 BattleScript_BerryStatRaiseEnd2_AbilityPopup:
@@ -9298,6 +9315,7 @@ BattleScript_BerryStatRaiseEnd2_End::
 	end2
 
 BattleScript_BerryStatRaiseRet::
+	jumpifmetalterrainaffectedcontrary BS_SCRIPTING, BattleScript_MetalTerrainPreventsAtkRet
 	jumpifability BS_SCRIPTING, ABILITY_RIPEN, BattleScript_BerryStatRaiseRet_AbilityPopup
 	goto BattleScript_BerryStatRaiseRet_Anim
 BattleScript_BerryStatRaiseRet_AbilityPopup:

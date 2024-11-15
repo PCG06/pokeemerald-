@@ -14104,7 +14104,6 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_PokeshiDoll,
         .iconPalette = gItemIconPalette_PokeshiDoll,
     },
-    
 
     //Start qol_field_moves
 
@@ -14269,4 +14268,22 @@ const struct Item gItemsInfo[] =
     },
 
     //End qol_field_moves
+
+    [ITEM_METAL_SEED] =
+    {
+        .name = _("Metal Seed"),
+        .price = (I_PRICE >= GEN_9) ? 20000 : 4000,
+        .holdEffect = HOLD_EFFECT_SEEDS,
+        .holdEffectParam = HOLD_EFFECT_PARAM_METAL_TERRAIN,
+        .description = COMPOUND_STRING(
+            "Boosts Defense on\n"
+            "Metal Terrain,\n"
+            "but only one time."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+        .iconPic = gItemIcon_MetalSeed,
+        .iconPalette = gItemIconPalette_MetalSeed,
+    },
 };

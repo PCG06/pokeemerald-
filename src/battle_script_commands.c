@@ -10383,6 +10383,9 @@ static void Cmd_various(void)
             case HOLD_EFFECT_PARAM_PSYCHIC_TERRAIN:
                 effect = TryHandleSeed(battler, STATUS_FIELD_PSYCHIC_TERRAIN, STAT_SPDEF, item, FALSE);
                 break;
+            case HOLD_EFFECT_PARAM_METAL_TERRAIN:
+                effect = TryHandleSeed(battler, STATUS_FIELD_METAL_TERRAIN, STAT_DEF, item, FALSE);
+                break;
             }
 
             if (effect)

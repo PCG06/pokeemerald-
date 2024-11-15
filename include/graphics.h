@@ -1218,6 +1218,8 @@ extern const u32 gItemIcon_MistySeed[];
 extern const u32 gItemIconPalette_MistySeed[];
 extern const u32 gItemIcon_GrassySeed[];
 extern const u32 gItemIconPalette_GrassySeed[];
+extern const u32 gItemIcon_MetalSeed[];
+extern const u32 gItemIconPalette_MetalSeed[];
 // Type-activated Stat Modifiers
 extern const u32 gItemIcon_AbsorbBulb[];
 extern const u32 gItemIconPalette_AbsorbBulb[];
