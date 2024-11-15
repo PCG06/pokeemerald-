@@ -111,6 +111,7 @@ BattleScript_SpicyExtract_RaiseAtk:
 	attackanimation
 	waitanimation
 BattleScript_SpicyExtract_SkipAttackAnim:
+	jumpifmetalterrainaffectedcontrary BS_TARGET, BattleScript_MetalTerrainPreventsDef
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_TARGET, BIT_ATK, STAT_CHANGE_BY_TWO
 	setstatchanger STAT_ATK, 2, FALSE
@@ -119,6 +120,7 @@ BattleScript_SpicyExtract_SkipAttackAnim:
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_EffectSpicyExtractDefenseDown:
+	jumpifmetalterrainaffected BS_TARGET, BattleScript_MetalTerrainPreventsDefMoveEnd
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_TARGET, BIT_DEF, STAT_CHANGE_NEGATIVE | STAT_CHANGE_BY_TWO
 	setstatchanger STAT_DEF, 2, TRUE
@@ -2973,6 +2975,7 @@ BattleScript_MetalTerrainPreventsAtkMoveEnd::
 
 BattleScript_MetalTerrainPreventsStatDropsDef:
 	jumpifmove MOVE_STRENGTH_SAP, BattleScript_StrengthSapTryAfterMetalTeerrain
+	jumpifmove MOVE_SPICY_EXTRACT, BattleScript_EffectSpicyExtractDefenseDown
 	goto BattleScript_MoveEnd
 
 BattleScript_MetalTerrainPreventsDef::
@@ -2980,6 +2983,12 @@ BattleScript_MetalTerrainPreventsDef::
 	printstring STRINGID_METALTERRAINPREVENTSDEF
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MetalTerrainPreventsStatDropsDef
+
+BattleScript_MetalTerrainPreventsDefMoveEnd::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSDEF
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_TerrainPreventsEnd2::
 	pause B_WAIT_TIME_SHORT
