@@ -2608,4 +2608,11 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
     },
+
+    [ABILITY_METAL_SURGE] =
+    {
+        .name = _("Metal Surge"),
+        .description = COMPOUND_STRING("Field becomes metallic."),
+        .aiRating = 8,
+    },
 };

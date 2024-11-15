@@ -8335,6 +8335,15 @@ BattleScript_ElectricSurgeActivates::
 	call BattleScript_ActivateTerrainEffects
 	end3
 
+BattleScript_MetalSurgeActivates::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_TERRAINBECOMESMETALLIC
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_SCRIPTING, B_ANIM_RESTORE_BG
+	call BattleScript_ActivateTerrainEffects
+	end3
+
 BattleScript_MistySurgeActivates::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp

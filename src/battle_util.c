@@ -4929,6 +4929,13 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_METAL_SURGE:
+            if (TryChangeBattleTerrain(battler, STATUS_FIELD_METAL_TERRAIN, &gFieldTimers.terrainTimer))
+            {
+                BattleScriptPushCursorAndCallback(BattleScript_MetalSurgeActivates);
+                effect++;
+            }
+            break;
         case ABILITY_INTIMIDATE:
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {
