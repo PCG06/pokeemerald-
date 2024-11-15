@@ -313,6 +313,32 @@ void SetTeraType(struct ScriptContext *ctx)
         SetMonData(&gPlayerParty[partyIndex], MON_DATA_TERA_TYPE, &type);
 }
 
+void ScrCmd_IsMonShiny(struct ScriptContext *ctx)
+{
+    u32 partyIndex = VarGet(ScriptReadHalfword(ctx));
+
+    gSpecialVar_Result = FALSE;
+
+    if (partyIndex < PARTY_SIZE)
+        gSpecialVar_Result = GetMonData(&gPlayerParty[partyIndex], MON_DATA_IS_SHINY);
+}
+
+void ScrCmd_SetMonShiny(struct ScriptContext *ctx)
+{
+    u32 partyIndex = VarGet(ScriptReadHalfword(ctx));
+    u32 isShiny = TRUE;
+
+    SetMonData(&gPlayerParty[partyIndex], MON_DATA_IS_SHINY, &isShiny);
+}
+
+void ScrCmd_UnsetMonShiny(struct ScriptContext *ctx)
+{
+    u32 partyIndex = VarGet(ScriptReadHalfword(ctx));
+    u32 isShiny = FALSE;
+
+    SetMonData(&gPlayerParty[partyIndex], MON_DATA_IS_SHINY, &isShiny);
+}
+
 /* Creates a Pokemon via script
  * if side/slot are assigned, it will create the mon at the assigned party location
  * if slot == PARTY_SIZE, it will give the mon to first available party or storage slot

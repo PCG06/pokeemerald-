@@ -2665,3 +2665,21 @@
 	.4byte \str
 	.2byte \numOrVar
 	.endm
+
+	@ Checks if a Pokemon in the party is a shiny or not and stores it in VAR_RESULT
+	.macro ismonshiny slot:req
+	callnative ScrCmd_IsMonShiny
+	.2byte \slot
+	.endm
+
+	@ Sets shininess of a Pokemon to TRUE.
+	.macro setmonshiny slot:req
+	callnative ScrCmd_SetMonShiny
+	.2byte \slot
+	.endm
+
+	@ Sets shininess of a Pokemon to FALSE.
+	.macro unsetmonshiny slot:req
+	callnative ScrCmd_UnsetMonShiny
+	.2byte \slot
+	.endm
