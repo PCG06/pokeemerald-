@@ -320,21 +320,13 @@ void ScrCmd_IsMonShiny(struct ScriptContext *ctx)
     gSpecialVar_Result = FALSE;
 
     if (partyIndex < PARTY_SIZE)
-        gSpecialVar_Result = GetMonData(&gPlayerParty[partyIndex], MON_DATA_IS_SHINY);
+        gSpecialVar_Result = IsMonShiny(&gPlayerParty[partyIndex]);
 }
 
-void ScrCmd_SetMonShiny(struct ScriptContext *ctx)
+void ScrCmd_ToggleMonShiny(struct ScriptContext *ctx)
 {
     u32 partyIndex = VarGet(ScriptReadHalfword(ctx));
-    u32 isShiny = TRUE;
-
-    SetMonData(&gPlayerParty[partyIndex], MON_DATA_IS_SHINY, &isShiny);
-}
-
-void ScrCmd_UnsetMonShiny(struct ScriptContext *ctx)
-{
-    u32 partyIndex = VarGet(ScriptReadHalfword(ctx));
-    u32 isShiny = FALSE;
+    u32 isShiny = (GetMonData(&gPlayerParty[partyIndex], MON_DATA_IS_SHINY) ? FALSE : TRUE);
 
     SetMonData(&gPlayerParty[partyIndex], MON_DATA_IS_SHINY, &isShiny);
 }

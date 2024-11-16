@@ -466,80 +466,80 @@ Debug_EventScript_Script_8::
 	end
 
 
-Debug_EventScript_SetUnsetMonShiny::
-	message Debug_EventScript_SetUnsetMonShiny_Text_0
+Debug_EventScript_ToggleMonShiny::
+	message Debug_EventScript_ToggleMonShiny_Text_0
 	waitmessage
 	waitbuttonpress
 	special ChoosePartyMon
 	waitstate
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
-	goto_if_ne Debug_EventScript_SetUnsetMonShiny_2
-	msgbox Debug_EventScript_SetUnsetMonShiny_Text_6, MSGBOX_NPC
-Debug_EventScript_SetUnsetMonShiny_1:
+	goto_if_ne Debug_EventScript_ToggleMonShiny_2
+	msgbox Debug_EventScript_ToggleMonShiny_Text_6, MSGBOX_NPC
+Debug_EventScript_ToggleMonShiny_1:
 	release
 	end
 
-Debug_EventScript_SetUnsetMonShiny_2:
+Debug_EventScript_ToggleMonShiny_2:
 	ismonshiny VAR_0x8004
 	compare VAR_RESULT, 0
-	goto_if_ne Debug_EventScript_SetUnsetMonShiny_5
-	msgbox Debug_EventScript_SetUnsetMonShiny_Text_4, MSGBOX_YESNO
+	goto_if_ne Debug_EventScript_ToggleMonShiny_5
+	msgbox Debug_EventScript_ToggleMonShiny_Text_4, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	goto_if_eq Debug_EventScript_SetUnsetMonShiny_11
-	msgbox Debug_EventScript_SetUnsetMonShiny_Text_3, MSGBOX_NPC
-	goto Debug_EventScript_SetUnsetMonShiny_1
+	goto_if_eq Debug_EventScript_ToggleMonShiny_11
+	msgbox Debug_EventScript_ToggleMonShiny_Text_3, MSGBOX_NPC
+	goto Debug_EventScript_ToggleMonShiny_1
 
-Debug_EventScript_SetUnsetMonShiny_5:
-	msgbox Debug_EventScript_SetUnsetMonShiny_Text_1, MSGBOX_YESNO
+Debug_EventScript_ToggleMonShiny_5:
+	msgbox Debug_EventScript_ToggleMonShiny_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	goto_if_eq Debug_EventScript_SetUnsetMonShiny_8
-	msgbox Debug_EventScript_SetUnsetMonShiny_Text_3, MSGBOX_NPC
-	goto Debug_EventScript_SetUnsetMonShiny_1
+	goto_if_eq Debug_EventScript_ToggleMonShiny_8
+	msgbox Debug_EventScript_ToggleMonShiny_Text_3, MSGBOX_NPC
+	goto Debug_EventScript_ToggleMonShiny_1
 
-Debug_EventScript_SetUnsetMonShiny_8:
-	unsetmonshiny VAR_0x8004
+Debug_EventScript_ToggleMonShiny_8:
+	togglemonshiny VAR_0x8004
 	playfanfare MUS_DP_OBTAIN_ITEM
-	message Debug_EventScript_SetUnsetMonShiny_Text_2
+	message Debug_EventScript_ToggleMonShiny_Text_2
 	waitfanfare
 	waitbuttonpress
 	closemessage
-	goto Debug_EventScript_SetUnsetMonShiny_1
+	goto Debug_EventScript_ToggleMonShiny_1
 
-Debug_EventScript_SetUnsetMonShiny_11:
-	setmonshiny VAR_0x8004
+Debug_EventScript_ToggleMonShiny_11:
+	togglemonshiny VAR_0x8004
 	playfanfare MUS_DP_OBTAIN_ITEM
-	message Debug_EventScript_SetUnsetMonShiny_Text_5
+	message Debug_EventScript_ToggleMonShiny_Text_5
 	waitfanfare
 	waitbuttonpress
 	closemessage
-	goto Debug_EventScript_SetUnsetMonShiny_1
+	goto Debug_EventScript_ToggleMonShiny_1
 
 
 
 .endif
 
-Debug_EventScript_SetUnsetMonShiny_Text_0:
+Debug_EventScript_ToggleMonShiny_Text_0:
 	.string "Shiny or not?$"
 
-Debug_EventScript_SetUnsetMonShiny_Text_1:
-	.string "It's shiny!.\n"
+Debug_EventScript_ToggleMonShiny_Text_1:
+	.string "Your Pokémon is a shiny!.\n"
 	.string "Wanna remove the shiny?$"
 
-Debug_EventScript_SetUnsetMonShiny_Text_2:
+Debug_EventScript_ToggleMonShiny_Text_2:
 	.string "Your Pokémon is no longer a shiny!$"
 
-Debug_EventScript_SetUnsetMonShiny_Text_3:
+Debug_EventScript_ToggleMonShiny_Text_3:
 	.string "Well, your loss!$"
 
-Debug_EventScript_SetUnsetMonShiny_Text_4:
-	.string "Your Pokémon is not shiny.\n"
-	.string "Wanna make it shiny?$"
+Debug_EventScript_ToggleMonShiny_Text_4:
+	.string "Your Pokémon is not a shiny.\n"
+	.string "Wanna make it a shiny?$"
 
-Debug_EventScript_SetUnsetMonShiny_Text_5:
+Debug_EventScript_ToggleMonShiny_Text_5:
 	.string "Your Pokémon is now a shiny!$"
 
-Debug_EventScript_SetUnsetMonShiny_Text_6:
-	.string "You didn't select a Pokemon!$"
+Debug_EventScript_ToggleMonShiny_Text_6:
+	.string "You didn't select a Pokémon!$"
 
 Text_ImBad::
 	.string "I'm bad!$"

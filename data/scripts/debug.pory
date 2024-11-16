@@ -471,7 +471,7 @@ script Debug_EventScript_Script_8 {
 	end
 }
 
-script Debug_EventScript_SetUnsetMonShiny {
+script Debug_EventScript_ToggleMonShiny {
 	message("Shiny or not?")
 	waitmessage
 	waitbuttonpress
@@ -479,10 +479,10 @@ script Debug_EventScript_SetUnsetMonShiny {
 	waitstate
 	if (var(VAR_0x8004) != PARTY_NOTHING_CHOSEN) {
 		if (ismonshiny(VAR_0x8004)) {
-			msgbox("It's shiny!.\n"
+			msgbox("Your Pokémon is a shiny!.\n"
 					"Wanna remove the shiny?", MSGBOX_YESNO)
 			if (var(VAR_RESULT) == YES) {
-				unsetmonshiny(VAR_0x8004)
+				togglemonshiny(VAR_0x8004)
 				playfanfare(MUS_DP_OBTAIN_ITEM)
 				message("Your Pokémon is no longer a shiny!")
 				waitfanfare
@@ -494,10 +494,10 @@ script Debug_EventScript_SetUnsetMonShiny {
 			}
 		}
 		else{
-			msgbox("Your Pokémon is not shiny.\n"
-					"Wanna make it shiny?", MSGBOX_YESNO)
+			msgbox("Your Pokémon is not a shiny.\n"
+					"Wanna make it a shiny?", MSGBOX_YESNO)
 			if (var(VAR_RESULT) == YES) {
-				setmonshiny(VAR_0x8004)
+				togglemonshiny(VAR_0x8004)
 				playfanfare(MUS_DP_OBTAIN_ITEM)
 				message("Your Pokémon is now a shiny!")
 				waitfanfare
@@ -510,7 +510,7 @@ script Debug_EventScript_SetUnsetMonShiny {
 		}
 	}
 	else {
-		msgbox("You didn't select a Pokemon!", MSGBOX_NPC)
+		msgbox("You didn't select a Pokémon!", MSGBOX_NPC)
 	}
 	release
 	end

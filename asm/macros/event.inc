@@ -2672,14 +2672,8 @@
 	.2byte \slot
 	.endm
 
-	@ Sets shininess of a Pokemon to TRUE.
-	.macro setmonshiny slot:req
-	callnative ScrCmd_SetMonShiny
-	.2byte \slot
-	.endm
-
-	@ Sets shininess of a Pokemon to FALSE.
-	.macro unsetmonshiny slot:req
-	callnative ScrCmd_UnsetMonShiny
+	@ Toggles shininess of a Pokemon to TRUE if FALSE, and FALSE if TRUE.
+	.macro togglemonshiny slot:req
+	callnative ScrCmd_ToggleMonShiny
 	.2byte \slot
 	.endm
