@@ -61,16 +61,19 @@ void ClearOrSetFlags(void)
 {
     RtcCalcLocalTime();
 
-    if (gLocalTime.dayOfWeek == DAY_SATURDAY || gLocalTime.dayOfWeek == DAY_SUNDAY)
+    switch (gLocalTime.dayOfWeek)
     {
-        FlagClear(FLAG_HIDE_SOLA_CITY_HARBOR_WEEKEND_TRAFFIC);
-        ClearTrainerFlag(TRAINER_LARRY);
-        ClearTrainerFlag(TRAINER_LAURA);
-        ClearTrainerFlag(TRAINER_TIM);
-    }
-    else
-    {
-        FlagSet(FLAG_HIDE_SOLA_CITY_HARBOR_WEEKEND_TRAFFIC);
+        case DAY_SATURDAY:
+        case DAY_SUNDAY:
+            FlagClear(FLAG_HIDE_SOLA_CITY_HARBOR_WEEKEND_TRAFFIC);
+            break;
+        default:
+            FlagSet(FLAG_HIDE_SOLA_CITY_HARBOR_WEEKEND_TRAFFIC);
+            // Flags cleared on other days because otherwise it'll clear them on Sundays, making you fight them again if you beat them on Saturday
+            ClearTrainerFlag(TRAINER_LARRY);
+            ClearTrainerFlag(TRAINER_LAURA);
+            ClearTrainerFlag(TRAINER_TIM);
+        break;
     }
 }
 
