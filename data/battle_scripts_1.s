@@ -1741,6 +1741,7 @@ BattleScript_DefogWorks:
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
+	jumpifmetalterrainaffected BS_TARGET, BattleScript_MetalTerrainPreventsDefDefog
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_DefogTryHazardsWithAnim
 	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_DefogDoAnim
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_DefogTryHazardsWithAnim
@@ -2936,6 +2937,26 @@ BattleScript_EffectSleep::
 	seteffectprimary MOVE_EFFECT_SLEEP
 	goto BattleScript_MoveEnd
 
+BattleScript_TerrainPreventsEnd2::
+	pause B_WAIT_TIME_SHORT
+	printfromtable gTerrainPreventsStringIds
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_ElectricTerrainPrevents::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_ELECTRICTERRAINPREVENTS
+	waitmessage B_WAIT_TIME_LONG
+	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
+	goto BattleScript_MoveEnd
+
+BattleScript_MistyTerrainPrevents::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_MISTYTERRAINPREVENTS
+	waitmessage B_WAIT_TIME_LONG
+	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
+	goto BattleScript_MoveEnd
+
 BattleScript_MetalTerrainPreventsStatDropsAtkContrary::
 	jumpifmove MOVE_FILLET_AWAY, BattleScript_FilletAwayEnd
 	goto BattleScript_MoveEnd
@@ -2973,7 +2994,7 @@ BattleScript_MetalTerrainPreventsAtkMoveEnd::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-BattleScript_MetalTerrainPreventsStatDropsDef:
+BattleScript_MetalTerrainPreventsStatDropsDef::
 	jumpifmove MOVE_STRENGTH_SAP, BattleScript_StrengthSapTryAfterMetalTeerrain
 	jumpifmove MOVE_SPICY_EXTRACT, BattleScript_EffectSpicyExtractDefenseDown
 	goto BattleScript_MoveEnd
@@ -2990,25 +3011,13 @@ BattleScript_MetalTerrainPreventsDefMoveEnd::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-BattleScript_TerrainPreventsEnd2::
+BattleScript_MetalTerrainPreventsDefDefog::
+	attackanimation
+	waitanimation
 	pause B_WAIT_TIME_SHORT
-	printfromtable gTerrainPreventsStringIds
+	printstring STRINGID_METALTERRAINPREVENTSDEF
 	waitmessage B_WAIT_TIME_LONG
-	end2
-
-BattleScript_ElectricTerrainPrevents::
-	pause B_WAIT_TIME_SHORT
-	printstring STRINGID_ELECTRICTERRAINPREVENTS
-	waitmessage B_WAIT_TIME_LONG
-	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
-	goto BattleScript_MoveEnd
-
-BattleScript_MistyTerrainPrevents::
-	pause B_WAIT_TIME_SHORT
-	printstring STRINGID_MISTYTERRAINPREVENTS
-	waitmessage B_WAIT_TIME_LONG
-	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
-	goto BattleScript_MoveEnd
+	goto BattleScript_DefogTryHazards
 
 BattleScript_MetalTerrainPreventsStats::
 	pause B_WAIT_TIME_SHORT
