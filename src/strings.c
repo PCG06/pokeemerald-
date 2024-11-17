@@ -470,6 +470,7 @@ const u8 gText_CurrentIsTooFast[] = _("The current is much too fast!");
 const u8 gText_DoWhatWithMail[] = _("Do what with the MAIL?");
 const u8 gText_ChoosePokemonCancel[] = _("Choose Pokémon or CANCEL.");
 const u8 gText_ChoosePokemonConfirm[] = _("Choose Pokémon and confirm.");
+const u8 gText_SendWhichMonToPC[] = _("Send which Pokémon to the PC?");
 const u8 gText_EnjoyCycling[] = _("Let's enjoy cycling!");
 const u8 gText_InUseAlready_PM[] = _("This is in use already.");
 const u8 gText_AlreadyHoldingOne[] = _("{STR_VAR_1} is already holding\none {STR_VAR_2}.");

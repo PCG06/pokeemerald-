@@ -1,4 +1,4 @@
-
+raw `
 .if DEBUG_OVERWORLD_MENU == TRUE
 Debug_MessageEnd:
 	waitmessage
@@ -416,130 +416,106 @@ Debug_EventScript_EWRAMCounters::
 Debug_EventScript_EWRAMCounters_Text::
 	.string "Follower Steps: {STR_VAR_1}.\n"
 	.string "Fishing Chain: {STR_VAR_2}.$"
+`
 
-Debug_EventScript_Script_1::
-	trainerbattle_no_intro_no_whiteout TRAINER_BRENDAN_PLACEHOLDER, Text_ImBad
-	special HealPlayerParty
+text Text_ImBad {
+	"I'm bad!"
+}
+
+script Debug_EventScript_Script_1 {
+	trainerbattle_no_intro_no_whiteout(TRAINER_BRENDAN_PLACEHOLDER, Text_ImBad)
+	special(HealPlayerParty)
 	release
 	end
+}
 
-
-Debug_EventScript_Script_2::
-	trainerbattle_no_intro_no_whiteout TRAINER_MAY_PLACEHOLDER, Text_ImBad
-	special HealPlayerParty
+script Debug_EventScript_Script_2 {
+	trainerbattle_no_intro_no_whiteout(TRAINER_MAY_PLACEHOLDER, Text_ImBad)
+	special(HealPlayerParty)
 	release
 	end
+}
 
-
-Debug_EventScript_Script_3::
-	setvar B_VAR_STARTING_STATUS, STARTING_STATUS_LIGHTSCREEN_OPPONENT
+script Debug_EventScript_Script_3 {
+	setvar(B_VAR_STARTING_STATUS, STARTING_STATUS_LIGHTSCREEN_OPPONENT)
 	doweather
-	delay 4
-	createmon 1, 0, SPECIES_LITTEN, 0, abilityNum = 2, move1 = MOVE_OVERHEAT, hpEv = 252, spDefEv = 252, hpIv = 31, spDefIv = 31
+	delay(4)
+	createmon(1, 0, SPECIES_LITTEN, 0, abilityNum=2, move1=MOVE_OVERHEAT, hpEv=252, spDefEv=252, hpIv=31, spDefIv=31)
 	dowildbattle
 	release
 	end
+}
 
-
-Debug_EventScript_Script_4::
+script Debug_EventScript_Script_4 {
 	release
 	end
+}
 
-
-Debug_EventScript_Script_5::
+script Debug_EventScript_Script_5 {
 	release
 	end
+}
 
-
-Debug_EventScript_Script_6::
+script Debug_EventScript_Script_6 {
 	release
 	end
+}
 
-
-Debug_EventScript_Script_7::
+script Debug_EventScript_Script_7 {
 	release
 	end
+}
 
-
-Debug_EventScript_Script_8::
+script Debug_EventScript_Script_8 {
 	release
 	end
+}
 
-
-Debug_EventScript_ToggleMonShiny::
-	message Debug_EventScript_ToggleMonShiny_Text_0
+script Debug_EventScript_ToggleMonShiny {
+	message("Shiny or not?")
 	waitmessage
 	waitbuttonpress
-	special ChoosePartyMon
+	special(ChoosePartyMon)
 	waitstate
-	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
-	goto_if_ne Debug_EventScript_ToggleMonShiny_2
-	msgbox Debug_EventScript_ToggleMonShiny_Text_6, MSGBOX_NPC
-Debug_EventScript_ToggleMonShiny_1:
+	if (var(VAR_0x8004) != PARTY_NOTHING_CHOSEN) {
+		if (ismonshiny(VAR_0x8004)) {
+			msgbox("Your Pokémon is a shiny!.\n"
+					"Wanna remove the shiny?", MSGBOX_YESNO)
+			if (var(VAR_RESULT) == YES) {
+				togglemonshiny(VAR_0x8004)
+				playfanfare(MUS_DP_OBTAIN_ITEM)
+				message("Your Pokémon is no longer a shiny!")
+				waitfanfare
+				waitbuttonpress
+				closemessage
+			}
+			else {
+				msgbox("Well, your loss!", MSGBOX_NPC)
+			}
+		}
+		else{
+			msgbox("Your Pokémon is not a shiny.\n"
+					"Wanna make it a shiny?", MSGBOX_YESNO)
+			if (var(VAR_RESULT) == YES) {
+				togglemonshiny(VAR_0x8004)
+				playfanfare(MUS_DP_OBTAIN_ITEM)
+				message("Your Pokémon is now a shiny!")
+				waitfanfare
+				waitbuttonpress
+				closemessage
+			}
+			else {
+				msgbox("Well, your loss!", MSGBOX_NPC)
+			}
+		}
+	}
+	else {
+		msgbox("You didn't select a Pokémon!", MSGBOX_NPC)
+	}
 	release
 	end
+}
 
-Debug_EventScript_ToggleMonShiny_2:
-	ismonshiny VAR_0x8004
-	compare VAR_RESULT, 0
-	goto_if_ne Debug_EventScript_ToggleMonShiny_5
-	msgbox Debug_EventScript_ToggleMonShiny_Text_4, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Debug_EventScript_ToggleMonShiny_11
-	msgbox Debug_EventScript_ToggleMonShiny_Text_3, MSGBOX_NPC
-	goto Debug_EventScript_ToggleMonShiny_1
-
-Debug_EventScript_ToggleMonShiny_5:
-	msgbox Debug_EventScript_ToggleMonShiny_Text_1, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Debug_EventScript_ToggleMonShiny_8
-	msgbox Debug_EventScript_ToggleMonShiny_Text_3, MSGBOX_NPC
-	goto Debug_EventScript_ToggleMonShiny_1
-
-Debug_EventScript_ToggleMonShiny_8:
-	togglemonshiny VAR_0x8004
-	playfanfare MUS_DP_OBTAIN_ITEM
-	message Debug_EventScript_ToggleMonShiny_Text_2
-	waitfanfare
-	waitbuttonpress
-	closemessage
-	goto Debug_EventScript_ToggleMonShiny_1
-
-Debug_EventScript_ToggleMonShiny_11:
-	togglemonshiny VAR_0x8004
-	playfanfare MUS_DP_OBTAIN_ITEM
-	message Debug_EventScript_ToggleMonShiny_Text_5
-	waitfanfare
-	waitbuttonpress
-	closemessage
-	goto Debug_EventScript_ToggleMonShiny_1
-
-
-
+raw`
 .endif
-
-Debug_EventScript_ToggleMonShiny_Text_0:
-	.string "Shiny or not?$"
-
-Debug_EventScript_ToggleMonShiny_Text_1:
-	.string "Your Pokémon is a shiny!.\n"
-	.string "Wanna remove the shiny?$"
-
-Debug_EventScript_ToggleMonShiny_Text_2:
-	.string "Your Pokémon is no longer a shiny!$"
-
-Debug_EventScript_ToggleMonShiny_Text_3:
-	.string "Well, your loss!$"
-
-Debug_EventScript_ToggleMonShiny_Text_4:
-	.string "Your Pokémon is not a shiny.\n"
-	.string "Wanna make it a shiny?$"
-
-Debug_EventScript_ToggleMonShiny_Text_5:
-	.string "Your Pokémon is now a shiny!$"
-
-Debug_EventScript_ToggleMonShiny_Text_6:
-	.string "You didn't select a Pokémon!$"
-
-Text_ImBad::
-	.string "I'm bad!$"
+`

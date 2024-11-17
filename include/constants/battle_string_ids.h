@@ -732,12 +732,14 @@
 #define STRINGID_USEDREFLECT                          730
 #define STRINGID_USEDLIGHTSCREEN                      731
 #define STRINGID_USEDAURORAVEIL                       732
-#define STRINGID_TERRAINBECOMESMETALLIC               733
-#define STRINGID_METALTERRAINENDS                     734
-#define STRINGID_METALTERRAINPREVENTSDEF              735
-#define STRINGID_METALTERRAINPREVENTSATK              736
+#define STRINGID_SENDCAUGHTMONPARTYORBOX              733
+#define STRINGID_PKMNSENTTOPCAFTERCATCH               734
+#define STRINGID_TERRAINBECOMESMETALLIC               735
+#define STRINGID_METALTERRAINENDS                     736
+#define STRINGID_METALTERRAINPREVENTSDEF              737
+#define STRINGID_METALTERRAINPREVENTSATK              738
 
-#define BATTLESTRINGS_COUNT                           737
+#define BATTLESTRINGS_COUNT                           739
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -901,10 +903,12 @@
 #define B_MSG_WEAKEN_FIRE     1
 
 // gCaughtMonStringIds
-#define B_MSG_SENT_SOMEONES_PC  0
-#define B_MSG_SENT_LANETTES_PC  1
-#define B_MSG_SOMEONES_BOX_FULL 2
-#define B_MSG_LANETTES_BOX_FULL 3
+#define B_MSG_NO_MESSSAGE_SKIP   0
+#define B_MSG_SENT_SOMEONES_PC   1
+#define B_MSG_SENT_LANETTES_PC   2
+#define B_MSG_SOMEONES_BOX_FULL  3
+#define B_MSG_LANETTES_BOX_FULL  4
+#define B_MSG_SWAPPED_INTO_PARTY 5
 
 // gPrimalWeatherBlocksStringIds
 #define B_MSG_PRIMAL_WEATHER_FIZZLED_BY_RAIN    0

@@ -95,6 +95,9 @@
     },
     "getgamestat": {
         "var_name": "VAR_RESULT"
+    },
+    "ismonshiny": {
+        "var_name": "VAR_RESULT"
     }
   }
 }
