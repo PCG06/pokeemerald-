@@ -1523,11 +1523,13 @@
 #define FLAG_SYS_SKY_BATTLE                         (SYSTEM_FLAGS + 0x8B)
 #define FLAG_SYS_FORCE_NO_SHINY                     (SYSTEM_FLAGS + 0x8C)
 #define FLAG_SYS_FORCE_POKERUS                      (SYSTEM_FLAGS + 0x8D)
-#define FLAG_SYS_RECEIVED_EGG_MOVES                 (SYSTEM_FLAGS + 0x8E)
-#define FLAG_SYS_RECEIVED_TM_MOVES                  (SYSTEM_FLAGS + 0x8F)
-#define FLAG_SYS_RECEIVED_TUTOR_MOVES               (SYSTEM_FLAGS + 0x90)
-#define FLAG_SYS_VS_SEEKER_CHARGING                 (SYSTEM_FLAGS + 0x91)
-#define FLAG_SYS_EXP_SHARE                          (SYSTEM_FLAGS + 0x92)
+#define FLAG_SYS_EXP_SHARE                          (SYSTEM_FLAGS + 0x8E)
+#define FLAG_SYS_VS_SEEKER_CHARGING                 (SYSTEM_FLAGS + 0x8F)
+
+// Move Relearner flags
+#define FLAG_SYS_RECEIVED_EGG_MOVES                 (SYSTEM_FLAGS + 0x90)
+#define FLAG_SYS_RECEIVED_TM_MOVES                  (SYSTEM_FLAGS + 0x91)
+#define FLAG_SYS_RECEIVED_TUTOR_MOVES               (SYSTEM_FLAGS + 0x92)
 
 #define FLAG_UNUSED_0x8F3                           (SYSTEM_FLAGS + 0x93)  // Unused Flag
 #define FLAG_UNUSED_0x8F4                           (SYSTEM_FLAGS + 0x94)  // Unused Flag

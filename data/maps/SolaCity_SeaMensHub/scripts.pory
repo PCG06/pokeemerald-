@@ -75,6 +75,7 @@ script SolaCity_SeaMensHub_CaptainBruceDefeated {
     increaselevelcap
     setvar(VAR_MAIN_STORY, 6)
     setvar(VAR_TEMP_0, 1) // Just to avoid a few workarounds with movements going over follower
+    setflag(FLAG_SYS_RECEIVED_TUTOR_MOVES)
     subquestmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_2_BEAT_THE_SEA_MEN, SUB_QUEST_2_CAPTAIN_BRUCE)
     questmenu(QUEST_MENU_SET_REWARD, QUEST_2_BEAT_THE_SEA_MEN)
     return
