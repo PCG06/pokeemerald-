@@ -63,33 +63,33 @@ jobs:
       - name: Send failure notification to Discord
         if: failure()
         run: |
-              curl -H "Content-Type: application/json" \
-                   -X POST \
-                   -d "{
-                     \"embeds\": [{
-                       \"title\": \"CI Job Failed\",
-                       \"description\": \"A CI job has failed.\",
-                       \"color\": 16711680,
-                       \"fields\": [
-                         {
-                           \"name\": \"Commit hash:\",
-                           \"value\": \"${{ github.event.head_commit.id }}\",
-                           \"inline\": false
-                         },
-                         {
-                           \"name\": \"Committed by:\",
-                           \"value\": \"[${{ github.actor }}](https://github.com/${{ github.actor }})\",
-                           \"inline\": false
-                         },
-                         {
-                           \"name\": \"Workflow run:\",
-                           \"value\": \"[View workflow](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})\",
-                           \"inline\": false
-                         }
-                       ]
-                     }]
-                   }" \
-                   ${{ secrets.DISCORD_WEBHOOK }}
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "{
+                 \"embeds\": [{
+                   \"title\": \"CI Job Failed\",
+                   \"description\": \"A CI job has failed.\",
+                   \"color\": 16711680,
+                   \"fields\": [
+                     {
+                       \"name\": \"Commit hash:\",
+                       \"value\": \"${{ github.event.head_commit.id }}\",
+                       \"inline\": false
+                     },
+                     {
+                       \"name\": \"Committed by:\",
+                       \"value\": \"[${{ github.actor }}](https://github.com/${{ github.actor }})\",
+                       \"inline\": false
+                     },
+                     {
+                       \"name\": \"Workflow run:\",
+                       \"value\": \"[View workflow](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})\",
+                       \"inline\": false
+                     }
+                   ]
+                 }]
+               }" \
+               ${{ secrets.DISCORD_WEBHOOK }}
 
       # Creating a patch file online
       - name: Download pokeemerald
@@ -117,32 +117,37 @@ jobs:
       - name: Get Artifact ID
         id: artifact
         run: |
-            artifact_id=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts | jq -r '.artifacts[0].id')
-            echo "artifact_id=$artifact_id" >> $GITHUB_ENV
+          artifact_id=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts | jq -r '.artifacts[0].id')
+          echo "artifact_id=$artifact_id" >> $GITHUB_ENV
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
       - name: Send patch creation notification to Discord
         if: success()
         run: |
-              curl -H "Content-Type: application/json" \
-              -X POST \
-              -d '{
-                "embeds": [{
-                  "title": "Patch created!",
-                  "color": 65280,
-                  "fields": [
-                    {
-                      "name": "Download:",
-                      "value": "[__**Click here**__](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ env.artifact_id }})",
-                      "inline": false
-                    },
-                    {
-                      "name": "Commit hash:",
-                      "value": "[${{ github.sha }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }})",
-                      "inline": false
-                    }
-                  ]
-                }]
-              }' \
-              ${{ secrets.DISCORD_WEBHOOK_2 }}
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "{
+                 \"embeds\": [{
+                   \"title\": \"Patch created!\",
+                   \"color\": 65280,
+                   \"fields\": [
+                   {
+                     \"name\": \"Download:\",
+                     \"value\": \"[Click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ env.artifact_id }})\",
+                     \"inline\": false
+                   },
+                   {
+                     \"name\": \"Commit hash:\",
+                     \"value\": \"[${{ github.sha }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }})\",
+                     \"inline\": false
+                   },
+                   {
+                     \"name\": \"Workflow run:\",
+                     \"value\": \"[View workflow](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})\",
+                     \"inline\": false
+                   }
+                   ]
+                 }]
+               }" \
+               ${{ secrets.DISCORD_WEBHOOK_2 }}
