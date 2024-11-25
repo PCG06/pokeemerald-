@@ -134,18 +134,13 @@ jobs:
                   "fields": [
                     {
                       "name": "Download:",
-                      "value": "[Click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ env.artifact_id }})",
+                      "value": "[__**Click here**__](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ env.artifact_id }})",
                       "inline": false
                     },
                     {
                       "name": "Commit hash:",
                       "value": "[${{ github.sha }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }})",
                       "inline": false
-                    },
-                    {
-                      name: "Workflow run:",
-                      value: "[View workflow](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})",
-                      inline: false
                     }
                   ]
                 }]
