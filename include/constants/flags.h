@@ -1222,37 +1222,42 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
-#define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
-#define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
-#define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
-#define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
-#define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
-#define FLAG_UNUSED_0x4A4                                           0x4A4 // Unused Flag
-#define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag
-#define FLAG_UNUSED_0x4A6                                           0x4A6 // Unused Flag
-#define FLAG_UNUSED_0x4A7                                           0x4A7 // Unused Flag
-#define FLAG_UNUSED_0x4A8                                           0x4A8 // Unused Flag
-#define FLAG_UNUSED_0x4A9                                           0x4A9 // Unused Flag
-#define FLAG_UNUSED_0x4AA                                           0x4AA // Unused Flag
-#define FLAG_UNUSED_0x4AB                                           0x4AB // Unused Flag
-#define FLAG_UNUSED_0x4AC                                           0x4AC // Unused Flag
-#define FLAG_UNUSED_0x4AD                                           0x4AD // Unused Flag
-#define FLAG_UNUSED_0x4AE                                           0x4AE // Unused Flag
-#define FLAG_UNUSED_0x4AF                                           0x4AF // Unused Flag
-#define FLAG_UNUSED_0x4B0                                           0x4B0 // Unused Flag
-#define FLAG_UNUSED_0x4B1                                           0x4B1 // Unused Flag
+// Tutor Move Flags
+#define TUTOR_FLAGS_BEGIN                                           FLAG_MOVE_TUTOR_BODY_SLAM
+#define TUTOR_FLAGS_END                                             FLAG_MOVE_TUTOR_TERA_BLAST
+
+#define FLAG_MOVE_TUTOR_BODY_SLAM                                   0x493
+#define FLAG_MOVE_TUTOR_COUNTER                                     0x494
+#define FLAG_MOVE_TUTOR_DEFENSE_CURL                                0x495
+#define FLAG_MOVE_TUTOR_DOUBLE_EDGE                                 0x496
+#define FLAG_MOVE_TUTOR_DREAM_EATER                                 0x497
+#define FLAG_MOVE_TUTOR_DYNAMIC_PUNCH                               0x498
+#define FLAG_MOVE_TUTOR_ENDURE                                      0x499
+#define FLAG_MOVE_TUTOR_EXPLOSION                                   0x49A
+#define FLAG_MOVE_TUTOR_FIRE_PUNCH                                  0x49B
+#define FLAG_MOVE_TUTOR_FURY_CUTTER                                 0x49C
+#define FLAG_MOVE_TUTOR_ICE_PUNCH                                   0x49D
+#define FLAG_MOVE_TUTOR_ICY_WIND                                    0x49E
+#define FLAG_MOVE_TUTOR_MEGA_KICK                                   0x49F
+#define FLAG_MOVE_TUTOR_MEGA_PUNCH                                  0x4A0
+#define FLAG_MOVE_TUTOR_METRONOME                                   0x4A1
+#define FLAG_MOVE_TUTOR_MIMIC                                       0x4A2
+#define FLAG_MOVE_TUTOR_MUD_SLAP                                    0x4A3
+#define FLAG_MOVE_TUTOR_PSYCH_UP                                    0x4A4
+#define FLAG_MOVE_TUTOR_ROCK_SLIDE                                  0x4A5
+#define FLAG_MOVE_TUTOR_ROLLOUT                                     0x4A6
+#define FLAG_MOVE_TUTOR_SEISMIC_TOSS                                0x4A7
+#define FLAG_MOVE_TUTOR_SLEEP_TALK                                  0x4A8
+#define FLAG_MOVE_TUTOR_SNORE                                       0x4A9
+#define FLAG_MOVE_TUTOR_SOFT_BOILED                                 0x4AA
+#define FLAG_MOVE_TUTOR_SUBSTITUTE                                  0x4AB
+#define FLAG_MOVE_TUTOR_SWAGGER                                     0x4AC
+#define FLAG_MOVE_TUTOR_SWIFT                                       0x4AD
+#define FLAG_MOVE_TUTOR_SWORDS_DANCE                                0x4AE
+#define FLAG_MOVE_TUTOR_THUNDER_PUNCH                               0x4AF
+#define FLAG_MOVE_TUTOR_THUNDER_WAVE                                0x4B0
+#define FLAG_MOVE_TUTOR_TERA_BLAST                                  0x4B1
+
 #define FLAG_UNUSED_0x4B2                                           0x4B2 // Unused Flag
 #define FLAG_UNUSED_0x4B3                                           0x4B3 // Unused Flag
 #define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag
@@ -1345,7 +1350,7 @@
 
 // System Flags
 
-#define SYSTEM_FLAGS                                   (TRAINER_FLAGS_END + 1) // 0x860
+#define SYSTEM_FLAGS                                 (TRAINER_FLAGS_END + 1) // 0x860
 
 #define FLAG_SYS_POKEMON_GET                         (SYSTEM_FLAGS + 0x0) // FLAG_0x860
 #define FLAG_SYS_POKEDEX_GET                         (SYSTEM_FLAGS + 0x1)
@@ -1388,8 +1393,8 @@
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
 #define FLAG_SUPPRESS_SPEAKER_NAME                  (SYSTEM_FLAGS + 0x21)
-#define FLAG_SYS_VS_SEEKER_CHARGING                 (SYSTEM_FLAGS + 0x22)
-#define FLAG_SYS_EXP_SHARE                          (SYSTEM_FLAGS + 0x23)
+#define FLAG_UNUSED_0x882                           (SYSTEM_FLAGS + 0x22) // Unused Flag
+#define FLAG_UNUSED_0x883                           (SYSTEM_FLAGS + 0x23) // Unused Flag
 
 // Start qol_field_moves
 #define FLAG_SYS_USE_CUT                            (SYSTEM_FLAGS + 0x24)
@@ -1518,69 +1523,65 @@
 #define FLAG_SYS_SKY_BATTLE                         (SYSTEM_FLAGS + 0x8B)
 #define FLAG_SYS_FORCE_NO_SHINY                     (SYSTEM_FLAGS + 0x8C)
 #define FLAG_SYS_FORCE_POKERUS                      (SYSTEM_FLAGS + 0x8D)
-#define FLAG_SYS_RECEIVED_EGG_MOVES                 (SYSTEM_FLAGS + 0x8E)
-#define FLAG_SYS_RECEIVED_TM_MOVES                  (SYSTEM_FLAGS + 0x8F)
-#define FLAG_SYS_RECEIVED_TUTOR_MOVES               (SYSTEM_FLAGS + 0x90)
+#define FLAG_SYS_EXP_SHARE                          (SYSTEM_FLAGS + 0x8E)
+#define FLAG_SYS_VS_SEEKER_CHARGING                 (SYSTEM_FLAGS + 0x8F)
 
-// Move Tutor Flags
+// Move Relearner flags
+#define FLAG_SYS_RECEIVED_EGG_MOVES                 (SYSTEM_FLAGS + 0x90)
+#define FLAG_SYS_RECEIVED_TM_MOVES                  (SYSTEM_FLAGS + 0x91)
+#define FLAG_SYS_RECEIVED_TUTOR_MOVES               (SYSTEM_FLAGS + 0x92)
 
-#define TUTOR_FLAGS_BEGIN                           FLAG_MOVE_TUTOR_BODY_SLAM
-
-#define FLAG_MOVE_TUTOR_BODY_SLAM                   (SYSTEM_FLAGS + 0x91)
-#define FLAG_MOVE_TUTOR_COUNTER                     (SYSTEM_FLAGS + 0x92)
-#define FLAG_MOVE_TUTOR_DEFENSE_CURL                (SYSTEM_FLAGS + 0x93)
-#define FLAG_MOVE_TUTOR_DOUBLE_EDGE                 (SYSTEM_FLAGS + 0x94)
-#define FLAG_MOVE_TUTOR_DREAM_EATER                 (SYSTEM_FLAGS + 0x95)
-#define FLAG_MOVE_TUTOR_DYNAMIC_PUNCH               (SYSTEM_FLAGS + 0x96)
-#define FLAG_MOVE_TUTOR_ENDURE                      (SYSTEM_FLAGS + 0x97)
-#define FLAG_MOVE_TUTOR_EXPLOSION                   (SYSTEM_FLAGS + 0x98)
-#define FLAG_MOVE_TUTOR_FIRE_PUNCH                  (SYSTEM_FLAGS + 0x99)
-#define FLAG_MOVE_TUTOR_FURY_CUTTER                 (SYSTEM_FLAGS + 0x9A)
-#define FLAG_MOVE_TUTOR_ICE_PUNCH                   (SYSTEM_FLAGS + 0x9B)
-#define FLAG_MOVE_TUTOR_ICY_WIND                    (SYSTEM_FLAGS + 0x9C)
-#define FLAG_MOVE_TUTOR_MEGA_KICK                   (SYSTEM_FLAGS + 0x9D)
-#define FLAG_MOVE_TUTOR_MEGA_PUNCH                  (SYSTEM_FLAGS + 0x9E)
-#define FLAG_MOVE_TUTOR_METRONOME                   (SYSTEM_FLAGS + 0x9F)
-#define FLAG_MOVE_TUTOR_MIMIC                       (SYSTEM_FLAGS + 0xA0)
-#define FLAG_MOVE_TUTOR_MUD_SLAP                    (SYSTEM_FLAGS + 0xA1)
-#define FLAG_MOVE_TUTOR_PSYCH_UP                    (SYSTEM_FLAGS + 0xA2)
-#define FLAG_MOVE_TUTOR_ROCK_SLIDE                  (SYSTEM_FLAGS + 0xA3)
-#define FLAG_MOVE_TUTOR_ROLLOUT                     (SYSTEM_FLAGS + 0xA4)
-#define FLAG_MOVE_TUTOR_SEISMIC_TOSS                (SYSTEM_FLAGS + 0xA5)
-#define FLAG_MOVE_TUTOR_SLEEP_TALK                  (SYSTEM_FLAGS + 0xA6)
-#define FLAG_MOVE_TUTOR_SNORE                       (SYSTEM_FLAGS + 0xA7)
-#define FLAG_MOVE_TUTOR_SOFT_BOILED                 (SYSTEM_FLAGS + 0xA8)
-#define FLAG_MOVE_TUTOR_SUBSTITUTE                  (SYSTEM_FLAGS + 0xA9)
-#define FLAG_MOVE_TUTOR_SWAGGER                     (SYSTEM_FLAGS + 0xAA)
-#define FLAG_MOVE_TUTOR_SWIFT                       (SYSTEM_FLAGS + 0xAB)
-#define FLAG_MOVE_TUTOR_SWORDS_DANCE                (SYSTEM_FLAGS + 0xAC)
-#define FLAG_MOVE_TUTOR_THUNDER_PUNCH               (SYSTEM_FLAGS + 0xAD)
-#define FLAG_MOVE_TUTOR_THUNDER_WAVE                (SYSTEM_FLAGS + 0xAE)
-#define FLAG_MOVE_TUTOR_TERA_BLAST                  (SYSTEM_FLAGS + 0xAF)
-#define FLAG_UNUSED_0x910                           (SYSTEM_FLAGS + 0xB0)
-#define FLAG_UNUSED_0x911                           (SYSTEM_FLAGS + 0xB1)
-#define FLAG_UNUSED_0x912                           (SYSTEM_FLAGS + 0xB2)
-#define FLAG_UNUSED_0x913                           (SYSTEM_FLAGS + 0xB3)
-#define FLAG_UNUSED_0x914                           (SYSTEM_FLAGS + 0xB4)
-#define FLAG_UNUSED_0x915                           (SYSTEM_FLAGS + 0xB5)
-#define FLAG_UNUSED_0x916                           (SYSTEM_FLAGS + 0xB6)
-#define FLAG_UNUSED_0x917                           (SYSTEM_FLAGS + 0xB7)
-#define FLAG_UNUSED_0x918                           (SYSTEM_FLAGS + 0xB8)
-#define FLAG_UNUSED_0x919                           (SYSTEM_FLAGS + 0xB9)
-#define FLAG_UNUSED_0x91A                           (SYSTEM_FLAGS + 0xBA)
-#define FLAG_UNUSED_0x91B                           (SYSTEM_FLAGS + 0xBB)
-#define FLAG_UNUSED_0x91C                           (SYSTEM_FLAGS + 0xBC)
-#define FLAG_UNUSED_0x91D                           (SYSTEM_FLAGS + 0xBD)
-#define FLAG_UNUSED_0x91E                           (SYSTEM_FLAGS + 0xBE)
-#define FLAG_UNUSED_0x91F                           (SYSTEM_FLAGS + 0xBF)
-
-#define TUTOR_FLAGS_END                             FLAG_MOVE_TUTOR_TERA_BLAST
+#define FLAG_UNUSED_0x8F3                           (SYSTEM_FLAGS + 0x93)  // Unused Flag
+#define FLAG_UNUSED_0x8F4                           (SYSTEM_FLAGS + 0x94)  // Unused Flag
+#define FLAG_UNUSED_0x8F5                           (SYSTEM_FLAGS + 0x95)  // Unused Flag
+#define FLAG_UNUSED_0x8F6                           (SYSTEM_FLAGS + 0x96)  // Unused Flag
+#define FLAG_UNUSED_0x8F7                           (SYSTEM_FLAGS + 0x97)  // Unused Flag
+#define FLAG_UNUSED_0x8F8                           (SYSTEM_FLAGS + 0x98)  // Unused Flag
+#define FLAG_UNUSED_0x8F9                           (SYSTEM_FLAGS + 0x99)  // Unused Flag
+#define FLAG_UNUSED_0x8FA                           (SYSTEM_FLAGS + 0x9A)  // Unused Flag
+#define FLAG_UNUSED_0x8FB                           (SYSTEM_FLAGS + 0x9B)  // Unused Flag
+#define FLAG_UNUSED_0x8FC                           (SYSTEM_FLAGS + 0x9C)  // Unused Flag
+#define FLAG_UNUSED_0x8FD                           (SYSTEM_FLAGS + 0x9D)  // Unused Flag
+#define FLAG_UNUSED_0x8FE                           (SYSTEM_FLAGS + 0x9E)  // Unused Flag
+#define FLAG_UNUSED_0x8FF                           (SYSTEM_FLAGS + 0x9F)  // Unused Flag
+#define FLAG_UNUSED_0x900                           (SYSTEM_FLAGS + 0xA0)  // Unused Flag
+#define FLAG_UNUSED_0x901                           (SYSTEM_FLAGS + 0xA1)  // Unused Flag
+#define FLAG_UNUSED_0x902                           (SYSTEM_FLAGS + 0xA2)  // Unused Flag
+#define FLAG_UNUSED_0x903                           (SYSTEM_FLAGS + 0xA3)  // Unused Flag
+#define FLAG_UNUSED_0x904                           (SYSTEM_FLAGS + 0xA4)  // Unused Flag
+#define FLAG_UNUSED_0x905                           (SYSTEM_FLAGS + 0xA5)  // Unused Flag
+#define FLAG_UNUSED_0x906                           (SYSTEM_FLAGS + 0xA6)  // Unused Flag
+#define FLAG_UNUSED_0x907                           (SYSTEM_FLAGS + 0xA7)  // Unused Flag
+#define FLAG_UNUSED_0x908                           (SYSTEM_FLAGS + 0xA8)  // Unused Flag
+#define FLAG_UNUSED_0x909                           (SYSTEM_FLAGS + 0xA9)  // Unused Flag
+#define FLAG_UNUSED_0x90A                           (SYSTEM_FLAGS + 0xAA)  // Unused Flag
+#define FLAG_UNUSED_0x90B                           (SYSTEM_FLAGS + 0xAB)  // Unused Flag
+#define FLAG_UNUSED_0x90C                           (SYSTEM_FLAGS + 0xAC)  // Unused Flag
+#define FLAG_UNUSED_0x90D                           (SYSTEM_FLAGS + 0xAD)  // Unused Flag
+#define FLAG_UNUSED_0x90E                           (SYSTEM_FLAGS + 0xAE)  // Unused Flag
+#define FLAG_UNUSED_0x90F                           (SYSTEM_FLAGS + 0xAF)  // Unused Flag
+#define FLAG_UNUSED_0x910                           (SYSTEM_FLAGS + 0xB0)  // Unused Flag
+#define FLAG_UNUSED_0x911                           (SYSTEM_FLAGS + 0xB1)  // Unused Flag
+#define FLAG_UNUSED_0x912                           (SYSTEM_FLAGS + 0xB2)  // Unused Flag
+#define FLAG_UNUSED_0x913                           (SYSTEM_FLAGS + 0xB3)  // Unused Flag
+#define FLAG_UNUSED_0x914                           (SYSTEM_FLAGS + 0xB4)  // Unused Flag
+#define FLAG_UNUSED_0x915                           (SYSTEM_FLAGS + 0xB5)  // Unused Flag
+#define FLAG_UNUSED_0x916                           (SYSTEM_FLAGS + 0xB6)  // Unused Flag
+#define FLAG_UNUSED_0x917                           (SYSTEM_FLAGS + 0xB7)  // Unused Flag
+#define FLAG_UNUSED_0x918                           (SYSTEM_FLAGS + 0xB8)  // Unused Flag
+#define FLAG_UNUSED_0x919                           (SYSTEM_FLAGS + 0xB9)  // Unused Flag
+#define FLAG_UNUSED_0x91A                           (SYSTEM_FLAGS + 0xBA)  // Unused Flag
+#define FLAG_UNUSED_0x91B                           (SYSTEM_FLAGS + 0xBB)  // Unused Flag
+#define FLAG_UNUSED_0x91C                           (SYSTEM_FLAGS + 0xBC)  // Unused Flag
+#define FLAG_UNUSED_0x91D                           (SYSTEM_FLAGS + 0xBD)  // Unused Flag
+#define FLAG_UNUSED_0x91E                           (SYSTEM_FLAGS + 0xBE)  // Unused Flag
+#define FLAG_UNUSED_0x91F                           (SYSTEM_FLAGS + 0xBF)  // Unused Flag
 
 // Daily Flags
 // These flags are cleared once per day
 // The start and end are byte-aligned because the flags are cleared in byte increments
 #define DAILY_FLAGS_START                           (FLAG_UNUSED_0x91F + (8 - FLAG_UNUSED_0x91F % 8))
-#define FLAG_DAILY_CASTBELLE_TOWN_BERRY_SHOP_RECEIVED_BERRY  (DAILY_FLAGS_START + 0x0)
+#define FLAG_DAILY_CASTBELLE_TOWN_BERRY_SHOP_RECEIVED_BERRY (DAILY_FLAGS_START + 0x0)
 #define FLAG_DAILY_CONTEST_LOBBY_RECEIVED_BERRY     (DAILY_FLAGS_START + 0x1)
 #define FLAG_DAILY_SECRET_BASE                      (DAILY_FLAGS_START + 0x2)
 #define FLAG_UNUSED_0x923                           (DAILY_FLAGS_START + 0x3)  // Unused Flag
