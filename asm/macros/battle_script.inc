@@ -1543,6 +1543,12 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifterrainactive terrainFlags:req, jumpInstr:req
+	callnative BS_JumpIfTerrainActive
+	.4byte \terrainFlags
+	.4byte \jumpInstr
+	.endm
+
 	.macro tryreflecttype failInstr:req
 	callnative BS_TryReflectType
 	.4byte \failInstr
@@ -2513,4 +2519,22 @@
 	.macro flushtextbox
 	printstring STRINGID_EMPTYSTRING3
 	waitmessage 1
+	.endm
+
+	.macro jumpifmetalterrainaffected battler:req jumpInstr:req
+	callnative BS_JumpIfMetalTerrainAffected
+	.byte \battler
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifmetalterrainaffectedcontrary battler:req jumpInstr:req
+	callnative BS_JumpIfMetalTerrainAffectedContrary
+	.byte \battler
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifabilitynotcontrary battler:req, jumpInstr:req
+	.byte 0x40
+	.byte \battler
+	.4byte \jumpInstr
 	.endm

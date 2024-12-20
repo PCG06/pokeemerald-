@@ -1320,6 +1320,9 @@ const u32 gItemIconPalette_MistySeed[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIcon_GrassySeed[] = INCBIN_U32("graphics/items/icons/grassy_seed.4bpp.lz");
 const u32 gItemIconPalette_GrassySeed[] = INCBIN_U32("graphics/items/icon_palettes/grassy_seed.gbapal.lz");
 
+const u32 gItemIcon_MetalSeed[] = INCBIN_U32("graphics/items/icons/metal_seed.4bpp.lz");
+const u32 gItemIconPalette_MetalSeed[] = INCBIN_U32("graphics/items/icon_palettes/metal_seed.gbapal.lz");
+
 // Type-activated Stat Modifiers
 
 const u32 gItemIcon_AbsorbBulb[] = INCBIN_U32("graphics/items/icons/absorb_bulb.4bpp.lz");

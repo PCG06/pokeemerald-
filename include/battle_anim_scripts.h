@@ -848,6 +848,7 @@ extern const u8 Move_TEMPER_FLARE[];
 extern const u8 Move_SUPERCELL_SLAM[];
 extern const u8 Move_PSYCHIC_NOISE[];
 extern const u8 Move_UPPER_HAND[];
+extern const u8 Move_METAL_TERRAIN[];
 extern const u8 Move_MALIGNANT_CHAIN[];
 extern const u8 Move_BREAKNECK_BLITZ[];
 extern const u8 Move_ALL_OUT_PUMMELING[];

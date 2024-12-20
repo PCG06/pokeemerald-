@@ -4059,6 +4059,7 @@ static bool32 IsDomeComboMoveEffect(u32 effect)
     case EFFECT_ELECTRIC_TERRAIN:
     case EFFECT_MISTY_TERRAIN:
     case EFFECT_PSYCHIC_TERRAIN:
+    case EFFECT_METAL_TERRAIN:
     // Moves dependent on weather
     case EFFECT_SYNTHESIS:
     case EFFECT_MORNING_SUN:

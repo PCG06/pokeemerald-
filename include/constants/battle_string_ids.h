@@ -734,8 +734,12 @@
 #define STRINGID_USEDAURORAVEIL                       732
 #define STRINGID_SENDCAUGHTMONPARTYORBOX              733
 #define STRINGID_PKMNSENTTOPCAFTERCATCH               734
+#define STRINGID_TERRAINBECOMESMETALLIC               735
+#define STRINGID_METALTERRAINENDS                     736
+#define STRINGID_METALTERRAINPREVENTSDEF              737
+#define STRINGID_METALTERRAINPREVENTSATK              738
 
-#define BATTLESTRINGS_COUNT                           735
+#define BATTLESTRINGS_COUNT                           739
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -1010,35 +1014,39 @@
 #define B_MSG_TERRAINPREVENTS_MISTY     0
 #define B_MSG_TERRAINPREVENTS_ELECTRIC  1
 #define B_MSG_TERRAINPREVENTS_PSYCHIC   2
+#define B_MSG_TERRAINPREVENTS_METAL     3
 
 // gTerrainStringIds
 #define B_MSG_TERRAIN_SET_MISTY     0
 #define B_MSG_TERRAIN_SET_ELECTRIC  1
 #define B_MSG_TERRAIN_SET_PSYCHIC   2
 #define B_MSG_TERRAIN_SET_GRASSY    3
-#define B_MSG_TERRAIN_END_MISTY     4
-#define B_MSG_TERRAIN_END_ELECTRIC  5
-#define B_MSG_TERRAIN_END_PSYCHIC   6
-#define B_MSG_TERRAIN_END_GRASSY    7
-#define B_MSG_TERRAIN_COUNT         8
+#define B_MSG_TERRAIN_SET_METAL     4
+#define B_MSG_TERRAIN_END_MISTY     5
+#define B_MSG_TERRAIN_END_ELECTRIC  6
+#define B_MSG_TERRAIN_END_PSYCHIC   7
+#define B_MSG_TERRAIN_END_GRASSY    8
+#define B_MSG_TERRAIN_END_METAL     9
+#define B_MSG_TERRAIN_COUNT         10
 
 // gStartingStatusStringIds
 #define B_MSG_TERRAIN_SET_MISTY        0
 #define B_MSG_TERRAIN_SET_ELECTRIC     1
 #define B_MSG_TERRAIN_SET_PSYCHIC      2
 #define B_MSG_TERRAIN_SET_GRASSY       3
-#define B_MSG_SET_TRICK_ROOM           4
-#define B_MSG_SET_MAGIC_ROOM           5
-#define B_MSG_SET_WONDER_ROOM          6
-#define B_MSG_SET_TAILWIND_PLAYER      7
-#define B_MSG_SET_TAILWIND_OPPONENT    8
-#define B_MSG_SET_WEIGHT_ROOM  9
-#define B_MSG_SET_GRAVITY              10
-#define B_MSG_SET_GRIM_AURA            11
-#define B_MSG_SET_REFLECT_OPPONENT     12
-#define B_MSG_SET_LIGHTSCREEN_OPPONENT 13
-#define B_MSG_SET_AURORA_VEIL_OPPONENT 14
-#define B_MSG_STARTING_STATUS_COUNT    15
+#define B_MSG_TERRAIN_SET_METAL        4
+#define B_MSG_SET_TRICK_ROOM           5
+#define B_MSG_SET_MAGIC_ROOM           6
+#define B_MSG_SET_WONDER_ROOM          7
+#define B_MSG_SET_TAILWIND_PLAYER      8
+#define B_MSG_SET_TAILWIND_OPPONENT    9
+#define B_MSG_SET_WEIGHT_ROOM          10
+#define B_MSG_SET_GRAVITY              11
+#define B_MSG_SET_GRIM_AURA            12
+#define B_MSG_SET_REFLECT_OPPONENT     13
+#define B_MSG_SET_LIGHTSCREEN_OPPONENT 14
+#define B_MSG_SET_AURORA_VEIL_OPPONENT 15
+#define B_MSG_STARTING_STATUS_COUNT    16
 
 
 // gWrappedStringIds

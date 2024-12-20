@@ -406,7 +406,7 @@ static void Cmd_return(void);
 static void Cmd_end(void);
 static void Cmd_end2(void);
 static void Cmd_end3(void);
-static void Cmd_unused5(void);
+static void Cmd_jumpifabilitynotcontrary(void);
 static void Cmd_call(void);
 static void Cmd_setroost(void);
 static void Cmd_jumpifabilitypresent(void);
@@ -665,7 +665,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_end,                                     //0x3D
     Cmd_end2,                                    //0x3E
     Cmd_end3,                                    //0x3F
-    Cmd_unused5,                                 //0x40
+    Cmd_jumpifabilitynotcontrary,                //0x40
     Cmd_call,                                    //0x41
     Cmd_setroost,                                //0x42
     Cmd_jumpifabilitypresent,                    //0x43
@@ -1435,22 +1435,6 @@ static bool32 JumpIfMoveFailed(u8 adder, u16 move)
     }
     gBattlescriptCurrInstr += adder;
     return FALSE;
-}
-
-static void Cmd_unused5(void)
-{
-    CMD_ARGS(const u8 *failInstr);
-
-    if (IsBattlerProtected(gBattlerAttacker, gBattlerTarget, gCurrentMove))
-    {
-        gMoveResultFlags |= MOVE_RESULT_MISSED;
-        JumpIfMoveFailed(sizeof(*cmd), MOVE_NONE);
-        gBattleCommunication[MISS_TYPE] = B_MSG_PROTECTED;
-    }
-    else
-    {
-        gBattlescriptCurrInstr = cmd->nextInstr;
-    }
 }
 
 static bool8 JumpIfMoveAffectedByProtect(u16 move)
@@ -3330,7 +3314,24 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                 else
                     flags |= STAT_CHANGE_UPDATE_MOVE_EFFECT;
 
-                if (ChangeStatBuffs(SET_STAT_BUFF_VALUE(1) | STAT_BUFF_NEGATIVE,
+                if (IsBattlerTerrainAffected(gBattlerAttacker, STATUS_FIELD_METAL_TERRAIN)
+                  && GetBattlerAbility(gBattlerAttacker) != ABILITY_CONTRARY)
+                {
+                    for (i = 0; i < gMovesInfo[gCurrentMove].numAdditionalEffects; i++)
+                    {
+                        if (gMovesInfo[gCurrentMove].additionalEffects[i].self != TRUE)
+                        {
+                            BattleScriptPush(gBattlescriptCurrInstr + 1);
+                            gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsDef;
+                        }
+                        else
+                        {
+                            BattleScriptPush(gBattlescriptCurrInstr + 1);
+                            gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsAtk;
+                        }
+                    }
+                }
+                else if (ChangeStatBuffs(SET_STAT_BUFF_VALUE(1) | STAT_BUFF_NEGATIVE,
                                     gBattleScripting.moveEffect - MOVE_EFFECT_ATK_MINUS_1 + 1,
                                     flags, gBattlescriptCurrInstr + 1) == STAT_CHANGE_DIDNT_WORK)
                 {
@@ -3380,7 +3381,25 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                     flags = 0;
                 if (mirrorArmorReflected && !affectsUser)
                     flags |= STAT_CHANGE_ALLOW_PTR;
-                if (ChangeStatBuffs(SET_STAT_BUFF_VALUE(2) | STAT_BUFF_NEGATIVE,
+
+                if (IsBattlerTerrainAffected(gBattlerAttacker, STATUS_FIELD_METAL_TERRAIN)
+                  && GetBattlerAbility(gBattlerAttacker) != ABILITY_CONTRARY)
+                {
+                    for (i = 0; i < gMovesInfo[gCurrentMove].numAdditionalEffects; i++)
+                    {
+                        if (gMovesInfo[gCurrentMove].additionalEffects[i].self != TRUE)
+                        {
+                            BattleScriptPush(gBattlescriptCurrInstr + 1);
+                            gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsDef;
+                        }
+                        else
+                        {
+                            BattleScriptPush(gBattlescriptCurrInstr + 1);
+                            gBattlescriptCurrInstr = BattleScript_MetalTerrainPreventsAtk;
+                        }
+                    }
+                }
+                else if (ChangeStatBuffs(SET_STAT_BUFF_VALUE(2) | STAT_BUFF_NEGATIVE,
                                     gBattleScripting.moveEffect - MOVE_EFFECT_ATK_MINUS_2 + 1,
                                     flags | STAT_CHANGE_UPDATE_MOVE_EFFECT, gBattlescriptCurrInstr + 1) == STAT_CHANGE_DIDNT_WORK)
                 {
@@ -3722,6 +3741,9 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                         break;
                     case STATUS_FIELD_PSYCHIC_TERRAIN:
                         gBattleScripting.moveEffect = MOVE_EFFECT_SPD_MINUS_1;
+                        break;
+                    case STATUS_FIELD_METAL_TERRAIN:
+                        gBattleScripting.moveEffect = MOVE_EFFECT_ATK_MINUS_1;
                         break;
                     default:
                         gBattleScripting.moveEffect = MOVE_EFFECT_PARALYSIS;
@@ -4089,6 +4111,52 @@ static void Cmd_jumpifstatus2(void)
 }
 
 static void Cmd_jumpifability(void)
+{
+    CMD_ARGS(u8 battler, u16 ability, const u8 *jumpInstr);
+
+    u32 battler;
+    bool32 hasAbility = FALSE;
+    u32 ability = cmd->ability;
+
+    switch (cmd->battler)
+    {
+    default:
+        battler = GetBattlerForBattleScript(cmd->battler);
+        if (GetBattlerAbility(battler) == ability)
+            hasAbility = TRUE;
+        break;
+    case BS_ATTACKER_SIDE:
+        battler = IsAbilityOnSide(gBattlerAttacker, ability);
+        if (battler)
+        {
+            battler--;
+            hasAbility = TRUE;
+        }
+        break;
+    case BS_TARGET_SIDE:
+        battler = IsAbilityOnOpposingSide(gBattlerAttacker, ability);
+        if (battler)
+        {
+            battler--;
+            hasAbility = TRUE;
+        }
+        break;
+    }
+
+    if (hasAbility)
+    {
+        gLastUsedAbility = ability;
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+        RecordAbilityBattle(battler, gLastUsedAbility);
+        gBattlerAbility = battler;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
+static void Cmd_jumpifabilitynotcontrary(void)
 {
     CMD_ARGS(u8 battler, u16 ability, const u8 *jumpInstr);
 
@@ -8638,6 +8706,9 @@ static void RemoveAllTerrains(void)
     case STATUS_FIELD_PSYCHIC_TERRAIN:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_END_PSYCHIC;
         break;
+    case STATUS_FIELD_METAL_TERRAIN:
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_END_METAL;
+        break;
     default:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_COUNT;  // failsafe
         break;
@@ -10295,6 +10366,9 @@ static void Cmd_various(void)
             case HOLD_EFFECT_PARAM_PSYCHIC_TERRAIN:
                 effect = TryHandleSeed(battler, STATUS_FIELD_PSYCHIC_TERRAIN, STAT_SPDEF, item, FALSE);
                 break;
+            case HOLD_EFFECT_PARAM_METAL_TERRAIN:
+                effect = TryHandleSeed(battler, STATUS_FIELD_METAL_TERRAIN, STAT_DEF, item, FALSE);
+                break;
             }
 
             if (effect)
@@ -11690,18 +11764,39 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
 
     if (battlerAbility == ABILITY_CONTRARY)
     {
+        // Invert the stat change direction due to Contrary
         statValue ^= STAT_BUFF_NEGATIVE;
         gBattleScripting.statChanger ^= STAT_BUFF_NEGATIVE;
         RecordAbilityBattle(battler, battlerAbility);
+
+        // Update move effect flags if needed
         if (flags & STAT_CHANGE_UPDATE_MOVE_EFFECT)
         {
             flags &= ~STAT_CHANGE_UPDATE_MOVE_EFFECT;
             gBattleScripting.moveEffect = ReverseStatChangeMoveEffect(gBattleScripting.moveEffect);
         }
+
+        // Check if the inverted stat change is blocked by Metal Terrain
+        if (IsBattlerTerrainAffected(battler, STATUS_FIELD_METAL_TERRAIN) && (statValue & STAT_BUFF_NEGATIVE))
+        {
+            if (gMovesInfo[gCurrentMove].target == MOVE_TARGET_USER)
+                BattleScriptExecute(BattleScript_MetalTerrainPreventsAtk);
+            else
+                BattleScriptExecute(BattleScript_MetalTerrainPreventsDef);
+            return STAT_CHANGE_DIDNT_WORK;
+        }
     }
     else if (battlerAbility == ABILITY_SIMPLE)
     {
         statValue = (SET_STAT_BUFF_VALUE(GET_STAT_BUFF_VALUE(statValue) * 2)) | ((statValue <= -1) ? STAT_BUFF_NEGATIVE : 0);
+    }
+
+    // Check if the battler is affected by Metal Terrain and stat change is a decrease
+    if (IsBattlerTerrainAffected(battler, STATUS_FIELD_METAL_TERRAIN) && statValue < 0)
+    {
+        if (gMovesInfo[gCurrentMove].target == MOVE_TARGET_USER)
+            BattleScriptExecute(BattleScript_MetalTerrainPreventsAtk);
+        return STAT_CHANGE_DIDNT_WORK;
     }
 
     PREPARE_STAT_BUFFER(gBattleTextBuff1, statId);
@@ -14099,6 +14194,8 @@ u32 GetNaturePowerMove(u32 battler)
         move = MOVE_ENERGY_BALL;
     else if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN)
         move = MOVE_PSYCHIC;
+    else if (gFieldStatuses & STATUS_FIELD_METAL_TERRAIN)
+        move = MOVE_FLASH_CANNON;
     else if (sNaturePowerMoves[gBattleTerrain] == MOVE_NONE)
         move = MOVE_TRI_ATTACK;
 
@@ -15005,6 +15102,9 @@ static void Cmd_settypetoterrain(void)
         break;
     case STATUS_FIELD_PSYCHIC_TERRAIN:
         terrainType = TYPE_PSYCHIC;
+        break;
+    case STATUS_FIELD_METAL_TERRAIN:
+        terrainType = TYPE_STEEL;
         break;
     default:
         terrainType = sTerrainToType[gBattleTerrain];
@@ -16672,6 +16772,10 @@ void BS_SetRemoveTerrain(void)
         statusFlag = STATUS_FIELD_PSYCHIC_TERRAIN;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_PSYCHIC;
         break;
+    case EFFECT_METAL_TERRAIN:
+        statusFlag = STATUS_FIELD_METAL_TERRAIN;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_METAL;
+        break;
     case EFFECT_HIT_SET_REMOVE_TERRAIN:
         switch (gMovesInfo[gCurrentMove].argument)
         {
@@ -16720,6 +16824,40 @@ void BS_JumpIfTerrainAffected(void)
     u32 battler = GetBattlerForBattleScript(cmd->battler);
 
     if (IsBattlerTerrainAffected(battler, cmd->flags))
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfTerrainActive(void)
+{
+    NATIVE_ARGS(u32 flags, const u8 *jumpInstr);
+
+    if (gFieldStatuses & cmd->flags)
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfMetalTerrainAffected(void)
+{
+    NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    u32 ability = GetBattlerAbility(battler);
+
+    if (IsBattlerTerrainAffected(battler, STATUS_FIELD_METAL_TERRAIN) && ability != ABILITY_CONTRARY)
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfMetalTerrainAffectedContrary(void)
+{
+    NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    u32 ability = GetBattlerAbility(battler);
+
+    if (IsBattlerTerrainAffected(battler, STATUS_FIELD_METAL_TERRAIN) && ability == ABILITY_CONTRARY)
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;

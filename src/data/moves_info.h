@@ -20675,6 +20675,27 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .battleAnimScript = Move_MALIGNANT_CHAIN,
     },
 
+    [MOVE_METAL_TERRAIN] =
+    {
+        .name = HANDLE_EXPANDED_MOVE_NAME("MetalTerrain", "Metal Terrain"),
+        .description = COMPOUND_STRING(
+            "Clash of metal covers field\n"
+            "for 5 turns. No stat drops."),
+        .effect = EFFECT_METAL_TERRAIN,
+        .power = 0,
+        .type = TYPE_STEEL,
+        .accuracy = 0,
+        .pp = 10,
+        .target = MOVE_TARGET_ALL_BATTLERS,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_DEF_UP_1 },
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .skyBattleBanned = TRUE,
+        .battleAnimScript = Move_METAL_TERRAIN,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

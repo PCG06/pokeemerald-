@@ -479,7 +479,7 @@ bool32 IsDamageMoveUnusable(u32 move, u32 battlerAtk, u32 battlerDef)
             return TRUE;
         break;
     case EFFECT_HIT_SET_REMOVE_TERRAIN:
-        if (!(gFieldStatuses & STATUS_FIELD_TERRAIN_ANY) && gMovesInfo[move].argument == ARG_TRY_REMOVE_TERRAIN_FAIL)
+        if (!(gFieldStatuses & (STATUS_FIELD_GRASSY_TERRAIN | STATUS_FIELD_MISTY_TERRAIN | STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_PSYCHIC_TERRAIN)) && gMovesInfo[move].argument == ARG_TRY_REMOVE_TERRAIN_FAIL)
             return TRUE;
         break;
     case EFFECT_POLTERGEIST:
@@ -1724,6 +1724,9 @@ bool32 ShouldLowerStat(u32 battler, u32 battlerAbility, u32 stat)
 {
     if (gBattleMons[battler].statStages[stat] > MIN_STAT_STAGE && battlerAbility != ABILITY_CONTRARY)
     {
+        if (IsBattlerTerrainAffected(battler, STATUS_FIELD_METAL_TERRAIN))
+            return FALSE;
+
         if (AI_DATA->holdEffects[battler] == HOLD_EFFECT_CLEAR_AMULET
          || battlerAbility == ABILITY_CLEAR_BODY
          || battlerAbility == ABILITY_WHITE_SMOKE
@@ -1814,6 +1817,7 @@ bool32 ShouldLowerAttack(u32 battlerAtk, u32 battlerDef, u32 defAbility)
 
     if (gBattleMons[battlerDef].statStages[STAT_ATK] > 4
       && HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_PHYSICAL)
+      && !(IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_METAL_TERRAIN))
       && defAbility != ABILITY_CONTRARY
       && defAbility != ABILITY_CLEAR_BODY
       && defAbility != ABILITY_WHITE_SMOKE
@@ -1833,6 +1837,7 @@ bool32 ShouldLowerDefense(u32 battlerAtk, u32 battlerDef, u32 defAbility)
 
     if (gBattleMons[battlerDef].statStages[STAT_DEF] > 4
       && HasMoveWithCategory(battlerAtk, DAMAGE_CATEGORY_PHYSICAL)
+      && !(IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_METAL_TERRAIN))
       && defAbility != ABILITY_CONTRARY
       && defAbility != ABILITY_CLEAR_BODY
       && defAbility != ABILITY_WHITE_SMOKE
@@ -1845,7 +1850,8 @@ bool32 ShouldLowerDefense(u32 battlerAtk, u32 battlerDef, u32 defAbility)
 
 bool32 ShouldLowerSpeed(u32 battlerAtk, u32 battlerDef, u32 defAbility)
 {
-    if (defAbility == ABILITY_CONTRARY
+    if (IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_METAL_TERRAIN)
+     || defAbility == ABILITY_CONTRARY
      || defAbility == ABILITY_CLEAR_BODY
      || defAbility == ABILITY_FULL_METAL_BODY
      || defAbility == ABILITY_WHITE_SMOKE
@@ -1864,6 +1870,7 @@ bool32 ShouldLowerSpAtk(u32 battlerAtk, u32 battlerDef, u32 defAbility)
 
     if (gBattleMons[battlerDef].statStages[STAT_SPATK] > 4
       && HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_SPECIAL)
+      && !(IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_METAL_TERRAIN))
       && defAbility != ABILITY_CONTRARY
       && defAbility != ABILITY_CLEAR_BODY
       && defAbility != ABILITY_FULL_METAL_BODY
@@ -1882,6 +1889,7 @@ bool32 ShouldLowerSpDef(u32 battlerAtk, u32 battlerDef, u32 defAbility)
 
     if (gBattleMons[battlerDef].statStages[STAT_SPDEF] > 4
       && HasMoveWithCategory(battlerAtk, DAMAGE_CATEGORY_SPECIAL)
+      && !(IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_METAL_TERRAIN))
       && defAbility != ABILITY_CONTRARY
       && defAbility != ABILITY_CLEAR_BODY
       && defAbility != ABILITY_FULL_METAL_BODY
@@ -1898,7 +1906,8 @@ bool32 ShouldLowerAccuracy(u32 battlerAtk, u32 battlerDef, u32 defAbility)
             && CanAIFaintTarget(battlerAtk, battlerDef, 0))
         return FALSE; // Don't bother lowering stats if can kill enemy.
 
-    if (defAbility != ABILITY_CONTRARY
+    if (!(IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_METAL_TERRAIN))
+      && defAbility != ABILITY_CONTRARY
       && defAbility != ABILITY_CLEAR_BODY
       && defAbility != ABILITY_WHITE_SMOKE
       && defAbility != ABILITY_FULL_METAL_BODY
@@ -1917,7 +1926,8 @@ bool32 ShouldLowerEvasion(u32 battlerAtk, u32 battlerDef, u32 defAbility)
             && CanAIFaintTarget(battlerAtk, battlerDef, 0))
         return FALSE; // Don't bother lowering stats if can kill enemy.
 
-    if (gBattleMons[battlerDef].statStages[STAT_EVASION] > DEFAULT_STAT_STAGE
+    if (!(IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_METAL_TERRAIN))
+      && gBattleMons[battlerDef].statStages[STAT_EVASION] > DEFAULT_STAT_STAGE
       && defAbility != ABILITY_CONTRARY
       && defAbility != ABILITY_CLEAR_BODY
       && defAbility != ABILITY_FULL_METAL_BODY
@@ -3294,7 +3304,8 @@ bool32 PartnerMoveEffectIsTerrain(u32 battlerAtkPartner, u32 partnerMove)
      && (gMovesInfo[partnerMove].effect == EFFECT_GRASSY_TERRAIN
       || gMovesInfo[partnerMove].effect == EFFECT_MISTY_TERRAIN
       || gMovesInfo[partnerMove].effect == EFFECT_ELECTRIC_TERRAIN
-      || gMovesInfo[partnerMove].effect == EFFECT_PSYCHIC_TERRAIN))
+      || gMovesInfo[partnerMove].effect == EFFECT_PSYCHIC_TERRAIN
+      || gMovesInfo[partnerMove].effect == EFFECT_METAL_TERRAIN))
         return TRUE;
 
     return FALSE;

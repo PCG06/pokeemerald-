@@ -1465,6 +1465,10 @@ const u32 gBattleAnimBgImage_GrassyTerrain[] = INCBIN_U32("graphics/battle_anims
 const u32 gBattleAnimBgPalette_GrassyTerrain[] = INCBIN_U32("graphics/battle_anims/backgrounds/grassy_terrain.gbapal.lz");
 const u32 gBattleAnimBgTilemap_GrassyTerrain[] = INCBIN_U32("graphics/battle_anims/backgrounds/grassy_terrain.bin.lz");
 
+const u32 gBattleAnimBgImage_MetalTerrain[] = INCBIN_U32("graphics/battle_anims/backgrounds/metal_terrain.4bpp.lz");
+const u32 gBattleAnimBgPalette_MetalTerrain[] = INCBIN_U32("graphics/battle_anims/backgrounds/metal_terrain.gbapal.lz");
+const u32 gBattleAnimBgTilemap_MetalTerrain[] = INCBIN_U32("graphics/battle_anims/backgrounds/metal_terrain.bin.lz");
+
 const u32 gBattleAnimBgPalette_GunkShot[] = INCBIN_U32("graphics/battle_anims/backgrounds/gunk_shot.gbapal.lz");
 
 const u32 gBattleAnimBgImage_HydroCannon[] = INCBIN_U32("graphics/battle_anims/backgrounds/hydro_cannon.4bpp.lz");

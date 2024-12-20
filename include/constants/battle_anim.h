@@ -528,6 +528,7 @@
 #define BG_CHLOROBLAST 80
 #define BG_RAINBOW 81
 #define BG_WEIGHT_ROOM 82
+#define BG_METAL_TERRAIN 83
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_STATS_CHANGE             0

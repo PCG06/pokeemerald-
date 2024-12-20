@@ -111,6 +111,7 @@ BattleScript_SpicyExtract_RaiseAtk:
 	attackanimation
 	waitanimation
 BattleScript_SpicyExtract_SkipAttackAnim:
+	jumpifmetalterrainaffectedcontrary BS_TARGET, BattleScript_MetalTerrainPreventsDef
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_TARGET, BIT_ATK, STAT_CHANGE_BY_TWO
 	setstatchanger STAT_ATK, 2, FALSE
@@ -119,6 +120,7 @@ BattleScript_SpicyExtract_SkipAttackAnim:
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_EffectSpicyExtractDefenseDown:
+	jumpifmetalterrainaffected BS_TARGET, BattleScript_MetalTerrainPreventsDefMoveEnd
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_TARGET, BIT_DEF, STAT_CHANGE_NEGATIVE | STAT_CHANGE_BY_TWO
 	setstatchanger STAT_DEF, 2, TRUE
@@ -189,6 +191,7 @@ BattleScript_FilletAwayTryAttack::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	attackanimation
 	waitanimation
+	jumpifmetalterrainaffectedcontrary BS_ATTACKER, BattleScript_MetalTerrainPreventsAtk
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_ATTACKER, BIT_ATK | BIT_SPATK | BIT_SPEED, STAT_CHANGE_BY_TWO
 	setstatchanger STAT_ATK, 2, FALSE
@@ -1224,6 +1227,8 @@ BattleScript_EffectStrengthSap::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 BattleScript_StrengthSapTryLower:
+	jumpifmetalterrainaffected BS_TARGET, BattleScript_MetalTerrainPreventsDef
+BattleScript_StrengthSapTryAfterMetalTeerrain:
 	getstatvalue BS_TARGET, STAT_ATK
 	jumpiffullhp BS_ATTACKER, BattleScript_StrengthSapMustLower
 	attackanimation
@@ -1736,6 +1741,7 @@ BattleScript_DefogWorks:
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
+	jumpifmetalterrainaffected BS_TARGET, BattleScript_MetalTerrainPreventsDefDefog
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_DefogTryHazardsWithAnim
 	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_DefogDoAnim
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_DefogTryHazardsWithAnim
@@ -1967,6 +1973,7 @@ BattleScript_EffectShellSmash::
 BattleScript_ShellSmashTryDef::
 	attackanimation
 	waitanimation
+	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MetalTerrainPreventsShellSmashDefenses
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, STAT_CHANGE_NEGATIVE | STAT_CHANGE_CANT_PREVENT
 	setstatchanger STAT_DEF, 1, TRUE
@@ -1975,12 +1982,14 @@ BattleScript_ShellSmashTryDef::
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_ShellSmashTrySpDef:
+	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MetalTerrainPreventsShellSmashDefenses
 	setstatchanger STAT_SPDEF, 1, TRUE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR | MOVE_EFFECT_CERTAIN, BattleScript_ShellSmashTryAttack
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_ShellSmashTryAttack
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_ShellSmashTryAttack:
+	jumpifmetalterrainaffectedcontrary BS_ATTACKER, BattleScript_MetalTerrainPreventsShellSmashOffences
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_ATTACKER, BIT_SPATK | BIT_ATK | BIT_SPEED, STAT_CHANGE_BY_TWO
 	setstatchanger STAT_ATK, 2, FALSE
@@ -1989,12 +1998,14 @@ BattleScript_ShellSmashTryAttack:
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_ShellSmashTrySpAtk:
+	jumpifmetalterrainaffectedcontrary BS_ATTACKER, BattleScript_MetalTerrainPreventsShellSmashOffences
 	setstatchanger STAT_SPATK, 2, FALSE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_ShellSmashTrySpeed
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_ShellSmashTrySpeed
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_ShellSmashTrySpeed:
+	jumpifmetalterrainaffectedcontrary BS_ATTACKER, BattleScript_MetalTerrainPreventsShellSmashOffences
 	setstatchanger STAT_SPEED, 2, FALSE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_ShellSmashEnd
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_ShellSmashEnd
@@ -2276,6 +2287,7 @@ BattleScript_EffectMistyTerrain::
 BattleScript_EffectGrassyTerrain::
 BattleScript_EffectElectricTerrain::
 BattleScript_EffectPsychicTerrain::
+BattleScript_EffectMetalTerrain::
 	attackcanceler
 	attackstring
 	ppreduce
@@ -2944,6 +2956,96 @@ BattleScript_MistyTerrainPrevents::
 	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
 	goto BattleScript_MoveEnd
 
+BattleScript_MetalTerrainPreventsStatDropsAtkContrary::
+	jumpifmove MOVE_FILLET_AWAY, BattleScript_FilletAwayEnd
+	goto BattleScript_MoveEnd
+
+BattleScript_MetalTerrainPreventsStatDropsAtk::
+	jumpifmove MOVE_SCALE_SHOT, BattleScript_DefDownSpeedUpTrySpeed
+	goto BattleScript_MoveEnd
+
+BattleScript_MetalTerrainPreventsAtk::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSATK
+	waitmessage B_WAIT_TIME_LONG
+	jumpifability BS_ATTACKER, ABILITY_CONTRARY, BattleScript_MetalTerrainPreventsStatDropsAtkContrary
+	goto BattleScript_MetalTerrainPreventsStatDropsAtk
+
+BattleScript_MetalTerrainPreventsAtkEnd2::
+	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	removeitem BS_ATTACKER
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSATK
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_MetalTerrainPreventsAtkRet::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	removeitem BS_SCRIPTING
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSATK
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_BerryStatRaiseRet_End
+
+BattleScript_MetalTerrainPreventsAtkMoveEnd::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSATK
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_MetalTerrainPreventsStatDropsDef::
+	jumpifmove MOVE_STRENGTH_SAP, BattleScript_StrengthSapTryAfterMetalTeerrain
+	jumpifmove MOVE_SPICY_EXTRACT, BattleScript_EffectSpicyExtractDefenseDown
+	goto BattleScript_MoveEnd
+
+BattleScript_MetalTerrainPreventsDef::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSDEF
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MetalTerrainPreventsStatDropsDef
+
+BattleScript_MetalTerrainPreventsDefMoveEnd::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSDEF
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_MetalTerrainPreventsDefDefog::
+	attackanimation
+	waitanimation
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSDEF
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_DefogTryHazards
+
+BattleScript_MetalTerrainPreventsStats::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSDEF
+	waitmessage B_WAIT_TIME_LONG
+	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
+	goto BattleScript_MoveEnd
+
+BattleScript_MetalTerrainPreventsShellSmashDefenses::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSATK
+	waitmessage B_WAIT_TIME_LONG
+	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
+	goto BattleScript_ShellSmashTryAttack
+
+BattleScript_MetalTerrainPreventsShellSmashOffences::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSATK
+	waitmessage B_WAIT_TIME_LONG
+	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
+	goto BattleScript_ShellSmashEnd
+
+BattleScript_MetalTerrainPreventsIntimidate::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_METALTERRAINPREVENTSDEF
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_IntimidateLoopIncrement
+	end
+
 BattleScript_FlowerVeilProtectsRet::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
@@ -3164,6 +3266,7 @@ BattleScript_EffectStatUp::
 BattleScript_EffectStatUpAfterAtkCanceler::
 	attackstring
 	ppreduce
+	jumpifmetalterrainaffectedcontrary BS_TARGET, BattleScript_MetalTerrainPreventsDef
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_StatUpEnd
 	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_StatUpAttackAnim
 	pause B_WAIT_TIME_SHORT
@@ -3220,6 +3323,7 @@ BattleScript_EffectStatDown:
 BattleScript_StatDownFromAttackString:
 	attackstring
 	ppreduce
+	jumpifmetalterrainaffected BS_TARGET, BattleScript_MetalTerrainPreventsDef
 BattleScript_EffectStatDownFromStatBuffChange:
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_StatDownEnd
 	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_StatDownDoAnim
@@ -4668,6 +4772,7 @@ BattleScript_EffectBellyDrum::
 	waitanimation
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
+	jumpifmetalterrainaffectedcontrary BS_ATTACKER, BattleScript_MetalTerrainPreventsAtk
 	playstatchangeanimation BS_ATTACKER, BIT_ATK, STAT_CHANGE_BY_TWO
 	setstatchanger STAT_ATK, MAX_STAT_STAGE, FALSE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_MoveEnd
@@ -6928,6 +7033,7 @@ BattleScript_PrintMonIsRooted::
 	goto BattleScript_MoveEnd
 
 BattleScript_AtkDefDown::
+	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MetalTerrainPreventsAtk
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_ATK, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
 	playstatchangeanimation BS_ATTACKER, BIT_ATK, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE
@@ -6947,6 +7053,7 @@ BattleScript_AtkDefDownRet:
 	return
 
 BattleScript_DefSpDefDown::
+	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MetalTerrainPreventsAtk
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
 	playstatchangeanimation BS_ATTACKER, BIT_DEF, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE
@@ -6966,11 +7073,13 @@ BattleScript_DefSpDefDownRet::
 	return
 
 BattleScript_DefDownSpeedUp::
+	jumpifmetalterrainaffected BS_ATTACKER, BattleScript_MetalTerrainPreventsAtk
 	jumpifstat BS_ATTACKER, CMP_GREATER_THAN, STAT_DEF, MIN_STAT_STAGE, BattleScript_DefDownSpeedUpTryDef
 	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPEED, MAX_STAT_STAGE, BattleScript_DefDownSpeedUpRet
 BattleScript_DefDownSpeedUpTryDef::
 	playstatchangeanimation BS_ATTACKER, BIT_DEF, STAT_CHANGE_NEGATIVE | STAT_CHANGE_CANT_PREVENT
 	setstatchanger STAT_DEF, 1, TRUE
+	jumpifmetalterrainaffectedcontrary BS_ATTACKER, BattleScript_DefStatDownAndMoveEnd
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR | MOVE_EFFECT_CERTAIN, BattleScript_DefDownSpeedUpTrySpeed
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_DefDownSpeedUpTrySpeed
 	printfromtable gStatDownStringIds
@@ -6984,6 +7093,13 @@ BattleScript_DefDownSpeedUpTrySpeed:
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_DefDownSpeedUpRet::
 	return
+
+BattleScript_DefStatDownAndMoveEnd::
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR | MOVE_EFFECT_CERTAIN, BattleScript_MetalTerrainPreventsAtkMoveEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_MetalTerrainPreventsAtkMoveEnd
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MetalTerrainPreventsAtkMoveEnd
 
 BattleScript_KnockedOff::
 	playanimation BS_TARGET, B_ANIM_ITEM_KNOCKOFF
@@ -7976,6 +8092,7 @@ BattleScript_IntimidateLoop:
 	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_IntimidatePrevented
 .endif
 	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_IntimidateInReverse
+	jumpifmetalterrainaffected BS_TARGET, BattleScript_MetalTerrainPreventsIntimidate
 BattleScript_IntimidateEffect:
 	copybyte sBATTLER, gBattlerAttacker
 	setstatchanger STAT_ATK, 1, TRUE
@@ -8021,7 +8138,8 @@ BattleScript_IntimidateContrary_WontIncrease:
 BattleScript_IntimidateInReverse:
 	copybyte sBATTLER, gBattlerTarget
 	call BattleScript_AbilityPopUpTarget
-	pause B_WAIT_TIME_SHORT
+	pause B_WAIT_TIME_SHORT	
+	jumpifmetalterrainaffected BS_TARGET, BattleScript_MetalTerrainPreventsIntimidate
 	modifybattlerstatstage BS_TARGET, STAT_ATK, INCREASE, 1, BattleScript_IntimidateLoopIncrement, ANIM_ON
 	call BattleScript_TryIntimidateHoldEffects
 	goto BattleScript_IntimidateLoopIncrement
@@ -8227,6 +8345,15 @@ BattleScript_ElectricSurgeActivates::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_TERRAINBECOMESELECTRIC
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_SCRIPTING, B_ANIM_RESTORE_BG
+	call BattleScript_ActivateTerrainEffects
+	end3
+
+BattleScript_MetalSurgeActivates::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_TERRAINBECOMESMETALLIC
 	waitmessage B_WAIT_TIME_LONG
 	playanimation BS_SCRIPTING, B_ANIM_RESTORE_BG
 	call BattleScript_ActivateTerrainEffects
@@ -8594,7 +8721,9 @@ BattleScript_ScriptingAbilityStatRaise::
 
 BattleScript_WeakArmorActivates::
 	call BattleScript_AbilityPopUp
+	jumpifmetalterrainaffected BS_TARGET, BattleScript_WeakArmorActivatesSpeed
 	setstatchanger STAT_DEF, 1, TRUE
+BattleScript_WeakArmorRaiseSpeed:
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_WeakArmorActivatesSpeed
 	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_WeakArmorDefAnim
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_WeakArmorActivatesSpeed
@@ -9194,6 +9323,7 @@ BattleScript_BerryConfuseHealRet_Anim:
 	return
 
 BattleScript_BerryStatRaiseEnd2::
+	jumpifmetalterrainaffectedcontrary BS_ATTACKER, BattleScript_MetalTerrainPreventsAtkEnd2
 	jumpifability BS_ATTACKER, ABILITY_RIPEN, BattleScript_BerryStatRaiseEnd2_AbilityPopup
 	goto BattleScript_BerryStatRaiseEnd2_Anim
 BattleScript_BerryStatRaiseEnd2_AbilityPopup:
@@ -9209,6 +9339,7 @@ BattleScript_BerryStatRaiseEnd2_End::
 	end2
 
 BattleScript_BerryStatRaiseRet::
+	jumpifmetalterrainaffectedcontrary BS_SCRIPTING, BattleScript_MetalTerrainPreventsAtkRet
 	jumpifability BS_SCRIPTING, ABILITY_RIPEN, BattleScript_BerryStatRaiseRet_AbilityPopup
 	goto BattleScript_BerryStatRaiseRet_Anim
 BattleScript_BerryStatRaiseRet_AbilityPopup:
@@ -9637,7 +9768,7 @@ BattleScript_TryFaint:
 	goto BattleScript_MoveEnd
 
 BattleScript_RemoveTerrain:
-	jumpifterrainaffected BS_TARGET, STATUS_FIELD_TERRAIN_ANY, BattleScript_RemoveTerrain_Cont
+	jumpifterrainactive STATUS_FIELD_TERRAIN_ANY, BattleScript_RemoveTerrain_Cont
 	goto BattleScript_ButItFailed
 BattleScript_RemoveTerrain_Cont:
 	critcalc
@@ -9654,9 +9785,11 @@ BattleScript_RemoveTerrain_Cont:
 	waitmessage B_WAIT_TIME_LONG
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
+	jumpifterrainactive STATUS_FIELD_METAL_TERRAIN, BattleScript_TerrainNotRemoved
 	removeterrain
 	playanimation BS_ATTACKER, B_ANIM_RESTORE_BG
 	printfromtable gTerrainStringIds
+BattleScript_TerrainNotRemoved:
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd

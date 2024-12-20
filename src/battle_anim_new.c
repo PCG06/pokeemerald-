@@ -1405,6 +1405,29 @@ const struct SpriteTemplate gMistyTerrainStarTemplate =
     .callback = AnimOrbitScatter
 };
 
+//metal terrain
+const struct SpriteTemplate gMetalTerrainOrbsTemplate =
+{
+    .tileTag = ANIM_TAG_ORBS,
+    .paletteTag = ANIM_TAG_ORBS,
+    .oam = &gOamData_AffineNormal_ObjBlend_16x16,
+    .anims = gPowerAbsorptionOrbAnimTable,
+    .images = NULL,
+    .affineAnims = gPowerAbsorptionOrbAffineAnimTable,
+    .callback = AnimOrbitFast
+};
+
+const struct SpriteTemplate gMetalTerrainStarTemplate =
+{
+    .tileTag = ANIM_TAG_METAL_BALL,
+    .paletteTag = ANIM_TAG_METAL_BALL,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gMoonlightSparkleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimOrbitScatter
+};
+
 //electrify
 const struct SpriteTemplate gElectrifyRingTemplate =
 {
@@ -8722,6 +8745,8 @@ void AnimTask_TerrainPulse(u8 taskId)
             gBattleAnimArgs[0] = TYPE_FAIRY;
         else if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN)
             gBattleAnimArgs[0] = TYPE_PSYCHIC;
+        else if (gFieldStatuses & STATUS_FIELD_METAL_TERRAIN)
+            gBattleAnimArgs[0] = TYPE_STEEL;
         else //failsafe
             gBattleAnimArgs[0] = 0;
     }
